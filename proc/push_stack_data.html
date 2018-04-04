@@ -17,6 +17,8 @@
     <link href="../css/font-awesome.min.css" rel="stylesheet">
     <link href="../css/local.css" rel="stylesheet">
     
+    <link  href="../tipuesearch/tipuesearch.css" rel="stylesheet">
+    
     
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
@@ -86,6 +88,15 @@
 
 
           </ul>
+        
+        <form action="../search.html" class="navbar-form navbar-right" role="search">
+        <div class="form-group">
+          <input type="text" class="form-control" placeholder="Search" name="q" id="tipue_search_input" autocomplete="off" required>
+        </div>
+<!--
+        <button type="submit" class="btn btn-default">Submit</button>
+-->
+        </form>
         
         </div><!--/.nav-collapse -->
       </div>
@@ -180,6 +191,8 @@
   <div id="allprocs-0" class="panel-collapse collapse">
     <div class="list-group">
       
+      <a class="list-group-item" href="../proc/compute_dm.html">compute_dm</a>
+      
       <a class="list-group-item" href="../proc/current_itt.html">current_itt</a>
       
       <a class="list-group-item" href="../proc/getstackval.html">getstackval</a>
@@ -243,6 +256,8 @@
       <a class="list-group-item" href="../proc/push_stack_data.html">push_stack_data</a>
       
       <a class="list-group-item" href="../proc/setup_h0.html">setup_H0</a>
+      
+      <a class="list-group-item" href="../proc/setup_hamiltonian.html">setup_hamiltonian</a>
       
       <a class="list-group-item" href="../proc/siesta_analysis.html">siesta_analysis</a>
       
@@ -362,18 +377,15 @@ private subroutine push_stack_data(s_F, n)
 <path fill="none" stroke="#000000" d="M62.7503,-108.111C78.8931,-121.179 105.716,-142.353 130,-159 131.648,-160.13 133.357,-161.269 135.093,-162.4"/>
 <polygon fill="#000000" stroke="#000000" points="133.512,-165.541 143.836,-167.923 137.25,-159.623 133.512,-165.541"/>
 </g>
-<!-- proc~stack_check -->
-<g id="proc~~push_stack_data~~CallsGraph_node3" class="node"><title>proc~stack_check</title>
-<g id="a_proc~~push_stack_data~~CallsGraph_node3"><a xlink:href=".././proc/stack_check.html" xlink:title="stack_check">
-<polygon fill="#d94e8f" stroke="#d94e8f" points="201,-150 130,-150 130,-126 201,-126 201,-150"/>
-<text text-anchor="middle" x="165.5" y="-135.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">stack_check</text>
-</a>
+<!-- die -->
+<g id="proc~~push_stack_data~~CallsGraph_node3" class="node"><title>die</title>
+<polygon fill="#777777" stroke="#777777" points="192.5,-150 138.5,-150 138.5,-126 192.5,-126 192.5,-150"/>
+<text text-anchor="middle" x="165.5" y="-135.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">die</text>
 </g>
-</g>
-<!-- proc~push_stack_data&#45;&gt;proc~stack_check -->
-<g id="proc~~push_stack_data~~CallsGraph_edge2" class="edge"><title>proc~push_stack_data&#45;&gt;proc~stack_check</title>
-<path fill="none" stroke="#000000" d="M81.3842,-108.036C93.9366,-112.561 108.385,-117.77 121.679,-122.562"/>
-<polygon fill="#000000" stroke="#000000" points="120.517,-125.864 131.111,-125.963 122.891,-119.279 120.517,-125.864"/>
+<!-- proc~push_stack_data&#45;&gt;die -->
+<g id="proc~~push_stack_data~~CallsGraph_edge2" class="edge"><title>proc~push_stack_data&#45;&gt;die</title>
+<path fill="none" stroke="#000000" d="M81.3842,-108.036C96.1659,-113.365 113.578,-119.642 128.635,-125.07"/>
+<polygon fill="#000000" stroke="#000000" points="127.545,-128.398 138.139,-128.497 129.919,-121.812 127.545,-128.398"/>
 </g>
 <!-- newddata1d -->
 <g id="proc~~push_stack_data~~CallsGraph_node4" class="node"><title>newddata1d</title>
@@ -385,45 +397,48 @@ private subroutine push_stack_data(s_F, n)
 <path fill="none" stroke="#000000" d="M94.0439,-96C102.545,-96 111.408,-96 119.866,-96"/>
 <polygon fill="#000000" stroke="#000000" points="119.931,-99.5001 129.93,-96 119.93,-92.5001 119.931,-99.5001"/>
 </g>
+<!-- proc~stack_check -->
+<g id="proc~~push_stack_data~~CallsGraph_node5" class="node"><title>proc~stack_check</title>
+<g id="a_proc~~push_stack_data~~CallsGraph_node5"><a xlink:href=".././proc/stack_check.html" xlink:title="stack_check">
+<polygon fill="#d94e8f" stroke="#d94e8f" points="201,-66 130,-66 130,-42 201,-42 201,-66"/>
+<text text-anchor="middle" x="165.5" y="-51.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">stack_check</text>
+</a>
+</g>
+</g>
+<!-- proc~push_stack_data&#45;&gt;proc~stack_check -->
+<g id="proc~~push_stack_data~~CallsGraph_edge4" class="edge"><title>proc~push_stack_data&#45;&gt;proc~stack_check</title>
+<path fill="none" stroke="#000000" d="M81.3842,-83.9645C93.9366,-79.4392 108.385,-74.2301 121.679,-69.4376"/>
+<polygon fill="#000000" stroke="#000000" points="122.891,-72.7214 131.111,-66.0373 120.517,-66.1363 122.891,-72.7214"/>
+</g>
 <!-- delete -->
-<g id="proc~~push_stack_data~~CallsGraph_node5" class="node"><title>delete</title>
-<polygon fill="#777777" stroke="#777777" points="192.5,-66 138.5,-66 138.5,-42 192.5,-42 192.5,-66"/>
-<text text-anchor="middle" x="165.5" y="-51.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">delete</text>
+<g id="proc~~push_stack_data~~CallsGraph_node6" class="node"><title>delete</title>
+<polygon fill="#777777" stroke="#777777" points="192.5,-24 138.5,-24 138.5,-0 192.5,-0 192.5,-24"/>
+<text text-anchor="middle" x="165.5" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">delete</text>
 </g>
 <!-- proc~push_stack_data&#45;&gt;delete -->
-<g id="proc~~push_stack_data~~CallsGraph_edge4" class="edge"><title>proc~push_stack_data&#45;&gt;delete</title>
-<path fill="none" stroke="#000000" d="M81.3842,-83.9645C96.1659,-78.6355 113.578,-72.3583 128.635,-66.9297"/>
-<polygon fill="#000000" stroke="#000000" points="129.919,-70.1875 138.139,-63.5034 127.545,-63.6024 129.919,-70.1875"/>
-</g>
-<!-- die -->
-<g id="proc~~push_stack_data~~CallsGraph_node6" class="node"><title>die</title>
-<polygon fill="#777777" stroke="#777777" points="192.5,-24 138.5,-24 138.5,-0 192.5,-0 192.5,-24"/>
-<text text-anchor="middle" x="165.5" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">die</text>
-</g>
-<!-- proc~push_stack_data&#45;&gt;die -->
-<g id="proc~~push_stack_data~~CallsGraph_edge5" class="edge"><title>proc~push_stack_data&#45;&gt;die</title>
+<g id="proc~~push_stack_data~~CallsGraph_edge5" class="edge"><title>proc~push_stack_data&#45;&gt;delete</title>
 <path fill="none" stroke="#000000" d="M62.7503,-83.8887C78.8931,-70.8205 105.716,-49.6474 130,-33 131.648,-31.8701 133.357,-30.7314 135.093,-29.6001"/>
 <polygon fill="#000000" stroke="#000000" points="137.25,-32.377 143.836,-24.0774 133.512,-26.4588 137.25,-32.377"/>
 </g>
 <!-- n_items -->
 <g id="proc~~push_stack_data~~CallsGraph_node7" class="node"><title>n_items</title>
-<polygon fill="#777777" stroke="#777777" points="297.5,-171 243.5,-171 243.5,-147 297.5,-147 297.5,-171"/>
-<text text-anchor="middle" x="270.5" y="-156.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">n_items</text>
+<polygon fill="#777777" stroke="#777777" points="297.5,-87 243.5,-87 243.5,-63 297.5,-63 297.5,-87"/>
+<text text-anchor="middle" x="270.5" y="-72.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">n_items</text>
 </g>
 <!-- proc~stack_check&#45;&gt;n_items -->
 <g id="proc~~push_stack_data~~CallsGraph_edge6" class="edge"><title>proc~stack_check&#45;&gt;n_items</title>
-<path fill="none" stroke="#000000" d="M201.084,-145.051C211.428,-147.16 222.797,-149.478 233.245,-151.608"/>
-<polygon fill="#000000" stroke="#000000" points="232.818,-155.093 243.315,-153.661 234.216,-148.234 232.818,-155.093"/>
+<path fill="none" stroke="#000000" d="M201.084,-61.0511C211.428,-63.1602 222.797,-65.478 233.245,-67.6083"/>
+<polygon fill="#000000" stroke="#000000" points="232.818,-71.093 243.315,-69.6614 234.216,-64.2341 232.818,-71.093"/>
 </g>
 <!-- get_pointer -->
 <g id="proc~~push_stack_data~~CallsGraph_node8" class="node"><title>get_pointer</title>
-<polygon fill="#777777" stroke="#777777" points="304,-129 237,-129 237,-105 304,-105 304,-129"/>
-<text text-anchor="middle" x="270.5" y="-114.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">get_pointer</text>
+<polygon fill="#777777" stroke="#777777" points="304,-45 237,-45 237,-21 304,-21 304,-45"/>
+<text text-anchor="middle" x="270.5" y="-30.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">get_pointer</text>
 </g>
 <!-- proc~stack_check&#45;&gt;get_pointer -->
 <g id="proc~~push_stack_data~~CallsGraph_edge7" class="edge"><title>proc~stack_check&#45;&gt;get_pointer</title>
-<path fill="none" stroke="#000000" d="M201.084,-130.949C209.401,-129.253 218.38,-127.422 227.011,-125.663"/>
-<polygon fill="#000000" stroke="#000000" points="227.823,-129.069 236.922,-123.642 226.425,-122.21 227.823,-129.069"/>
+<path fill="none" stroke="#000000" d="M201.084,-46.9489C209.401,-45.2532 218.38,-43.4224 227.011,-41.6628"/>
+<polygon fill="#000000" stroke="#000000" points="227.823,-45.0693 236.922,-39.6421 226.425,-38.2104 227.823,-45.0693"/>
 </g>
 </g>
 </svg>
@@ -576,6 +591,8 @@ private subroutine push_stack_data(s_F, n)
   <div id="allprocs-1" class="panel-collapse collapse">
     <div class="list-group">
       
+      <a class="list-group-item" href="../proc/compute_dm.html">compute_dm</a>
+      
       <a class="list-group-item" href="../proc/current_itt.html">current_itt</a>
       
       <a class="list-group-item" href="../proc/getstackval.html">getstackval</a>
@@ -639,6 +656,8 @@ private subroutine push_stack_data(s_F, n)
       <a class="list-group-item" href="../proc/push_stack_data.html">push_stack_data</a>
       
       <a class="list-group-item" href="../proc/setup_h0.html">setup_H0</a>
+      
+      <a class="list-group-item" href="../proc/setup_hamiltonian.html">setup_hamiltonian</a>
       
       <a class="list-group-item" href="../proc/siesta_analysis.html">siesta_analysis</a>
       
@@ -704,6 +723,10 @@ private subroutine push_stack_data(s_F, n)
     
     <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
     
+    
+    <script src="../tipuesearch/tipuesearch_content.js"></script>
+    <script src="../tipuesearch/tipuesearch_set.js"></script>
+    <script src="../tipuesearch/tipuesearch.js"></script>
     
     
   </body>

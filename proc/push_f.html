@@ -17,6 +17,8 @@
     <link href="../css/font-awesome.min.css" rel="stylesheet">
     <link href="../css/local.css" rel="stylesheet">
     
+    <link  href="../tipuesearch/tipuesearch.css" rel="stylesheet">
+    
     
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
@@ -87,6 +89,15 @@
 
           </ul>
         
+        <form action="../search.html" class="navbar-form navbar-right" role="search">
+        <div class="form-group">
+          <input type="text" class="form-control" placeholder="Search" name="q" id="tipue_search_input" autocomplete="off" required>
+        </div>
+<!--
+        <button type="submit" class="btn btn-default">Submit</button>
+-->
+        </form>
+        
         </div><!--/.nav-collapse -->
       </div>
     </nav>
@@ -113,7 +124,7 @@
      <li><i class="fa fa-list-ol"></i>
        <a data-toggle="tooltip"
 	  data-placement="bottom" data-html="true"
-	  title=" 1.1% of total for procedures.">30 statements</a>
+	  title=" 1.0% of total for procedures.">30 statements</a>
      </li> 
      
      
@@ -180,6 +191,8 @@
   <div id="allprocs-0" class="panel-collapse collapse">
     <div class="list-group">
       
+      <a class="list-group-item" href="../proc/compute_dm.html">compute_dm</a>
+      
       <a class="list-group-item" href="../proc/current_itt.html">current_itt</a>
       
       <a class="list-group-item" href="../proc/getstackval.html">getstackval</a>
@@ -243,6 +256,8 @@
       <a class="list-group-item" href="../proc/push_stack_data.html">push_stack_data</a>
       
       <a class="list-group-item" href="../proc/setup_h0.html">setup_H0</a>
+      
+      <a class="list-group-item" href="../proc/setup_hamiltonian.html">setup_hamiltonian</a>
       
       <a class="list-group-item" href="../proc/siesta_analysis.html">siesta_analysis</a>
       
@@ -379,8 +394,8 @@ private subroutine push_F(s_F, n, F, fact)
 <polygon fill="white" stroke="none" points="-4,4 -4,-402 268,-402 268,4 -4,4"/>
 <!-- proc~push_f -->
 <g id="proc~~push_f~~CallsGraph_node1" class="node"><title>proc~push_f</title>
-<polygon fill="none" stroke="black" points="54,-212 0,-212 0,-188 54,-188 54,-212"/>
-<text text-anchor="middle" x="27" y="-197.6" font-family="Helvetica,sans-Serif" font-size="10.50">push_F</text>
+<polygon fill="none" stroke="black" points="54,-213 0,-213 0,-189 54,-189 54,-213"/>
+<text text-anchor="middle" x="27" y="-198.6" font-family="Helvetica,sans-Serif" font-size="10.50">push_F</text>
 </g>
 <!-- push -->
 <g id="proc~~push_f~~CallsGraph_node2" class="node"><title>push</title>
@@ -389,61 +404,61 @@ private subroutine push_F(s_F, n, F, fact)
 </g>
 <!-- proc~push_f&#45;&gt;push -->
 <g id="proc~~push_f~~CallsGraph_edge1" class="edge"><title>proc~push_f&#45;&gt;push</title>
-<path fill="none" stroke="#000000" d="M29.7768,-212.136C34.6074,-241.438 50.3754,-317.158 90,-365 90.6933,-365.837 91.429,-366.65 92.1997,-367.438"/>
-<polygon fill="#000000" stroke="#000000" points="89.9563,-370.124 99.8681,-373.867 94.4536,-364.76 89.9563,-370.124"/>
+<path fill="none" stroke="#000000" d="M30.3755,-213.291C36.3253,-241.585 54.0354,-312.533 90,-360 91.9929,-362.63 94.3199,-365.124 96.8073,-367.452"/>
+<polygon fill="#000000" stroke="#000000" points="94.6469,-370.207 104.577,-373.901 99.118,-364.821 94.6469,-370.207"/>
+</g>
+<!-- n_items -->
+<g id="proc~~push_f~~CallsGraph_node3" class="node"><title>n_items</title>
+<polygon fill="#777777" stroke="#777777" points="257.5,-296 203.5,-296 203.5,-272 257.5,-272 257.5,-296"/>
+<text text-anchor="middle" x="230.5" y="-281.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">n_items</text>
+</g>
+<!-- proc~push_f&#45;&gt;n_items -->
+<g id="proc~~push_f~~CallsGraph_edge2" class="edge"><title>proc~push_f&#45;&gt;n_items</title>
+<path fill="none" stroke="#000000" d="M29.7265,-213.145C34.1939,-239.446 48.8114,-301.362 90,-327 127.047,-350.06 177.368,-322.646 206.346,-302.224"/>
+<polygon fill="#000000" stroke="#000000" points="208.612,-304.904 214.616,-296.174 204.478,-299.254 208.612,-304.904"/>
+</g>
+<!-- die -->
+<g id="proc~~push_f~~CallsGraph_node4" class="node"><title>die</title>
+<polygon fill="#777777" stroke="#777777" points="152.5,-318 98.5,-318 98.5,-294 152.5,-294 152.5,-318"/>
+<text text-anchor="middle" x="125.5" y="-303.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">die</text>
+</g>
+<!-- proc~push_f&#45;&gt;die -->
+<g id="proc~~push_f~~CallsGraph_edge3" class="edge"><title>proc~push_f&#45;&gt;die</title>
+<path fill="none" stroke="#000000" d="M34.9555,-213.283C45.2862,-230.759 66.0597,-263.102 90,-285 91.0995,-286.006 92.2541,-286.989 93.4472,-287.947"/>
+<polygon fill="#000000" stroke="#000000" points="91.5352,-290.883 101.702,-293.865 95.6137,-285.194 91.5352,-290.883"/>
 </g>
 <!-- val -->
-<g id="proc~~push_f~~CallsGraph_node3" class="node"><title>val</title>
-<polygon fill="#777777" stroke="#777777" points="152.5,-356 98.5,-356 98.5,-332 152.5,-332 152.5,-356"/>
-<text text-anchor="middle" x="125.5" y="-341.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">val</text>
+<g id="proc~~push_f~~CallsGraph_node5" class="node"><title>val</title>
+<polygon fill="#777777" stroke="#777777" points="152.5,-276 98.5,-276 98.5,-252 152.5,-252 152.5,-276"/>
+<text text-anchor="middle" x="125.5" y="-261.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">val</text>
 </g>
 <!-- proc~push_f&#45;&gt;val -->
-<g id="proc~~push_f~~CallsGraph_edge2" class="edge"><title>proc~push_f&#45;&gt;val</title>
-<path fill="none" stroke="#000000" d="M31.611,-212.151C39.1523,-235.852 58.5319,-288.912 90,-323 90.761,-323.824 91.5616,-324.628 92.394,-325.409"/>
-<polygon fill="#000000" stroke="#000000" points="90.5137,-328.385 100.527,-331.846 94.8575,-322.896 90.5137,-328.385"/>
+<g id="proc~~push_f~~CallsGraph_edge4" class="edge"><title>proc~push_f&#45;&gt;val</title>
+<path fill="none" stroke="#000000" d="M45.4866,-213.178C57.8243,-221.689 74.7962,-233.231 90,-243 91.8693,-244.201 93.8044,-245.427 95.7605,-246.652"/>
+<polygon fill="#000000" stroke="#000000" points="93.9838,-249.668 104.33,-251.949 97.664,-243.714 93.9838,-249.668"/>
+</g>
+<!-- max_size -->
+<g id="proc~~push_f~~CallsGraph_node6" class="node"><title>max_size</title>
+<polygon fill="#777777" stroke="#777777" points="154.5,-234 96.5,-234 96.5,-210 154.5,-210 154.5,-234"/>
+<text text-anchor="middle" x="125.5" y="-219.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">max_size</text>
+</g>
+<!-- proc~push_f&#45;&gt;max_size -->
+<g id="proc~~push_f~~CallsGraph_edge5" class="edge"><title>proc~push_f&#45;&gt;max_size</title>
+<path fill="none" stroke="#000000" d="M54.1143,-206.683C64.0124,-208.837 75.4973,-211.336 86.2825,-213.683"/>
+<polygon fill="#000000" stroke="#000000" points="85.8183,-217.164 96.3339,-215.871 87.3068,-210.324 85.8183,-217.164"/>
 </g>
 <!-- proc~stack_check -->
-<g id="proc~~push_f~~CallsGraph_node4" class="node"><title>proc~stack_check</title>
-<g id="a_proc~~push_f~~CallsGraph_node4"><a xlink:href=".././proc/stack_check.html" xlink:title="stack_check">
-<polygon fill="#d94e8f" stroke="#d94e8f" points="161,-314 90,-314 90,-290 161,-290 161,-314"/>
-<text text-anchor="middle" x="125.5" y="-299.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">stack_check</text>
+<g id="proc~~push_f~~CallsGraph_node7" class="node"><title>proc~stack_check</title>
+<g id="a_proc~~push_f~~CallsGraph_node7"><a xlink:href=".././proc/stack_check.html" xlink:title="stack_check">
+<polygon fill="#d94e8f" stroke="#d94e8f" points="161,-192 90,-192 90,-168 161,-168 161,-192"/>
+<text text-anchor="middle" x="125.5" y="-177.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">stack_check</text>
 </a>
 </g>
 </g>
 <!-- proc~push_f&#45;&gt;proc~stack_check -->
-<g id="proc~~push_f~~CallsGraph_edge3" class="edge"><title>proc~push_f&#45;&gt;proc~stack_check</title>
-<path fill="none" stroke="#000000" d="M35.2304,-212.108C45.739,-228.999 66.5554,-259.928 90,-281 91.1082,-281.996 92.2702,-282.971 93.4693,-283.923"/>
-<polygon fill="#000000" stroke="#000000" points="91.5704,-286.867 101.747,-289.815 95.6297,-281.164 91.5704,-286.867"/>
-</g>
-<!-- newddata1d -->
-<g id="proc~~push_f~~CallsGraph_node5" class="node"><title>newddata1d</title>
-<polygon fill="#777777" stroke="#777777" points="161,-272 90,-272 90,-248 161,-248 161,-272"/>
-<text text-anchor="middle" x="125.5" y="-257.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">newddata1d</text>
-</g>
-<!-- proc~push_f&#45;&gt;newddata1d -->
-<g id="proc~~push_f~~CallsGraph_edge4" class="edge"><title>proc~push_f&#45;&gt;newddata1d</title>
-<path fill="none" stroke="#000000" d="M47.5282,-212.142C61.5237,-220.844 80.5884,-232.697 96.2423,-242.43"/>
-<polygon fill="#000000" stroke="#000000" points="94.6604,-245.568 105.001,-247.876 98.3566,-239.624 94.6604,-245.568"/>
-</g>
-<!-- n_items -->
-<g id="proc~~push_f~~CallsGraph_node6" class="node"><title>n_items</title>
-<polygon fill="#777777" stroke="#777777" points="257.5,-252 203.5,-252 203.5,-228 257.5,-228 257.5,-252"/>
-<text text-anchor="middle" x="230.5" y="-237.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">n_items</text>
-</g>
-<!-- proc~push_f&#45;&gt;n_items -->
-<g id="proc~~push_f~~CallsGraph_edge5" class="edge"><title>proc~push_f&#45;&gt;n_items</title>
-<path fill="none" stroke="#000000" d="M54.3426,-205.229C89.9657,-212.301 153.629,-224.939 193.604,-232.874"/>
-<polygon fill="#000000" stroke="#000000" points="192.98,-236.319 203.47,-234.833 194.343,-229.453 192.98,-236.319"/>
-</g>
-<!-- dcopy -->
-<g id="proc~~push_f~~CallsGraph_node7" class="node"><title>dcopy</title>
-<polygon fill="#777777" stroke="#777777" points="152.5,-192 98.5,-192 98.5,-168 152.5,-168 152.5,-192"/>
-<text text-anchor="middle" x="125.5" y="-177.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">dcopy</text>
-</g>
-<!-- proc~push_f&#45;&gt;dcopy -->
-<g id="proc~~push_f~~CallsGraph_edge6" class="edge"><title>proc~push_f&#45;&gt;dcopy</title>
-<path fill="none" stroke="#000000" d="M54.1143,-194.588C64.6273,-192.409 76.9303,-189.859 88.2837,-187.506"/>
-<polygon fill="#000000" stroke="#000000" points="89.2832,-190.873 98.3648,-185.417 87.8626,-184.019 89.2832,-190.873"/>
+<g id="proc~~push_f~~CallsGraph_edge6" class="edge"><title>proc~push_f&#45;&gt;proc~stack_check</title>
+<path fill="none" stroke="#000000" d="M54.1143,-195.317C62.0631,-193.587 71.0353,-191.635 79.8466,-189.717"/>
+<polygon fill="#000000" stroke="#000000" points="80.6364,-193.127 89.6634,-187.581 79.1478,-186.288 80.6364,-193.127"/>
 </g>
 <!-- get -->
 <g id="proc~~push_f~~CallsGraph_node8" class="node"><title>get</title>
@@ -452,53 +467,53 @@ private subroutine push_F(s_F, n, F, fact)
 </g>
 <!-- proc~push_f&#45;&gt;get -->
 <g id="proc~~push_f~~CallsGraph_edge7" class="edge"><title>proc~push_f&#45;&gt;get</title>
-<path fill="none" stroke="#000000" d="M45.791,-187.98C58.1225,-179.711 74.9644,-168.543 90,-159 91.876,-157.809 93.8161,-156.592 95.7758,-155.372"/>
-<polygon fill="#000000" stroke="#000000" points="97.675,-158.313 104.354,-150.089 94.0041,-152.353 97.675,-158.313"/>
+<path fill="none" stroke="#000000" d="M45.4866,-188.822C57.8243,-180.311 74.7962,-168.769 90,-159 91.8693,-157.799 93.8044,-156.573 95.7605,-155.348"/>
+<polygon fill="#000000" stroke="#000000" points="97.664,-158.286 104.33,-150.051 93.9838,-152.332 97.664,-158.286"/>
+</g>
+<!-- newddata1d -->
+<g id="proc~~push_f~~CallsGraph_node9" class="node"><title>newddata1d</title>
+<polygon fill="#777777" stroke="#777777" points="161,-108 90,-108 90,-84 161,-84 161,-108"/>
+<text text-anchor="middle" x="125.5" y="-93.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">newddata1d</text>
+</g>
+<!-- proc~push_f&#45;&gt;newddata1d -->
+<g id="proc~~push_f~~CallsGraph_edge8" class="edge"><title>proc~push_f&#45;&gt;newddata1d</title>
+<path fill="none" stroke="#000000" d="M34.9555,-188.717C45.2862,-171.241 66.0597,-138.898 90,-117 91.0995,-115.994 92.2541,-115.011 93.4472,-114.053"/>
+<polygon fill="#000000" stroke="#000000" points="95.6137,-116.806 101.702,-108.135 91.5352,-111.117 95.6137,-116.806"/>
+</g>
+<!-- dcopy -->
+<g id="proc~~push_f~~CallsGraph_node10" class="node"><title>dcopy</title>
+<polygon fill="#777777" stroke="#777777" points="152.5,-66 98.5,-66 98.5,-42 152.5,-42 152.5,-66"/>
+<text text-anchor="middle" x="125.5" y="-51.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">dcopy</text>
+</g>
+<!-- proc~push_f&#45;&gt;dcopy -->
+<g id="proc~~push_f~~CallsGraph_edge9" class="edge"><title>proc~push_f&#45;&gt;dcopy</title>
+<path fill="none" stroke="#000000" d="M31.419,-188.924C38.7391,-164.828 57.9213,-110.087 90,-75 90.757,-74.172 91.5542,-73.3655 92.3835,-72.5809"/>
+<polygon fill="#000000" stroke="#000000" points="94.8496,-75.0917 100.501,-66.1297 90.4942,-69.6117 94.8496,-75.0917"/>
 </g>
 <!-- delete -->
-<g id="proc~~push_f~~CallsGraph_node9" class="node"><title>delete</title>
-<polygon fill="#777777" stroke="#777777" points="152.5,-108 98.5,-108 98.5,-84 152.5,-84 152.5,-108"/>
-<text text-anchor="middle" x="125.5" y="-93.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">delete</text>
+<g id="proc~~push_f~~CallsGraph_node11" class="node"><title>delete</title>
+<polygon fill="#777777" stroke="#777777" points="152.5,-24 98.5,-24 98.5,-0 152.5,-0 152.5,-24"/>
+<text text-anchor="middle" x="125.5" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">delete</text>
 </g>
 <!-- proc~push_f&#45;&gt;delete -->
-<g id="proc~~push_f~~CallsGraph_edge8" class="edge"><title>proc~push_f&#45;&gt;delete</title>
-<path fill="none" stroke="#000000" d="M34.9886,-187.869C45.3595,-170.61 66.1816,-138.661 90,-117 91.1023,-115.997 92.2594,-115.017 93.4545,-114.061"/>
-<polygon fill="#000000" stroke="#000000" points="95.619,-116.816 101.717,-108.152 91.5468,-111.122 95.619,-116.816"/>
-</g>
-<!-- max_size -->
-<g id="proc~~push_f~~CallsGraph_node10" class="node"><title>max_size</title>
-<polygon fill="#777777" stroke="#777777" points="154.5,-66 96.5,-66 96.5,-42 154.5,-42 154.5,-66"/>
-<text text-anchor="middle" x="125.5" y="-51.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">max_size</text>
-</g>
-<!-- proc~push_f&#45;&gt;max_size -->
-<g id="proc~~push_f~~CallsGraph_edge9" class="edge"><title>proc~push_f&#45;&gt;max_size</title>
-<path fill="none" stroke="#000000" d="M31.5588,-187.65C39.0084,-163.561 58.2347,-109.634 90,-75 90.7583,-74.1732 91.5566,-73.3677 92.387,-72.5841"/>
-<polygon fill="#000000" stroke="#000000" points="94.8522,-75.0959 100.509,-66.1378 90.5006,-69.6129 94.8522,-75.0959"/>
-</g>
-<!-- die -->
-<g id="proc~~push_f~~CallsGraph_node11" class="node"><title>die</title>
-<polygon fill="#777777" stroke="#777777" points="152.5,-24 98.5,-24 98.5,-0 152.5,-0 152.5,-24"/>
-<text text-anchor="middle" x="125.5" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">die</text>
-</g>
-<!-- proc~push_f&#45;&gt;die -->
-<g id="proc~~push_f~~CallsGraph_edge10" class="edge"><title>proc~push_f&#45;&gt;die</title>
-<path fill="none" stroke="#000000" d="M29.7349,-187.717C34.4725,-158.062 50.0498,-81.4298 90,-33 90.6916,-32.1616 91.4259,-31.3477 92.1953,-30.5585"/>
-<polygon fill="#000000" stroke="#000000" points="94.4503,-33.2353 99.8567,-24.1236 89.9482,-27.8751 94.4503,-33.2353"/>
+<g id="proc~~push_f~~CallsGraph_edge10" class="edge"><title>proc~push_f&#45;&gt;delete</title>
+<path fill="none" stroke="#000000" d="M29.714,-188.644C34.405,-158.813 49.8868,-81.7238 90,-33 90.6908,-32.1609 91.4244,-31.3465 92.1931,-30.5567"/>
+<polygon fill="#000000" stroke="#000000" points="94.4487,-33.233 99.8511,-24.119 89.9443,-27.8748 94.4487,-33.233"/>
 </g>
 <!-- proc~stack_check&#45;&gt;n_items -->
 <g id="proc~~push_f~~CallsGraph_edge11" class="edge"><title>proc~stack_check&#45;&gt;n_items</title>
-<path fill="none" stroke="#000000" d="M146.849,-289.751C162.184,-280.52 183.421,-267.737 200.528,-257.439"/>
-<polygon fill="#000000" stroke="#000000" points="202.781,-260.169 209.543,-252.013 199.171,-254.171 202.781,-260.169"/>
+<path fill="none" stroke="#000000" d="M148.797,-192.059C153.029,-194.76 157.29,-197.786 161,-201 182.527,-219.646 202.704,-245.513 215.507,-263.392"/>
+<polygon fill="#000000" stroke="#000000" points="212.889,-265.756 221.497,-271.933 218.62,-261.736 212.889,-265.756"/>
 </g>
 <!-- get_pointer -->
 <g id="proc~~push_f~~CallsGraph_node12" class="node"><title>get_pointer</title>
-<polygon fill="#777777" stroke="#777777" points="264,-314 197,-314 197,-290 264,-290 264,-314"/>
-<text text-anchor="middle" x="230.5" y="-299.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">get_pointer</text>
+<polygon fill="#777777" stroke="#777777" points="264,-192 197,-192 197,-168 264,-168 264,-192"/>
+<text text-anchor="middle" x="230.5" y="-177.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">get_pointer</text>
 </g>
 <!-- proc~stack_check&#45;&gt;get_pointer -->
 <g id="proc~~push_f~~CallsGraph_edge12" class="edge"><title>proc~stack_check&#45;&gt;get_pointer</title>
-<path fill="none" stroke="#000000" d="M161.084,-302C169.311,-302 178.185,-302 186.73,-302"/>
-<polygon fill="#000000" stroke="#000000" points="186.922,-305.5 196.922,-302 186.922,-298.5 186.922,-305.5"/>
+<path fill="none" stroke="#000000" d="M161.084,-180C169.311,-180 178.185,-180 186.73,-180"/>
+<polygon fill="#000000" stroke="#000000" points="186.922,-183.5 196.922,-180 186.922,-176.5 186.922,-183.5"/>
 </g>
 </g>
 </svg>
@@ -772,6 +787,8 @@ private subroutine push_F(s_F, n, F, fact)
   <div id="allprocs-1" class="panel-collapse collapse">
     <div class="list-group">
       
+      <a class="list-group-item" href="../proc/compute_dm.html">compute_dm</a>
+      
       <a class="list-group-item" href="../proc/current_itt.html">current_itt</a>
       
       <a class="list-group-item" href="../proc/getstackval.html">getstackval</a>
@@ -835,6 +852,8 @@ private subroutine push_F(s_F, n, F, fact)
       <a class="list-group-item" href="../proc/push_stack_data.html">push_stack_data</a>
       
       <a class="list-group-item" href="../proc/setup_h0.html">setup_H0</a>
+      
+      <a class="list-group-item" href="../proc/setup_hamiltonian.html">setup_hamiltonian</a>
       
       <a class="list-group-item" href="../proc/siesta_analysis.html">siesta_analysis</a>
       
@@ -900,6 +919,10 @@ private subroutine push_F(s_F, n, F, fact)
     
     <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
     
+    
+    <script src="../tipuesearch/tipuesearch_content.js"></script>
+    <script src="../tipuesearch/tipuesearch_set.js"></script>
+    <script src="../tipuesearch/tipuesearch.js"></script>
     
     
   </body>

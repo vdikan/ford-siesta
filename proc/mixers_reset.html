@@ -17,6 +17,8 @@
     <link href="../css/font-awesome.min.css" rel="stylesheet">
     <link href="../css/local.css" rel="stylesheet">
     
+    <link  href="../tipuesearch/tipuesearch.css" rel="stylesheet">
+    
     
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
@@ -87,6 +89,15 @@
 
           </ul>
         
+        <form action="../search.html" class="navbar-form navbar-right" role="search">
+        <div class="form-group">
+          <input type="text" class="form-control" placeholder="Search" name="q" id="tipue_search_input" autocomplete="off" required>
+        </div>
+<!--
+        <button type="submit" class="btn btn-default">Submit</button>
+-->
+        </form>
+        
         </div><!--/.nav-collapse -->
       </div>
     </nav>
@@ -113,7 +124,7 @@
      <li><i class="fa fa-list-ol"></i>
        <a data-toggle="tooltip"
 	  data-placement="bottom" data-html="true"
-	  title=" 1.0% of total for procedures.">26 statements</a>
+	  title=" 0.9% of total for procedures.">26 statements</a>
      </li> 
      
      
@@ -180,6 +191,8 @@
   <div id="allprocs-0" class="panel-collapse collapse">
     <div class="list-group">
       
+      <a class="list-group-item" href="../proc/compute_dm.html">compute_dm</a>
+      
       <a class="list-group-item" href="../proc/current_itt.html">current_itt</a>
       
       <a class="list-group-item" href="../proc/getstackval.html">getstackval</a>
@@ -243,6 +256,8 @@
       <a class="list-group-item" href="../proc/push_stack_data.html">push_stack_data</a>
       
       <a class="list-group-item" href="../proc/setup_h0.html">setup_H0</a>
+      
+      <a class="list-group-item" href="../proc/setup_hamiltonian.html">setup_hamiltonian</a>
       
       <a class="list-group-item" href="../proc/siesta_analysis.html">siesta_analysis</a>
       
@@ -431,49 +446,49 @@ public subroutine mixers_reset(mixers)
 <polygon fill="none" stroke="black" points="323,-66 249,-66 249,-42 323,-42 323,-66"/>
 <text text-anchor="middle" x="286" y="-51.6" font-family="Helvetica,sans-Serif" font-size="10.50">mixers_reset</text>
 </g>
-<!-- proc~mixers_init -->
-<g id="proc~~mixers_reset~~CalledByGraph_node2" class="node"><title>proc~mixers_init</title>
-<g id="a_proc~~mixers_reset~~CalledByGraph_node2"><a xlink:href=".././proc/mixers_init.html" xlink:title="mixers_init">
-<polygon fill="#d9534f" stroke="#d9534f" points="198,-66 134,-66 134,-42 198,-42 198,-66"/>
-<text text-anchor="middle" x="166" y="-51.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">mixers_init</text>
-</a>
-</g>
-</g>
-<!-- proc~mixers_init&#45;&gt;proc~mixers_reset -->
-<g id="proc~~mixers_reset~~CalledByGraph_edge1" class="edge"><title>proc~mixers_init&#45;&gt;proc~mixers_reset</title>
-<path fill="none" stroke="#000000" d="M198.003,-54C210.409,-54 224.966,-54 238.584,-54"/>
-<polygon fill="#000000" stroke="#000000" points="238.764,-57.5001 248.764,-54 238.764,-50.5001 238.764,-57.5001"/>
-</g>
-<!-- proc~mixers_scf_reset -->
-<g id="proc~~mixers_reset~~CalledByGraph_node3" class="node"><title>proc~mixers_scf_reset</title>
-<g id="a_proc~~mixers_reset~~CalledByGraph_node3"><a xlink:href=".././proc/mixers_scf_reset.html" xlink:title="mixers_scf_reset">
-<polygon fill="#d9534f" stroke="#d9534f" points="213,-24 119,-24 119,-0 213,-0 213,-24"/>
-<text text-anchor="middle" x="166" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">mixers_scf_reset</text>
-</a>
-</g>
-</g>
-<!-- proc~mixers_scf_reset&#45;&gt;proc~mixers_reset -->
-<g id="proc~~mixers_reset~~CalledByGraph_edge2" class="edge"><title>proc~mixers_scf_reset&#45;&gt;proc~mixers_reset</title>
-<path fill="none" stroke="#000000" d="M200.814,-24.0355C213.528,-28.5608 228.163,-33.7699 241.628,-38.5624"/>
-<polygon fill="#000000" stroke="#000000" points="240.586,-41.9068 251.181,-41.9627 242.934,-35.3121 240.586,-41.9068"/>
-</g>
 <!-- proc~mixers_scf_init -->
-<g id="proc~~mixers_reset~~CalledByGraph_node4" class="node"><title>proc~mixers_scf_init</title>
-<g id="a_proc~~mixers_reset~~CalledByGraph_node4"><a xlink:href=".././proc/mixers_scf_init.html" xlink:title="mixers_scf_init">
+<g id="proc~~mixers_reset~~CalledByGraph_node2" class="node"><title>proc~mixers_scf_init</title>
+<g id="a_proc~~mixers_reset~~CalledByGraph_node2"><a xlink:href=".././proc/mixers_scf_init.html" xlink:title="mixers_scf_init">
 <polygon fill="#d9534f" stroke="#d9534f" points="83,-86 0,-86 0,-62 83,-62 83,-86"/>
 <text text-anchor="middle" x="41.5" y="-71.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">mixers_scf_init</text>
 </a>
 </g>
 </g>
 <!-- proc~mixers_scf_init&#45;&gt;proc~mixers_reset -->
-<g id="proc~~mixers_reset~~CalledByGraph_edge3" class="edge"><title>proc~mixers_scf_init&#45;&gt;proc~mixers_reset</title>
+<g id="proc~~mixers_reset~~CalledByGraph_edge1" class="edge"><title>proc~mixers_scf_init&#45;&gt;proc~mixers_reset</title>
 <path fill="none" stroke="#000000" d="M83.0334,-77.5795C117.723,-79.8472 168.898,-81.3003 213,-75 222.277,-73.6748 232.028,-71.4349 241.254,-68.8995"/>
 <polygon fill="#000000" stroke="#000000" points="242.386,-72.2152 251.011,-66.0616 240.431,-65.4937 242.386,-72.2152"/>
+</g>
+<!-- proc~mixers_init -->
+<g id="proc~~mixers_reset~~CalledByGraph_node3" class="node"><title>proc~mixers_init</title>
+<g id="a_proc~~mixers_reset~~CalledByGraph_node3"><a xlink:href=".././proc/mixers_init.html" xlink:title="mixers_init">
+<polygon fill="#d9534f" stroke="#d9534f" points="198,-66 134,-66 134,-42 198,-42 198,-66"/>
+<text text-anchor="middle" x="166" y="-51.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">mixers_init</text>
+</a>
+</g>
 </g>
 <!-- proc~mixers_scf_init&#45;&gt;proc~mixers_init -->
 <g id="proc~~mixers_reset~~CalledByGraph_edge4" class="edge"><title>proc~mixers_scf_init&#45;&gt;proc~mixers_init</title>
 <path fill="none" stroke="#000000" d="M83.2907,-67.3403C96.2516,-65.2242 110.593,-62.8827 123.597,-60.7597"/>
 <polygon fill="#000000" stroke="#000000" points="124.381,-64.178 133.687,-59.1124 123.253,-57.2695 124.381,-64.178"/>
+</g>
+<!-- proc~mixers_init&#45;&gt;proc~mixers_reset -->
+<g id="proc~~mixers_reset~~CalledByGraph_edge2" class="edge"><title>proc~mixers_init&#45;&gt;proc~mixers_reset</title>
+<path fill="none" stroke="#000000" d="M198.003,-54C210.409,-54 224.966,-54 238.584,-54"/>
+<polygon fill="#000000" stroke="#000000" points="238.764,-57.5001 248.764,-54 238.764,-50.5001 238.764,-57.5001"/>
+</g>
+<!-- proc~mixers_scf_reset -->
+<g id="proc~~mixers_reset~~CalledByGraph_node4" class="node"><title>proc~mixers_scf_reset</title>
+<g id="a_proc~~mixers_reset~~CalledByGraph_node4"><a xlink:href=".././proc/mixers_scf_reset.html" xlink:title="mixers_scf_reset">
+<polygon fill="#d9534f" stroke="#d9534f" points="213,-24 119,-24 119,-0 213,-0 213,-24"/>
+<text text-anchor="middle" x="166" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">mixers_scf_reset</text>
+</a>
+</g>
+</g>
+<!-- proc~mixers_scf_reset&#45;&gt;proc~mixers_reset -->
+<g id="proc~~mixers_reset~~CalledByGraph_edge3" class="edge"><title>proc~mixers_scf_reset&#45;&gt;proc~mixers_reset</title>
+<path fill="none" stroke="#000000" d="M200.814,-24.0355C213.528,-28.5608 228.163,-33.7699 241.628,-38.5624"/>
+<polygon fill="#000000" stroke="#000000" points="240.586,-41.9068 251.181,-41.9627 242.934,-35.3121 240.586,-41.9068"/>
 </g>
 </g>
 </svg>
@@ -642,6 +657,8 @@ public subroutine mixers_reset(mixers)
   <div id="allprocs-1" class="panel-collapse collapse">
     <div class="list-group">
       
+      <a class="list-group-item" href="../proc/compute_dm.html">compute_dm</a>
+      
       <a class="list-group-item" href="../proc/current_itt.html">current_itt</a>
       
       <a class="list-group-item" href="../proc/getstackval.html">getstackval</a>
@@ -705,6 +722,8 @@ public subroutine mixers_reset(mixers)
       <a class="list-group-item" href="../proc/push_stack_data.html">push_stack_data</a>
       
       <a class="list-group-item" href="../proc/setup_h0.html">setup_H0</a>
+      
+      <a class="list-group-item" href="../proc/setup_hamiltonian.html">setup_hamiltonian</a>
       
       <a class="list-group-item" href="../proc/siesta_analysis.html">siesta_analysis</a>
       
@@ -770,6 +789,10 @@ public subroutine mixers_reset(mixers)
     
     <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
     
+    
+    <script src="../tipuesearch/tipuesearch_content.js"></script>
+    <script src="../tipuesearch/tipuesearch_set.js"></script>
+    <script src="../tipuesearch/tipuesearch.js"></script>
     
     
   </body>

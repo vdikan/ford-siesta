@@ -1,0 +1,1660 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+	 
+	 <meta name="description" content="A first-principles materials simulation code using Density Functional Theory.">
+    
+    <meta name="author" content="SIESTA Group" >
+    <link rel="icon" href="../favicon.png">
+
+    <title>compute_dm &ndash; SIESTA</title>
+
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
+    <link href="../css/pygments.css" rel="stylesheet">
+    <link href="../css/font-awesome.min.css" rel="stylesheet">
+    <link href="../css/local.css" rel="stylesheet">
+    
+    <link  href="../tipuesearch/tipuesearch.css" rel="stylesheet">
+    
+    
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    
+    <script src="../js/jquery-2.1.3.min.js"></script>
+    <script src="../js/svg-pan-zoom.min.js"></script>
+
+  </head>
+
+  <body>
+
+    <!-- Fixed navbar -->
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="../index.html">SIESTA <small>trunk-674</small></a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+          <ul class="nav navbar-nav">
+				
+            <li><a href='../page/index.html'>Program Overview</a></li>
+	    
+            <li class="dropdown hidden-xs visible-sm visible-md hidden-lg">
+              <a href="#" class="dropdown-toggle"
+              data-toggle="dropdown" role="button"
+              aria-haspopup="true"
+		 aria-expanded="false">Contents <span class="caret"></span></a>
+	      <ul class="dropdown-menu">
+              
+            <li><a href="../lists/files.html">Source Files</a></li>
+				
+				
+            <li><a href="../lists/modules.html">Modules</a></li>
+				
+            
+                                
+            <li><a href="../lists/procedures.html">Procedures</a></li>
+				
+								
+            <li><a href="../lists/types.html">Derived Types</a></li>
+				
+				
+            </ul>
+            </li>
+
+<li class="visible-xs hidden-sm visible-lg"><a href="../lists/files.html">Source Files</a></li>
+
+
+<li class="visible-xs hidden-sm visible-lg"><a href="../lists/modules.html">Modules</a></li>
+
+
+
+<li class="visible-xs hidden-sm visible-lg"><a href="../lists/procedures.html">Procedures</a></li>
+
+                             
+<li class="visible-xs hidden-sm visible-lg"><a href="../lists/types.html">Derived Types</a></li>
+
+
+          </ul>
+        
+        <form action="../search.html" class="navbar-form navbar-right" role="search">
+        <div class="form-group">
+          <input type="text" class="form-control" placeholder="Search" name="q" id="tipue_search_input" autocomplete="off" required>
+        </div>
+<!--
+        <button type="submit" class="btn btn-default">Submit</button>
+-->
+        </form>
+        
+        </div><!--/.nav-collapse -->
+      </div>
+    </nav>
+
+    <div class="container">
+    
+  
+  <div class="row">
+    <h1>compute_dm
+      <small>Subroutine</small>
+    
+    </h1>
+    
+<div class="row">
+  <div class="col-lg-12">
+<div class="well well-sm">
+  <ul class="list-inline" style="margin-bottom:0px;display:inline">
+     
+     
+     
+     
+    
+    
+     <li><i class="fa fa-list-ol"></i>
+       <a data-toggle="tooltip"
+	  data-placement="bottom" data-html="true"
+	  title=" 4.8% of total for procedures.">140 statements</a>
+     </li> 
+     
+     
+    <li><i class="fa fa-code"></i><a href="../src/compute_dm.F"> Source File</a></li>
+     
+  </ul>
+  <ol class="breadcrumb in-well text-right">
+  
+     <li><a href='../sourcefile/compute_dm.f.html'>compute_dm.F</a></li>
+  
+     <li><a href='../module/m_compute_dm.html'>m_compute_dm</a></li>
+  
+     <li class="active">compute_dm</li>
+  </ol>
+</div>
+</div>
+</div>
+<script>
+  $(function () {
+  $('[data-toggle="tooltip"]').tooltip()
+  })
+</script>
+
+  </div>
+  
+  <div class="row">
+    <div class="col-md-3 hidden-xs hidden-sm visible-md visible-lg">
+    
+<div id="sidebar">
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="panel panel-primary">
+  <div class="panel-heading text-left"><h3 class="panel-title">Source Code</h3></div>
+  <div class="list-group">
+    <a class="list-group-item" href="../proc/compute_dm.html#src">compute_dm</a>
+  </div>
+</div>
+
+
+  <hr>
+  
+
+<div class="panel panel-default">
+  <div class="panel-heading text-left"><h3 class="panel-title"><a data-toggle="collapse" href="#allprocs-0">All Procedures</a></h3></div>
+  <div id="allprocs-0" class="panel-collapse collapse">
+    <div class="list-group">
+      
+      <a class="list-group-item" href="../proc/compute_dm.html">compute_dm</a>
+      
+      <a class="list-group-item" href="../proc/current_itt.html">current_itt</a>
+      
+      <a class="list-group-item" href="../proc/getstackval.html">getstackval</a>
+      
+      <a class="list-group-item" href="../proc/inverse.html">inverse</a>
+      
+      <a class="list-group-item" href="../proc/is_next.html">is_next</a>
+      
+      <a class="list-group-item" href="../proc/mix_method.html">mix_method</a>
+      
+      <a class="list-group-item" href="../proc/mix_method_variant.html">mix_method_variant</a>
+      
+      <a class="list-group-item" href="../proc/mixer_init.html">mixer_init</a>
+      
+      <a class="list-group-item" href="../proc/mixers_history_init.html">mixers_history_init</a>
+      
+      <a class="list-group-item" href="../proc/mixers_init.html">mixers_init</a>
+      
+      <a class="list-group-item" href="../proc/mixers_print.html">mixers_print</a>
+      
+      <a class="list-group-item" href="../proc/mixers_print_block.html">mixers_print_block</a>
+      
+      <a class="list-group-item" href="../proc/mixers_reset.html">mixers_reset</a>
+      
+      <a class="list-group-item" href="../proc/mixers_scf_history_init.html">mixers_scf_history_init</a>
+      
+      <a class="list-group-item" href="../proc/mixers_scf_init.html">mixers_scf_init</a>
+      
+      <a class="list-group-item" href="../proc/mixers_scf_print.html">mixers_scf_print</a>
+      
+      <a class="list-group-item" href="../proc/mixers_scf_print_block.html">mixers_scf_print_block</a>
+      
+      <a class="list-group-item" href="../proc/mixers_scf_reset.html">mixers_scf_reset</a>
+      
+      <a class="list-group-item" href="../interface/mixing.html">mixing</a>
+      
+      <a class="list-group-item" href="../proc/mixing_1d.html">mixing_1d</a>
+      
+      <a class="list-group-item" href="../proc/mixing_2d.html">mixing_2d</a>
+      
+      <a class="list-group-item" href="../proc/mixing_calc_next.html">mixing_calc_next</a>
+      
+      <a class="list-group-item" href="../proc/mixing_coeff.html">mixing_coeff</a>
+      
+      <a class="list-group-item" href="../proc/mixing_finalize.html">mixing_finalize</a>
+      
+      <a class="list-group-item" href="../proc/mixing_init.html">mixing_init</a>
+      
+      <a class="list-group-item" href="../proc/mixing_ncoeff.html">mixing_ncoeff</a>
+      
+      <a class="list-group-item" href="../proc/mixing_scf_converged.html">mixing_scf_converged</a>
+      
+      <a class="list-group-item" href="../proc/mixing_step.html">mixing_step</a>
+      
+      <a class="list-group-item" href="../proc/norm.html">norm</a>
+      
+      <a class="list-group-item" href="../proc/push_diff.html">push_diff</a>
+      
+      <a class="list-group-item" href="../proc/push_f.html">push_F</a>
+      
+      <a class="list-group-item" href="../proc/push_stack_data.html">push_stack_data</a>
+      
+      <a class="list-group-item" href="../proc/setup_h0.html">setup_H0</a>
+      
+      <a class="list-group-item" href="../proc/setup_hamiltonian.html">setup_hamiltonian</a>
+      
+      <a class="list-group-item" href="../proc/siesta_analysis.html">siesta_analysis</a>
+      
+      <a class="list-group-item" href="../proc/siesta_forces.html">siesta_forces</a>
+      
+      <a class="list-group-item" href="../proc/stack_check.html">stack_check</a>
+      
+      <a class="list-group-item" href="../proc/state_analysis.html">state_analysis</a>
+      
+      <a class="list-group-item" href="../proc/state_init.html">state_init</a>
+      
+      <a class="list-group-item" href="../proc/svd.html">svd</a>
+      
+      <a class="list-group-item" href="../proc/update_f.html">update_F</a>
+      
+    </div>
+  </div>
+</div>
+
+
+</div>  
+
+    </div>
+    
+    <div class="col-md-9" id='text'>
+    <h2>
+public subroutine compute_dm(iscf)
+    
+    
+	 
+</h2>
+    
+  
+    <div class="panel panel-default">
+      <div class="panel-heading">
+	<h3 class="panel-title">Uses</h3>
+      </div>
+      <ul class="list-group">
+      
+      <li class="list-group-item">
+	<ul class="list-inline">
+	  
+	  <li>precision</li>
+	  
+	  <li>units</li>
+	  
+	  <li>siesta_options</li>
+	  
+	  <li>class_dSpData1D</li>
+	  
+	  <li>sparse_matrices</li>
+	  
+	  <li>siesta_geom</li>
+	  
+	  <li>atomlist</li>
+	  
+	  <li>sys</li>
+	  
+	  <li>Kpoint_grid</li>
+	  
+	  <li>m_energies</li>
+	  
+	  <li>m_energies</li>
+	  
+	  <li>m_rmaxh</li>
+	  
+	  <li>m_eo</li>
+	  
+	  <li>m_spin</li>
+	  
+	  <li>m_diagon</li>
+	  
+	  <li>m_gamma</li>
+	  
+	  <li>parallel</li>
+	  
+	  <li>parallel</li>
+	  
+	  <li>m_compute_ebs_shift</li>
+	  
+	  <li>m_pexsi_solver</li>
+	  
+	  <li>m_hsx</li>
+	  
+	  <li>mpi_siesta</li>
+	  
+	  <li>iodmhs_netcdf</li>
+	  
+	  <li>m_dminim</li>
+	  
+	  <li>m_zminim</li>
+	  
+	  <li>m_ordern</li>
+	  
+	  <li>m_steps</li>
+	  
+	  <li>m_normalize_dm</li>
+	  
+	  <li>m_chess</li>
+	  
+	  <li>m_energies</li>
+	  
+	  <li>m_ts_global_vars</li>
+	  
+	  <li>m_transiesta</li>
+	  
+	</ul>
+      </li>
+      
+      
+      
+      <li class="list-group-item">
+	<div class="depgraph"><?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+ "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Generated by graphviz version 2.38.0 (20140413.2041)
+ -->
+<!-- Title: proc~~compute_dm~~UsesGraph Pages: 1 -->
+<svg id="proccompute_dmUsesGraph" width="237pt" height="1208pt"
+ viewBox="0.00 0.00 237.00 1208.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="proc~~compute_dm~~UsesGraph" class="graph" transform="scale(1 1) rotate(0) translate(4 1204)">
+<title>proc~~compute_dm~~UsesGraph</title>
+<polygon fill="white" stroke="none" points="-4,4 -4,-1204 233,-1204 233,4 -4,4"/>
+<!-- proc~compute_dm -->
+<g id="proc~~compute_dm~~UsesGraph_node1" class="node"><title>proc~compute_dm</title>
+<polygon fill="none" stroke="black" points="229,-612 154,-612 154,-588 229,-588 229,-612"/>
+<text text-anchor="middle" x="191.5" y="-597.6" font-family="Helvetica,sans-Serif" font-size="10.50">compute_dm</text>
+</g>
+<!-- m_energies -->
+<g id="proc~~compute_dm~~UsesGraph_node2" class="node"><title>m_energies</title>
+<polygon fill="#337ab7" stroke="#337ab7" points="93.5,-1200 24.5,-1200 24.5,-1176 93.5,-1176 93.5,-1200"/>
+<text text-anchor="middle" x="59" y="-1185.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">m_energies</text>
+</g>
+<!-- proc~compute_dm&#45;&gt;m_energies -->
+<g id="proc~~compute_dm~~UsesGraph_edge1" class="edge"><title>proc~compute_dm&#45;&gt;m_energies</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M190.608,-612.122C191.032,-686.173 189.808,-1077.34 118,-1167 114.002,-1171.99 108.713,-1175.8 102.953,-1178.7"/>
+<polygon fill="#000000" stroke="#000000" points="101.535,-1175.5 93.6317,-1182.55 104.21,-1181.97 101.535,-1175.5"/>
+</g>
+<!-- units -->
+<g id="proc~~compute_dm~~UsesGraph_node3" class="node"><title>units</title>
+<polygon fill="#337ab7" stroke="#337ab7" points="86,-1158 32,-1158 32,-1134 86,-1134 86,-1158"/>
+<text text-anchor="middle" x="59" y="-1143.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">units</text>
+</g>
+<!-- proc~compute_dm&#45;&gt;units -->
+<g id="proc~~compute_dm~~UsesGraph_edge2" class="edge"><title>proc~compute_dm&#45;&gt;units</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M190.471,-612.136C190.065,-682.958 184.705,-1042.57 118,-1125 112.383,-1131.94 104.273,-1136.59 95.8895,-1139.7"/>
+<polygon fill="#000000" stroke="#000000" points="94.6031,-1136.43 86.055,-1142.69 96.6408,-1143.13 94.6031,-1136.43"/>
+</g>
+<!-- m_zminim -->
+<g id="proc~~compute_dm~~UsesGraph_node4" class="node"><title>m_zminim</title>
+<polygon fill="#337ab7" stroke="#337ab7" points="89.5,-1116 28.5,-1116 28.5,-1092 89.5,-1092 89.5,-1116"/>
+<text text-anchor="middle" x="59" y="-1101.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">m_zminim</text>
+</g>
+<!-- proc~compute_dm&#45;&gt;m_zminim -->
+<g id="proc~~compute_dm~~UsesGraph_edge3" class="edge"><title>proc~compute_dm&#45;&gt;m_zminim</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M190.312,-612.035C189.031,-679.236 179.65,-1007.72 118,-1083 113.148,-1088.92 106.483,-1093.18 99.3943,-1096.23"/>
+<polygon fill="#000000" stroke="#000000" points="97.8584,-1093.06 89.5973,-1099.69 100.192,-1099.66 97.8584,-1093.06"/>
+</g>
+<!-- m_chess -->
+<g id="proc~~compute_dm~~UsesGraph_node5" class="node"><title>m_chess</title>
+<polygon fill="#337ab7" stroke="#337ab7" points="86.5,-1074 31.5,-1074 31.5,-1050 86.5,-1050 86.5,-1074"/>
+<text text-anchor="middle" x="59" y="-1059.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">m_chess</text>
+</g>
+<!-- proc~compute_dm&#45;&gt;m_chess -->
+<g id="proc~~compute_dm~~UsesGraph_edge6" class="edge"><title>proc~compute_dm&#45;&gt;m_chess</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M190.116,-612.231C187.872,-676.309 174.52,-972.96 118,-1041 112.393,-1047.75 104.434,-1052.33 96.2019,-1055.44"/>
+<polygon fill="#000000" stroke="#000000" points="95.0425,-1052.13 86.5383,-1058.45 97.1269,-1058.82 95.0425,-1052.13"/>
+</g>
+<!-- iodmhs_netcdf -->
+<g id="proc~~compute_dm~~UsesGraph_node6" class="node"><title>iodmhs_netcdf</title>
+<polygon fill="#337ab7" stroke="#337ab7" points="100,-1032 18,-1032 18,-1008 100,-1008 100,-1032"/>
+<text text-anchor="middle" x="59" y="-1017.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">iodmhs_netcdf</text>
+</g>
+<!-- proc~compute_dm&#45;&gt;iodmhs_netcdf -->
+<g id="proc~~compute_dm~~UsesGraph_edge4" class="edge"><title>proc~compute_dm&#45;&gt;iodmhs_netcdf</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M189.884,-612.248C186.614,-672.623 169.462,-938.097 118,-999 115.503,-1001.95 112.556,-1004.49 109.335,-1006.68"/>
+<polygon fill="#000000" stroke="#000000" points="107.363,-1003.77 100.293,-1011.66 110.74,-1009.9 107.363,-1003.77"/>
+</g>
+<!-- m_gamma -->
+<g id="proc~~compute_dm~~UsesGraph_node7" class="node"><title>m_gamma</title>
+<polygon fill="#337ab7" stroke="#337ab7" points="91,-990 27,-990 27,-966 91,-966 91,-990"/>
+<text text-anchor="middle" x="59" y="-975.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">m_gamma</text>
+</g>
+<!-- proc~compute_dm&#45;&gt;m_gamma -->
+<g id="proc~~compute_dm~~UsesGraph_edge5" class="edge"><title>proc~compute_dm&#45;&gt;m_gamma</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M189.613,-612.067C185.261,-668.179 164.479,-903.13 118,-957 113.394,-962.339 107.32,-966.32 100.838,-969.29"/>
+<polygon fill="#000000" stroke="#000000" points="99.2821,-966.137 91.1739,-972.957 101.765,-972.682 99.2821,-966.137"/>
+</g>
+<!-- sparse_matrices -->
+<g id="proc~~compute_dm~~UsesGraph_node8" class="node"><title>sparse_matrices</title>
+<polygon fill="#337ab7" stroke="#337ab7" points="104.5,-948 13.5,-948 13.5,-924 104.5,-924 104.5,-948"/>
+<text text-anchor="middle" x="59" y="-933.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">sparse_matrices</text>
+</g>
+<!-- proc~compute_dm&#45;&gt;sparse_matrices -->
+<g id="proc~~compute_dm~~UsesGraph_edge7" class="edge"><title>proc~compute_dm&#45;&gt;sparse_matrices</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M189.264,-612.018C183.708,-663.9 159.484,-868.158 118,-915 116.615,-916.563 115.105,-918.01 113.497,-919.35"/>
+<polygon fill="#000000" stroke="#000000" points="111.129,-916.723 104.759,-925.189 115.018,-922.542 111.129,-916.723"/>
+</g>
+<!-- sys -->
+<g id="proc~~compute_dm~~UsesGraph_node9" class="node"><title>sys</title>
+<polygon fill="#337ab7" stroke="#337ab7" points="86,-906 32,-906 32,-882 86,-882 86,-906"/>
+<text text-anchor="middle" x="59" y="-891.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">sys</text>
+</g>
+<!-- proc~compute_dm&#45;&gt;sys -->
+<g id="proc~~compute_dm~~UsesGraph_edge8" class="edge"><title>proc~compute_dm&#45;&gt;sys</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M190.983,-612.191C191.97,-654.237 189.54,-794.886 118,-873 112.074,-879.471 103.999,-883.951 95.7588,-887.052"/>
+<polygon fill="#000000" stroke="#000000" points="94.609,-883.744 86.128,-890.095 96.7179,-890.419 94.609,-883.744"/>
+</g>
+<!-- Kpoint_grid -->
+<g id="proc~~compute_dm~~UsesGraph_node10" class="node"><title>Kpoint_grid</title>
+<polygon fill="#337ab7" stroke="#337ab7" points="92.5,-864 25.5,-864 25.5,-840 92.5,-840 92.5,-864"/>
+<text text-anchor="middle" x="59" y="-849.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Kpoint_grid</text>
+</g>
+<!-- proc~compute_dm&#45;&gt;Kpoint_grid -->
+<g id="proc~~compute_dm~~UsesGraph_edge9" class="edge"><title>proc~compute_dm&#45;&gt;Kpoint_grid</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M190.283,-612.155C188.949,-649.911 179.778,-766.49 118,-831 113.528,-835.67 107.939,-839.305 102.01,-842.134"/>
+<polygon fill="#000000" stroke="#000000" points="100.495,-838.97 92.5219,-845.948 103.106,-845.465 100.495,-838.97"/>
+</g>
+<!-- m_spin -->
+<g id="proc~~compute_dm~~UsesGraph_node11" class="node"><title>m_spin</title>
+<polygon fill="#337ab7" stroke="#337ab7" points="86,-822 32,-822 32,-798 86,-798 86,-822"/>
+<text text-anchor="middle" x="59" y="-807.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">m_spin</text>
+</g>
+<!-- proc~compute_dm&#45;&gt;m_spin -->
+<g id="proc~~compute_dm~~UsesGraph_edge10" class="edge"><title>proc~compute_dm&#45;&gt;m_spin</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M189.312,-612.042C185.427,-645.031 170.175,-737.802 118,-789 111.914,-794.972 104.002,-799.261 95.9902,-802.336"/>
+<polygon fill="#000000" stroke="#000000" points="94.6965,-799.076 86.2829,-805.516 96.8756,-805.729 94.6965,-799.076"/>
+</g>
+<!-- mpi_siesta -->
+<g id="proc~~compute_dm~~UsesGraph_node12" class="node"><title>mpi_siesta</title>
+<polygon fill="#337ab7" stroke="#337ab7" points="91,-780 27,-780 27,-756 91,-756 91,-780"/>
+<text text-anchor="middle" x="59" y="-765.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">mpi_siesta</text>
+</g>
+<!-- proc~compute_dm&#45;&gt;mpi_siesta -->
+<g id="proc~~compute_dm~~UsesGraph_edge11" class="edge"><title>proc~compute_dm&#45;&gt;mpi_siesta</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M187.801,-612.158C181.008,-639.99 160.621,-708.858 118,-747 113.077,-751.405 107.159,-754.907 101.011,-757.685"/>
+<polygon fill="#000000" stroke="#000000" points="99.3183,-754.588 91.2711,-761.48 101.86,-761.111 99.3183,-754.588"/>
+</g>
+<!-- m_dminim -->
+<g id="proc~~compute_dm~~UsesGraph_node13" class="node"><title>m_dminim</title>
+<polygon fill="#337ab7" stroke="#337ab7" points="90,-738 28,-738 28,-714 90,-714 90,-738"/>
+<text text-anchor="middle" x="59" y="-723.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">m_dminim</text>
+</g>
+<!-- proc~compute_dm&#45;&gt;m_dminim -->
+<g id="proc~~compute_dm~~UsesGraph_edge12" class="edge"><title>proc~compute_dm&#45;&gt;m_dminim</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M185.174,-612.213C175.121,-633.908 151.329,-679.296 118,-705 112.53,-709.218 106.135,-712.644 99.6276,-715.409"/>
+<polygon fill="#000000" stroke="#000000" points="98.2279,-712.196 90.1082,-719.002 100.7,-718.745 98.2279,-712.196"/>
+</g>
+<!-- m_hsx -->
+<g id="proc~~compute_dm~~UsesGraph_node14" class="node"><title>m_hsx</title>
+<polygon fill="#337ab7" stroke="#337ab7" points="86,-696 32,-696 32,-672 86,-672 86,-696"/>
+<text text-anchor="middle" x="59" y="-681.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">m_hsx</text>
+</g>
+<!-- proc~compute_dm&#45;&gt;m_hsx -->
+<g id="proc~~compute_dm~~UsesGraph_edge13" class="edge"><title>proc~compute_dm&#45;&gt;m_hsx</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M179.25,-612.183C165.827,-626.109 142.151,-648.804 118,-663 111.054,-667.083 103.181,-670.58 95.5266,-673.482"/>
+<polygon fill="#000000" stroke="#000000" points="94.2935,-670.206 86.0332,-676.84 96.628,-676.805 94.2935,-670.206"/>
+</g>
+<!-- m_pexsi_solver -->
+<g id="proc~~compute_dm~~UsesGraph_node15" class="node"><title>m_pexsi_solver</title>
+<polygon fill="#337ab7" stroke="#337ab7" points="102.5,-654 15.5,-654 15.5,-630 102.5,-630 102.5,-654"/>
+<text text-anchor="middle" x="59" y="-639.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">m_pexsi_solver</text>
+</g>
+<!-- proc~compute_dm&#45;&gt;m_pexsi_solver -->
+<g id="proc~~compute_dm~~UsesGraph_edge14" class="edge"><title>proc~compute_dm&#45;&gt;m_pexsi_solver</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M153.801,-611.811C139.33,-616.468 122.525,-621.877 107.171,-626.819"/>
+<polygon fill="#000000" stroke="#000000" points="105.776,-623.591 97.3292,-629.986 107.921,-630.254 105.776,-623.591"/>
+</g>
+<!-- class_dSpData1D -->
+<g id="proc~~compute_dm~~UsesGraph_node16" class="node"><title>class_dSpData1D</title>
+<polygon fill="#337ab7" stroke="#337ab7" points="107.5,-612 10.5,-612 10.5,-588 107.5,-588 107.5,-612"/>
+<text text-anchor="middle" x="59" y="-597.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">class_dSpData1D</text>
+</g>
+<!-- proc~compute_dm&#45;&gt;class_dSpData1D -->
+<g id="proc~~compute_dm~~UsesGraph_edge15" class="edge"><title>proc~compute_dm&#45;&gt;class_dSpData1D</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M153.801,-600C142.611,-600 130.025,-600 117.793,-600"/>
+<polygon fill="#000000" stroke="#000000" points="117.64,-596.5 107.64,-600 117.64,-603.5 117.64,-596.5"/>
+</g>
+<!-- atomlist -->
+<g id="proc~~compute_dm~~UsesGraph_node17" class="node"><title>atomlist</title>
+<polygon fill="#337ab7" stroke="#337ab7" points="86,-570 32,-570 32,-546 86,-546 86,-570"/>
+<text text-anchor="middle" x="59" y="-555.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">atomlist</text>
+</g>
+<!-- proc~compute_dm&#45;&gt;atomlist -->
+<g id="proc~~compute_dm~~UsesGraph_edge16" class="edge"><title>proc~compute_dm&#45;&gt;atomlist</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M153.801,-588.189C135.609,-582.334 113.729,-575.292 95.6779,-569.483"/>
+<polygon fill="#000000" stroke="#000000" points="96.6828,-566.129 86.0913,-566.397 94.5382,-572.793 96.6828,-566.129"/>
+</g>
+<!-- m_eo -->
+<g id="proc~~compute_dm~~UsesGraph_node18" class="node"><title>m_eo</title>
+<polygon fill="#337ab7" stroke="#337ab7" points="86,-528 32,-528 32,-504 86,-504 86,-528"/>
+<text text-anchor="middle" x="59" y="-513.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">m_eo</text>
+</g>
+<!-- proc~compute_dm&#45;&gt;m_eo -->
+<g id="proc~~compute_dm~~UsesGraph_edge17" class="edge"><title>proc~compute_dm&#45;&gt;m_eo</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M179.25,-587.817C165.827,-573.891 142.151,-551.196 118,-537 111.054,-532.917 103.181,-529.42 95.5266,-526.518"/>
+<polygon fill="#000000" stroke="#000000" points="96.628,-523.195 86.0332,-523.16 94.2935,-529.794 96.628,-523.195"/>
+</g>
+<!-- m_ts_global_vars -->
+<g id="proc~~compute_dm~~UsesGraph_node19" class="node"><title>m_ts_global_vars</title>
+<polygon fill="#337ab7" stroke="#337ab7" points="107.5,-486 10.5,-486 10.5,-462 107.5,-462 107.5,-486"/>
+<text text-anchor="middle" x="59" y="-471.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">m_ts_global_vars</text>
+</g>
+<!-- proc~compute_dm&#45;&gt;m_ts_global_vars -->
+<g id="proc~~compute_dm~~UsesGraph_edge18" class="edge"><title>proc~compute_dm&#45;&gt;m_ts_global_vars</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M185.174,-587.787C175.121,-566.092 151.329,-520.704 118,-495 116.174,-493.592 114.245,-492.272 112.243,-491.036"/>
+<polygon fill="#000000" stroke="#000000" points="113.561,-487.771 103.093,-486.134 110.255,-493.941 113.561,-487.771"/>
+</g>
+<!-- m_rmaxh -->
+<g id="proc~~compute_dm~~UsesGraph_node20" class="node"><title>m_rmaxh</title>
+<polygon fill="#337ab7" stroke="#337ab7" points="88,-444 30,-444 30,-420 88,-420 88,-444"/>
+<text text-anchor="middle" x="59" y="-429.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">m_rmaxh</text>
+</g>
+<!-- proc~compute_dm&#45;&gt;m_rmaxh -->
+<g id="proc~~compute_dm~~UsesGraph_edge19" class="edge"><title>proc~compute_dm&#45;&gt;m_rmaxh</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M187.801,-587.842C181.008,-560.01 160.621,-491.142 118,-453 112.294,-447.894 105.251,-444.002 98.063,-441.044"/>
+<polygon fill="#000000" stroke="#000000" points="98.8778,-437.619 88.2831,-437.563 96.5307,-444.214 98.8778,-437.619"/>
+</g>
+<!-- m_compute_ebs_shift -->
+<g id="proc~~compute_dm~~UsesGraph_node21" class="node"><title>m_compute_ebs_shift</title>
+<polygon fill="#337ab7" stroke="#337ab7" points="118,-402 0,-402 0,-378 118,-378 118,-402"/>
+<text text-anchor="middle" x="59" y="-387.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">m_compute_ebs_shift</text>
+</g>
+<!-- proc~compute_dm&#45;&gt;m_compute_ebs_shift -->
+<g id="proc~~compute_dm~~UsesGraph_edge20" class="edge"><title>proc~compute_dm&#45;&gt;m_compute_ebs_shift</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M189.312,-587.958C185.427,-554.969 170.175,-462.198 118,-411 116.765,-409.788 115.455,-408.646 114.084,-407.569"/>
+<polygon fill="#000000" stroke="#000000" points="115.959,-404.613 105.669,-402.087 112.138,-410.478 115.959,-404.613"/>
+</g>
+<!-- m_normalize_dm -->
+<g id="proc~~compute_dm~~UsesGraph_node22" class="node"><title>m_normalize_dm</title>
+<polygon fill="#337ab7" stroke="#337ab7" points="106.5,-360 11.5,-360 11.5,-336 106.5,-336 106.5,-360"/>
+<text text-anchor="middle" x="59" y="-345.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">m_normalize_dm</text>
+</g>
+<!-- proc~compute_dm&#45;&gt;m_normalize_dm -->
+<g id="proc~~compute_dm~~UsesGraph_edge21" class="edge"><title>proc~compute_dm&#45;&gt;m_normalize_dm</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M190.283,-587.845C188.949,-550.089 179.778,-433.51 118,-369 116.935,-367.888 115.807,-366.835 114.626,-365.837"/>
+<polygon fill="#000000" stroke="#000000" points="116.4,-362.809 106.177,-360.027 112.434,-368.577 116.4,-362.809"/>
+</g>
+<!-- precision -->
+<g id="proc~~compute_dm~~UsesGraph_node23" class="node"><title>precision</title>
+<polygon fill="#337ab7" stroke="#337ab7" points="86.5,-318 31.5,-318 31.5,-294 86.5,-294 86.5,-318"/>
+<text text-anchor="middle" x="59" y="-303.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">precision</text>
+</g>
+<!-- proc~compute_dm&#45;&gt;precision -->
+<g id="proc~~compute_dm~~UsesGraph_edge22" class="edge"><title>proc~compute_dm&#45;&gt;precision</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M190.983,-587.809C191.97,-545.763 189.54,-405.114 118,-327 112.241,-320.712 104.453,-316.303 96.4561,-313.214"/>
+<polygon fill="#000000" stroke="#000000" points="97.3116,-309.812 86.7198,-310.062 95.1558,-316.472 97.3116,-309.812"/>
+</g>
+<!-- m_transiesta -->
+<g id="proc~~compute_dm~~UsesGraph_node24" class="node"><title>m_transiesta</title>
+<polygon fill="#337ab7" stroke="#337ab7" points="96,-276 22,-276 22,-252 96,-252 96,-276"/>
+<text text-anchor="middle" x="59" y="-261.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">m_transiesta</text>
+</g>
+<!-- proc~compute_dm&#45;&gt;m_transiesta -->
+<g id="proc~~compute_dm~~UsesGraph_edge23" class="edge"><title>proc~compute_dm&#45;&gt;m_transiesta</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M189.264,-587.982C183.708,-536.1 159.484,-331.842 118,-285 114.495,-281.043 110.186,-277.831 105.513,-275.224"/>
+<polygon fill="#000000" stroke="#000000" points="106.738,-271.935 96.1923,-270.92 103.803,-278.29 106.738,-271.935"/>
+</g>
+<!-- siesta_options -->
+<g id="proc~~compute_dm~~UsesGraph_node25" class="node"><title>siesta_options</title>
+<polygon fill="#337ab7" stroke="#337ab7" points="99.5,-234 18.5,-234 18.5,-210 99.5,-210 99.5,-234"/>
+<text text-anchor="middle" x="59" y="-219.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">siesta_options</text>
+</g>
+<!-- proc~compute_dm&#45;&gt;siesta_options -->
+<g id="proc~~compute_dm~~UsesGraph_edge24" class="edge"><title>proc~compute_dm&#45;&gt;siesta_options</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M189.613,-587.933C185.261,-531.821 164.479,-296.87 118,-243 115.322,-239.896 112.148,-237.251 108.686,-234.997"/>
+<polygon fill="#000000" stroke="#000000" points="110.078,-231.772 99.6065,-230.16 106.787,-237.95 110.078,-231.772"/>
+</g>
+<!-- parallel -->
+<g id="proc~~compute_dm~~UsesGraph_node26" class="node"><title>parallel</title>
+<polygon fill="#337ab7" stroke="#337ab7" points="86,-192 32,-192 32,-168 86,-168 86,-192"/>
+<text text-anchor="middle" x="59" y="-177.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">parallel</text>
+</g>
+<!-- proc~compute_dm&#45;&gt;parallel -->
+<g id="proc~~compute_dm~~UsesGraph_edge25" class="edge"><title>proc~compute_dm&#45;&gt;parallel</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M189.884,-587.752C186.614,-527.377 169.462,-261.903 118,-201 112.287,-194.239 104.217,-189.654 95.9068,-186.546"/>
+<polygon fill="#000000" stroke="#000000" points="96.7565,-183.145 86.1688,-183.533 94.6875,-189.833 96.7565,-183.145"/>
+</g>
+<!-- m_ordern -->
+<g id="proc~~compute_dm~~UsesGraph_node27" class="node"><title>m_ordern</title>
+<polygon fill="#337ab7" stroke="#337ab7" points="88.5,-150 29.5,-150 29.5,-126 88.5,-126 88.5,-150"/>
+<text text-anchor="middle" x="59" y="-135.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">m_ordern</text>
+</g>
+<!-- proc~compute_dm&#45;&gt;m_ordern -->
+<g id="proc~~compute_dm~~UsesGraph_edge26" class="edge"><title>proc~compute_dm&#45;&gt;m_ordern</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M190.116,-587.769C187.872,-523.691 174.52,-227.04 118,-159 112.852,-152.802 105.72,-148.434 98.2155,-145.355"/>
+<polygon fill="#000000" stroke="#000000" points="99.2259,-142.001 88.6315,-142.103 96.9768,-148.63 99.2259,-142.001"/>
+</g>
+<!-- m_diagon -->
+<g id="proc~~compute_dm~~UsesGraph_node28" class="node"><title>m_diagon</title>
+<polygon fill="#337ab7" stroke="#337ab7" points="89,-108 29,-108 29,-84 89,-84 89,-108"/>
+<text text-anchor="middle" x="59" y="-93.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">m_diagon</text>
+</g>
+<!-- proc~compute_dm&#45;&gt;m_diagon -->
+<g id="proc~~compute_dm~~UsesGraph_edge27" class="edge"><title>proc~compute_dm&#45;&gt;m_diagon</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M190.312,-587.965C189.031,-520.764 179.65,-192.277 118,-117 113.102,-111.019 106.354,-106.741 99.1897,-103.682"/>
+<polygon fill="#000000" stroke="#000000" points="99.8908,-100.219 89.296,-100.22 97.5786,-106.826 99.8908,-100.219"/>
+</g>
+<!-- siesta_geom -->
+<g id="proc~~compute_dm~~UsesGraph_node29" class="node"><title>siesta_geom</title>
+<polygon fill="#337ab7" stroke="#337ab7" points="95.5,-66 22.5,-66 22.5,-42 95.5,-42 95.5,-66"/>
+<text text-anchor="middle" x="59" y="-51.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">siesta_geom</text>
+</g>
+<!-- proc~compute_dm&#45;&gt;siesta_geom -->
+<g id="proc~~compute_dm~~UsesGraph_edge28" class="edge"><title>proc~compute_dm&#45;&gt;siesta_geom</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M190.471,-587.864C190.065,-517.042 184.705,-157.434 118,-75 114.463,-70.6294 109.938,-67.1682 104.978,-64.4273"/>
+<polygon fill="#000000" stroke="#000000" points="106.255,-61.1633 95.7009,-60.2306 103.369,-67.5411 106.255,-61.1633"/>
+</g>
+<!-- m_steps -->
+<g id="proc~~compute_dm~~UsesGraph_node30" class="node"><title>m_steps</title>
+<polygon fill="#337ab7" stroke="#337ab7" points="86,-24 32,-24 32,-0 86,-0 86,-24"/>
+<text text-anchor="middle" x="59" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">m_steps</text>
+</g>
+<!-- proc~compute_dm&#45;&gt;m_steps -->
+<g id="proc~~compute_dm~~UsesGraph_edge29" class="edge"><title>proc~compute_dm&#45;&gt;m_steps</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M190.608,-587.878C191.032,-513.827 189.808,-122.658 118,-33 112.418,-26.0309 104.32,-21.3738 95.9372,-18.2619"/>
+<polygon fill="#000000" stroke="#000000" points="96.6843,-14.831 86.0987,-15.2727 94.6493,-21.5287 96.6843,-14.831"/>
+</g>
+</g>
+</svg>
+</div><div><a type="button" class="graph-help" data-toggle="modal" href="#graph-help-text">Help</a></div><div class="modal fade" id="graph-help-text" tabindex="-1" role="dialog"><div class="modal-dialog modal-lg" role="document"><div class="modal-content"><div class="modal-header"><button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button><h4 class="modal-title" id="-graph-help-label">Graph Key</h4></div><div class="modal-body">
+    <p>Nodes of different colours represent the following: </p>
+    <?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+ "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Generated by graphviz version 2.38.0 (20140413.2041)
+ -->
+<!-- Title: Graph Key Pages: 1 -->
+<svg width="490pt" height="32pt"
+ viewBox="0.00 0.00 489.50 32.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 28)">
+<title>Graph Key</title>
+<polygon fill="white" stroke="none" points="-4,4 -4,-28 485.5,-28 485.5,4 -4,4"/>
+<!-- Module -->
+<g id="node1" class="node"><title>Module</title>
+<polygon fill="#337ab7" stroke="#337ab7" points="54,-24 0,-24 0,-0 54,-0 54,-24"/>
+<text text-anchor="middle" x="27" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Module</text>
+</g>
+<!-- Submodule -->
+<g id="node2" class="node"><title>Submodule</title>
+<polygon fill="#5bc0de" stroke="#5bc0de" points="139.5,-24 72.5,-24 72.5,-0 139.5,-0 139.5,-24"/>
+<text text-anchor="middle" x="106" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Submodule</text>
+</g>
+<!-- Subroutine -->
+<g id="node3" class="node"><title>Subroutine</title>
+<polygon fill="#d9534f" stroke="#d9534f" points="222,-24 158,-24 158,-0 222,-0 222,-24"/>
+<text text-anchor="middle" x="190" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Subroutine</text>
+</g>
+<!-- Function -->
+<g id="node4" class="node"><title>Function</title>
+<polygon fill="#d94e8f" stroke="#d94e8f" points="294,-24 240,-24 240,-0 294,-0 294,-24"/>
+<text text-anchor="middle" x="267" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Function</text>
+</g>
+<!-- Program -->
+<g id="node5" class="node"><title>Program</title>
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="366,-24 312,-24 312,-0 366,-0 366,-24"/>
+<text text-anchor="middle" x="339" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Program</text>
+</g>
+<!-- This Page&#39;s Entity -->
+<g id="node6" class="node"><title>This Page&#39;s Entity</title>
+<polygon fill="none" stroke="black" points="481.5,-24 384.5,-24 384.5,-0 481.5,-0 481.5,-24"/>
+<text text-anchor="middle" x="433" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50">This Page&#39;s Entity</text>
+</g>
+</g>
+</svg>
+
+    
+    <p>Solid arrows point from a submodule to the (sub)module which it is
+    descended from. Dashed arrows point from a module or program unit to 
+    modules which it uses.
+    </p>
+    </div></div></div></div>
+      </li>
+      
+      </ul>
+    </div>
+    
+
+
+    
+
+    <h3>Arguments</h3>
+    
+      
+<table class="table table-striped varlist">
+<thead><tr><th>Type</th>
+<th>Intent</th><th>Optional</th>
+<th>Attributes</th><th></th><th>Name</th><th></th></thead>
+
+
+
+<tbody>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" id="variable-iscf%7E2"></span>integer,</td>
+  <td>intent(in)</td>
+  <td></td>
+  
+  <td></td><td>::</td>
+  <td><strong>iscf</strong></td><td></td>
+  
+</tr>
+
+</tbody>
+</table>
+
+    
+    
+    
+    <br>
+    
+    
+    <div class="panel panel-default">
+      <div class="panel-heading">
+	<h3 class="panel-title">Calls</h3>
+      </div>
+      <div class="panel-body">
+	<div class="depgraph"><?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+ "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Generated by graphviz version 2.38.0 (20140413.2041)
+ -->
+<!-- Title: proc~~compute_dm~~CallsGraph Pages: 1 -->
+<svg id="proccompute_dmCallsGraph" width="223pt" height="914pt"
+ viewBox="0.00 0.00 223.00 914.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="proc~~compute_dm~~CallsGraph" class="graph" transform="scale(1 1) rotate(0) translate(4 910)">
+<title>proc~~compute_dm~~CallsGraph</title>
+<polygon fill="white" stroke="none" points="-4,4 -4,-910 219,-910 219,4 -4,4"/>
+<!-- proc~compute_dm -->
+<g id="proc~~compute_dm~~CallsGraph_node1" class="node"><title>proc~compute_dm</title>
+<polygon fill="none" stroke="black" points="75,-465 7.10543e-15,-465 7.10543e-15,-441 75,-441 75,-465"/>
+<text text-anchor="middle" x="37.5" y="-450.6" font-family="Helvetica,sans-Serif" font-size="10.50">compute_dm</text>
+</g>
+<!-- write_orb_indx -->
+<g id="proc~~compute_dm~~CallsGraph_node2" class="node"><title>write_orb_indx</title>
+<polygon fill="#777777" stroke="#777777" points="204,-906 122,-906 122,-882 204,-882 204,-906"/>
+<text text-anchor="middle" x="163" y="-891.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">write_orb_indx</text>
+</g>
+<!-- proc~compute_dm&#45;&gt;write_orb_indx -->
+<g id="proc~~compute_dm~~CallsGraph_edge1" class="edge"><title>proc~compute_dm&#45;&gt;write_orb_indx</title>
+<path fill="none" stroke="#000000" d="M39.0386,-465.015C42.0247,-526.686 58.3659,-807.318 111,-873 111.842,-874.051 112.745,-875.049 113.701,-875.999"/>
+<polygon fill="#000000" stroke="#000000" points="111.844,-878.988 121.892,-882.348 116.133,-873.455 111.844,-878.988"/>
+</g>
+<!-- bye -->
+<g id="proc~~compute_dm~~CallsGraph_node3" class="node"><title>bye</title>
+<polygon fill="#777777" stroke="#777777" points="190,-864 136,-864 136,-840 190,-840 190,-864"/>
+<text text-anchor="middle" x="163" y="-849.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">bye</text>
+</g>
+<!-- proc~compute_dm&#45;&gt;bye -->
+<g id="proc~~compute_dm~~CallsGraph_edge2" class="edge"><title>proc~compute_dm&#45;&gt;bye</title>
+<path fill="none" stroke="#000000" d="M39.3127,-465.333C43.3905,-523.8 63.343,-772.647 111,-831 115.094,-836.013 120.582,-839.843 126.442,-842.765"/>
+<polygon fill="#000000" stroke="#000000" points="125.231,-846.052 135.809,-846.649 127.912,-839.586 125.231,-846.052"/>
+</g>
+<!-- write_hs_formatted -->
+<g id="proc~~compute_dm~~CallsGraph_node4" class="node"><title>write_hs_formatted</title>
+<polygon fill="#777777" stroke="#777777" points="215,-822 111,-822 111,-798 215,-798 215,-822"/>
+<text text-anchor="middle" x="163" y="-807.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">write_hs_formatted</text>
+</g>
+<!-- proc~compute_dm&#45;&gt;write_hs_formatted -->
+<g id="proc~~compute_dm~~CallsGraph_edge3" class="edge"><title>proc~compute_dm&#45;&gt;write_hs_formatted</title>
+<path fill="none" stroke="#000000" d="M39.6057,-465.034C44.7745,-518.931 68.1292,-737.724 111,-789 111.737,-789.882 112.517,-790.727 113.334,-791.537"/>
+<polygon fill="#000000" stroke="#000000" points="111.502,-794.546 121.545,-797.921 115.799,-789.02 111.502,-794.546"/>
+</g>
+<!-- chess_wrapper -->
+<g id="proc~~compute_dm~~CallsGraph_node5" class="node"><title>chess_wrapper</title>
+<polygon fill="#777777" stroke="#777777" points="205.5,-780 120.5,-780 120.5,-756 205.5,-756 205.5,-780"/>
+<text text-anchor="middle" x="163" y="-765.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">chess_wrapper</text>
+</g>
+<!-- proc~compute_dm&#45;&gt;chess_wrapper -->
+<g id="proc~~compute_dm~~CallsGraph_edge4" class="edge"><title>proc~compute_dm&#45;&gt;chess_wrapper</title>
+<path fill="none" stroke="#000000" d="M40.0251,-465.176C46.4836,-515.012 73.0056,-702.884 111,-747 111.861,-748 112.777,-748.953 113.74,-749.861"/>
+<polygon fill="#000000" stroke="#000000" points="111.798,-752.78 121.896,-755.987 116.002,-747.183 111.798,-752.78"/>
+</g>
+<!-- moments -->
+<g id="proc~~compute_dm~~CallsGraph_node6" class="node"><title>moments</title>
+<polygon fill="#777777" stroke="#777777" points="191.5,-738 134.5,-738 134.5,-714 191.5,-714 191.5,-738"/>
+<text text-anchor="middle" x="163" y="-723.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">moments</text>
+</g>
+<!-- proc~compute_dm&#45;&gt;moments -->
+<g id="proc~~compute_dm~~CallsGraph_edge5" class="edge"><title>proc~compute_dm&#45;&gt;moments</title>
+<path fill="none" stroke="#000000" d="M38.4669,-465.262C39.0161,-505.087 46.0201,-632.414 111,-705 114.832,-709.281 119.669,-712.708 124.83,-715.448"/>
+<polygon fill="#000000" stroke="#000000" points="123.762,-718.803 134.322,-719.671 126.608,-712.408 123.762,-718.803"/>
+</g>
+<!-- mulliken -->
+<g id="proc~~compute_dm~~CallsGraph_node7" class="node"><title>mulliken</title>
+<polygon fill="#777777" stroke="#777777" points="190,-696 136,-696 136,-672 190,-672 190,-696"/>
+<text text-anchor="middle" x="163" y="-681.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">mulliken</text>
+</g>
+<!-- proc~compute_dm&#45;&gt;mulliken -->
+<g id="proc~~compute_dm~~CallsGraph_edge6" class="edge"><title>proc~compute_dm&#45;&gt;mulliken</title>
+<path fill="none" stroke="#000000" d="M39.2974,-465.198C42.2386,-500.516 55.4167,-604.085 111,-663 115.252,-667.507 120.612,-671.077 126.249,-673.896"/>
+<polygon fill="#000000" stroke="#000000" points="125.277,-677.285 135.85,-677.963 128.008,-670.839 125.277,-677.285"/>
+</g>
+<!-- dminim -->
+<g id="proc~~compute_dm~~CallsGraph_node8" class="node"><title>dminim</title>
+<polygon fill="#777777" stroke="#777777" points="190,-654 136,-654 136,-630 190,-630 190,-654"/>
+<text text-anchor="middle" x="163" y="-639.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">dminim</text>
+</g>
+<!-- proc~compute_dm&#45;&gt;dminim -->
+<g id="proc~~compute_dm~~CallsGraph_edge7" class="edge"><title>proc~compute_dm&#45;&gt;dminim</title>
+<path fill="none" stroke="#000000" d="M40.5394,-465.355C46.1904,-495.86 64.7934,-575.563 111,-621 115.374,-625.301 120.752,-628.764 126.359,-631.54"/>
+<polygon fill="#000000" stroke="#000000" points="125.3,-634.893 135.872,-635.589 128.041,-628.452 125.3,-634.893"/>
+</g>
+<!-- eold -->
+<g id="proc~~compute_dm~~CallsGraph_node9" class="node"><title>eold</title>
+<polygon fill="#777777" stroke="#777777" points="190,-612 136,-612 136,-588 190,-588 190,-612"/>
+<text text-anchor="middle" x="163" y="-597.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">eold</text>
+</g>
+<!-- proc~compute_dm&#45;&gt;eold -->
+<g id="proc~~compute_dm~~CallsGraph_edge8" class="edge"><title>proc~compute_dm&#45;&gt;eold</title>
+<path fill="none" stroke="#000000" d="M42.4503,-465.147C51.064,-489.858 73.7993,-546.396 111,-579 115.521,-582.962 120.892,-586.244 126.424,-588.941"/>
+<polygon fill="#000000" stroke="#000000" points="125.194,-592.222 135.764,-592.944 127.951,-585.788 125.194,-592.222"/>
+</g>
+<!-- ordern -->
+<g id="proc~~compute_dm~~CallsGraph_node10" class="node"><title>ordern</title>
+<polygon fill="#777777" stroke="#777777" points="190,-570 136,-570 136,-546 190,-546 190,-570"/>
+<text text-anchor="middle" x="163" y="-555.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">ordern</text>
+</g>
+<!-- proc~compute_dm&#45;&gt;ordern -->
+<g id="proc~~compute_dm~~CallsGraph_edge9" class="edge"><title>proc~compute_dm&#45;&gt;ordern</title>
+<path fill="none" stroke="#000000" d="M46.2394,-465.154C58.1856,-483.061 82.7169,-516.608 111,-537 115.66,-540.36 120.938,-543.299 126.287,-545.829"/>
+<polygon fill="#000000" stroke="#000000" points="125.305,-549.216 135.875,-549.945 128.066,-542.784 125.305,-549.216"/>
+</g>
+<!-- normalize_dm -->
+<g id="proc~~compute_dm~~CallsGraph_node11" class="node"><title>normalize_dm</title>
+<polygon fill="#777777" stroke="#777777" points="203,-528 123,-528 123,-504 203,-504 203,-528"/>
+<text text-anchor="middle" x="163" y="-513.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">normalize_dm</text>
+</g>
+<!-- proc~compute_dm&#45;&gt;normalize_dm -->
+<g id="proc~~compute_dm~~CallsGraph_edge10" class="edge"><title>proc~compute_dm&#45;&gt;normalize_dm</title>
+<path fill="none" stroke="#000000" d="M57.8037,-465.137C72.1914,-473.946 92.4715,-485.87 111,-495 114.377,-496.664 117.919,-498.312 121.496,-499.91"/>
+<polygon fill="#000000" stroke="#000000" points="120.39,-503.245 130.958,-503.999 123.167,-496.819 120.39,-503.245"/>
+</g>
+<!-- timer -->
+<g id="proc~~compute_dm~~CallsGraph_node12" class="node"><title>timer</title>
+<polygon fill="#777777" stroke="#777777" points="190,-486 136,-486 136,-462 190,-462 190,-486"/>
+<text text-anchor="middle" x="163" y="-471.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">timer</text>
+</g>
+<!-- proc~compute_dm&#45;&gt;timer -->
+<g id="proc~~compute_dm~~CallsGraph_edge11" class="edge"><title>proc~compute_dm&#45;&gt;timer</title>
+<path fill="none" stroke="#000000" d="M75.2197,-459.244C91.2011,-461.961 109.875,-465.137 125.798,-467.844"/>
+<polygon fill="#000000" stroke="#000000" points="125.362,-471.32 135.808,-469.546 126.536,-464.419 125.362,-471.32"/>
+</g>
+<!-- transiesta -->
+<g id="proc~~compute_dm~~CallsGraph_node13" class="node"><title>transiesta</title>
+<polygon fill="#777777" stroke="#777777" points="192.5,-444 133.5,-444 133.5,-420 192.5,-420 192.5,-444"/>
+<text text-anchor="middle" x="163" y="-429.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">transiesta</text>
+</g>
+<!-- proc~compute_dm&#45;&gt;transiesta -->
+<g id="proc~~compute_dm~~CallsGraph_edge12" class="edge"><title>proc~compute_dm&#45;&gt;transiesta</title>
+<path fill="none" stroke="#000000" d="M75.2197,-446.756C90.3556,-444.182 107.907,-441.198 123.248,-438.589"/>
+<polygon fill="#000000" stroke="#000000" points="124.188,-441.98 133.459,-436.853 123.014,-435.079 124.188,-441.98"/>
+</g>
+<!-- escf -->
+<g id="proc~~compute_dm~~CallsGraph_node14" class="node"><title>escf</title>
+<polygon fill="#777777" stroke="#777777" points="190,-402 136,-402 136,-378 190,-378 190,-402"/>
+<text text-anchor="middle" x="163" y="-387.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">escf</text>
+</g>
+<!-- proc~compute_dm&#45;&gt;escf -->
+<g id="proc~~compute_dm~~CallsGraph_edge13" class="edge"><title>proc~compute_dm&#45;&gt;escf</title>
+<path fill="none" stroke="#000000" d="M57.8037,-440.863C72.1914,-432.054 92.4715,-420.13 111,-411 115.939,-408.566 121.232,-406.167 126.471,-403.908"/>
+<polygon fill="#000000" stroke="#000000" points="127.884,-407.111 135.755,-400.019 125.179,-400.655 127.884,-407.111"/>
+</g>
+<!-- mpi_bcast -->
+<g id="proc~~compute_dm~~CallsGraph_node15" class="node"><title>mpi_bcast</title>
+<polygon fill="#777777" stroke="#777777" points="193.5,-360 132.5,-360 132.5,-336 193.5,-336 193.5,-360"/>
+<text text-anchor="middle" x="163" y="-345.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">mpi_bcast</text>
+</g>
+<!-- proc~compute_dm&#45;&gt;mpi_bcast -->
+<g id="proc~~compute_dm~~CallsGraph_edge14" class="edge"><title>proc~compute_dm&#45;&gt;mpi_bcast</title>
+<path fill="none" stroke="#000000" d="M46.2394,-440.846C58.1856,-422.939 82.7169,-389.392 111,-369 114.727,-366.313 118.849,-363.895 123.086,-361.741"/>
+<polygon fill="#000000" stroke="#000000" points="124.815,-364.798 132.439,-357.441 121.891,-358.438 124.815,-364.798"/>
+</g>
+<!-- val -->
+<g id="proc~~compute_dm~~CallsGraph_node16" class="node"><title>val</title>
+<polygon fill="#777777" stroke="#777777" points="190,-318 136,-318 136,-294 190,-294 190,-318"/>
+<text text-anchor="middle" x="163" y="-303.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">val</text>
+</g>
+<!-- proc~compute_dm&#45;&gt;val -->
+<g id="proc~~compute_dm~~CallsGraph_edge15" class="edge"><title>proc~compute_dm&#45;&gt;val</title>
+<path fill="none" stroke="#000000" d="M42.4503,-440.853C51.064,-416.142 73.7993,-359.604 111,-327 115.521,-323.038 120.892,-319.756 126.424,-317.059"/>
+<polygon fill="#000000" stroke="#000000" points="127.951,-320.212 135.764,-313.056 125.194,-313.778 127.951,-320.212"/>
+</g>
+<!-- dold -->
+<g id="proc~~compute_dm~~CallsGraph_node17" class="node"><title>dold</title>
+<polygon fill="#777777" stroke="#777777" points="190,-276 136,-276 136,-252 190,-252 190,-276"/>
+<text text-anchor="middle" x="163" y="-261.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">dold</text>
+</g>
+<!-- proc~compute_dm&#45;&gt;dold -->
+<g id="proc~~compute_dm~~CallsGraph_edge16" class="edge"><title>proc~compute_dm&#45;&gt;dold</title>
+<path fill="none" stroke="#000000" d="M40.5394,-440.645C46.1904,-410.14 64.7934,-330.437 111,-285 115.374,-280.699 120.752,-277.236 126.359,-274.46"/>
+<polygon fill="#000000" stroke="#000000" points="128.041,-277.548 135.872,-270.411 125.3,-271.107 128.041,-277.548"/>
+</g>
+<!-- dscf -->
+<g id="proc~~compute_dm~~CallsGraph_node18" class="node"><title>dscf</title>
+<polygon fill="#777777" stroke="#777777" points="190,-234 136,-234 136,-210 190,-210 190,-234"/>
+<text text-anchor="middle" x="163" y="-219.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">dscf</text>
+</g>
+<!-- proc~compute_dm&#45;&gt;dscf -->
+<g id="proc~~compute_dm~~CallsGraph_edge17" class="edge"><title>proc~compute_dm&#45;&gt;dscf</title>
+<path fill="none" stroke="#000000" d="M39.2974,-440.802C42.2386,-405.484 55.4167,-301.915 111,-243 115.252,-238.493 120.612,-234.923 126.249,-232.104"/>
+<polygon fill="#000000" stroke="#000000" points="128.008,-235.161 135.85,-228.037 125.277,-228.715 128.008,-235.161"/>
+</g>
+<!-- diagon -->
+<g id="proc~~compute_dm~~CallsGraph_node19" class="node"><title>diagon</title>
+<polygon fill="#777777" stroke="#777777" points="190,-192 136,-192 136,-168 190,-168 190,-192"/>
+<text text-anchor="middle" x="163" y="-177.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">diagon</text>
+</g>
+<!-- proc~compute_dm&#45;&gt;diagon -->
+<g id="proc~~compute_dm~~CallsGraph_edge18" class="edge"><title>proc~compute_dm&#45;&gt;diagon</title>
+<path fill="none" stroke="#000000" d="M38.4669,-440.738C39.0161,-400.913 46.0201,-273.586 111,-201 115.275,-196.224 120.801,-192.511 126.632,-189.63"/>
+<polygon fill="#000000" stroke="#000000" points="128.031,-192.839 135.91,-185.755 125.333,-186.379 128.031,-192.839"/>
+</g>
+<!-- zminim -->
+<g id="proc~~compute_dm~~CallsGraph_node20" class="node"><title>zminim</title>
+<polygon fill="#777777" stroke="#777777" points="190,-150 136,-150 136,-126 190,-126 190,-150"/>
+<text text-anchor="middle" x="163" y="-135.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">zminim</text>
+</g>
+<!-- proc~compute_dm&#45;&gt;zminim -->
+<g id="proc~~compute_dm~~CallsGraph_edge19" class="edge"><title>proc~compute_dm&#45;&gt;zminim</title>
+<path fill="none" stroke="#000000" d="M40.0251,-440.824C46.4836,-390.988 73.0056,-203.116 111,-159 115.183,-154.143 120.665,-150.391 126.481,-147.497"/>
+<polygon fill="#000000" stroke="#000000" points="127.879,-150.706 135.757,-143.621 125.18,-144.247 127.879,-150.706"/>
+</g>
+<!-- compute_ebs_shift -->
+<g id="proc~~compute_dm~~CallsGraph_node21" class="node"><title>compute_ebs_shift</title>
+<polygon fill="#777777" stroke="#777777" points="214.5,-108 111.5,-108 111.5,-84 214.5,-84 214.5,-108"/>
+<text text-anchor="middle" x="163" y="-93.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">compute_ebs_shift</text>
+</g>
+<!-- proc~compute_dm&#45;&gt;compute_ebs_shift -->
+<g id="proc~~compute_dm~~CallsGraph_edge20" class="edge"><title>proc~compute_dm&#45;&gt;compute_ebs_shift</title>
+<path fill="none" stroke="#000000" d="M39.6057,-440.966C44.7745,-387.069 68.1292,-168.276 111,-117 111.737,-116.118 112.517,-115.273 113.334,-114.463"/>
+<polygon fill="#000000" stroke="#000000" points="115.799,-116.98 121.545,-108.079 111.502,-111.454 115.799,-116.98"/>
+</g>
+<!-- write_dmh_netcdf -->
+<g id="proc~~compute_dm~~CallsGraph_node22" class="node"><title>write_dmh_netcdf</title>
+<polygon fill="#777777" stroke="#777777" points="211.5,-66 114.5,-66 114.5,-42 211.5,-42 211.5,-66"/>
+<text text-anchor="middle" x="163" y="-51.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">write_dmh_netcdf</text>
+</g>
+<!-- proc~compute_dm&#45;&gt;write_dmh_netcdf -->
+<g id="proc~~compute_dm~~CallsGraph_edge21" class="edge"><title>proc~compute_dm&#45;&gt;write_dmh_netcdf</title>
+<path fill="none" stroke="#000000" d="M39.3127,-440.667C43.3905,-382.2 63.343,-133.353 111,-75 111.727,-74.11 112.498,-73.2574 113.307,-72.4405"/>
+<polygon fill="#000000" stroke="#000000" points="115.776,-74.9504 121.464,-66.0119 111.444,-69.4523 115.776,-74.9504"/>
+</g>
+<!-- pexsi_solver -->
+<g id="proc~~compute_dm~~CallsGraph_node23" class="node"><title>pexsi_solver</title>
+<polygon fill="#777777" stroke="#777777" points="199,-24 127,-24 127,-0 199,-0 199,-24"/>
+<text text-anchor="middle" x="163" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">pexsi_solver</text>
+</g>
+<!-- proc~compute_dm&#45;&gt;pexsi_solver -->
+<g id="proc~~compute_dm~~CallsGraph_edge22" class="edge"><title>proc~compute_dm&#45;&gt;pexsi_solver</title>
+<path fill="none" stroke="#000000" d="M39.0386,-440.985C42.0247,-379.314 58.3659,-98.682 111,-33 113.096,-30.3847 115.572,-28.092 118.285,-26.0826"/>
+<polygon fill="#000000" stroke="#000000" points="120.213,-29.0072 126.992,-20.8648 116.615,-23.0028 120.213,-29.0072"/>
+</g>
+</g>
+</svg>
+</div><div><a type="button" class="graph-help" data-toggle="modal" href="#graph-help-text">Help</a></div><div class="modal fade" id="graph-help-text" tabindex="-1" role="dialog"><div class="modal-dialog modal-lg" role="document"><div class="modal-content"><div class="modal-header"><button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button><h4 class="modal-title" id="-graph-help-label">Graph Key</h4></div><div class="modal-body">
+    <p>Nodes of different colours represent the following: </p>
+    <?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+ "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Generated by graphviz version 2.38.0 (20140413.2041)
+ -->
+<!-- Title: Graph Key Pages: 1 -->
+<svg width="560pt" height="32pt"
+ viewBox="0.00 0.00 559.50 32.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 28)">
+<title>Graph Key</title>
+<polygon fill="white" stroke="none" points="-4,4 -4,-28 555.5,-28 555.5,4 -4,4"/>
+<!-- Subroutine -->
+<g id="node1" class="node"><title>Subroutine</title>
+<polygon fill="#d9534f" stroke="#d9534f" points="64,-24 0,-24 0,-0 64,-0 64,-24"/>
+<text text-anchor="middle" x="32" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Subroutine</text>
+</g>
+<!-- Function -->
+<g id="node2" class="node"><title>Function</title>
+<polygon fill="#d94e8f" stroke="#d94e8f" points="136,-24 82,-24 82,-0 136,-0 136,-24"/>
+<text text-anchor="middle" x="109" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Function</text>
+</g>
+<!-- Interface -->
+<g id="node3" class="node"><title>Interface</title>
+<polygon fill="#a7506f" stroke="#a7506f" points="209.5,-24 154.5,-24 154.5,-0 209.5,-0 209.5,-24"/>
+<text text-anchor="middle" x="182" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Interface</text>
+</g>
+<!-- Unknown Procedure Type -->
+<g id="node4" class="node"><title>Unknown Procedure Type</title>
+<polygon fill="#777777" stroke="#777777" points="364,-24 228,-24 228,-0 364,-0 364,-24"/>
+<text text-anchor="middle" x="296" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Unknown Procedure Type</text>
+</g>
+<!-- Program -->
+<g id="node5" class="node"><title>Program</title>
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="436,-24 382,-24 382,-0 436,-0 436,-24"/>
+<text text-anchor="middle" x="409" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Program</text>
+</g>
+<!-- This Page&#39;s Entity -->
+<g id="node6" class="node"><title>This Page&#39;s Entity</title>
+<polygon fill="none" stroke="black" points="551.5,-24 454.5,-24 454.5,-0 551.5,-0 551.5,-24"/>
+<text text-anchor="middle" x="503" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50">This Page&#39;s Entity</text>
+</g>
+</g>
+</svg>
+
+    
+    <p>Solid arrows point from a procedure to one which it calls. Dashed 
+    arrows point from an interface to procedures which implement that interface.
+    This could include the module procedures in a generic interface or the
+    implementation in a submodule of an interface in a parent module.
+    </p>
+    </div></div></div></div>
+      </div>
+    </div>
+     
+     
+    <div class="panel panel-default">
+      <div class="panel-heading">
+	<h3 class="panel-title">Called by</h3>
+      </div>
+      <div class="panel-body">
+	<div class="depgraph"><?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+ "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Generated by graphviz version 2.38.0 (20140413.2041)
+ -->
+<!-- Title: proc~~compute_dm~~CalledByGraph Pages: 1 -->
+<svg id="proccompute_dmCalledByGraph" width="195pt" height="32pt"
+ viewBox="0.00 0.00 195.00 32.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="proc~~compute_dm~~CalledByGraph" class="graph" transform="scale(1 1) rotate(0) translate(4 28)">
+<title>proc~~compute_dm~~CalledByGraph</title>
+<polygon fill="white" stroke="none" points="-4,4 -4,-28 191,-28 191,4 -4,4"/>
+<!-- proc~compute_dm -->
+<g id="proc~~compute_dm~~CalledByGraph_node1" class="node"><title>proc~compute_dm</title>
+<polygon fill="none" stroke="black" points="187,-24 112,-24 112,-0 187,-0 187,-24"/>
+<text text-anchor="middle" x="149.5" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50">compute_dm</text>
+</g>
+<!-- proc~siesta_forces -->
+<g id="proc~~compute_dm~~CalledByGraph_node2" class="node"><title>proc~siesta_forces</title>
+<g id="a_proc~~compute_dm~~CalledByGraph_node2"><a xlink:href=".././proc/siesta_forces.html" xlink:title="siesta_forces">
+<polygon fill="#d9534f" stroke="#d9534f" points="76,-24 0,-24 0,-0 76,-0 76,-24"/>
+<text text-anchor="middle" x="38" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">siesta_forces</text>
+</a>
+</g>
+</g>
+<!-- proc~siesta_forces&#45;&gt;proc~compute_dm -->
+<g id="proc~~compute_dm~~CalledByGraph_edge1" class="edge"><title>proc~siesta_forces&#45;&gt;proc~compute_dm</title>
+<path fill="none" stroke="#000000" d="M76.0717,-12C84.2761,-12 93.0739,-12 101.611,-12"/>
+<polygon fill="#000000" stroke="#000000" points="101.838,-15.5001 111.838,-12 101.838,-8.5001 101.838,-15.5001"/>
+</g>
+</g>
+</svg>
+</div><div><a type="button" class="graph-help" data-toggle="modal" href="#graph-help-text">Help</a></div><div class="modal fade" id="graph-help-text" tabindex="-1" role="dialog"><div class="modal-dialog modal-lg" role="document"><div class="modal-content"><div class="modal-header"><button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button><h4 class="modal-title" id="-graph-help-label">Graph Key</h4></div><div class="modal-body">
+    <p>Nodes of different colours represent the following: </p>
+    <?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+ "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Generated by graphviz version 2.38.0 (20140413.2041)
+ -->
+<!-- Title: Graph Key Pages: 1 -->
+<svg width="560pt" height="32pt"
+ viewBox="0.00 0.00 559.50 32.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 28)">
+<title>Graph Key</title>
+<polygon fill="white" stroke="none" points="-4,4 -4,-28 555.5,-28 555.5,4 -4,4"/>
+<!-- Subroutine -->
+<g id="node1" class="node"><title>Subroutine</title>
+<polygon fill="#d9534f" stroke="#d9534f" points="64,-24 0,-24 0,-0 64,-0 64,-24"/>
+<text text-anchor="middle" x="32" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Subroutine</text>
+</g>
+<!-- Function -->
+<g id="node2" class="node"><title>Function</title>
+<polygon fill="#d94e8f" stroke="#d94e8f" points="136,-24 82,-24 82,-0 136,-0 136,-24"/>
+<text text-anchor="middle" x="109" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Function</text>
+</g>
+<!-- Interface -->
+<g id="node3" class="node"><title>Interface</title>
+<polygon fill="#a7506f" stroke="#a7506f" points="209.5,-24 154.5,-24 154.5,-0 209.5,-0 209.5,-24"/>
+<text text-anchor="middle" x="182" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Interface</text>
+</g>
+<!-- Unknown Procedure Type -->
+<g id="node4" class="node"><title>Unknown Procedure Type</title>
+<polygon fill="#777777" stroke="#777777" points="364,-24 228,-24 228,-0 364,-0 364,-24"/>
+<text text-anchor="middle" x="296" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Unknown Procedure Type</text>
+</g>
+<!-- Program -->
+<g id="node5" class="node"><title>Program</title>
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="436,-24 382,-24 382,-0 436,-0 436,-24"/>
+<text text-anchor="middle" x="409" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Program</text>
+</g>
+<!-- This Page&#39;s Entity -->
+<g id="node6" class="node"><title>This Page&#39;s Entity</title>
+<polygon fill="none" stroke="black" points="551.5,-24 454.5,-24 454.5,-0 551.5,-0 551.5,-24"/>
+<text text-anchor="middle" x="503" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50">This Page&#39;s Entity</text>
+</g>
+</g>
+</svg>
+
+    
+    <p>Solid arrows point from a procedure to one which it calls. Dashed 
+    arrows point from an interface to procedures which implement that interface.
+    This could include the module procedures in a generic interface or the
+    implementation in a submodule of an interface in a parent module.
+    </p>
+    </div></div></div></div>
+      </div>
+    </div>
+     
+    <br>
+
+    <section class="visible-xs visible-sm hidden-md">
+      
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="panel panel-primary">
+  <div class="panel-heading text-left"><h3 class="panel-title">Source Code</h3></div>
+  <div class="list-group">
+    <a class="list-group-item" href="../proc/compute_dm.html#src">compute_dm</a>
+  </div>
+</div>
+
+
+    </section>
+    <br class="visible-xs visible-sm hidden-md">
+
+    
+
+    
+    
+    
+    
+    
+
+    
+    
+    
+    
+    
+
+
+    
+    
+    
+    <section>
+    <h2><span class="anchor" id="src"></span>Source Code</h2>
+    <div class="highlight"><pre><span></span>      <span class="k">subroutine </span><span class="n">compute_dm</span><span class="p">(</span> <span class="n">iscf</span> <span class="p">)</span>
+      <span class="k">use </span><span class="nb">precision</span>
+<span class="nb">      </span><span class="k">use </span><span class="n">units</span><span class="p">,</span> <span class="n">only</span><span class="p">:</span> <span class="n">eV</span>
+      <span class="k">USE </span><span class="n">siesta_options</span>
+      <span class="k">use </span><span class="n">class_dSpData1D</span><span class="p">,</span> <span class="n">only</span> <span class="p">:</span> <span class="n">val</span>
+      <span class="k">use </span><span class="n">sparse_matrices</span>
+      <span class="k">use </span><span class="n">siesta_geom</span>
+      <span class="k">use </span><span class="n">atomlist</span><span class="p">,</span> <span class="n">only</span><span class="p">:</span> <span class="n">qa</span><span class="p">,</span> <span class="n">lasto</span><span class="p">,</span> <span class="n">iphorb</span><span class="p">,</span> <span class="n">iaorb</span><span class="p">,</span> <span class="n">no_u</span><span class="p">,</span> <span class="n">no_s</span><span class="p">,</span> <span class="n">indxuo</span><span class="p">,</span> 
+     <span class="p">&amp;</span>                    <span class="n">qtot</span><span class="p">,</span> <span class="n">Qtots</span><span class="p">,</span> <span class="n">no_l</span>
+      <span class="k">use </span><span class="n">sys</span><span class="p">,</span> <span class="n">only</span><span class="p">:</span> <span class="n">die</span><span class="p">,</span> <span class="n">bye</span>
+      <span class="k">use </span><span class="n">Kpoint_grid</span>
+      <span class="k">use </span><span class="n">m_energies</span><span class="p">,</span>   <span class="n">only</span><span class="p">:</span> <span class="n">Ebs</span><span class="p">,</span> <span class="n">Ecorrec</span><span class="p">,</span> <span class="n">Entropy</span><span class="p">,</span> <span class="n">DE_NEGF</span>
+      <span class="k">use </span><span class="n">m_energies</span><span class="p">,</span>   <span class="n">only</span><span class="p">:</span> <span class="n">Ef</span><span class="p">,</span> <span class="n">Efs</span>
+      <span class="k">use </span><span class="n">m_rmaxh</span>
+      <span class="k">use </span><span class="n">m_eo</span>
+      <span class="k">use </span><span class="n">m_spin</span><span class="p">,</span>   <span class="n">only</span><span class="p">:</span> <span class="n">spin</span>
+      <span class="k">use </span><span class="n">m_diagon</span><span class="p">,</span> <span class="n">only</span><span class="p">:</span> <span class="n">diagon</span>
+      <span class="k">use </span><span class="n">m_gamma</span>
+      <span class="k">use </span><span class="n">parallel</span><span class="p">,</span> <span class="n">only</span><span class="p">:</span> <span class="n">IONode</span>
+      <span class="k">use </span><span class="n">parallel</span><span class="p">,</span> <span class="n">only</span><span class="p">:</span> <span class="n">SIESTA_worker</span>
+      <span class="k">use </span><span class="n">m_compute_ebs_shift</span><span class="p">,</span> <span class="n">only</span><span class="p">:</span> <span class="n">compute_ebs_shift</span>
+<span class="cp">#ifdef SIESTA__PEXSI</span>
+      <span class="k">use </span><span class="n">m_pexsi_solver</span><span class="p">,</span>  <span class="n">only</span><span class="p">:</span> <span class="n">pexsi_solver</span>
+<span class="cp">#endif</span>
+      <span class="k">use </span><span class="n">m_hsx</span><span class="p">,</span> <span class="n">only</span>      <span class="p">:</span> <span class="n">write_hs_formatted</span>
+<span class="cp">#ifdef MPI</span>
+      <span class="k">use </span><span class="n">mpi_siesta</span>
+<span class="cp">#endif</span>
+<span class="cp">#ifdef CDF</span>
+      <span class="k">use </span><span class="n">iodmhs_netcdf</span><span class="p">,</span> <span class="n">only</span><span class="p">:</span> <span class="n">write_dmh_netcdf</span>
+<span class="cp">#endif</span>
+      <span class="k">use </span><span class="n">m_dminim</span><span class="p">,</span>        <span class="n">only</span> <span class="p">:</span> <span class="n">dminim</span>
+      <span class="k">use </span><span class="n">m_zminim</span><span class="p">,</span>        <span class="n">only</span> <span class="p">:</span> <span class="n">zminim</span>
+      <span class="k">use </span><span class="n">m_ordern</span><span class="p">,</span>        <span class="n">only</span> <span class="p">:</span> <span class="n">ordern</span>
+      <span class="k">use </span><span class="n">m_steps</span><span class="p">,</span>         <span class="n">only</span> <span class="p">:</span> <span class="n">istp</span>
+      <span class="k">use </span><span class="n">m_normalize_dm</span><span class="p">,</span>  <span class="n">only</span> <span class="p">:</span> <span class="n">normalize_dm</span>
+<span class="cp">#ifdef SIESTA__CHESS</span>
+      <span class="k">use </span><span class="n">m_chess</span><span class="p">,</span> <span class="n">only</span><span class="p">:</span> <span class="n">CheSS_wrapper</span>
+<span class="cp">#endif</span>
+      <span class="k">use </span><span class="n">m_energies</span><span class="p">,</span>   <span class="n">only</span><span class="p">:</span> <span class="n">DE_NEGF</span>
+      <span class="k">use </span><span class="n">m_ts_global_vars</span><span class="p">,</span> <span class="n">only</span> <span class="p">:</span> <span class="n">TSmode</span><span class="p">,</span> <span class="n">TSinit</span><span class="p">,</span> <span class="n">TSrun</span>
+      <span class="k">use </span><span class="n">m_transiesta</span><span class="p">,</span>     <span class="n">only</span> <span class="p">:</span> <span class="n">transiesta</span>
+      
+      <span class="k">implicit none</span>
+      
+<span class="c">!     Input variables</span>
+      <span class="kt">integer</span><span class="p">,</span> <span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">)</span> <span class="kd">::</span> <span class="n">iscf</span>
+
+      <span class="kt">real</span><span class="p">(</span><span class="n">dp</span><span class="p">)</span>            <span class="kd">::</span> <span class="n">delta_Ebs</span><span class="p">,</span> <span class="n">delta_Ef</span>
+      <span class="kt">logical</span>             <span class="kd">::</span> <span class="n">CallDiagon</span>
+      <span class="kt">integer</span>             <span class="kd">::</span> <span class="n">nnz</span>
+      <span class="kt">real</span><span class="p">(</span><span class="n">dp</span><span class="p">),</span> <span class="k">pointer</span> <span class="kd">::</span> <span class="n">H_kin</span><span class="p">(:)</span>
+
+      <span class="c">! e1&gt;e2 to signal that we do not want DOS weights</span>
+      <span class="kt">real</span><span class="p">(</span><span class="n">dp</span><span class="p">),</span> <span class="k">parameter</span> <span class="kd">::</span> <span class="n">e1</span> <span class="o">=</span> <span class="mf">1.0_dp</span><span class="p">,</span> <span class="n">e2</span> <span class="o">=</span> <span class="o">-</span><span class="mf">1.0_dp</span>
+      <span class="kt">real</span><span class="p">(</span><span class="n">dp</span><span class="p">)</span>            <span class="kd">::</span> <span class="n">buffer1</span>
+      <span class="kt">integer</span>             <span class="kd">::</span> <span class="n">mpierr</span>
+
+<span class="c">!       character(15)            :: filename, indexstr</span>
+<span class="c">!       character(15), parameter :: fnameform = &#39;(A,A,A)&#39;</span>
+
+
+<span class="c">!-------------------------------------------------------------------- BEGIN</span>
+
+      <span class="k">if</span> <span class="p">(</span><span class="n">SIESTA_worker</span><span class="p">)</span> <span class="k">call </span><span class="n">timer</span><span class="p">(</span> <span class="s1">&#39;compute_dm&#39;</span><span class="p">,</span> <span class="mi">1</span> <span class="p">)</span>
+
+<span class="cp">#ifdef MPI</span>
+      <span class="k">call </span><span class="n">MPI_Bcast</span><span class="p">(</span><span class="n">isolve</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="n">MPI_integer</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="n">true_MPI_Comm_World</span><span class="p">,</span><span class="n">mpierr</span><span class="p">)</span>
+<span class="cp">#endif     </span>
+
+      <span class="k">if</span> <span class="p">(</span><span class="n">SIESTA_worker</span><span class="p">)</span> <span class="k">then</span>
+         <span class="c">! Save present density matrix</span>
+<span class="c">!$OMP parallel default(shared)</span>
+         <span class="k">if</span> <span class="p">(</span> <span class="n">converge_EDM</span> <span class="p">)</span> <span class="k">then</span>
+<span class="c">!$OMP workshare</span>
+            <span class="n">Eold</span><span class="p">(:,:)</span> <span class="o">=</span> <span class="n">Escf</span><span class="p">(:,:)</span>
+            <span class="n">Dold</span><span class="p">(:,:)</span> <span class="o">=</span> <span class="n">Dscf</span><span class="p">(:,:)</span>
+<span class="c">!$OMP end workshare</span>
+         <span class="k">else</span>
+<span class="c">!$OMP workshare</span>
+            <span class="n">Dold</span><span class="p">(:,:)</span> <span class="o">=</span> <span class="n">Dscf</span><span class="p">(:,:)</span>
+<span class="c">!$OMP end workshare</span>
+         <span class="k">end if</span>
+<span class="c">!$OMP end parallel</span>
+      <span class="k">end if</span>
+
+      <span class="c">! Compute shift in Tr(H*DM) for fermi-level bracketting</span>
+      <span class="c">! Use the current H, the previous iteration H, and the</span>
+      <span class="c">! previous iteration DM</span>
+
+      <span class="k">if</span> <span class="p">(</span><span class="n">SIESTA_worker</span><span class="p">)</span> <span class="k">then</span>
+<span class="k">         if</span> <span class="p">(</span><span class="n">iscf</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">)</span> <span class="k">then</span>
+<span class="k">            call </span><span class="n">compute_Ebs_shift</span><span class="p">(</span><span class="n">Dscf</span><span class="p">,</span><span class="n">H</span><span class="p">,</span><span class="n">Hold</span><span class="p">,</span><span class="n">delta_Ebs</span><span class="p">)</span>
+            <span class="n">delta_Ef</span> <span class="o">=</span> <span class="n">delta_Ebs</span> <span class="o">/</span> <span class="n">qtot</span>
+            <span class="k">if</span> <span class="p">(</span><span class="n">ionode</span><span class="p">.</span><span class="nb">and</span><span class="p">.</span><span class="n">isolve</span><span class="p">.</span><span class="n">eq</span><span class="p">.</span><span class="n">SOLVE_PEXSI</span><span class="p">)</span> <span class="k">then</span>
+<span class="k">               write</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span><span class="s2">&quot;(a,f16.5)&quot;</span><span class="p">)</span>
+     <span class="err">$</span>              <span class="s2">&quot;Estimated change in band-structure energy:&quot;</span><span class="p">,</span>
+     <span class="err">$</span>              <span class="n">delta_Ebs</span><span class="o">/</span><span class="n">eV</span><span class="p">,</span> <span class="s2">&quot;Estimated shift in E_fermi: &quot;</span><span class="p">,</span>
+     <span class="err">$</span>              <span class="n">delta_Ef</span><span class="o">/</span><span class="n">eV</span>
+            <span class="n">endif</span>
+               
+         <span class="k">else</span>
+<span class="k">            </span><span class="n">delta_Ebs</span> <span class="o">=</span> <span class="mf">0.0_dp</span>
+            <span class="n">delta_Ef</span>  <span class="o">=</span> <span class="mf">0.0_dp</span>
+         <span class="n">endif</span>
+      <span class="n">endif</span>
+
+<span class="cp">#ifdef SIESTA__PEXSI</span>
+      <span class="k">if</span> <span class="p">(</span><span class="n">isolve</span> <span class="p">.</span><span class="n">eq</span><span class="p">.</span> <span class="n">SOLVE_PEXSI</span><span class="p">)</span> <span class="k">then</span>
+        <span class="c">! This test done in node 0 since NonCol and SpOrb</span>
+        <span class="c">! are not set for PEXSI-solver-only processes</span>
+         <span class="k">if</span> <span class="p">(</span><span class="n">ionode</span><span class="p">)</span> <span class="k">then</span>
+<span class="k">            if</span> <span class="p">(</span><span class="n">spin</span><span class="p">%</span><span class="n">NCol</span> <span class="p">.</span><span class="nb">or</span><span class="p">.</span> <span class="n">spin</span><span class="p">%</span><span class="n">SO</span><span class="p">)</span> <span class="k">call </span><span class="n">die</span><span class="p">(</span>
+     <span class="err">$</span>               <span class="s2">&quot;The PEXSI solver does not implement &quot;</span><span class="o">//</span>
+     <span class="err">$</span>               <span class="s2">&quot;non-coll spins or Spin-orbit yet&quot;</span><span class="p">)</span>
+         <span class="n">endif</span>
+         <span class="k">call </span><span class="n">pexsi_solver</span><span class="p">(</span><span class="n">iscf</span><span class="p">,</span> <span class="n">no_u</span><span class="p">,</span> <span class="n">no_l</span><span class="p">,</span> <span class="n">spin</span><span class="p">%</span><span class="n">spinor</span><span class="p">,</span>
+     <span class="err">$</span>              <span class="n">maxnh</span><span class="p">,</span> <span class="n">numh</span><span class="p">,</span> <span class="n">listhptr</span><span class="p">,</span> <span class="n">listh</span><span class="p">,</span>
+     <span class="err">$</span>              <span class="n">H</span><span class="p">,</span> <span class="n">S</span><span class="p">,</span> <span class="n">qtot</span><span class="p">,</span> <span class="n">Dscf</span><span class="p">,</span> <span class="n">Escf</span><span class="p">,</span>
+     <span class="err">$</span>              <span class="n">ef</span><span class="p">,</span> <span class="n">Entropy</span><span class="p">,</span> <span class="n">temp</span><span class="p">,</span> <span class="n">delta_Ef</span><span class="p">)</span>
+      <span class="n">endif</span>
+      <span class="k">if</span> <span class="p">(.</span><span class="nb">not</span><span class="p">.</span> <span class="n">SIESTA_worker</span><span class="p">)</span> <span class="k">RETURN</span>
+<span class="cp">#endif</span>
+      <span class="c">! Here we decide if we want to calculate one or more SCF steps by</span>
+      <span class="c">! diagonalization before proceeding with the OMM routine</span>
+      <span class="n">CallDiagon</span><span class="o">=</span><span class="p">.</span><span class="n">false</span><span class="p">.</span>
+      <span class="k">if</span> <span class="p">(</span><span class="n">isolve</span> <span class="p">.</span><span class="n">eq</span><span class="p">.</span> <span class="n">SOLVE_MINIM</span><span class="p">)</span> <span class="k">then</span>
+<span class="k">        if</span> <span class="p">(</span><span class="n">istp</span> <span class="p">.</span><span class="n">eq</span><span class="p">.</span> <span class="mi">1</span><span class="p">)</span> <span class="k">then</span>
+<span class="k">          if</span> <span class="p">((</span><span class="n">iscf</span> <span class="p">.</span><span class="n">le</span><span class="p">.</span> <span class="n">call_diagon_first_step</span><span class="p">)</span> <span class="p">.</span><span class="nb">or</span><span class="p">.</span>
+     <span class="p">&amp;</span>        <span class="p">(</span><span class="n">call_diagon_first_step</span><span class="o">&lt;</span><span class="mi">0</span><span class="p">))</span> <span class="n">CallDiagon</span><span class="o">=</span><span class="p">.</span><span class="n">true</span><span class="p">.</span>
+        <span class="k">else</span>
+<span class="k">          if</span> <span class="p">((</span><span class="n">iscf</span> <span class="p">.</span><span class="n">le</span><span class="p">.</span> <span class="n">call_diagon_default</span><span class="p">)</span> <span class="p">.</span><span class="nb">or</span><span class="p">.</span>
+     <span class="p">&amp;</span>        <span class="p">(</span><span class="n">call_diagon_default</span><span class="o">&lt;</span><span class="mi">0</span><span class="p">))</span> <span class="n">CallDiagon</span><span class="o">=</span><span class="p">.</span><span class="n">true</span><span class="p">.</span>
+        <span class="n">endif</span>
+      <span class="n">endif</span>
+
+      <span class="k">if</span> <span class="p">(</span><span class="n">isolve</span> <span class="p">.</span><span class="n">eq</span><span class="p">.</span> <span class="n">MATRIX_WRITE</span><span class="p">)</span> <span class="k">then</span>
+<span class="c">!             write(indexstr,&#39;(I15)&#39;) iscf</span>
+<span class="c">!             write(filename,fnameform) &#39;H_&#39;, trim(adjustl(indexstr)), </span>
+<span class="c">!      &amp;                                &#39;.matrix&#39;</span>
+<span class="c">!             call write_global_matrix( no_s, no_l, maxnh, numh, listh,</span>
+<span class="c">!      &amp;           H(1:maxnh,1), filename )</span>
+<span class="c">!  </span>
+<span class="c">!             write(filename,fnameform) &#39;S_&#39;, trim(adjustl(indexstr)), </span>
+<span class="c">!      &amp;                                &#39;.matrix&#39;</span>
+
+<span class="c">!        Note: only one-shot for now</span>
+         <span class="k">call </span><span class="n">write_hs_formatted</span><span class="p">(</span><span class="n">no_u</span><span class="p">,</span> <span class="n">spin</span><span class="p">%</span><span class="n">H</span><span class="p">,</span>
+     <span class="err">$</span>        <span class="n">maxnh</span><span class="p">,</span> <span class="n">numh</span><span class="p">,</span> <span class="n">listhptr</span><span class="p">,</span> <span class="n">listh</span><span class="p">,</span> <span class="n">H</span><span class="p">,</span> <span class="n">S</span><span class="p">)</span>
+         <span class="k">call </span><span class="n">bye</span><span class="p">(</span><span class="s2">&quot;End of run after writing H.matrix and S.matrix&quot;</span><span class="p">)</span>
+
+<span class="n">c$$$</span>        <span class="k">call </span><span class="n">write_global_matrix_singlenodewrite</span><span class="p">(</span> 
+<span class="n">c$$$</span>     <span class="p">&amp;</span>           <span class="n">no_u</span><span class="p">,</span> <span class="n">no_s</span><span class="p">,</span> <span class="n">maxnh</span><span class="p">,</span> <span class="n">numh</span><span class="p">,</span> <span class="n">listhptr</span><span class="p">,</span> <span class="n">listh</span><span class="p">,</span> 
+<span class="n">c$$$</span>     <span class="p">&amp;</span>           <span class="n">H</span><span class="p">(:,</span><span class="mi">1</span><span class="p">),</span> <span class="s1">&#39;H.matrix&#39;</span><span class="p">)</span>
+<span class="n">c$$$</span>
+<span class="n">c$$$</span>        <span class="k">call </span><span class="n">write_global_matrix_singlenodewrite</span><span class="p">(</span> 
+<span class="n">c$$$</span>     <span class="p">&amp;</span>           <span class="n">no_u</span><span class="p">,</span> <span class="n">no_s</span><span class="p">,</span> <span class="n">maxnh</span><span class="p">,</span> <span class="n">numh</span><span class="p">,</span> <span class="n">listhptr</span><span class="p">,</span> <span class="n">listh</span><span class="p">,</span> 
+<span class="n">c$$$</span>     <span class="p">&amp;</span>           <span class="n">S</span><span class="p">,</span> <span class="s1">&#39;S.matrix&#39;</span><span class="p">)</span>
+
+      <span class="n">elseif</span> <span class="p">((</span><span class="n">isolve</span> <span class="p">.</span><span class="n">eq</span><span class="p">.</span> <span class="n">SOLVE_DIAGON</span><span class="p">)</span> <span class="p">.</span><span class="nb">or</span><span class="p">.</span> <span class="p">(</span><span class="n">CallDiagon</span><span class="p">))</span> <span class="k">then</span>
+<span class="k">        call </span><span class="n">diagon</span><span class="p">(</span><span class="n">no_s</span><span class="p">,</span> <span class="n">spin</span><span class="p">%</span><span class="n">spinor</span><span class="p">,</span> 
+     <span class="p">&amp;</span>              <span class="n">no_l</span><span class="p">,</span> <span class="n">maxnh</span><span class="p">,</span> <span class="n">maxnh</span><span class="p">,</span> <span class="n">no_u</span><span class="p">,</span>
+     <span class="p">&amp;</span>              <span class="n">numh</span><span class="p">,</span> <span class="n">listhptr</span><span class="p">,</span> <span class="n">listh</span><span class="p">,</span> <span class="n">numh</span><span class="p">,</span> <span class="n">listhptr</span><span class="p">,</span> <span class="n">listh</span><span class="p">,</span> 
+     <span class="p">&amp;</span>              <span class="n">H</span><span class="p">,</span> <span class="n">S</span><span class="p">,</span> <span class="n">qtot</span><span class="p">,</span> <span class="n">fixspin</span><span class="p">,</span> <span class="n">qtots</span><span class="p">,</span> <span class="n">temp</span><span class="p">,</span> <span class="n">e1</span><span class="p">,</span> <span class="n">e2</span><span class="p">,</span>
+     <span class="p">&amp;</span>              <span class="nb">gamma</span><span class="p">,</span> <span class="n">xijo</span><span class="p">,</span> <span class="n">indxuo</span><span class="p">,</span> <span class="n">nkpnt</span><span class="p">,</span> <span class="n">kpoint</span><span class="p">,</span> <span class="n">kweight</span><span class="p">,</span>
+     <span class="p">&amp;</span>              <span class="n">eo</span><span class="p">,</span> <span class="n">qo</span><span class="p">,</span> <span class="n">Dscf</span><span class="p">,</span> <span class="n">Escf</span><span class="p">,</span> <span class="n">ef</span><span class="p">,</span> <span class="n">efs</span><span class="p">,</span> <span class="n">Entropy</span><span class="p">,</span> <span class="n">no_u</span><span class="p">,</span>
+     <span class="p">&amp;</span>              <span class="n">occtol</span><span class="p">,</span> <span class="n">iscf</span><span class="p">,</span> <span class="n">neigwanted</span><span class="p">)</span>
+        <span class="n">Ecorrec</span> <span class="o">=</span> <span class="mf">0.0_dp</span>
+        <span class="n">PreviousCallDiagon</span><span class="o">=</span><span class="p">.</span><span class="n">true</span><span class="p">.</span>
+      <span class="n">elseif</span> <span class="p">(</span><span class="n">isolve</span> <span class="p">.</span><span class="n">eq</span><span class="p">.</span> <span class="n">SOLVE_ORDERN</span><span class="p">)</span> <span class="k">then</span>
+<span class="k">        if</span> <span class="p">(.</span><span class="nb">not</span><span class="p">.</span> <span class="nb">gamma</span><span class="p">)</span> <span class="k">call </span><span class="n">die</span><span class="p">(</span><span class="s2">&quot;Cannot do O(N) with k-points.&quot;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="p">(</span> <span class="n">spin</span><span class="p">%</span><span class="n">NCol</span> <span class="p">.</span><span class="nb">or</span><span class="p">.</span> <span class="n">spin</span><span class="p">%</span><span class="n">SO</span> <span class="p">)</span>
+     <span class="p">.</span>      <span class="k">call </span><span class="n">die</span><span class="p">(</span><span class="s2">&quot;Cannot do O(N) with non-coll spins or Spin-orbit&quot;</span><span class="p">)</span>
+        <span class="k">call </span><span class="n">ordern</span><span class="p">(</span><span class="n">usesavelwf</span><span class="p">,</span> <span class="n">ioptlwf</span><span class="p">,</span> <span class="n">na_u</span><span class="p">,</span> <span class="n">no_u</span><span class="p">,</span> <span class="n">no_l</span><span class="p">,</span> <span class="n">lasto</span><span class="p">,</span>
+     <span class="p">&amp;</span>               <span class="n">isa</span><span class="p">,</span> <span class="n">qa</span><span class="p">,</span> <span class="n">rcoor</span><span class="p">,</span> <span class="n">rmaxh</span><span class="p">,</span> <span class="n">ucell</span><span class="p">,</span> <span class="n">xa</span><span class="p">,</span> <span class="n">iscf</span><span class="p">,</span>
+     <span class="p">&amp;</span>               <span class="n">istp</span><span class="p">,</span> <span class="n">ncgmax</span><span class="p">,</span> <span class="n">etol</span><span class="p">,</span> <span class="n">eta</span><span class="p">,</span> <span class="n">qtot</span><span class="p">,</span> <span class="n">maxnh</span><span class="p">,</span> <span class="n">numh</span><span class="p">,</span>
+     <span class="p">&amp;</span>               <span class="n">listhptr</span><span class="p">,</span> <span class="n">listh</span><span class="p">,</span> <span class="n">H</span><span class="p">,</span> <span class="n">S</span><span class="p">,</span> <span class="n">chebef</span><span class="p">,</span> <span class="n">noeta</span><span class="p">,</span> <span class="n">rcoorcp</span><span class="p">,</span>
+     <span class="p">&amp;</span>               <span class="n">beta</span><span class="p">,</span> <span class="n">pmax</span><span class="p">,</span> <span class="n">Dscf</span><span class="p">,</span> <span class="n">Escf</span><span class="p">,</span> <span class="n">Ecorrec</span><span class="p">,</span> <span class="n">spin</span><span class="p">%</span><span class="n">H</span><span class="p">,</span> <span class="n">qtots</span> <span class="p">)</span>
+        <span class="n">Entropy</span> <span class="o">=</span> <span class="mf">0.0_dp</span>
+      <span class="n">elseif</span> <span class="p">(</span><span class="n">isolve</span> <span class="p">.</span><span class="n">eq</span><span class="p">.</span> <span class="n">SOLVE_MINIM</span><span class="p">)</span> <span class="k">then</span>
+<span class="k">        if</span> <span class="p">(</span> <span class="n">spin</span><span class="p">%</span><span class="n">NCol</span> <span class="p">.</span><span class="nb">or</span><span class="p">.</span> <span class="n">spin</span><span class="p">%</span><span class="n">SO</span> <span class="p">)</span> 
+     <span class="p">&amp;</span>      <span class="k">call </span><span class="n">die</span><span class="p">(</span><span class="s1">&#39;ERROR: Non-collinear spin calculations</span>
+<span class="s1">     &amp;                       not yet implemented with OMM!&#39;</span><span class="p">)</span>
+        <span class="n">H_kin</span> <span class="o">=&gt;</span> <span class="n">val</span><span class="p">(</span><span class="n">H_kin_1D</span><span class="p">)</span>
+        <span class="k">if</span> <span class="p">(</span><span class="nb">gamma</span><span class="p">)</span> <span class="k">then</span>
+<span class="k">          call </span><span class="n">dminim</span><span class="p">(.</span><span class="n">false</span><span class="p">.,</span> <span class="n">PreviousCallDiagon</span><span class="p">,</span> <span class="n">iscf</span><span class="p">,</span> <span class="n">istp</span><span class="p">,</span> <span class="n">no_l</span><span class="p">,</span>
+     <span class="p">&amp;</span>                 <span class="n">spin</span><span class="p">%</span><span class="n">H</span><span class="p">,</span> <span class="n">no_u</span><span class="p">,</span> <span class="n">maxnh</span><span class="p">,</span> <span class="n">numh</span><span class="p">,</span> <span class="n">listhptr</span><span class="p">,</span> <span class="n">listh</span><span class="p">,</span> <span class="n">Dscf</span><span class="p">,</span>
+     <span class="p">&amp;</span>                 <span class="n">eta</span><span class="p">,</span> <span class="n">qtots</span><span class="p">,</span> <span class="n">H</span><span class="p">,</span> <span class="n">S</span><span class="p">,</span> <span class="n">H_kin</span><span class="p">)</span>
+        <span class="k">else</span>
+<span class="k">          call </span><span class="n">zminim</span><span class="p">(.</span><span class="n">false</span><span class="p">.,</span> <span class="n">PreviousCallDiagon</span><span class="p">,</span> <span class="n">iscf</span><span class="p">,</span> <span class="n">istp</span><span class="p">,</span> <span class="n">no_l</span><span class="p">,</span>
+     <span class="p">&amp;</span>                 <span class="n">spin</span><span class="p">%</span><span class="n">H</span><span class="p">,</span> <span class="n">no_u</span><span class="p">,</span> <span class="n">maxnh</span><span class="p">,</span> <span class="n">numh</span><span class="p">,</span> <span class="n">listhptr</span><span class="p">,</span> <span class="n">listh</span><span class="p">,</span> <span class="n">Dscf</span><span class="p">,</span>
+     <span class="p">&amp;</span>                 <span class="n">eta</span><span class="p">,</span> <span class="n">qtots</span><span class="p">,</span> <span class="n">no_s</span><span class="p">,</span> <span class="n">xijo</span><span class="p">,</span> <span class="n">indxuo</span><span class="p">,</span> <span class="n">nkpnt</span><span class="p">,</span> <span class="n">kpoint</span><span class="p">,</span>
+     <span class="p">&amp;</span>                 <span class="n">kweight</span><span class="p">,</span> <span class="n">H</span><span class="p">,</span> <span class="n">S</span><span class="p">,</span> <span class="n">H_kin</span><span class="p">)</span>
+        <span class="k">end if</span>
+<span class="k">        </span><span class="n">Ecorrec</span> <span class="o">=</span> <span class="mf">0.0_dp</span>
+        <span class="n">Entropy</span> <span class="o">=</span> <span class="mf">0.0_dp</span>
+        <span class="n">PreviousCallDiagon</span><span class="o">=</span><span class="p">.</span><span class="n">false</span><span class="p">.</span>
+<span class="cp">#ifdef SIESTA__CHESS</span>
+      <span class="n">elseif</span> <span class="p">(</span><span class="n">isolve</span> <span class="p">.</span><span class="n">eq</span><span class="p">.</span> <span class="n">SOLVE_CHESS</span><span class="p">)</span> <span class="k">then</span>
+        <span class="c">! FOE solver from the CheSS library</span>
+        <span class="k">if</span> <span class="p">(</span><span class="nb">gamma</span><span class="p">)</span> <span class="k">then</span>
+<span class="k">          call </span><span class="n">CheSS_wrapper</span><span class="p">(.</span><span class="n">false</span><span class="p">.,</span> <span class="n">PreviousCallDiagon</span><span class="p">,</span> 
+     <span class="p">&amp;</span>         <span class="n">iscf</span><span class="p">,</span> <span class="n">istp</span><span class="p">,</span> <span class="n">no_l</span><span class="p">,</span>
+     <span class="p">&amp;</span>         <span class="n">spin</span><span class="p">%</span><span class="n">spinor</span><span class="p">,</span> <span class="n">no_u</span><span class="p">,</span> <span class="n">maxnh</span><span class="p">,</span> <span class="n">numh</span><span class="p">,</span> <span class="n">listhptr</span><span class="p">,</span> <span class="n">listh</span><span class="p">,</span> 
+     <span class="p">&amp;</span>         <span class="n">qs</span><span class="p">,</span> <span class="n">h</span><span class="p">,</span> <span class="n">s</span><span class="p">,</span>
+     <span class="p">&amp;</span>         <span class="n">Dscf</span><span class="p">,</span> <span class="n">Escf</span><span class="p">,</span> <span class="n">Ef</span><span class="p">)</span>
+        <span class="k">end if</span>
+<span class="k">        </span><span class="n">Ecorrec</span> <span class="o">=</span> <span class="mf">0.0_dp</span>
+        <span class="n">Entropy</span> <span class="o">=</span> <span class="mf">0.0_dp</span>
+        <span class="n">PreviousCallDiagon</span><span class="o">=</span><span class="p">.</span><span class="n">false</span><span class="p">.</span>
+<span class="cp">#endif</span>
+      <span class="n">elseif</span> <span class="p">(</span><span class="n">TSmode</span> <span class="p">.</span><span class="nb">and</span><span class="p">.</span> <span class="n">TSinit</span><span class="p">)</span> <span class="k">then</span>
+<span class="k">        call </span><span class="n">diagon</span><span class="p">(</span><span class="n">no_s</span><span class="p">,</span> <span class="n">spin</span><span class="p">%</span><span class="n">spinor</span><span class="p">,</span> 
+     <span class="p">&amp;</span>              <span class="n">no_l</span><span class="p">,</span> <span class="n">maxnh</span><span class="p">,</span> <span class="n">maxnh</span><span class="p">,</span> <span class="n">no_u</span><span class="p">,</span>
+     <span class="p">&amp;</span>              <span class="n">numh</span><span class="p">,</span> <span class="n">listhptr</span><span class="p">,</span> <span class="n">listh</span><span class="p">,</span> <span class="n">numh</span><span class="p">,</span> <span class="n">listhptr</span><span class="p">,</span> <span class="n">listh</span><span class="p">,</span>
+     <span class="p">&amp;</span>              <span class="n">H</span><span class="p">,</span> <span class="n">S</span><span class="p">,</span> <span class="n">qtot</span><span class="p">,</span> <span class="n">fixspin</span><span class="p">,</span> <span class="n">qtots</span><span class="p">,</span> <span class="n">temp</span><span class="p">,</span> <span class="n">e1</span><span class="p">,</span> <span class="n">e2</span><span class="p">,</span>
+     <span class="p">&amp;</span>              <span class="nb">gamma</span><span class="p">,</span> <span class="n">xijo</span><span class="p">,</span> <span class="n">indxuo</span><span class="p">,</span> <span class="n">nkpnt</span><span class="p">,</span> <span class="n">kpoint</span><span class="p">,</span> <span class="n">kweight</span><span class="p">,</span>
+     <span class="p">&amp;</span>              <span class="n">eo</span><span class="p">,</span> <span class="n">qo</span><span class="p">,</span> <span class="n">Dscf</span><span class="p">,</span> <span class="n">Escf</span><span class="p">,</span> <span class="n">ef</span><span class="p">,</span> <span class="n">efs</span><span class="p">,</span> <span class="n">Entropy</span><span class="p">,</span> <span class="n">no_u</span><span class="p">,</span>
+     <span class="p">&amp;</span>              <span class="n">occtol</span><span class="p">,</span> <span class="n">iscf</span><span class="p">,</span> <span class="n">neigwanted</span><span class="p">)</span>
+
+        <span class="n">Ecorrec</span> <span class="o">=</span> <span class="mf">0._dp</span>
+
+      <span class="k">else if</span> <span class="p">(</span><span class="n">TSrun</span><span class="p">)</span> <span class="k">then</span>
+
+<span class="k">         call </span><span class="n">transiesta</span><span class="p">(</span><span class="n">iscf</span><span class="p">,</span><span class="n">spin</span><span class="p">%</span><span class="n">H</span><span class="p">,</span> <span class="n">block_dist</span><span class="p">,</span> <span class="n">sparse_pattern</span><span class="p">,</span>
+     <span class="p">&amp;</span>        <span class="nb">Gamma</span><span class="p">,</span> <span class="n">ucell</span><span class="p">,</span> <span class="n">nsc</span><span class="p">,</span> <span class="n">isc_off</span><span class="p">,</span> <span class="n">no_u</span><span class="p">,</span> <span class="n">na_u</span><span class="p">,</span> <span class="n">lasto</span><span class="p">,</span> <span class="n">xa</span><span class="p">,</span> <span class="n">maxnh</span><span class="p">,</span>
+     <span class="p">&amp;</span>        <span class="n">H</span><span class="p">,</span> <span class="n">S</span><span class="p">,</span> <span class="n">Dscf</span><span class="p">,</span> <span class="n">Escf</span><span class="p">,</span> <span class="n">Ef</span><span class="p">,</span> <span class="n">Qtot</span><span class="p">,</span> <span class="p">.</span><span class="n">false</span><span class="p">.,</span> <span class="n">DE_NEGF</span> <span class="p">)</span>
+
+         <span class="n">Ecorrec</span> <span class="o">=</span> <span class="mf">0._dp</span>
+         <span class="n">Entropy</span> <span class="o">=</span> <span class="mf">0.0_dp</span>
+         
+      <span class="k">else</span>
+        <span class="c">!call die(&#39;siesta: ERROR: wrong solution method&#39;)</span>
+      <span class="n">endif</span>
+
+<span class="cp">#ifdef CDF</span>
+      <span class="k">if</span> <span class="p">(</span> <span class="n">writedmhs_cdf_history</span><span class="p">)</span> <span class="k">then</span>
+<span class="k">        call </span><span class="n">write_dmh_netcdf</span><span class="p">(</span> <span class="n">no_l</span><span class="p">,</span> <span class="n">maxnh</span><span class="p">,</span> <span class="n">spin</span><span class="p">%</span><span class="n">H</span><span class="p">,</span> <span class="n">Dold</span><span class="p">,</span> <span class="n">H</span><span class="p">,</span> <span class="n">Dscf</span> <span class="p">)</span>
+      <span class="k">else if</span> <span class="p">(</span><span class="n">writedmhs_cdf</span><span class="p">)</span> <span class="k">then</span>
+<span class="k">        call </span><span class="n">write_dmh_netcdf</span><span class="p">(</span> <span class="n">no_l</span><span class="p">,</span> <span class="n">maxnh</span><span class="p">,</span> <span class="n">spin</span><span class="p">%</span><span class="n">H</span><span class="p">,</span> <span class="n">Dold</span><span class="p">,</span> <span class="n">H</span><span class="p">,</span> <span class="n">Dscf</span><span class="p">,</span>
+     <span class="p">&amp;</span>                         <span class="n">overwrite</span><span class="o">=</span><span class="p">.</span><span class="n">true</span><span class="p">.</span> <span class="p">)</span>
+      <span class="n">endif</span>
+<span class="cp">#endif</span>
+
+<span class="c">!     Print populations at each SCF step if requested before mixing ......</span>
+      <span class="k">if</span> <span class="p">(</span><span class="n">muldeb</span><span class="p">)</span> <span class="k">then</span>
+<span class="k">        if</span> <span class="p">(</span><span class="n">ionode</span><span class="p">)</span> <span class="k">write</span> <span class="p">(</span><span class="mi">6</span><span class="p">,</span><span class="s2">&quot;(/a)&quot;</span><span class="p">)</span>
+     <span class="p">&amp;</span>    <span class="s1">&#39;siesta: Mulliken populations (DM_out)&#39;</span>
+            <span class="k">if</span> <span class="p">(</span> <span class="n">spin</span><span class="p">%</span><span class="n">SO</span> <span class="p">)</span> <span class="k">then</span>
+<span class="k">              call </span><span class="n">moments</span><span class="p">(</span> <span class="n">mullipop</span><span class="p">,</span> <span class="n">na_u</span><span class="p">,</span> <span class="n">no_u</span><span class="p">,</span> <span class="n">maxnh</span><span class="p">,</span> <span class="n">numh</span><span class="p">,</span> <span class="n">listhptr</span><span class="p">,</span>
+     <span class="p">.</span>                      <span class="n">listh</span><span class="p">,</span> <span class="n">S</span><span class="p">,</span> <span class="n">Dscf</span><span class="p">,</span> <span class="n">isa</span><span class="p">,</span> <span class="n">lasto</span><span class="p">,</span> <span class="n">iaorb</span><span class="p">,</span> <span class="n">iphorb</span><span class="p">,</span>
+     <span class="p">.</span>                      <span class="n">indxuo</span> <span class="p">)</span>
+            <span class="k">else</span>
+<span class="k">             call </span><span class="n">mulliken</span><span class="p">(</span> <span class="n">mullipop</span><span class="p">,</span> <span class="n">spin</span><span class="p">%</span><span class="n">DM</span><span class="p">,</span> <span class="n">na_u</span><span class="p">,</span> <span class="n">no_u</span><span class="p">,</span> <span class="n">maxnh</span><span class="p">,</span>
+     <span class="p">&amp;</span>                 <span class="n">numh</span><span class="p">,</span> <span class="n">listhptr</span><span class="p">,</span> <span class="n">listh</span><span class="p">,</span> <span class="n">S</span><span class="p">,</span> <span class="n">Dscf</span><span class="p">,</span> <span class="n">isa</span><span class="p">,</span>
+     <span class="p">&amp;</span>                 <span class="n">lasto</span><span class="p">,</span> <span class="n">iaorb</span><span class="p">,</span> <span class="n">iphorb</span> <span class="p">)</span>
+            <span class="n">endif</span>
+      <span class="n">endif</span>
+
+<span class="c">! Write orbital indexes. JMS Dec.2009</span>
+      <span class="k">if</span> <span class="p">(</span><span class="n">IOnode</span> <span class="p">.</span><span class="nb">and</span><span class="p">.</span> <span class="n">iscf</span><span class="o">==</span><span class="mi">1</span><span class="p">)</span> <span class="k">then</span>
+<span class="k">         call </span><span class="n">write_orb_indx</span><span class="p">(</span> <span class="n">na_u</span><span class="p">,</span> <span class="n">na_s</span><span class="p">,</span> <span class="n">no_u</span><span class="p">,</span> <span class="n">no_s</span><span class="p">,</span> <span class="n">isa</span><span class="p">,</span> <span class="n">xa</span><span class="p">,</span>
+     <span class="p">.</span>        <span class="n">iaorb</span><span class="p">,</span> <span class="n">iphorb</span><span class="p">,</span> <span class="n">indxuo</span><span class="p">,</span> <span class="n">nsc</span><span class="p">,</span> <span class="n">ucell</span> <span class="p">)</span>
+      <span class="n">endif</span>
+
+<span class="c">!     Normalize density matrix to exact charge</span>
+<span class="c">!     Placed here for now to avoid disturbing EHarris</span>
+      <span class="k">if</span> <span class="p">(</span> <span class="p">.</span><span class="nb">not</span><span class="p">.</span> <span class="n">TSrun</span> <span class="p">)</span> <span class="k">then</span>
+<span class="k">         call </span><span class="n">normalize_dm</span><span class="p">(</span> <span class="n">first</span><span class="o">=</span> <span class="p">.</span><span class="n">false</span><span class="p">.</span> <span class="p">)</span>
+      <span class="k">end if</span>
+
+<span class="k">      call </span><span class="n">timer</span><span class="p">(</span> <span class="s1">&#39;compute_dm&#39;</span><span class="p">,</span> <span class="mi">2</span> <span class="p">)</span>
+<span class="cp">#ifdef SIESTA__PEXSI</span>
+      <span class="k">if</span> <span class="p">(</span><span class="n">ionode</span><span class="p">)</span> <span class="k">call </span><span class="n">memory_snapshot</span><span class="p">(</span><span class="s2">&quot;after compute_DM&quot;</span><span class="p">)</span>
+<span class="cp">#endif</span>
+
+<span class="c">!-----------------------------------------------------------------------END</span>
+      <span class="k">END subroutine </span><span class="n">compute_dm</span>
+</pre></div>
+
+    </section>
+    <br>
+    
+    
+    </div>
+  </div>
+
+  <section class="visible-xs visible-sm hidden-md">
+    <hr>
+    
+
+<div class="panel panel-default">
+  <div class="panel-heading text-left"><h3 class="panel-title"><a data-toggle="collapse" href="#allprocs-1">All Procedures</a></h3></div>
+  <div id="allprocs-1" class="panel-collapse collapse">
+    <div class="list-group">
+      
+      <a class="list-group-item" href="../proc/compute_dm.html">compute_dm</a>
+      
+      <a class="list-group-item" href="../proc/current_itt.html">current_itt</a>
+      
+      <a class="list-group-item" href="../proc/getstackval.html">getstackval</a>
+      
+      <a class="list-group-item" href="../proc/inverse.html">inverse</a>
+      
+      <a class="list-group-item" href="../proc/is_next.html">is_next</a>
+      
+      <a class="list-group-item" href="../proc/mix_method.html">mix_method</a>
+      
+      <a class="list-group-item" href="../proc/mix_method_variant.html">mix_method_variant</a>
+      
+      <a class="list-group-item" href="../proc/mixer_init.html">mixer_init</a>
+      
+      <a class="list-group-item" href="../proc/mixers_history_init.html">mixers_history_init</a>
+      
+      <a class="list-group-item" href="../proc/mixers_init.html">mixers_init</a>
+      
+      <a class="list-group-item" href="../proc/mixers_print.html">mixers_print</a>
+      
+      <a class="list-group-item" href="../proc/mixers_print_block.html">mixers_print_block</a>
+      
+      <a class="list-group-item" href="../proc/mixers_reset.html">mixers_reset</a>
+      
+      <a class="list-group-item" href="../proc/mixers_scf_history_init.html">mixers_scf_history_init</a>
+      
+      <a class="list-group-item" href="../proc/mixers_scf_init.html">mixers_scf_init</a>
+      
+      <a class="list-group-item" href="../proc/mixers_scf_print.html">mixers_scf_print</a>
+      
+      <a class="list-group-item" href="../proc/mixers_scf_print_block.html">mixers_scf_print_block</a>
+      
+      <a class="list-group-item" href="../proc/mixers_scf_reset.html">mixers_scf_reset</a>
+      
+      <a class="list-group-item" href="../interface/mixing.html">mixing</a>
+      
+      <a class="list-group-item" href="../proc/mixing_1d.html">mixing_1d</a>
+      
+      <a class="list-group-item" href="../proc/mixing_2d.html">mixing_2d</a>
+      
+      <a class="list-group-item" href="../proc/mixing_calc_next.html">mixing_calc_next</a>
+      
+      <a class="list-group-item" href="../proc/mixing_coeff.html">mixing_coeff</a>
+      
+      <a class="list-group-item" href="../proc/mixing_finalize.html">mixing_finalize</a>
+      
+      <a class="list-group-item" href="../proc/mixing_init.html">mixing_init</a>
+      
+      <a class="list-group-item" href="../proc/mixing_ncoeff.html">mixing_ncoeff</a>
+      
+      <a class="list-group-item" href="../proc/mixing_scf_converged.html">mixing_scf_converged</a>
+      
+      <a class="list-group-item" href="../proc/mixing_step.html">mixing_step</a>
+      
+      <a class="list-group-item" href="../proc/norm.html">norm</a>
+      
+      <a class="list-group-item" href="../proc/push_diff.html">push_diff</a>
+      
+      <a class="list-group-item" href="../proc/push_f.html">push_F</a>
+      
+      <a class="list-group-item" href="../proc/push_stack_data.html">push_stack_data</a>
+      
+      <a class="list-group-item" href="../proc/setup_h0.html">setup_H0</a>
+      
+      <a class="list-group-item" href="../proc/setup_hamiltonian.html">setup_hamiltonian</a>
+      
+      <a class="list-group-item" href="../proc/siesta_analysis.html">siesta_analysis</a>
+      
+      <a class="list-group-item" href="../proc/siesta_forces.html">siesta_forces</a>
+      
+      <a class="list-group-item" href="../proc/stack_check.html">stack_check</a>
+      
+      <a class="list-group-item" href="../proc/state_analysis.html">state_analysis</a>
+      
+      <a class="list-group-item" href="../proc/state_init.html">state_init</a>
+      
+      <a class="list-group-item" href="../proc/svd.html">svd</a>
+      
+      <a class="list-group-item" href="../proc/update_f.html">update_F</a>
+      
+    </div>
+  </div>
+</div>
+
+
+  </section>
+
+    <hr>    
+    </div> <!-- /container -->
+    <footer>
+      <div class="container">
+      <div class="row">
+        <div class="col-xs-6 col-md-4"><p>&copy; 2018 <a rel="license" href="http://www.gnu.org/licenses/old-licenses/fdl-1.2.en.html">GNU Free Documentation License</a>
+                                          </p></div>
+        <div class="col-xs-6 col-md-4 col-md-push-4">
+          <p class="text-right">
+            Documentation generated by 
+            <a href="https://github.com/cmacmackin/ford">FORD</a>
+            
+          </p>
+        </div>
+        <div class="col-xs-12 col-md-4 col-md-pull-4"><p class="text-center"> SIESTA was developed by SIESTA Group</p></div>
+      </div>
+      <br>
+      </div> <!-- /container -->    
+    </footer>
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+<!--
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+-->
+    <script src="../js/bootstrap.min.js"></script>
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script src="../js/ie10-viewport-bug-workaround.js"></script>
+
+    <!-- MathJax JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        TeX: { extensions: ['AMSmath.js','AMSsymbols.js','noErrors.js','noUndefined.js'], equationNumbers: { autoNumber: 'AMS' } },
+        jax: ['input/TeX','input/MathML','output/HTML-CSS'],
+        extensions: ['tex2jax.js','mml2jax.js','MathMenu.js','MathZoom.js']
+      });
+    </script>
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    
+    <script src="../tipuesearch/tipuesearch_content.js"></script>
+    <script src="../tipuesearch/tipuesearch_set.js"></script>
+    <script src="../tipuesearch/tipuesearch.js"></script>
+    
+    
+  </body>
+</html>

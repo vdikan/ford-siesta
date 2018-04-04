@@ -13,6 +13,8 @@
       subroutine setup_H0(G2max)
       !! Computes non-self-consistent part of the Hamiltonian
       !! and initializes data structures on the grid.
+      !!@warning 
+      !! What exactly IS the nscf H?
 
       USE siesta_options,  only: g2cut
       use sparse_matrices, only: H_kin_1D, H_vkb_1D
@@ -60,74 +62,85 @@
 !----------------------------------------------------------------------BEGIN
       call timer('Setup_H0',1)
 
-C     Self-energy of isolated ions
+      !!Self-energy of isolated ions
+      !!@code
       Eions = 0.0_dp
       do ia = 1,na_u
         is = isa(ia)
         Eions = Eions + uion(is)
       enddo
+      !!@endcode
 
-!     In these routines, add a flag to tell them NOT to compute
-!     forces and stresses in this first pass, only energies.
 
-!     Neutral-atom: energy
-
+      !! Neutral-atom: energy
+      !!@note
+      !* In these routines, flag is defined
+      !  to tell them NOT to compute
+      !  forces and stresses in this first pass, only energies.
+      !!@endnote
+      !!@code
       call naefs(na_u, na_s, scell, xa, indxua, rmaxv,
      &           isa, Ena, dummy_fa, dummy_stress,
      &           forces_and_stress=.false.)
       call dnaefs(na_u, na_s, scell, xa, indxua, rmaxv,
      &            isa, DEna, dummy_fa, dummy_stress,
-     &            forces_and_stress=.false.) 
+     &            forces_and_stress=.false.)
       Ena = Ena + DEna
- 
-C     Metadynamics energy
+      !!@endcode
+
+      !! Metadynamics energy:
       if (lMetaForce) then
         call meta(xa,na_u,ucell,Emeta,dummy_fa,dummy_stress,
      $           .false.,.false.)
       endif
 
-C     Add on force field contribution to energy
+      !! Add on force field contribution to energy:
       call twobody( na_u,xa,isa,ucell,Emm,
      &              ifa=0,fa=dummy_fa,istr=0,stress=dummy_stress)
 
-!
-!     Now we compute matrix elements of the Kinetic and Non-local
-!     parts of H
 
-!     Kinetic: matrix elements only
+      !* Now we compute matrix elements of the Kinetic and Non-local
+      !  parts of H
+
+      !! Kinetic: matrix elements only
+      !!@code
       H_val => val(H_kin_1D)
 !$OMP parallel workshare default(shared)
       H_val(:) = 0.0_dp
 !$OMP end parallel workshare
       call kinefsm(na_u, na_s, no_s, scell, xa, indxua, rmaxo,
-     &             maxnh, maxnh, lasto, iphorb, isa, 
-     &             numh, listhptr, listh, numh, listhptr, listh, 
+     &             maxnh, maxnh, lasto, iphorb, isa,
+     &             numh, listhptr, listh, numh, listhptr, listh,
      &             1,
      &             dummy_dm, dummy_E, dummy_fa, dummy_stress,
      &             H_val,
-     &             matrix_elements_only=.true.) 
+     &             matrix_elements_only=.true.)
+      !!@endcode
 
-!     Non-local-pseudop:  matrix elements only
+      !! Non-local-pseudop:  matrix elements only
+      !!@code
       H_val => val(H_vkb_1D)
 !$OMP parallel workshare default(shared)
       H_val(:) = 0.0_dp
 !$OMP end parallel workshare
-      call nlefsm(scell, na_u, na_s, isa, xa, indxua, 
-     &            maxnh, maxnh, lasto, lastkb, iphorb, iphKB, 
-     &            numh, listhptr, listh, numh, listhptr, listh, 
+      call nlefsm(scell, na_u, na_s, isa, xa, indxua,
+     &            maxnh, maxnh, lasto, lastkb, iphorb, iphKB,
+     &            numh, listhptr, listh, numh, listhptr, listh,
      &            1,
      &            dummy_dm, dummy_E, dummy_fa, dummy_stress,
      &            H_val,
-     &            matrix_elements_only=.true.) 
+     &            matrix_elements_only=.true.)
+      !!@endcode
 
 
-! ..................
+      !!@note
+      !* If in the future the spin-orbit routine is able to compute
+      !  forces and stresses, then "last" will be needed. If we are not
+      !  computing forces and stresses, calling it in the first iteration
+      !  should be enough.
+      !!@endnote
 
-! If in the future the spin-orbit routine is able to compute
-! forces and stresses, then "last" will be needed. If we are not
-! computing forces and stresses, calling it in the first iteration
-! should be enough
-!
+      !!@code
       if ( spin%SO ) then
          H_so => val(H_so_2D)
 !$OMP parallel workshare default(shared)
@@ -138,10 +151,12 @@ C     Add on force field contribution to energy
       else
          Eso = 0._dp
       end if
-      
+      !!@endcode
 
-C     This will take care of possible changes to the mesh and atomic-related
-C     mesh structures for geometry changes
+
+      !!This will take care of possible changes to the mesh and atomic-related
+      !!mesh structures for geometry changes:
+      !!@code
       g2max = g2cut
       call dhscf_init( spin%Grid, no_s, iaorb, iphorb,
      &                 no_l, no_u, na_u, na_s,
@@ -149,7 +164,8 @@ C     mesh structures for geometry changes
      &                 mscell, G2max, ntm,
      &                 maxnh, numh, listhptr, listh, datm,
      &                 dummy_fa, dummy_stress)
-  
+      !!@endcode
+
       call timer('Setup_H0',2)
 
 #ifdef DEBUG

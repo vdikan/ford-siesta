@@ -17,6 +17,8 @@
     <link href="../css/font-awesome.min.css" rel="stylesheet">
     <link href="../css/local.css" rel="stylesheet">
     
+    <link  href="../tipuesearch/tipuesearch.css" rel="stylesheet">
+    
     
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
@@ -87,6 +89,15 @@
 
           </ul>
         
+        <form action="../search.html" class="navbar-form navbar-right" role="search">
+        <div class="form-group">
+          <input type="text" class="form-control" placeholder="Search" name="q" id="tipue_search_input" autocomplete="off" required>
+        </div>
+<!--
+        <button type="submit" class="btn btn-default">Submit</button>
+-->
+        </form>
+        
         </div><!--/.nav-collapse -->
       </div>
     </nav>
@@ -113,7 +124,7 @@
      <li><i class="fa fa-list-ol"></i>
        <a data-toggle="tooltip"
 	  data-placement="bottom" data-html="true"
-	  title="13.0% of total for source files.">354 statements</a>
+	  title="11.7% of total for source files.">354 statements</a>
      </li> 
      
      
@@ -186,11 +197,15 @@
   <div id="allfiles-0" class="panel-collapse collapse">
     <div class="list-group">
       
+      <a class="list-group-item" href="../sourcefile/compute_dm.f.html">compute_dm.F</a>
+      
       <a class="list-group-item" href="../sourcefile/m_mixing.f90.html">m_mixing.F90</a>
       
       <a class="list-group-item" href="../sourcefile/m_mixing_scf.f90.html">m_mixing_scf.F90</a>
       
       <a class="list-group-item" href="../sourcefile/setup_h0.f.html">setup_H0.F</a>
+      
+      <a class="list-group-item" href="../sourcefile/setup_hamiltonian.f.html">setup_hamiltonian.F</a>
       
       <a class="list-group-item" href="../sourcefile/siesta_analysis.f.html">siesta_analysis.F</a>
       
@@ -230,39 +245,39 @@
 <polygon fill="white" stroke="none" points="-4,4 -4,-48 321,-48 321,4 -4,4"/>
 <!-- sourcefile~state_init.f -->
 <g id="sourcefile~~state_init.f~~EfferentGraph_node1" class="node"><title>sourcefile~state_init.f</title>
-<polygon fill="none" stroke="black" points="317,-24 252,-24 252,-0 317,-0 317,-24"/>
-<text text-anchor="middle" x="284.5" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50">state_init.F</text>
-</g>
-<!-- sourcefile~m_mixing_scf.f90 -->
-<g id="sourcefile~~state_init.f~~EfferentGraph_node2" class="node"><title>sourcefile~m_mixing_scf.f90</title>
-<g id="a_sourcefile~~state_init.f~~EfferentGraph_node2"><a xlink:href=".././sourcefile/m_mixing_scf.f90.html" xlink:title="m_mixing_scf.F90">
-<polygon fill="#f0ad4e" stroke="#f0ad4e" points="216,-44 116,-44 116,-20 216,-20 216,-44"/>
-<text text-anchor="middle" x="166" y="-29.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">m_mixing_scf.F90</text>
-</a>
-</g>
-</g>
-<!-- sourcefile~state_init.f&#45;&gt;sourcefile~m_mixing_scf.f90 -->
-<g id="sourcefile~~state_init.f~~EfferentGraph_edge1" class="edge"><title>sourcefile~state_init.f&#45;&gt;sourcefile~m_mixing_scf.f90</title>
-<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M251.973,-17.4123C243.944,-18.7908 235.049,-20.3177 226.127,-21.8494"/>
-<polygon fill="#000000" stroke="#000000" points="225.351,-18.4314 216.087,-23.573 226.535,-25.3305 225.351,-18.4314"/>
+<polygon fill="none" stroke="black" points="317,-44 252,-44 252,-20 317,-20 317,-44"/>
+<text text-anchor="middle" x="284.5" y="-29.6" font-family="Helvetica,sans-Serif" font-size="10.50">state_init.F</text>
 </g>
 <!-- sourcefile~m_mixing.f90 -->
-<g id="sourcefile~~state_init.f~~EfferentGraph_node3" class="node"><title>sourcefile~m_mixing.f90</title>
-<g id="a_sourcefile~~state_init.f~~EfferentGraph_node3"><a xlink:href=".././sourcefile/m_mixing.f90.html" xlink:title="m_mixing.F90">
-<polygon fill="#f0ad4e" stroke="#f0ad4e" points="80,-24 0,-24 0,-0 80,-0 80,-24"/>
-<text text-anchor="middle" x="40" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">m_mixing.F90</text>
+<g id="sourcefile~~state_init.f~~EfferentGraph_node2" class="node"><title>sourcefile~m_mixing.f90</title>
+<g id="a_sourcefile~~state_init.f~~EfferentGraph_node2"><a xlink:href=".././sourcefile/m_mixing.f90.html" xlink:title="m_mixing.F90">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="80,-44 0,-44 0,-20 80,-20 80,-44"/>
+<text text-anchor="middle" x="40" y="-29.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">m_mixing.F90</text>
 </a>
 </g>
 </g>
 <!-- sourcefile~state_init.f&#45;&gt;sourcefile~m_mixing.f90 -->
-<g id="sourcefile~~state_init.f~~EfferentGraph_edge2" class="edge"><title>sourcefile~state_init.f&#45;&gt;sourcefile~m_mixing.f90</title>
-<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M251.908,-11.4353C240.583,-11.2584 227.72,-11.0868 216,-11 171.557,-10.6708 160.443,-10.7037 116,-11 107.761,-11.0549 99.0126,-11.1438 90.5106,-11.2465"/>
-<polygon fill="#000000" stroke="#000000" points="90.267,-7.7492 80.3127,-11.3772 90.3568,-14.7486 90.267,-7.7492"/>
+<g id="sourcefile~~state_init.f~~EfferentGraph_edge1" class="edge"><title>sourcefile~state_init.f&#45;&gt;sourcefile~m_mixing.f90</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M251.908,-32.5647C240.583,-32.7416 227.72,-32.9132 216,-33 171.557,-33.3292 160.443,-33.2963 116,-33 107.761,-32.9451 99.0126,-32.8562 90.5106,-32.7535"/>
+<polygon fill="#000000" stroke="#000000" points="90.3568,-29.2514 80.3127,-32.6228 90.267,-36.2508 90.3568,-29.2514"/>
+</g>
+<!-- sourcefile~m_mixing_scf.f90 -->
+<g id="sourcefile~~state_init.f~~EfferentGraph_node3" class="node"><title>sourcefile~m_mixing_scf.f90</title>
+<g id="a_sourcefile~~state_init.f~~EfferentGraph_node3"><a xlink:href=".././sourcefile/m_mixing_scf.f90.html" xlink:title="m_mixing_scf.F90">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="216,-24 116,-24 116,-0 216,-0 216,-24"/>
+<text text-anchor="middle" x="166" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">m_mixing_scf.F90</text>
+</a>
+</g>
+</g>
+<!-- sourcefile~state_init.f&#45;&gt;sourcefile~m_mixing_scf.f90 -->
+<g id="sourcefile~~state_init.f~~EfferentGraph_edge2" class="edge"><title>sourcefile~state_init.f&#45;&gt;sourcefile~m_mixing_scf.f90</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M251.973,-26.5877C243.944,-25.2092 235.049,-23.6823 226.127,-22.1506"/>
+<polygon fill="#000000" stroke="#000000" points="226.535,-18.6695 216.087,-20.427 225.351,-25.5686 226.535,-18.6695"/>
 </g>
 <!-- sourcefile~m_mixing_scf.f90&#45;&gt;sourcefile~m_mixing.f90 -->
 <g id="sourcefile~~state_init.f~~EfferentGraph_edge3" class="edge"><title>sourcefile~m_mixing_scf.f90&#45;&gt;sourcefile~m_mixing.f90</title>
-<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M115.992,-24.0955C107.522,-22.7293 98.7124,-21.3084 90.2359,-19.9413"/>
-<polygon fill="#000000" stroke="#000000" points="90.5365,-16.4446 80.1067,-18.3075 89.4218,-23.3553 90.5365,-16.4446"/>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M115.992,-19.9045C107.522,-21.2707 98.7124,-22.6916 90.2359,-24.0587"/>
+<polygon fill="#000000" stroke="#000000" points="89.4218,-20.6447 80.1067,-25.6925 90.5365,-27.5554 89.4218,-20.6447"/>
 </g>
 </g>
 </svg>
@@ -1084,11 +1099,15 @@
   <div id="allfiles-1" class="panel-collapse collapse">
     <div class="list-group">
       
+      <a class="list-group-item" href="../sourcefile/compute_dm.f.html">compute_dm.F</a>
+      
       <a class="list-group-item" href="../sourcefile/m_mixing.f90.html">m_mixing.F90</a>
       
       <a class="list-group-item" href="../sourcefile/m_mixing_scf.f90.html">m_mixing_scf.F90</a>
       
       <a class="list-group-item" href="../sourcefile/setup_h0.f.html">setup_H0.F</a>
+      
+      <a class="list-group-item" href="../sourcefile/setup_hamiltonian.f.html">setup_hamiltonian.F</a>
       
       <a class="list-group-item" href="../sourcefile/siesta_analysis.f.html">siesta_analysis.F</a>
       
@@ -1148,6 +1167,10 @@
     
     <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
     
+    
+    <script src="../tipuesearch/tipuesearch_content.js"></script>
+    <script src="../tipuesearch/tipuesearch_set.js"></script>
+    <script src="../tipuesearch/tipuesearch.js"></script>
     
     
   </body>

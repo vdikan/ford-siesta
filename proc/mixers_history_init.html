@@ -17,6 +17,8 @@
     <link href="../css/font-awesome.min.css" rel="stylesheet">
     <link href="../css/local.css" rel="stylesheet">
     
+    <link  href="../tipuesearch/tipuesearch.css" rel="stylesheet">
+    
     
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
@@ -87,6 +89,15 @@
 
           </ul>
         
+        <form action="../search.html" class="navbar-form navbar-right" role="search">
+        <div class="form-group">
+          <input type="text" class="form-control" placeholder="Search" name="q" id="tipue_search_input" autocomplete="off" required>
+        </div>
+<!--
+        <button type="submit" class="btn btn-default">Submit</button>
+-->
+        </form>
+        
         </div><!--/.nav-collapse -->
       </div>
     </nav>
@@ -113,7 +124,7 @@
      <li><i class="fa fa-list-ol"></i>
        <a data-toggle="tooltip"
 	  data-placement="bottom" data-html="true"
-	  title=" 1.7% of total for procedures.">45 statements</a>
+	  title=" 1.5% of total for procedures.">45 statements</a>
      </li> 
      
      
@@ -180,6 +191,8 @@
   <div id="allprocs-0" class="panel-collapse collapse">
     <div class="list-group">
       
+      <a class="list-group-item" href="../proc/compute_dm.html">compute_dm</a>
+      
       <a class="list-group-item" href="../proc/current_itt.html">current_itt</a>
       
       <a class="list-group-item" href="../proc/getstackval.html">getstackval</a>
@@ -243,6 +256,8 @@
       <a class="list-group-item" href="../proc/push_stack_data.html">push_stack_data</a>
       
       <a class="list-group-item" href="../proc/setup_h0.html">setup_H0</a>
+      
+      <a class="list-group-item" href="../proc/setup_hamiltonian.html">setup_hamiltonian</a>
       
       <a class="list-group-item" href="../proc/siesta_analysis.html">siesta_analysis</a>
       
@@ -342,28 +357,28 @@ public subroutine mixers_history_init(mixers)
 <polygon fill="none" stroke="black" points="101,-66 0,-66 0,-42 101,-42 101,-66"/>
 <text text-anchor="middle" x="50.5" y="-51.6" font-family="Helvetica,sans-Serif" font-size="10.50">mixers_history_init</text>
 </g>
+<!-- delete -->
+<g id="proc~~mixers_history_init~~CallsGraph_node2" class="node"><title>delete</title>
+<polygon fill="#777777" stroke="#777777" points="194.5,-108 140.5,-108 140.5,-84 194.5,-84 194.5,-108"/>
+<text text-anchor="middle" x="167.5" y="-93.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">delete</text>
+</g>
+<!-- proc~mixers_history_init&#45;&gt;delete -->
+<g id="proc~~mixers_history_init~~CallsGraph_edge1" class="edge"><title>proc~mixers_history_init&#45;&gt;delete</title>
+<path fill="none" stroke="#000000" d="M84.4544,-66.0355C98.9068,-71.3138 115.906,-77.5222 130.672,-82.915"/>
+<polygon fill="#000000" stroke="#000000" points="129.885,-86.3536 140.479,-86.4966 132.286,-79.7784 129.885,-86.3536"/>
+</g>
 <!-- proc~current_itt -->
-<g id="proc~~mixers_history_init~~CallsGraph_node2" class="node"><title>proc~current_itt</title>
-<g id="a_proc~~mixers_history_init~~CallsGraph_node2"><a xlink:href=".././proc/current_itt.html" xlink:title="current_itt">
-<polygon fill="#d94e8f" stroke="#d94e8f" points="198,-108 137,-108 137,-84 198,-84 198,-108"/>
-<text text-anchor="middle" x="167.5" y="-93.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">current_itt</text>
+<g id="proc~~mixers_history_init~~CallsGraph_node3" class="node"><title>proc~current_itt</title>
+<g id="a_proc~~mixers_history_init~~CallsGraph_node3"><a xlink:href=".././proc/current_itt.html" xlink:title="current_itt">
+<polygon fill="#d94e8f" stroke="#d94e8f" points="198,-66 137,-66 137,-42 198,-42 198,-66"/>
+<text text-anchor="middle" x="167.5" y="-51.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">current_itt</text>
 </a>
 </g>
 </g>
 <!-- proc~mixers_history_init&#45;&gt;proc~current_itt -->
-<g id="proc~~mixers_history_init~~CallsGraph_edge1" class="edge"><title>proc~mixers_history_init&#45;&gt;proc~current_itt</title>
-<path fill="none" stroke="#000000" d="M84.4544,-66.0355C97.6997,-70.8729 113.084,-76.4916 126.928,-81.5476"/>
-<polygon fill="#000000" stroke="#000000" points="126.09,-84.9675 136.684,-85.1105 128.491,-78.3923 126.09,-84.9675"/>
-</g>
-<!-- delete -->
-<g id="proc~~mixers_history_init~~CallsGraph_node3" class="node"><title>delete</title>
-<polygon fill="#777777" stroke="#777777" points="194.5,-66 140.5,-66 140.5,-42 194.5,-42 194.5,-66"/>
-<text text-anchor="middle" x="167.5" y="-51.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">delete</text>
-</g>
-<!-- proc~mixers_history_init&#45;&gt;delete -->
-<g id="proc~~mixers_history_init~~CallsGraph_edge2" class="edge"><title>proc~mixers_history_init&#45;&gt;delete</title>
-<path fill="none" stroke="#000000" d="M101.272,-54C111.063,-54 121.159,-54 130.395,-54"/>
-<polygon fill="#000000" stroke="#000000" points="130.397,-57.5001 140.397,-54 130.397,-50.5001 130.397,-57.5001"/>
+<g id="proc~~mixers_history_init~~CallsGraph_edge2" class="edge"><title>proc~mixers_history_init&#45;&gt;proc~current_itt</title>
+<path fill="none" stroke="#000000" d="M101.272,-54C109.808,-54 118.576,-54 126.804,-54"/>
+<polygon fill="#000000" stroke="#000000" points="126.88,-57.5001 136.88,-54 126.88,-50.5001 126.88,-57.5001"/>
 </g>
 <!-- new -->
 <g id="proc~~mixers_history_init~~CallsGraph_node4" class="node"><title>new</title>
@@ -445,90 +460,90 @@ public subroutine mixers_history_init(mixers)
 <!-- Generated by graphviz version 2.38.0 (20140413.2041)
  -->
 <!-- Title: proc~~mixers_history_init~~CalledByGraph Pages: 1 -->
-<svg id="procmixers_history_initCalledByGraph" width="385pt" height="154pt"
- viewBox="0.00 0.00 385.00 154.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-<g id="proc~~mixers_history_init~~CalledByGraph" class="graph" transform="scale(1 1) rotate(0) translate(4 150)">
+<svg id="procmixers_history_initCalledByGraph" width="385pt" height="132pt"
+ viewBox="0.00 0.00 385.00 131.87" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="proc~~mixers_history_init~~CalledByGraph" class="graph" transform="scale(1 1) rotate(0) translate(4 127.874)">
 <title>proc~~mixers_history_init~~CalledByGraph</title>
-<polygon fill="white" stroke="none" points="-4,4 -4,-150 381,-150 381,4 -4,4"/>
+<polygon fill="white" stroke="none" points="-4,4 -4,-127.874 381,-127.874 381,4 -4,4"/>
 <!-- proc~mixers_history_init -->
 <g id="proc~~mixers_history_init~~CalledByGraph_node1" class="node"><title>proc~mixers_history_init</title>
-<polygon fill="none" stroke="black" points="377,-84 276,-84 276,-60 377,-60 377,-84"/>
-<text text-anchor="middle" x="326.5" y="-69.6" font-family="Helvetica,sans-Serif" font-size="10.50">mixers_history_init</text>
-</g>
-<!-- proc~state_init -->
-<g id="proc~~mixers_history_init~~CalledByGraph_node2" class="node"><title>proc~state_init</title>
-<g id="a_proc~~mixers_history_init~~CalledByGraph_node2"><a xlink:href=".././proc/state_init.html" xlink:title="state_init">
-<polygon fill="#d9534f" stroke="#d9534f" points="207,-146 152,-146 152,-122 207,-122 207,-146"/>
-<text text-anchor="middle" x="179.5" y="-131.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">state_init</text>
-</a>
-</g>
-</g>
-<!-- proc~state_init&#45;&gt;proc~mixers_history_init -->
-<g id="proc~~mixers_history_init~~CalledByGraph_edge1" class="edge"><title>proc~state_init&#45;&gt;proc~mixers_history_init</title>
-<path fill="none" stroke="#000000" d="M207.093,-125.3C217.457,-121.732 229.376,-117.407 240,-113 257.755,-105.635 277.101,-96.4587 292.893,-88.6559"/>
-<polygon fill="#000000" stroke="#000000" points="294.834,-91.599 302.22,-84.0034 291.709,-85.335 294.834,-91.599"/>
-</g>
-<!-- proc~mixers_init -->
-<g id="proc~~mixers_history_init~~CalledByGraph_node3" class="node"><title>proc~mixers_init</title>
-<g id="a_proc~~mixers_history_init~~CalledByGraph_node3"><a xlink:href=".././proc/mixers_init.html" xlink:title="mixers_init">
-<polygon fill="#d9534f" stroke="#d9534f" points="211.5,-24 147.5,-24 147.5,-0 211.5,-0 211.5,-24"/>
-<text text-anchor="middle" x="179.5" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">mixers_init</text>
-</a>
-</g>
-</g>
-<!-- proc~mixers_init&#45;&gt;proc~mixers_history_init -->
-<g id="proc~~mixers_history_init~~CalledByGraph_edge2" class="edge"><title>proc~mixers_init&#45;&gt;proc~mixers_history_init</title>
-<path fill="none" stroke="#000000" d="M209.843,-24.1419C232.052,-33.3317 262.755,-46.0367 286.946,-56.0468"/>
-<polygon fill="#000000" stroke="#000000" points="285.622,-59.2866 296.201,-59.8762 288.299,-52.8185 285.622,-59.2866"/>
-</g>
-<!-- proc~mixers_scf_history_init -->
-<g id="proc~~mixers_history_init~~CalledByGraph_node4" class="node"><title>proc~mixers_scf_history_init</title>
-<g id="a_proc~~mixers_history_init~~CalledByGraph_node4"><a xlink:href=".././proc/mixers_scf_history_init.html" xlink:title="mixers_scf_history_init">
-<polygon fill="#d9534f" stroke="#d9534f" points="240,-104 119,-104 119,-80 240,-80 240,-104"/>
-<text text-anchor="middle" x="179.5" y="-89.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">mixers_scf_history_init</text>
-</a>
-</g>
-</g>
-<!-- proc~mixers_scf_history_init&#45;&gt;proc~mixers_history_init -->
-<g id="proc~~mixers_history_init~~CalledByGraph_edge3" class="edge"><title>proc~mixers_scf_history_init&#45;&gt;proc~mixers_history_init</title>
-<path fill="none" stroke="#000000" d="M240.314,-83.7498C248.744,-82.587 257.411,-81.3916 265.838,-80.2293"/>
-<polygon fill="#000000" stroke="#000000" points="266.539,-83.6658 275.967,-78.8322 265.582,-76.7315 266.539,-83.6658"/>
+<polygon fill="none" stroke="black" points="377,-87 276,-87 276,-63 377,-63 377,-87"/>
+<text text-anchor="middle" x="326.5" y="-72.6" font-family="Helvetica,sans-Serif" font-size="10.50">mixers_history_init</text>
 </g>
 <!-- proc~mixers_scf_init -->
-<g id="proc~~mixers_history_init~~CalledByGraph_node5" class="node"><title>proc~mixers_scf_init</title>
-<g id="a_proc~~mixers_history_init~~CalledByGraph_node5"><a xlink:href=".././proc/mixers_scf_init.html" xlink:title="mixers_scf_init">
-<polygon fill="#d9534f" stroke="#d9534f" points="83,-53 0,-53 0,-29 83,-29 83,-53"/>
-<text text-anchor="middle" x="41.5" y="-38.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">mixers_scf_init</text>
+<g id="proc~~mixers_history_init~~CalledByGraph_node2" class="node"><title>proc~mixers_scf_init</title>
+<g id="a_proc~~mixers_history_init~~CalledByGraph_node2"><a xlink:href=".././proc/mixers_scf_init.html" xlink:title="mixers_scf_init">
+<polygon fill="#d9534f" stroke="#d9534f" points="83,-118 0,-118 0,-94 83,-94 83,-118"/>
+<text text-anchor="middle" x="41.5" y="-103.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">mixers_scf_init</text>
 </a>
 </g>
 </g>
 <!-- proc~mixers_scf_init&#45;&gt;proc~mixers_history_init -->
-<g id="proc~~mixers_history_init~~CalledByGraph_edge4" class="edge"><title>proc~mixers_scf_init&#45;&gt;proc~mixers_history_init</title>
-<path fill="none" stroke="#000000" d="M83.047,-45.4415C130.959,-50.6899 211.093,-59.4678 266.029,-65.4855"/>
-<polygon fill="#000000" stroke="#000000" points="265.658,-68.9658 275.98,-66.5756 266.421,-62.0074 265.658,-68.9658"/>
+<g id="proc~~mixers_history_init~~CalledByGraph_edge1" class="edge"><title>proc~mixers_scf_init&#45;&gt;proc~mixers_history_init</title>
+<path fill="none" stroke="#000000" d="M83.1697,-114.864C123.508,-122.122 186.814,-129.358 240,-117 260.603,-112.213 281.96,-101.726 298.176,-92.4289"/>
+<polygon fill="#000000" stroke="#000000" points="300.269,-95.2567 307.085,-87.1448 296.698,-89.2361 300.269,-95.2567"/>
+</g>
+<!-- proc~mixers_init -->
+<g id="proc~~mixers_history_init~~CalledByGraph_node5" class="node"><title>proc~mixers_init</title>
+<g id="a_proc~~mixers_history_init~~CalledByGraph_node5"><a xlink:href=".././proc/mixers_init.html" xlink:title="mixers_init">
+<polygon fill="#d9534f" stroke="#d9534f" points="211.5,-108 147.5,-108 147.5,-84 211.5,-84 211.5,-108"/>
+<text text-anchor="middle" x="179.5" y="-93.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">mixers_init</text>
+</a>
+</g>
 </g>
 <!-- proc~mixers_scf_init&#45;&gt;proc~mixers_init -->
-<g id="proc~~mixers_history_init~~CalledByGraph_edge6" class="edge"><title>proc~mixers_scf_init&#45;&gt;proc~mixers_init</title>
-<path fill="none" stroke="#000000" d="M83.3045,-32.299C100.28,-28.6792 119.964,-24.482 137.011,-20.8468"/>
-<polygon fill="#000000" stroke="#000000" points="138.187,-24.1749 147.238,-18.6663 136.727,-17.3288 138.187,-24.1749"/>
+<g id="proc~~mixers_history_init~~CalledByGraph_edge7" class="edge"><title>proc~mixers_scf_init&#45;&gt;proc~mixers_init</title>
+<path fill="none" stroke="#000000" d="M83.3045,-103C100.28,-101.751 119.964,-100.304 137.011,-99.0506"/>
+<polygon fill="#000000" stroke="#000000" points="137.521,-102.523 147.238,-98.2987 137.008,-95.5415 137.521,-102.523"/>
+</g>
+<!-- proc~mixers_scf_history_init -->
+<g id="proc~~mixers_history_init~~CalledByGraph_node3" class="node"><title>proc~mixers_scf_history_init</title>
+<g id="a_proc~~mixers_history_init~~CalledByGraph_node3"><a xlink:href=".././proc/mixers_scf_history_init.html" xlink:title="mixers_scf_history_init">
+<polygon fill="#d9534f" stroke="#d9534f" points="240,-66 119,-66 119,-42 240,-42 240,-66"/>
+<text text-anchor="middle" x="179.5" y="-51.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">mixers_scf_history_init</text>
+</a>
+</g>
+</g>
+<!-- proc~mixers_scf_history_init&#45;&gt;proc~mixers_history_init -->
+<g id="proc~~mixers_history_init~~CalledByGraph_edge2" class="edge"><title>proc~mixers_scf_history_init&#45;&gt;proc~mixers_history_init</title>
+<path fill="none" stroke="#000000" d="M240.314,-62.6627C248.744,-63.8837 257.411,-65.1388 265.838,-66.3593"/>
+<polygon fill="#000000" stroke="#000000" points="265.568,-69.8567 275.967,-67.8262 266.572,-62.929 265.568,-69.8567"/>
+</g>
+<!-- proc~state_init -->
+<g id="proc~~mixers_history_init~~CalledByGraph_node4" class="node"><title>proc~state_init</title>
+<g id="a_proc~~mixers_history_init~~CalledByGraph_node4"><a xlink:href=".././proc/state_init.html" xlink:title="state_init">
+<polygon fill="#d9534f" stroke="#d9534f" points="207,-24 152,-24 152,-0 207,-0 207,-24"/>
+<text text-anchor="middle" x="179.5" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">state_init</text>
+</a>
+</g>
+</g>
+<!-- proc~state_init&#45;&gt;proc~mixers_history_init -->
+<g id="proc~~mixers_history_init~~CalledByGraph_edge3" class="edge"><title>proc~state_init&#45;&gt;proc~mixers_history_init</title>
+<path fill="none" stroke="#000000" d="M207.115,-20.6472C217.482,-24.2089 229.397,-28.5426 240,-33 258.097,-40.6076 277.794,-50.1903 293.717,-58.2808"/>
+<polygon fill="#000000" stroke="#000000" points="292.12,-61.3951 302.615,-62.8457 295.315,-55.1669 292.12,-61.3951"/>
+</g>
+<!-- proc~mixers_init&#45;&gt;proc~mixers_history_init -->
+<g id="proc~~mixers_history_init~~CalledByGraph_edge4" class="edge"><title>proc~mixers_init&#45;&gt;proc~mixers_history_init</title>
+<path fill="none" stroke="#000000" d="M211.606,-91.495C227.477,-89.1964 247.328,-86.3215 265.991,-83.6185"/>
+<polygon fill="#000000" stroke="#000000" points="266.514,-87.0794 275.909,-82.1821 265.511,-80.1517 266.514,-87.0794"/>
 </g>
 <!-- proc~siesta_forces -->
 <g id="proc~~mixers_history_init~~CalledByGraph_node6" class="node"><title>proc~siesta_forces</title>
 <g id="a_proc~~mixers_history_init~~CalledByGraph_node6"><a xlink:href=".././proc/siesta_forces.html" xlink:title="siesta_forces">
-<polygon fill="#d9534f" stroke="#d9534f" points="79.5,-114 3.5,-114 3.5,-90 79.5,-90 79.5,-114"/>
-<text text-anchor="middle" x="41.5" y="-99.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">siesta_forces</text>
+<polygon fill="#d9534f" stroke="#d9534f" points="79.5,-55 3.5,-55 3.5,-31 79.5,-31 79.5,-55"/>
+<text text-anchor="middle" x="41.5" y="-40.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">siesta_forces</text>
 </a>
 </g>
 </g>
-<!-- proc~siesta_forces&#45;&gt;proc~state_init -->
-<g id="proc~~mixers_history_init~~CalledByGraph_edge5" class="edge"><title>proc~siesta_forces&#45;&gt;proc~state_init</title>
-<path fill="none" stroke="#000000" d="M79.6626,-110.744C98.9955,-115.293 122.548,-120.835 141.811,-125.367"/>
-<polygon fill="#000000" stroke="#000000" points="141.196,-128.818 151.732,-127.702 142.8,-122.004 141.196,-128.818"/>
-</g>
 <!-- proc~siesta_forces&#45;&gt;proc~mixers_scf_history_init -->
-<g id="proc~~mixers_history_init~~CalledByGraph_edge7" class="edge"><title>proc~siesta_forces&#45;&gt;proc~mixers_scf_history_init</title>
-<path fill="none" stroke="#000000" d="M79.6626,-99.2675C88.7463,-98.5995 98.7614,-97.8631 108.825,-97.1231"/>
-<polygon fill="#000000" stroke="#000000" points="109.157,-100.608 118.873,-96.3843 108.643,-93.6272 109.157,-100.608"/>
+<g id="proc~~mixers_history_init~~CalledByGraph_edge5" class="edge"><title>proc~siesta_forces&#45;&gt;proc~mixers_scf_history_init</title>
+<path fill="none" stroke="#000000" d="M79.6626,-46.0058C88.7463,-46.7405 98.7614,-47.5506 108.825,-48.3646"/>
+<polygon fill="#000000" stroke="#000000" points="108.624,-51.8596 118.873,-49.1772 109.188,-44.8824 108.624,-51.8596"/>
+</g>
+<!-- proc~siesta_forces&#45;&gt;proc~state_init -->
+<g id="proc~~mixers_history_init~~CalledByGraph_edge6" class="edge"><title>proc~siesta_forces&#45;&gt;proc~state_init</title>
+<path fill="none" stroke="#000000" d="M79.6626,-34.5291C98.9955,-30.1223 122.548,-24.7539 141.811,-20.3629"/>
+<polygon fill="#000000" stroke="#000000" points="142.76,-23.7364 151.732,-18.1015 141.204,-16.9115 142.76,-23.7364"/>
 </g>
 </g>
 </svg>
@@ -758,6 +773,8 @@ public subroutine mixers_history_init(mixers)
   <div id="allprocs-1" class="panel-collapse collapse">
     <div class="list-group">
       
+      <a class="list-group-item" href="../proc/compute_dm.html">compute_dm</a>
+      
       <a class="list-group-item" href="../proc/current_itt.html">current_itt</a>
       
       <a class="list-group-item" href="../proc/getstackval.html">getstackval</a>
@@ -821,6 +838,8 @@ public subroutine mixers_history_init(mixers)
       <a class="list-group-item" href="../proc/push_stack_data.html">push_stack_data</a>
       
       <a class="list-group-item" href="../proc/setup_h0.html">setup_H0</a>
+      
+      <a class="list-group-item" href="../proc/setup_hamiltonian.html">setup_hamiltonian</a>
       
       <a class="list-group-item" href="../proc/siesta_analysis.html">siesta_analysis</a>
       
@@ -886,6 +905,10 @@ public subroutine mixers_history_init(mixers)
     
     <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
     
+    
+    <script src="../tipuesearch/tipuesearch_content.js"></script>
+    <script src="../tipuesearch/tipuesearch_set.js"></script>
+    <script src="../tipuesearch/tipuesearch.js"></script>
     
     
   </body>

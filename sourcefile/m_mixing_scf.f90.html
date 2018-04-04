@@ -17,6 +17,8 @@
     <link href="../css/font-awesome.min.css" rel="stylesheet">
     <link href="../css/local.css" rel="stylesheet">
     
+    <link  href="../tipuesearch/tipuesearch.css" rel="stylesheet">
+    
     
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
@@ -87,6 +89,15 @@
 
           </ul>
         
+        <form action="../search.html" class="navbar-form navbar-right" role="search">
+        <div class="form-group">
+          <input type="text" class="form-control" placeholder="Search" name="q" id="tipue_search_input" autocomplete="off" required>
+        </div>
+<!--
+        <button type="submit" class="btn btn-default">Submit</button>
+-->
+        </form>
+        
         </div><!--/.nav-collapse -->
       </div>
     </nav>
@@ -113,7 +124,7 @@
      <li><i class="fa fa-list-ol"></i>
        <a data-toggle="tooltip"
 	  data-placement="bottom" data-html="true"
-	  title=" 6.8% of total for source files.">186 statements</a>
+	  title=" 6.2% of total for source files.">186 statements</a>
      </li> 
      
      
@@ -186,11 +197,15 @@
   <div id="allfiles-0" class="panel-collapse collapse">
     <div class="list-group">
       
+      <a class="list-group-item" href="../sourcefile/compute_dm.f.html">compute_dm.F</a>
+      
       <a class="list-group-item" href="../sourcefile/m_mixing.f90.html">m_mixing.F90</a>
       
       <a class="list-group-item" href="../sourcefile/m_mixing_scf.f90.html">m_mixing_scf.F90</a>
       
       <a class="list-group-item" href="../sourcefile/setup_h0.f.html">setup_H0.F</a>
+      
+      <a class="list-group-item" href="../sourcefile/setup_hamiltonian.f.html">setup_hamiltonian.F</a>
       
       <a class="list-group-item" href="../sourcefile/siesta_analysis.f.html">siesta_analysis.F</a>
       
@@ -314,7 +329,7 @@
 </g>
 </g>
 <!-- sourcefile~state_init.f&#45;&gt;sourcefile~m_mixing_scf.f90 -->
-<g id="sourcefile~~m_mixing_scf.f90~~AfferentGraph_edge1" class="edge"><title>sourcefile~state_init.f&#45;&gt;sourcefile~m_mixing_scf.f90</title>
+<g id="sourcefile~~m_mixing_scf.f90~~AfferentGraph_edge2" class="edge"><title>sourcefile~state_init.f&#45;&gt;sourcefile~m_mixing_scf.f90</title>
 <path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M135.973,-17.4123C127.944,-18.7908 119.049,-20.3177 110.127,-21.8494"/>
 <polygon fill="#000000" stroke="#000000" points="109.351,-18.4314 100.087,-23.573 110.535,-25.3305 109.351,-18.4314"/>
 </g>
@@ -327,7 +342,7 @@
 </g>
 </g>
 <!-- sourcefile~siesta_forces.f90&#45;&gt;sourcefile~m_mixing_scf.f90 -->
-<g id="sourcefile~~m_mixing_scf.f90~~AfferentGraph_edge2" class="edge"><title>sourcefile~siesta_forces.f90&#45;&gt;sourcefile~m_mixing_scf.f90</title>
+<g id="sourcefile~~m_mixing_scf.f90~~AfferentGraph_edge1" class="edge"><title>sourcefile~siesta_forces.f90&#45;&gt;sourcefile~m_mixing_scf.f90</title>
 <path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M236.812,-32.6696C225.101,-32.8069 212.598,-32.9306 201,-33 172.112,-33.173 164.888,-33.1699 136,-33 127.816,-32.9519 119.19,-32.8777 110.696,-32.7909"/>
 <polygon fill="#000000" stroke="#000000" points="110.478,-29.2885 100.44,-32.6799 110.402,-36.2881 110.478,-29.2885"/>
 </g>
@@ -780,11 +795,15 @@
   <div id="allfiles-1" class="panel-collapse collapse">
     <div class="list-group">
       
+      <a class="list-group-item" href="../sourcefile/compute_dm.f.html">compute_dm.F</a>
+      
       <a class="list-group-item" href="../sourcefile/m_mixing.f90.html">m_mixing.F90</a>
       
       <a class="list-group-item" href="../sourcefile/m_mixing_scf.f90.html">m_mixing_scf.F90</a>
       
       <a class="list-group-item" href="../sourcefile/setup_h0.f.html">setup_H0.F</a>
+      
+      <a class="list-group-item" href="../sourcefile/setup_hamiltonian.f.html">setup_hamiltonian.F</a>
       
       <a class="list-group-item" href="../sourcefile/siesta_analysis.f.html">siesta_analysis.F</a>
       
@@ -844,6 +863,10 @@
     
     <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
     
+    
+    <script src="../tipuesearch/tipuesearch_content.js"></script>
+    <script src="../tipuesearch/tipuesearch_set.js"></script>
+    <script src="../tipuesearch/tipuesearch.js"></script>
     
     
   </body>

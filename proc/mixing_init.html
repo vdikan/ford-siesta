@@ -17,6 +17,8 @@
     <link href="../css/font-awesome.min.css" rel="stylesheet">
     <link href="../css/local.css" rel="stylesheet">
     
+    <link  href="../tipuesearch/tipuesearch.css" rel="stylesheet">
+    
     
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
@@ -87,6 +89,15 @@
 
           </ul>
         
+        <form action="../search.html" class="navbar-form navbar-right" role="search">
+        <div class="form-group">
+          <input type="text" class="form-control" placeholder="Search" name="q" id="tipue_search_input" autocomplete="off" required>
+        </div>
+<!--
+        <button type="submit" class="btn btn-default">Submit</button>
+-->
+        </form>
+        
         </div><!--/.nav-collapse -->
       </div>
     </nav>
@@ -113,7 +124,7 @@
      <li><i class="fa fa-list-ol"></i>
        <a data-toggle="tooltip"
 	  data-placement="bottom" data-html="true"
-	  title=" 6.5% of total for procedures.">170 statements</a>
+	  title=" 5.8% of total for procedures.">170 statements</a>
      </li> 
      
      
@@ -180,6 +191,8 @@
   <div id="allprocs-0" class="panel-collapse collapse">
     <div class="list-group">
       
+      <a class="list-group-item" href="../proc/compute_dm.html">compute_dm</a>
+      
       <a class="list-group-item" href="../proc/current_itt.html">current_itt</a>
       
       <a class="list-group-item" href="../proc/getstackval.html">getstackval</a>
@@ -243,6 +256,8 @@
       <a class="list-group-item" href="../proc/push_stack_data.html">push_stack_data</a>
       
       <a class="list-group-item" href="../proc/setup_h0.html">setup_H0</a>
+      
+      <a class="list-group-item" href="../proc/setup_hamiltonian.html">setup_hamiltonian</a>
       
       <a class="list-group-item" href="../proc/siesta_analysis.html">siesta_analysis</a>
       
@@ -388,31 +403,31 @@ private subroutine mixing_init(mix, n, xin, F)
 <polygon fill="none" stroke="black" points="63,-45 0,-45 0,-21 63,-21 63,-45"/>
 <text text-anchor="middle" x="31.5" y="-30.6" font-family="Helvetica,sans-Serif" font-size="10.50">mixing_init</text>
 </g>
-<!-- proc~current_itt -->
-<g id="proc~~mixing_init~~CallsGraph_node2" class="node"><title>proc~current_itt</title>
-<g id="a_proc~~mixing_init~~CallsGraph_node2"><a xlink:href=".././proc/current_itt.html" xlink:title="current_itt">
-<polygon fill="#d94e8f" stroke="#d94e8f" points="160,-66 99,-66 99,-42 160,-42 160,-66"/>
-<text text-anchor="middle" x="129.5" y="-51.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">current_itt</text>
-</a>
-</g>
-</g>
-<!-- proc~mixing_init&#45;&gt;proc~current_itt -->
-<g id="proc~~mixing_init~~CallsGraph_edge1" class="edge"><title>proc~mixing_init&#45;&gt;proc~current_itt</title>
-<path fill="none" stroke="#000000" d="M63.1389,-39.7023C71.3425,-41.4968 80.3279,-43.4624 88.9392,-45.3461"/>
-<polygon fill="#000000" stroke="#000000" points="88.2901,-48.7868 98.807,-47.5047 89.786,-41.9485 88.2901,-48.7868"/>
-</g>
 <!-- proc~norm -->
-<g id="proc~~mixing_init~~CallsGraph_node3" class="node"><title>proc~norm</title>
-<g id="a_proc~~mixing_init~~CallsGraph_node3"><a xlink:href=".././proc/norm.html" xlink:title="norm">
-<polygon fill="#d94e8f" stroke="#d94e8f" points="156.5,-24 102.5,-24 102.5,-0 156.5,-0 156.5,-24"/>
-<text text-anchor="middle" x="129.5" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">norm</text>
+<g id="proc~~mixing_init~~CallsGraph_node2" class="node"><title>proc~norm</title>
+<g id="a_proc~~mixing_init~~CallsGraph_node2"><a xlink:href=".././proc/norm.html" xlink:title="norm">
+<polygon fill="#d94e8f" stroke="#d94e8f" points="156.5,-66 102.5,-66 102.5,-42 156.5,-42 156.5,-66"/>
+<text text-anchor="middle" x="129.5" y="-51.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">norm</text>
 </a>
 </g>
 </g>
 <!-- proc~mixing_init&#45;&gt;proc~norm -->
-<g id="proc~~mixing_init~~CallsGraph_edge2" class="edge"><title>proc~mixing_init&#45;&gt;proc~norm</title>
-<path fill="none" stroke="#000000" d="M63.1389,-26.2977C72.4074,-24.2703 82.6739,-22.0245 92.2712,-19.925"/>
-<polygon fill="#000000" stroke="#000000" points="93.3228,-23.2778 102.344,-17.7217 91.8269,-16.4395 93.3228,-23.2778"/>
+<g id="proc~~mixing_init~~CallsGraph_edge1" class="edge"><title>proc~mixing_init&#45;&gt;proc~norm</title>
+<path fill="none" stroke="#000000" d="M63.1389,-39.7023C72.4074,-41.7297 82.6739,-43.9755 92.2712,-46.075"/>
+<polygon fill="#000000" stroke="#000000" points="91.8269,-49.5605 102.344,-48.2783 93.3228,-42.7222 91.8269,-49.5605"/>
+</g>
+<!-- proc~current_itt -->
+<g id="proc~~mixing_init~~CallsGraph_node3" class="node"><title>proc~current_itt</title>
+<g id="a_proc~~mixing_init~~CallsGraph_node3"><a xlink:href=".././proc/current_itt.html" xlink:title="current_itt">
+<polygon fill="#d94e8f" stroke="#d94e8f" points="160,-24 99,-24 99,-0 160,-0 160,-24"/>
+<text text-anchor="middle" x="129.5" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">current_itt</text>
+</a>
+</g>
+</g>
+<!-- proc~mixing_init&#45;&gt;proc~current_itt -->
+<g id="proc~~mixing_init~~CallsGraph_edge2" class="edge"><title>proc~mixing_init&#45;&gt;proc~current_itt</title>
+<path fill="none" stroke="#000000" d="M63.1389,-26.2977C71.3425,-24.5032 80.3279,-22.5376 88.9392,-20.6539"/>
+<polygon fill="#000000" stroke="#000000" points="89.786,-24.0515 98.807,-18.4953 88.2901,-17.2132 89.786,-24.0515"/>
 </g>
 </g>
 </svg>
@@ -996,6 +1011,8 @@ private subroutine mixing_init(mix, n, xin, F)
   <div id="allprocs-1" class="panel-collapse collapse">
     <div class="list-group">
       
+      <a class="list-group-item" href="../proc/compute_dm.html">compute_dm</a>
+      
       <a class="list-group-item" href="../proc/current_itt.html">current_itt</a>
       
       <a class="list-group-item" href="../proc/getstackval.html">getstackval</a>
@@ -1059,6 +1076,8 @@ private subroutine mixing_init(mix, n, xin, F)
       <a class="list-group-item" href="../proc/push_stack_data.html">push_stack_data</a>
       
       <a class="list-group-item" href="../proc/setup_h0.html">setup_H0</a>
+      
+      <a class="list-group-item" href="../proc/setup_hamiltonian.html">setup_hamiltonian</a>
       
       <a class="list-group-item" href="../proc/siesta_analysis.html">siesta_analysis</a>
       
@@ -1124,6 +1143,10 @@ private subroutine mixing_init(mix, n, xin, F)
     
     <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
     
+    
+    <script src="../tipuesearch/tipuesearch_content.js"></script>
+    <script src="../tipuesearch/tipuesearch_set.js"></script>
+    <script src="../tipuesearch/tipuesearch.js"></script>
     
     
   </body>

@@ -17,6 +17,8 @@
     <link href="../css/font-awesome.min.css" rel="stylesheet">
     <link href="../css/local.css" rel="stylesheet">
     
+    <link  href="../tipuesearch/tipuesearch.css" rel="stylesheet">
+    
     
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
@@ -86,6 +88,15 @@
 
 
           </ul>
+        
+        <form action="../search.html" class="navbar-form navbar-right" role="search">
+        <div class="form-group">
+          <input type="text" class="form-control" placeholder="Search" name="q" id="tipue_search_input" autocomplete="off" required>
+        </div>
+<!--
+        <button type="submit" class="btn btn-default">Submit</button>
+-->
+        </form>
         
         </div><!--/.nav-collapse -->
       </div>
@@ -180,6 +191,8 @@
   <div id="allprocs-0" class="panel-collapse collapse">
     <div class="list-group">
       
+      <a class="list-group-item" href="../proc/compute_dm.html">compute_dm</a>
+      
       <a class="list-group-item" href="../proc/current_itt.html">current_itt</a>
       
       <a class="list-group-item" href="../proc/getstackval.html">getstackval</a>
@@ -243,6 +256,8 @@
       <a class="list-group-item" href="../proc/push_stack_data.html">push_stack_data</a>
       
       <a class="list-group-item" href="../proc/setup_h0.html">setup_H0</a>
+      
+      <a class="list-group-item" href="../proc/setup_hamiltonian.html">setup_hamiltonian</a>
       
       <a class="list-group-item" href="../proc/siesta_analysis.html">siesta_analysis</a>
       
@@ -452,23 +467,23 @@ public function mix_method(str) result(m)
 <polygon fill="none" stroke="black" points="71,-45 0,-45 0,-21 71,-21 71,-45"/>
 <text text-anchor="middle" x="35.5" y="-30.6" font-family="Helvetica,sans-Serif" font-size="10.50">mix_method</text>
 </g>
-<!-- leqi -->
-<g id="proc~~mix_method~~CallsGraph_node2" class="node"><title>leqi</title>
+<!-- die -->
+<g id="proc~~mix_method~~CallsGraph_node2" class="node"><title>die</title>
 <polygon fill="#777777" stroke="#777777" points="161,-66 107,-66 107,-42 161,-42 161,-66"/>
-<text text-anchor="middle" x="134" y="-51.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">leqi</text>
+<text text-anchor="middle" x="134" y="-51.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">die</text>
 </g>
-<!-- proc~mix_method&#45;&gt;leqi -->
-<g id="proc~~mix_method~~CallsGraph_edge1" class="edge"><title>proc~mix_method&#45;&gt;leqi</title>
+<!-- proc~mix_method&#45;&gt;die -->
+<g id="proc~~mix_method~~CallsGraph_edge1" class="edge"><title>proc~mix_method&#45;&gt;die</title>
 <path fill="none" stroke="#000000" d="M71.0661,-40.5222C79.4479,-42.3462 88.4303,-44.3009 96.8816,-46.14"/>
 <polygon fill="#000000" stroke="#000000" points="96.3353,-49.603 106.851,-48.3095 97.8239,-42.7631 96.3353,-49.603"/>
 </g>
-<!-- die -->
-<g id="proc~~mix_method~~CallsGraph_node3" class="node"><title>die</title>
+<!-- leqi -->
+<g id="proc~~mix_method~~CallsGraph_node3" class="node"><title>leqi</title>
 <polygon fill="#777777" stroke="#777777" points="161,-24 107,-24 107,-0 161,-0 161,-24"/>
-<text text-anchor="middle" x="134" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">die</text>
+<text text-anchor="middle" x="134" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">leqi</text>
 </g>
-<!-- proc~mix_method&#45;&gt;die -->
-<g id="proc~~mix_method~~CallsGraph_edge2" class="edge"><title>proc~mix_method&#45;&gt;die</title>
+<!-- proc~mix_method&#45;&gt;leqi -->
+<g id="proc~~mix_method~~CallsGraph_edge2" class="edge"><title>proc~mix_method&#45;&gt;leqi</title>
 <path fill="none" stroke="#000000" d="M71.0661,-25.4778C79.4479,-23.6538 88.4303,-21.6991 96.8816,-19.86"/>
 <polygon fill="#000000" stroke="#000000" points="97.8239,-23.2369 106.851,-17.6905 96.3353,-16.397 97.8239,-23.2369"/>
 </g>
@@ -717,6 +732,8 @@ public function mix_method(str) result(m)
   <div id="allprocs-1" class="panel-collapse collapse">
     <div class="list-group">
       
+      <a class="list-group-item" href="../proc/compute_dm.html">compute_dm</a>
+      
       <a class="list-group-item" href="../proc/current_itt.html">current_itt</a>
       
       <a class="list-group-item" href="../proc/getstackval.html">getstackval</a>
@@ -780,6 +797,8 @@ public function mix_method(str) result(m)
       <a class="list-group-item" href="../proc/push_stack_data.html">push_stack_data</a>
       
       <a class="list-group-item" href="../proc/setup_h0.html">setup_H0</a>
+      
+      <a class="list-group-item" href="../proc/setup_hamiltonian.html">setup_hamiltonian</a>
       
       <a class="list-group-item" href="../proc/siesta_analysis.html">siesta_analysis</a>
       
@@ -845,6 +864,10 @@ public function mix_method(str) result(m)
     
     <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
     
+    
+    <script src="../tipuesearch/tipuesearch_content.js"></script>
+    <script src="../tipuesearch/tipuesearch_set.js"></script>
+    <script src="../tipuesearch/tipuesearch.js"></script>
     
     
   </body>

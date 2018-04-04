@@ -17,6 +17,8 @@
     <link href="../css/font-awesome.min.css" rel="stylesheet">
     <link href="../css/local.css" rel="stylesheet">
     
+    <link  href="../tipuesearch/tipuesearch.css" rel="stylesheet">
+    
     
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
@@ -87,6 +89,15 @@
 
           </ul>
         
+        <form action="../search.html" class="navbar-form navbar-right" role="search">
+        <div class="form-group">
+          <input type="text" class="form-control" placeholder="Search" name="q" id="tipue_search_input" autocomplete="off" required>
+        </div>
+<!--
+        <button type="submit" class="btn btn-default">Submit</button>
+-->
+        </form>
+        
         </div><!--/.nav-collapse -->
       </div>
     </nav>
@@ -113,7 +124,7 @@
      <li><i class="fa fa-list-ol"></i>
        <a data-toggle="tooltip"
 	  data-placement="bottom" data-html="true"
-	  title=" 8.4% of total for source files.">230 statements</a>
+	  title=" 7.6% of total for source files.">230 statements</a>
      </li> 
      
      
@@ -186,11 +197,15 @@
   <div id="allfiles-0" class="panel-collapse collapse">
     <div class="list-group">
       
+      <a class="list-group-item" href="../sourcefile/compute_dm.f.html">compute_dm.F</a>
+      
       <a class="list-group-item" href="../sourcefile/m_mixing.f90.html">m_mixing.F90</a>
       
       <a class="list-group-item" href="../sourcefile/m_mixing_scf.f90.html">m_mixing_scf.F90</a>
       
       <a class="list-group-item" href="../sourcefile/setup_h0.f.html">setup_H0.F</a>
+      
+      <a class="list-group-item" href="../sourcefile/setup_hamiltonian.f.html">setup_hamiltonian.F</a>
       
       <a class="list-group-item" href="../sourcefile/siesta_analysis.f.html">siesta_analysis.F</a>
       
@@ -800,11 +815,15 @@
   <div id="allfiles-1" class="panel-collapse collapse">
     <div class="list-group">
       
+      <a class="list-group-item" href="../sourcefile/compute_dm.f.html">compute_dm.F</a>
+      
       <a class="list-group-item" href="../sourcefile/m_mixing.f90.html">m_mixing.F90</a>
       
       <a class="list-group-item" href="../sourcefile/m_mixing_scf.f90.html">m_mixing_scf.F90</a>
       
       <a class="list-group-item" href="../sourcefile/setup_h0.f.html">setup_H0.F</a>
+      
+      <a class="list-group-item" href="../sourcefile/setup_hamiltonian.f.html">setup_hamiltonian.F</a>
       
       <a class="list-group-item" href="../sourcefile/siesta_analysis.f.html">siesta_analysis.F</a>
       
@@ -864,6 +883,10 @@
     
     <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
     
+    
+    <script src="../tipuesearch/tipuesearch_content.js"></script>
+    <script src="../tipuesearch/tipuesearch_set.js"></script>
+    <script src="../tipuesearch/tipuesearch.js"></script>
     
     
   </body>

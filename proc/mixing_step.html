@@ -17,6 +17,8 @@
     <link href="../css/font-awesome.min.css" rel="stylesheet">
     <link href="../css/local.css" rel="stylesheet">
     
+    <link  href="../tipuesearch/tipuesearch.css" rel="stylesheet">
+    
     
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
@@ -87,6 +89,15 @@
 
           </ul>
         
+        <form action="../search.html" class="navbar-form navbar-right" role="search">
+        <div class="form-group">
+          <input type="text" class="form-control" placeholder="Search" name="q" id="tipue_search_input" autocomplete="off" required>
+        </div>
+<!--
+        <button type="submit" class="btn btn-default">Submit</button>
+-->
+        </form>
+        
         </div><!--/.nav-collapse -->
       </div>
     </nav>
@@ -113,7 +124,7 @@
      <li><i class="fa fa-list-ol"></i>
        <a data-toggle="tooltip"
 	  data-placement="bottom" data-html="true"
-	  title=" 2.2% of total for procedures.">58 statements</a>
+	  title=" 2.0% of total for procedures.">58 statements</a>
      </li> 
      
      
@@ -180,6 +191,8 @@
   <div id="allprocs-0" class="panel-collapse collapse">
     <div class="list-group">
       
+      <a class="list-group-item" href="../proc/compute_dm.html">compute_dm</a>
+      
       <a class="list-group-item" href="../proc/current_itt.html">current_itt</a>
       
       <a class="list-group-item" href="../proc/getstackval.html">getstackval</a>
@@ -243,6 +256,8 @@
       <a class="list-group-item" href="../proc/push_stack_data.html">push_stack_data</a>
       
       <a class="list-group-item" href="../proc/setup_h0.html">setup_H0</a>
+      
+      <a class="list-group-item" href="../proc/setup_hamiltonian.html">setup_hamiltonian</a>
       
       <a class="list-group-item" href="../proc/siesta_analysis.html">siesta_analysis</a>
       
@@ -439,43 +454,43 @@ private subroutine mixing_step(mix)
 <polygon fill="none" stroke="black" points="70,-87 0,-87 0,-63 70,-63 70,-87"/>
 <text text-anchor="middle" x="35" y="-72.6" font-family="Helvetica,sans-Serif" font-size="10.50">mixing_step</text>
 </g>
-<!-- push -->
-<g id="proc~~mixing_step~~CallsGraph_node2" class="node"><title>push</title>
+<!-- reset -->
+<g id="proc~~mixing_step~~CallsGraph_node2" class="node"><title>reset</title>
 <polygon fill="#777777" stroke="#777777" points="166.5,-150 112.5,-150 112.5,-126 166.5,-126 166.5,-150"/>
-<text text-anchor="middle" x="139.5" y="-135.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">push</text>
+<text text-anchor="middle" x="139.5" y="-135.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">reset</text>
 </g>
-<!-- proc~mixing_step&#45;&gt;push -->
-<g id="proc~~mixing_step~~CallsGraph_edge1" class="edge"><title>proc~mixing_step&#45;&gt;push</title>
+<!-- proc~mixing_step&#45;&gt;reset -->
+<g id="proc~~mixing_step~~CallsGraph_edge1" class="edge"><title>proc~mixing_step&#45;&gt;reset</title>
 <path fill="none" stroke="#000000" d="M55.763,-87.147C71.2193,-96.647 92.9137,-109.981 110.21,-120.612"/>
 <polygon fill="#000000" stroke="#000000" points="108.445,-123.636 118.798,-125.89 112.111,-117.672 108.445,-123.636"/>
 </g>
-<!-- get_pointer -->
-<g id="proc~~mixing_step~~CallsGraph_node3" class="node"><title>get_pointer</title>
-<polygon fill="#777777" stroke="#777777" points="173,-108 106,-108 106,-84 173,-84 173,-108"/>
-<text text-anchor="middle" x="139.5" y="-93.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">get_pointer</text>
+<!-- push -->
+<g id="proc~~mixing_step~~CallsGraph_node3" class="node"><title>push</title>
+<polygon fill="#777777" stroke="#777777" points="166.5,-108 112.5,-108 112.5,-84 166.5,-84 166.5,-108"/>
+<text text-anchor="middle" x="139.5" y="-93.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">push</text>
 </g>
-<!-- proc~mixing_step&#45;&gt;get_pointer -->
-<g id="proc~~mixing_step~~CallsGraph_edge4" class="edge"><title>proc~mixing_step&#45;&gt;get_pointer</title>
-<path fill="none" stroke="#000000" d="M70.131,-81.9927C78.4189,-83.6907 87.3815,-85.5269 96.0035,-87.2934"/>
-<polygon fill="#000000" stroke="#000000" points="95.4087,-90.7442 105.908,-89.3226 96.8137,-83.8866 95.4087,-90.7442"/>
-</g>
-<!-- reset -->
-<g id="proc~~mixing_step~~CallsGraph_node4" class="node"><title>reset</title>
-<polygon fill="#777777" stroke="#777777" points="166.5,-66 112.5,-66 112.5,-42 166.5,-42 166.5,-66"/>
-<text text-anchor="middle" x="139.5" y="-51.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">reset</text>
-</g>
-<!-- proc~mixing_step&#45;&gt;reset -->
-<g id="proc~~mixing_step~~CallsGraph_edge2" class="edge"><title>proc~mixing_step&#45;&gt;reset</title>
-<path fill="none" stroke="#000000" d="M70.131,-68.0073C80.439,-65.8954 91.7907,-63.5697 102.233,-61.4304"/>
-<polygon fill="#000000" stroke="#000000" points="103.205,-64.8039 112.299,-59.368 101.8,-57.9464 103.205,-64.8039"/>
+<!-- proc~mixing_step&#45;&gt;push -->
+<g id="proc~~mixing_step~~CallsGraph_edge2" class="edge"><title>proc~mixing_step&#45;&gt;push</title>
+<path fill="none" stroke="#000000" d="M70.131,-81.9927C80.439,-84.1046 91.7907,-86.4303 102.233,-88.5696"/>
+<polygon fill="#000000" stroke="#000000" points="101.8,-92.0536 112.299,-90.632 103.205,-85.1961 101.8,-92.0536"/>
 </g>
 <!-- n_items -->
-<g id="proc~~mixing_step~~CallsGraph_node5" class="node"><title>n_items</title>
-<polygon fill="#777777" stroke="#777777" points="166.5,-24 112.5,-24 112.5,-0 166.5,-0 166.5,-24"/>
-<text text-anchor="middle" x="139.5" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">n_items</text>
+<g id="proc~~mixing_step~~CallsGraph_node4" class="node"><title>n_items</title>
+<polygon fill="#777777" stroke="#777777" points="166.5,-66 112.5,-66 112.5,-42 166.5,-42 166.5,-66"/>
+<text text-anchor="middle" x="139.5" y="-51.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">n_items</text>
 </g>
 <!-- proc~mixing_step&#45;&gt;n_items -->
 <g id="proc~~mixing_step~~CallsGraph_edge3" class="edge"><title>proc~mixing_step&#45;&gt;n_items</title>
+<path fill="none" stroke="#000000" d="M70.131,-68.0073C80.439,-65.8954 91.7907,-63.5697 102.233,-61.4304"/>
+<polygon fill="#000000" stroke="#000000" points="103.205,-64.8039 112.299,-59.368 101.8,-57.9464 103.205,-64.8039"/>
+</g>
+<!-- get_pointer -->
+<g id="proc~~mixing_step~~CallsGraph_node5" class="node"><title>get_pointer</title>
+<polygon fill="#777777" stroke="#777777" points="173,-24 106,-24 106,-0 173,-0 173,-24"/>
+<text text-anchor="middle" x="139.5" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">get_pointer</text>
+</g>
+<!-- proc~mixing_step&#45;&gt;get_pointer -->
+<g id="proc~~mixing_step~~CallsGraph_edge4" class="edge"><title>proc~mixing_step&#45;&gt;get_pointer</title>
 <path fill="none" stroke="#000000" d="M55.763,-62.853C71.2193,-53.353 92.9137,-40.0189 110.21,-29.388"/>
 <polygon fill="#000000" stroke="#000000" points="112.111,-32.3279 118.798,-24.1097 108.445,-26.3643 112.111,-32.3279"/>
 </g>
@@ -821,6 +836,8 @@ private subroutine mixing_step(mix)
   <div id="allprocs-1" class="panel-collapse collapse">
     <div class="list-group">
       
+      <a class="list-group-item" href="../proc/compute_dm.html">compute_dm</a>
+      
       <a class="list-group-item" href="../proc/current_itt.html">current_itt</a>
       
       <a class="list-group-item" href="../proc/getstackval.html">getstackval</a>
@@ -884,6 +901,8 @@ private subroutine mixing_step(mix)
       <a class="list-group-item" href="../proc/push_stack_data.html">push_stack_data</a>
       
       <a class="list-group-item" href="../proc/setup_h0.html">setup_H0</a>
+      
+      <a class="list-group-item" href="../proc/setup_hamiltonian.html">setup_hamiltonian</a>
       
       <a class="list-group-item" href="../proc/siesta_analysis.html">siesta_analysis</a>
       
@@ -949,6 +968,10 @@ private subroutine mixing_step(mix)
     
     <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
     
+    
+    <script src="../tipuesearch/tipuesearch_content.js"></script>
+    <script src="../tipuesearch/tipuesearch_set.js"></script>
+    <script src="../tipuesearch/tipuesearch.js"></script>
     
     
   </body>

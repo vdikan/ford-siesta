@@ -17,6 +17,8 @@
     <link href="../css/font-awesome.min.css" rel="stylesheet">
     <link href="../css/local.css" rel="stylesheet">
     
+    <link  href="../tipuesearch/tipuesearch.css" rel="stylesheet">
+    
     
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
@@ -87,6 +89,15 @@
 
           </ul>
         
+        <form action="../search.html" class="navbar-form navbar-right" role="search">
+        <div class="form-group">
+          <input type="text" class="form-control" placeholder="Search" name="q" id="tipue_search_input" autocomplete="off" required>
+        </div>
+<!--
+        <button type="submit" class="btn btn-default">Submit</button>
+-->
+        </form>
+        
         </div><!--/.nav-collapse -->
       </div>
     </nav>
@@ -113,7 +124,7 @@
      <li><i class="fa fa-list-ol"></i>
        <a data-toggle="tooltip"
 	  data-placement="bottom" data-html="true"
-	  title=" 4.0% of total for procedures.">105 statements</a>
+	  title=" 3.6% of total for procedures.">105 statements</a>
      </li> 
      
      
@@ -180,6 +191,8 @@
   <div id="allprocs-0" class="panel-collapse collapse">
     <div class="list-group">
       
+      <a class="list-group-item" href="../proc/compute_dm.html">compute_dm</a>
+      
       <a class="list-group-item" href="../proc/current_itt.html">current_itt</a>
       
       <a class="list-group-item" href="../proc/getstackval.html">getstackval</a>
@@ -243,6 +256,8 @@
       <a class="list-group-item" href="../proc/push_stack_data.html">push_stack_data</a>
       
       <a class="list-group-item" href="../proc/setup_h0.html">setup_H0</a>
+      
+      <a class="list-group-item" href="../proc/setup_hamiltonian.html">setup_hamiltonian</a>
       
       <a class="list-group-item" href="../proc/siesta_analysis.html">siesta_analysis</a>
       
@@ -553,7 +568,7 @@ private subroutine mixing_finalize(mix, n, xin, F, xnext)
 <polygon fill="#000000" stroke="#000000" points="108.774,-69.4168 117.986,-64.1843 107.521,-62.5297 108.774,-69.4168"/>
 </g>
 <!-- proc~mixing_step&#45;&gt;reset -->
-<g id="proc~~mixing_finalize~~CallsGraph_edge6" class="edge"><title>proc~mixing_step&#45;&gt;reset</title>
+<g id="proc~~mixing_finalize~~CallsGraph_edge5" class="edge"><title>proc~mixing_step&#45;&gt;reset</title>
 <path fill="none" stroke="#000000" d="M167.266,-70.0567C181.046,-82.3681 203.43,-101.78 224,-117 225.411,-118.044 226.872,-119.093 228.359,-120.136"/>
 <polygon fill="#000000" stroke="#000000" points="226.733,-123.262 236.98,-125.957 230.651,-117.461 226.733,-123.262"/>
 </g>
@@ -568,7 +583,7 @@ private subroutine mixing_finalize(mix, n, xin, F, xnext)
 <text text-anchor="middle" x="257.5" y="-51.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">push</text>
 </g>
 <!-- proc~mixing_step&#45;&gt;push -->
-<g id="proc~~mixing_finalize~~CallsGraph_edge5" class="edge"><title>proc~mixing_step&#45;&gt;push</title>
+<g id="proc~~mixing_finalize~~CallsGraph_edge6" class="edge"><title>proc~mixing_step&#45;&gt;push</title>
 <path fill="none" stroke="#000000" d="M188.131,-56.6681C198.439,-56.2658 209.791,-55.8228 220.233,-55.4153"/>
 <polygon fill="#000000" stroke="#000000" points="220.443,-58.9099 230.299,-55.0225 220.17,-51.9152 220.443,-58.9099"/>
 </g>
@@ -1011,6 +1026,8 @@ private subroutine mixing_finalize(mix, n, xin, F, xnext)
   <div id="allprocs-1" class="panel-collapse collapse">
     <div class="list-group">
       
+      <a class="list-group-item" href="../proc/compute_dm.html">compute_dm</a>
+      
       <a class="list-group-item" href="../proc/current_itt.html">current_itt</a>
       
       <a class="list-group-item" href="../proc/getstackval.html">getstackval</a>
@@ -1074,6 +1091,8 @@ private subroutine mixing_finalize(mix, n, xin, F, xnext)
       <a class="list-group-item" href="../proc/push_stack_data.html">push_stack_data</a>
       
       <a class="list-group-item" href="../proc/setup_h0.html">setup_H0</a>
+      
+      <a class="list-group-item" href="../proc/setup_hamiltonian.html">setup_hamiltonian</a>
       
       <a class="list-group-item" href="../proc/siesta_analysis.html">siesta_analysis</a>
       
@@ -1139,6 +1158,10 @@ private subroutine mixing_finalize(mix, n, xin, F, xnext)
     
     <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
     
+    
+    <script src="../tipuesearch/tipuesearch_content.js"></script>
+    <script src="../tipuesearch/tipuesearch_set.js"></script>
+    <script src="../tipuesearch/tipuesearch.js"></script>
     
     
   </body>

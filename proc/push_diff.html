@@ -17,6 +17,8 @@
     <link href="../css/font-awesome.min.css" rel="stylesheet">
     <link href="../css/local.css" rel="stylesheet">
     
+    <link  href="../tipuesearch/tipuesearch.css" rel="stylesheet">
+    
     
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
@@ -87,6 +89,15 @@
 
           </ul>
         
+        <form action="../search.html" class="navbar-form navbar-right" role="search">
+        <div class="form-group">
+          <input type="text" class="form-control" placeholder="Search" name="q" id="tipue_search_input" autocomplete="off" required>
+        </div>
+<!--
+        <button type="submit" class="btn btn-default">Submit</button>
+-->
+        </form>
+        
         </div><!--/.nav-collapse -->
       </div>
     </nav>
@@ -113,7 +124,7 @@
      <li><i class="fa fa-list-ol"></i>
        <a data-toggle="tooltip"
 	  data-placement="bottom" data-html="true"
-	  title=" 1.4% of total for procedures.">37 statements</a>
+	  title=" 1.3% of total for procedures.">37 statements</a>
      </li> 
      
      
@@ -180,6 +191,8 @@
   <div id="allprocs-0" class="panel-collapse collapse">
     <div class="list-group">
       
+      <a class="list-group-item" href="../proc/compute_dm.html">compute_dm</a>
+      
       <a class="list-group-item" href="../proc/current_itt.html">current_itt</a>
       
       <a class="list-group-item" href="../proc/getstackval.html">getstackval</a>
@@ -243,6 +256,8 @@
       <a class="list-group-item" href="../proc/push_stack_data.html">push_stack_data</a>
       
       <a class="list-group-item" href="../proc/setup_h0.html">setup_H0</a>
+      
+      <a class="list-group-item" href="../proc/setup_hamiltonian.html">setup_hamiltonian</a>
       
       <a class="list-group-item" href="../proc/siesta_analysis.html">siesta_analysis</a>
       
@@ -377,45 +392,45 @@ private subroutine push_diff(s_rres, s_res, alpha)
 <path fill="none" stroke="#000000" d="M32.6068,-171.001C40.2834,-194.963 60.1824,-249.474 92,-285 92.7395,-285.826 93.5187,-286.632 94.3294,-287.419"/>
 <polygon fill="#000000" stroke="#000000" points="92.3051,-290.285 102.255,-293.926 96.747,-284.875 92.3051,-290.285"/>
 </g>
-<!-- val -->
-<g id="proc~~push_diff~~CallsGraph_node3" class="node"><title>val</title>
+<!-- n_items -->
+<g id="proc~~push_diff~~CallsGraph_node3" class="node"><title>n_items</title>
 <polygon fill="#777777" stroke="#777777" points="152.5,-276 98.5,-276 98.5,-252 152.5,-252 152.5,-276"/>
-<text text-anchor="middle" x="125.5" y="-261.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">val</text>
+<text text-anchor="middle" x="125.5" y="-261.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">n_items</text>
 </g>
-<!-- proc~push_diff&#45;&gt;val -->
-<g id="proc~~push_diff~~CallsGraph_edge2" class="edge"><title>proc~push_diff&#45;&gt;val</title>
+<!-- proc~push_diff&#45;&gt;n_items -->
+<g id="proc~~push_diff~~CallsGraph_edge2" class="edge"><title>proc~push_diff&#45;&gt;n_items</title>
 <path fill="none" stroke="#000000" d="M36.1931,-171.187C46.8429,-188.545 68.1355,-220.747 92,-243 93.0747,-244.002 94.2031,-244.986 95.3681,-245.949"/>
 <polygon fill="#000000" stroke="#000000" points="93.2955,-248.769 103.408,-251.931 97.4742,-243.153 93.2955,-248.769"/>
 </g>
-<!-- n_items -->
-<g id="proc~~push_diff~~CallsGraph_node4" class="node"><title>n_items</title>
+<!-- die -->
+<g id="proc~~push_diff~~CallsGraph_node4" class="node"><title>die</title>
 <polygon fill="#777777" stroke="#777777" points="152.5,-234 98.5,-234 98.5,-210 152.5,-210 152.5,-234"/>
-<text text-anchor="middle" x="125.5" y="-219.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">n_items</text>
+<text text-anchor="middle" x="125.5" y="-219.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">die</text>
 </g>
-<!-- proc~push_diff&#45;&gt;n_items -->
-<g id="proc~~push_diff~~CallsGraph_edge3" class="edge"><title>proc~push_diff&#45;&gt;n_items</title>
+<!-- proc~push_diff&#45;&gt;die -->
+<g id="proc~~push_diff~~CallsGraph_edge3" class="edge"><title>proc~push_diff&#45;&gt;die</title>
 <path fill="none" stroke="#000000" d="M46.8774,-171.017C59.464,-179.453 76.7246,-190.974 92,-201 93.6427,-202.078 95.3343,-203.184 97.0422,-204.297"/>
 <polygon fill="#000000" stroke="#000000" points="95.2728,-207.322 105.566,-209.831 99.0842,-201.45 95.2728,-207.322"/>
 </g>
-<!-- get -->
-<g id="proc~~push_diff~~CallsGraph_node5" class="node"><title>get</title>
+<!-- val -->
+<g id="proc~~push_diff~~CallsGraph_node5" class="node"><title>val</title>
 <polygon fill="#777777" stroke="#777777" points="152.5,-192 98.5,-192 98.5,-168 152.5,-168 152.5,-192"/>
-<text text-anchor="middle" x="125.5" y="-177.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">get</text>
+<text text-anchor="middle" x="125.5" y="-177.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">val</text>
 </g>
-<!-- proc~push_diff&#45;&gt;get -->
-<g id="proc~~push_diff~~CallsGraph_edge4" class="edge"><title>proc~push_diff&#45;&gt;get</title>
+<!-- proc~push_diff&#45;&gt;val -->
+<g id="proc~~push_diff~~CallsGraph_edge4" class="edge"><title>proc~push_diff&#45;&gt;val</title>
 <path fill="none" stroke="#000000" d="M56.111,-164.962C66.1404,-167.167 77.6741,-169.703 88.3777,-172.057"/>
 <polygon fill="#000000" stroke="#000000" points="87.7911,-175.511 98.3095,-174.241 89.2945,-168.675 87.7911,-175.511"/>
 </g>
-<!-- delete -->
-<g id="proc~~push_diff~~CallsGraph_node6" class="node"><title>delete</title>
-<polygon fill="#777777" stroke="#777777" points="152.5,-150 98.5,-150 98.5,-126 152.5,-126 152.5,-150"/>
-<text text-anchor="middle" x="125.5" y="-135.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">delete</text>
+<!-- get_pointer -->
+<g id="proc~~push_diff~~CallsGraph_node6" class="node"><title>get_pointer</title>
+<polygon fill="#777777" stroke="#777777" points="159,-150 92,-150 92,-126 159,-126 159,-150"/>
+<text text-anchor="middle" x="125.5" y="-135.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">get_pointer</text>
 </g>
-<!-- proc~push_diff&#45;&gt;delete -->
-<g id="proc~~push_diff~~CallsGraph_edge5" class="edge"><title>proc~push_diff&#45;&gt;delete</title>
-<path fill="none" stroke="#000000" d="M56.111,-153.038C66.1404,-150.833 77.6741,-148.297 88.3777,-145.943"/>
-<polygon fill="#000000" stroke="#000000" points="89.2945,-149.325 98.3095,-143.759 87.7911,-142.489 89.2945,-149.325"/>
+<!-- proc~push_diff&#45;&gt;get_pointer -->
+<g id="proc~~push_diff~~CallsGraph_edge5" class="edge"><title>proc~push_diff&#45;&gt;get_pointer</title>
+<path fill="none" stroke="#000000" d="M56.111,-153.038C64.2043,-151.259 73.2772,-149.264 82.103,-147.323"/>
+<polygon fill="#000000" stroke="#000000" points="82.8823,-150.735 91.8973,-145.169 81.3789,-143.899 82.8823,-150.735"/>
 </g>
 <!-- max_size -->
 <g id="proc~~push_diff~~CallsGraph_node7" class="node"><title>max_size</title>
@@ -427,23 +442,23 @@ private subroutine push_diff(s_rres, s_res, alpha)
 <path fill="none" stroke="#000000" d="M46.8774,-146.983C59.464,-138.547 76.7246,-127.026 92,-117 93.6427,-115.922 95.3343,-114.816 97.0422,-113.703"/>
 <polygon fill="#000000" stroke="#000000" points="99.0842,-116.55 105.566,-108.169 95.2728,-110.678 99.0842,-116.55"/>
 </g>
-<!-- get_pointer -->
-<g id="proc~~push_diff~~CallsGraph_node8" class="node"><title>get_pointer</title>
-<polygon fill="#777777" stroke="#777777" points="159,-66 92,-66 92,-42 159,-42 159,-66"/>
-<text text-anchor="middle" x="125.5" y="-51.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">get_pointer</text>
+<!-- get -->
+<g id="proc~~push_diff~~CallsGraph_node8" class="node"><title>get</title>
+<polygon fill="#777777" stroke="#777777" points="152.5,-66 98.5,-66 98.5,-42 152.5,-42 152.5,-66"/>
+<text text-anchor="middle" x="125.5" y="-51.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">get</text>
 </g>
-<!-- proc~push_diff&#45;&gt;get_pointer -->
-<g id="proc~~push_diff~~CallsGraph_edge7" class="edge"><title>proc~push_diff&#45;&gt;get_pointer</title>
+<!-- proc~push_diff&#45;&gt;get -->
+<g id="proc~~push_diff~~CallsGraph_edge7" class="edge"><title>proc~push_diff&#45;&gt;get</title>
 <path fill="none" stroke="#000000" d="M36.1931,-146.813C46.8429,-129.455 68.1355,-97.2535 92,-75 93.0747,-73.9978 94.2031,-73.0136 95.3681,-72.0515"/>
 <polygon fill="#000000" stroke="#000000" points="97.4742,-74.847 103.408,-66.0694 93.2955,-69.2311 97.4742,-74.847"/>
 </g>
-<!-- die -->
-<g id="proc~~push_diff~~CallsGraph_node9" class="node"><title>die</title>
+<!-- delete -->
+<g id="proc~~push_diff~~CallsGraph_node9" class="node"><title>delete</title>
 <polygon fill="#777777" stroke="#777777" points="152.5,-24 98.5,-24 98.5,-0 152.5,-0 152.5,-24"/>
-<text text-anchor="middle" x="125.5" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">die</text>
+<text text-anchor="middle" x="125.5" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">delete</text>
 </g>
-<!-- proc~push_diff&#45;&gt;die -->
-<g id="proc~~push_diff~~CallsGraph_edge8" class="edge"><title>proc~push_diff&#45;&gt;die</title>
+<!-- proc~push_diff&#45;&gt;delete -->
+<g id="proc~~push_diff~~CallsGraph_edge8" class="edge"><title>proc~push_diff&#45;&gt;delete</title>
 <path fill="none" stroke="#000000" d="M32.6068,-146.999C40.2834,-123.037 60.1824,-68.5259 92,-33 92.7395,-32.1743 93.5187,-31.3678 94.3294,-30.5815"/>
 <polygon fill="#000000" stroke="#000000" points="96.747,-33.1251 102.255,-24.0744 92.3051,-27.7149 96.747,-33.1251"/>
 </g>
@@ -642,6 +657,8 @@ private subroutine push_diff(s_rres, s_res, alpha)
   <div id="allprocs-1" class="panel-collapse collapse">
     <div class="list-group">
       
+      <a class="list-group-item" href="../proc/compute_dm.html">compute_dm</a>
+      
       <a class="list-group-item" href="../proc/current_itt.html">current_itt</a>
       
       <a class="list-group-item" href="../proc/getstackval.html">getstackval</a>
@@ -705,6 +722,8 @@ private subroutine push_diff(s_rres, s_res, alpha)
       <a class="list-group-item" href="../proc/push_stack_data.html">push_stack_data</a>
       
       <a class="list-group-item" href="../proc/setup_h0.html">setup_H0</a>
+      
+      <a class="list-group-item" href="../proc/setup_hamiltonian.html">setup_hamiltonian</a>
       
       <a class="list-group-item" href="../proc/siesta_analysis.html">siesta_analysis</a>
       
@@ -770,6 +789,10 @@ private subroutine push_diff(s_rres, s_res, alpha)
     
     <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
     
+    
+    <script src="../tipuesearch/tipuesearch_content.js"></script>
+    <script src="../tipuesearch/tipuesearch_set.js"></script>
+    <script src="../tipuesearch/tipuesearch.js"></script>
     
     
   </body>

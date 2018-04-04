@@ -17,6 +17,8 @@
     <link href="../css/font-awesome.min.css" rel="stylesheet">
     <link href="../css/local.css" rel="stylesheet">
     
+    <link  href="../tipuesearch/tipuesearch.css" rel="stylesheet">
+    
     
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
@@ -86,6 +88,15 @@
 
 
           </ul>
+        
+        <form action="../search.html" class="navbar-form navbar-right" role="search">
+        <div class="form-group">
+          <input type="text" class="form-control" placeholder="Search" name="q" id="tipue_search_input" autocomplete="off" required>
+        </div>
+<!--
+        <button type="submit" class="btn btn-default">Submit</button>
+-->
+        </form>
         
         </div><!--/.nav-collapse -->
       </div>
@@ -180,6 +191,8 @@
   <div id="allprocs-0" class="panel-collapse collapse">
     <div class="list-group">
       
+      <a class="list-group-item" href="../proc/compute_dm.html">compute_dm</a>
+      
       <a class="list-group-item" href="../proc/current_itt.html">current_itt</a>
       
       <a class="list-group-item" href="../proc/getstackval.html">getstackval</a>
@@ -243,6 +256,8 @@
       <a class="list-group-item" href="../proc/push_stack_data.html">push_stack_data</a>
       
       <a class="list-group-item" href="../proc/setup_h0.html">setup_H0</a>
+      
+      <a class="list-group-item" href="../proc/setup_hamiltonian.html">setup_hamiltonian</a>
       
       <a class="list-group-item" href="../proc/siesta_analysis.html">siesta_analysis</a>
       
@@ -459,28 +474,28 @@ public subroutine mixers_scf_history_init()
 <path fill="none" stroke="#000000" d="M121.314,-54C129.744,-54 138.411,-54 146.838,-54"/>
 <polygon fill="#000000" stroke="#000000" points="146.967,-57.5001 156.967,-54 146.967,-50.5001 146.967,-57.5001"/>
 </g>
+<!-- delete -->
+<g id="proc~~mixers_scf_history_init~~CallsGraph_node3" class="node"><title>delete</title>
+<polygon fill="#777777" stroke="#777777" points="351.5,-108 297.5,-108 297.5,-84 351.5,-84 351.5,-108"/>
+<text text-anchor="middle" x="324.5" y="-93.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">delete</text>
+</g>
+<!-- proc~mixers_history_init&#45;&gt;delete -->
+<g id="proc~~mixers_scf_history_init~~CallsGraph_edge2" class="edge"><title>proc~mixers_history_init&#45;&gt;delete</title>
+<path fill="none" stroke="#000000" d="M241.454,-66.0355C255.907,-71.3138 272.906,-77.5222 287.672,-82.915"/>
+<polygon fill="#000000" stroke="#000000" points="286.885,-86.3536 297.479,-86.4966 289.286,-79.7784 286.885,-86.3536"/>
+</g>
 <!-- proc~current_itt -->
-<g id="proc~~mixers_scf_history_init~~CallsGraph_node3" class="node"><title>proc~current_itt</title>
-<g id="a_proc~~mixers_scf_history_init~~CallsGraph_node3"><a xlink:href=".././proc/current_itt.html" xlink:title="current_itt">
-<polygon fill="#d94e8f" stroke="#d94e8f" points="355,-108 294,-108 294,-84 355,-84 355,-108"/>
-<text text-anchor="middle" x="324.5" y="-93.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">current_itt</text>
+<g id="proc~~mixers_scf_history_init~~CallsGraph_node4" class="node"><title>proc~current_itt</title>
+<g id="a_proc~~mixers_scf_history_init~~CallsGraph_node4"><a xlink:href=".././proc/current_itt.html" xlink:title="current_itt">
+<polygon fill="#d94e8f" stroke="#d94e8f" points="355,-66 294,-66 294,-42 355,-42 355,-66"/>
+<text text-anchor="middle" x="324.5" y="-51.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">current_itt</text>
 </a>
 </g>
 </g>
 <!-- proc~mixers_history_init&#45;&gt;proc~current_itt -->
-<g id="proc~~mixers_scf_history_init~~CallsGraph_edge2" class="edge"><title>proc~mixers_history_init&#45;&gt;proc~current_itt</title>
-<path fill="none" stroke="#000000" d="M241.454,-66.0355C254.7,-70.8729 270.084,-76.4916 283.928,-81.5476"/>
-<polygon fill="#000000" stroke="#000000" points="283.09,-84.9675 293.684,-85.1105 285.491,-78.3923 283.09,-84.9675"/>
-</g>
-<!-- delete -->
-<g id="proc~~mixers_scf_history_init~~CallsGraph_node4" class="node"><title>delete</title>
-<polygon fill="#777777" stroke="#777777" points="351.5,-66 297.5,-66 297.5,-42 351.5,-42 351.5,-66"/>
-<text text-anchor="middle" x="324.5" y="-51.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">delete</text>
-</g>
-<!-- proc~mixers_history_init&#45;&gt;delete -->
-<g id="proc~~mixers_scf_history_init~~CallsGraph_edge3" class="edge"><title>proc~mixers_history_init&#45;&gt;delete</title>
-<path fill="none" stroke="#000000" d="M258.272,-54C268.063,-54 278.159,-54 287.395,-54"/>
-<polygon fill="#000000" stroke="#000000" points="287.397,-57.5001 297.397,-54 287.397,-50.5001 287.397,-57.5001"/>
+<g id="proc~~mixers_scf_history_init~~CallsGraph_edge3" class="edge"><title>proc~mixers_history_init&#45;&gt;proc~current_itt</title>
+<path fill="none" stroke="#000000" d="M258.272,-54C266.808,-54 275.576,-54 283.804,-54"/>
+<polygon fill="#000000" stroke="#000000" points="283.88,-57.5001 293.88,-54 283.88,-50.5001 283.88,-57.5001"/>
 </g>
 <!-- new -->
 <g id="proc~~mixers_scf_history_init~~CallsGraph_node5" class="node"><title>new</title>
@@ -723,6 +738,8 @@ public subroutine mixers_scf_history_init()
   <div id="allprocs-1" class="panel-collapse collapse">
     <div class="list-group">
       
+      <a class="list-group-item" href="../proc/compute_dm.html">compute_dm</a>
+      
       <a class="list-group-item" href="../proc/current_itt.html">current_itt</a>
       
       <a class="list-group-item" href="../proc/getstackval.html">getstackval</a>
@@ -786,6 +803,8 @@ public subroutine mixers_scf_history_init()
       <a class="list-group-item" href="../proc/push_stack_data.html">push_stack_data</a>
       
       <a class="list-group-item" href="../proc/setup_h0.html">setup_H0</a>
+      
+      <a class="list-group-item" href="../proc/setup_hamiltonian.html">setup_hamiltonian</a>
       
       <a class="list-group-item" href="../proc/siesta_analysis.html">siesta_analysis</a>
       
@@ -851,6 +870,10 @@ public subroutine mixers_scf_history_init()
     
     <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
     
+    
+    <script src="../tipuesearch/tipuesearch_content.js"></script>
+    <script src="../tipuesearch/tipuesearch_set.js"></script>
+    <script src="../tipuesearch/tipuesearch.js"></script>
     
     
   </body>
