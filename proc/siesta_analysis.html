@@ -1,0 +1,2012 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+	 
+	 <meta name="description" content="A first-principles materials simulation code using Density Functional Theory.">
+    
+    <meta name="author" content="SIESTA Group" >
+    <link rel="icon" href="../favicon.png">
+
+    <title>siesta_analysis &ndash; SIESTA</title>
+
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
+    <link href="../css/pygments.css" rel="stylesheet">
+    <link href="../css/font-awesome.min.css" rel="stylesheet">
+    <link href="../css/local.css" rel="stylesheet">
+    
+    
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    
+    <script src="../js/jquery-2.1.3.min.js"></script>
+    <script src="../js/svg-pan-zoom.min.js"></script>
+
+  </head>
+
+  <body>
+
+    <!-- Fixed navbar -->
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="../index.html">SIESTA <small>trunk-674</small></a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+          <ul class="nav navbar-nav">
+				
+            <li><a href='../page/index.html'>Program Overview</a></li>
+	    
+            <li class="dropdown hidden-xs visible-sm visible-md hidden-lg">
+              <a href="#" class="dropdown-toggle"
+              data-toggle="dropdown" role="button"
+              aria-haspopup="true"
+		 aria-expanded="false">Contents <span class="caret"></span></a>
+	      <ul class="dropdown-menu">
+              
+            <li><a href="../lists/files.html">Source Files</a></li>
+				
+				
+            <li><a href="../lists/modules.html">Modules</a></li>
+				
+            
+                                
+            <li><a href="../lists/procedures.html">Procedures</a></li>
+				
+								
+            <li><a href="../lists/types.html">Derived Types</a></li>
+				
+				
+            </ul>
+            </li>
+
+<li class="visible-xs hidden-sm visible-lg"><a href="../lists/files.html">Source Files</a></li>
+
+
+<li class="visible-xs hidden-sm visible-lg"><a href="../lists/modules.html">Modules</a></li>
+
+
+
+<li class="visible-xs hidden-sm visible-lg"><a href="../lists/procedures.html">Procedures</a></li>
+
+                             
+<li class="visible-xs hidden-sm visible-lg"><a href="../lists/types.html">Derived Types</a></li>
+
+
+          </ul>
+        
+        </div><!--/.nav-collapse -->
+      </div>
+    </nav>
+
+    <div class="container">
+    
+  
+  <div class="row">
+    <h1>siesta_analysis
+      <small>Subroutine</small>
+    
+    </h1>
+    
+<div class="row">
+  <div class="col-lg-12">
+<div class="well well-sm">
+  <ul class="list-inline" style="margin-bottom:0px;display:inline">
+     
+     
+     
+     
+    
+    
+     <li><i class="fa fa-list-ol"></i>
+       <a data-toggle="tooltip"
+	  data-placement="bottom" data-html="true"
+	  title=" 8.5% of total for procedures.">224 statements</a>
+     </li> 
+     
+     
+    <li><i class="fa fa-code"></i><a href="../src/siesta_analysis.F"> Source File</a></li>
+     
+  </ul>
+  <ol class="breadcrumb in-well text-right">
+  
+     <li><a href='../sourcefile/siesta_analysis.f.html'>siesta_analysis.F</a></li>
+  
+     <li><a href='../module/m_siesta_analysis.html'>m_siesta_analysis</a></li>
+  
+     <li class="active">siesta_analysis</li>
+  </ol>
+</div>
+</div>
+</div>
+<script>
+  $(function () {
+  $('[data-toggle="tooltip"]').tooltip()
+  })
+</script>
+
+  </div>
+  
+  <div class="row">
+    <div class="col-md-3 hidden-xs hidden-sm visible-md visible-lg">
+    
+<div id="sidebar">
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="panel panel-primary">
+  <div class="panel-heading text-left"><h3 class="panel-title">Source Code</h3></div>
+  <div class="list-group">
+    <a class="list-group-item" href="../proc/siesta_analysis.html#src">siesta_analysis</a>
+  </div>
+</div>
+
+
+  <hr>
+  
+
+<div class="panel panel-default">
+  <div class="panel-heading text-left"><h3 class="panel-title"><a data-toggle="collapse" href="#allprocs-0">All Procedures</a></h3></div>
+  <div id="allprocs-0" class="panel-collapse collapse">
+    <div class="list-group">
+      
+      <a class="list-group-item" href="../proc/current_itt.html">current_itt</a>
+      
+      <a class="list-group-item" href="../proc/getstackval.html">getstackval</a>
+      
+      <a class="list-group-item" href="../proc/inverse.html">inverse</a>
+      
+      <a class="list-group-item" href="../proc/is_next.html">is_next</a>
+      
+      <a class="list-group-item" href="../proc/mix_method.html">mix_method</a>
+      
+      <a class="list-group-item" href="../proc/mix_method_variant.html">mix_method_variant</a>
+      
+      <a class="list-group-item" href="../proc/mixer_init.html">mixer_init</a>
+      
+      <a class="list-group-item" href="../proc/mixers_history_init.html">mixers_history_init</a>
+      
+      <a class="list-group-item" href="../proc/mixers_init.html">mixers_init</a>
+      
+      <a class="list-group-item" href="../proc/mixers_print.html">mixers_print</a>
+      
+      <a class="list-group-item" href="../proc/mixers_print_block.html">mixers_print_block</a>
+      
+      <a class="list-group-item" href="../proc/mixers_reset.html">mixers_reset</a>
+      
+      <a class="list-group-item" href="../proc/mixers_scf_history_init.html">mixers_scf_history_init</a>
+      
+      <a class="list-group-item" href="../proc/mixers_scf_init.html">mixers_scf_init</a>
+      
+      <a class="list-group-item" href="../proc/mixers_scf_print.html">mixers_scf_print</a>
+      
+      <a class="list-group-item" href="../proc/mixers_scf_print_block.html">mixers_scf_print_block</a>
+      
+      <a class="list-group-item" href="../proc/mixers_scf_reset.html">mixers_scf_reset</a>
+      
+      <a class="list-group-item" href="../interface/mixing.html">mixing</a>
+      
+      <a class="list-group-item" href="../proc/mixing_1d.html">mixing_1d</a>
+      
+      <a class="list-group-item" href="../proc/mixing_2d.html">mixing_2d</a>
+      
+      <a class="list-group-item" href="../proc/mixing_calc_next.html">mixing_calc_next</a>
+      
+      <a class="list-group-item" href="../proc/mixing_coeff.html">mixing_coeff</a>
+      
+      <a class="list-group-item" href="../proc/mixing_finalize.html">mixing_finalize</a>
+      
+      <a class="list-group-item" href="../proc/mixing_init.html">mixing_init</a>
+      
+      <a class="list-group-item" href="../proc/mixing_ncoeff.html">mixing_ncoeff</a>
+      
+      <a class="list-group-item" href="../proc/mixing_scf_converged.html">mixing_scf_converged</a>
+      
+      <a class="list-group-item" href="../proc/mixing_step.html">mixing_step</a>
+      
+      <a class="list-group-item" href="../proc/norm.html">norm</a>
+      
+      <a class="list-group-item" href="../proc/push_diff.html">push_diff</a>
+      
+      <a class="list-group-item" href="../proc/push_f.html">push_F</a>
+      
+      <a class="list-group-item" href="../proc/push_stack_data.html">push_stack_data</a>
+      
+      <a class="list-group-item" href="../proc/setup_h0.html">setup_H0</a>
+      
+      <a class="list-group-item" href="../proc/siesta_analysis.html">siesta_analysis</a>
+      
+      <a class="list-group-item" href="../proc/siesta_forces.html">siesta_forces</a>
+      
+      <a class="list-group-item" href="../proc/stack_check.html">stack_check</a>
+      
+      <a class="list-group-item" href="../proc/state_analysis.html">state_analysis</a>
+      
+      <a class="list-group-item" href="../proc/state_init.html">state_init</a>
+      
+      <a class="list-group-item" href="../proc/svd.html">svd</a>
+      
+      <a class="list-group-item" href="../proc/update_f.html">update_F</a>
+      
+    </div>
+  </div>
+</div>
+
+
+</div>  
+
+    </div>
+    
+    <div class="col-md-9" id='text'>
+    <h2>
+public subroutine siesta_analysis(relaxd)
+    
+    
+	 
+</h2>
+    
+  
+    <div class="panel panel-default">
+      <div class="panel-heading">
+	<h3 class="panel-title">Uses</h3>
+      </div>
+      <ul class="list-group">
+      
+      <li class="list-group-item">
+	<ul class="list-inline">
+	  
+	  <li>band</li>
+	  
+	  <li>writewave</li>
+	  
+	  <li>writewave</li>
+	  
+	  <li>m_ksvinit</li>
+	  
+	  <li>m_ksv</li>
+	  
+	  <li>m_projected_DOS</li>
+	  
+	  <li>m_local_DOS</li>
+	  
+	  <li>m_pexsi_local_DOS</li>
+	  
+	  <li>m_pexsi_dos</li>
+	  
+	  <li>siesta_options</li>
+	  
+	  <li>units</li>
+	  
+	  <li>sparse_matrices</li>
+	  
+	  <li>sparse_matrices</li>
+	  
+	  <li>siesta_geom</li>
+	  
+	  <li>m_dhscf</li>
+	  
+	  <li>atomlist</li>
+	  
+	  <li>atomlist</li>
+	  
+	  <li>fdf</li>
+	  
+	  <li>writewave</li>
+	  
+	  <li>siesta_cml</li>
+	  
+	  <li>files</li>
+	  
+	  <li>files</li>
+	  
+	  <li>zmatrix</li>
+	  
+	  <li>Kpoint_grid</li>
+	  
+	  <li>parallel</li>
+	  
+	  <li>parallel</li>
+	  
+	  <li>files</li>
+	  
+	  <li>m_energies</li>
+	  
+	  <li>m_steps</li>
+	  
+	  <li>m_ntm</li>
+	  
+	  <li>m_spin</li>
+	  
+	  <li>m_spin</li>
+	  
+	  <li>m_dipol</li>
+	  
+	  <li>m_eo</li>
+	  
+	  <li>m_forces</li>
+	  
+	  <li>m_gamma</li>
+	  
+	  <li>alloc</li>
+	  
+	  <li>basis_enthalpy</li>
+	  
+	  <li>m_partial_charges</li>
+	  
+	  <li>m_iodm_old</li>
+	  
+	  <li>m_siesta2wannier90</li>
+	  
+	  <li>m_mpi_utils</li>
+	  
+	  <li>flook_siesta</li>
+	  
+	</ul>
+      </li>
+      
+      
+      
+      <li class="list-group-item">
+	<div class="depgraph"><?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+ "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Generated by graphviz version 2.38.0 (20140413.2041)
+ -->
+<!-- Title: proc~~siesta_analysis~~UsesGraph Pages: 1 -->
+<svg id="procsiesta_analysisUsesGraph" width="240pt" height="1460pt"
+ viewBox="0.00 0.00 240.00 1460.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="proc~~siesta_analysis~~UsesGraph" class="graph" transform="scale(1 1) rotate(0) translate(4 1456)">
+<title>proc~~siesta_analysis~~UsesGraph</title>
+<polygon fill="white" stroke="none" points="-4,4 -4,-1456 236,-1456 236,4 -4,4"/>
+<!-- proc~siesta_analysis -->
+<g id="proc~~siesta_analysis~~UsesGraph_node1" class="node"><title>proc~siesta_analysis</title>
+<polygon fill="none" stroke="black" points="232,-738 147,-738 147,-714 232,-714 232,-738"/>
+<text text-anchor="middle" x="189.5" y="-723.6" font-family="Helvetica,sans-Serif" font-size="10.50">siesta_analysis</text>
+</g>
+<!-- sparse_matrices -->
+<g id="proc~~siesta_analysis~~UsesGraph_node2" class="node"><title>sparse_matrices</title>
+<polygon fill="#337ab7" stroke="#337ab7" points="101,-1452 10,-1452 10,-1428 101,-1428 101,-1452"/>
+<text text-anchor="middle" x="55.5" y="-1437.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">sparse_matrices</text>
+</g>
+<!-- proc~siesta_analysis&#45;&gt;sparse_matrices -->
+<g id="proc~~siesta_analysis~~UsesGraph_edge1" class="edge"><title>proc~siesta_analysis&#45;&gt;sparse_matrices</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M187.898,-738.088C183.435,-825.794 154.449,-1362.69 111,-1419 110.319,-1419.88 109.595,-1420.73 108.835,-1421.54"/>
+<polygon fill="#000000" stroke="#000000" points="106.597,-1418.85 101.116,-1427.92 111.055,-1424.24 106.597,-1418.85"/>
+</g>
+<!-- m_ksv -->
+<g id="proc~~siesta_analysis~~UsesGraph_node3" class="node"><title>m_ksv</title>
+<polygon fill="#337ab7" stroke="#337ab7" points="82.5,-1410 28.5,-1410 28.5,-1386 82.5,-1386 82.5,-1410"/>
+<text text-anchor="middle" x="55.5" y="-1395.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">m_ksv</text>
+</g>
+<!-- proc~siesta_analysis&#45;&gt;m_ksv -->
+<g id="proc~~siesta_analysis~~UsesGraph_edge2" class="edge"><title>proc~siesta_analysis&#45;&gt;m_ksv</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M188.703,-738.027C189.817,-817.937 192.464,-1272.2 111,-1377 106.294,-1383.05 99.6122,-1387.36 92.5328,-1390.43"/>
+<polygon fill="#000000" stroke="#000000" points="91.0345,-1387.25 82.7808,-1393.89 93.3755,-1393.85 91.0345,-1387.25"/>
+</g>
+<!-- m_forces -->
+<g id="proc~~siesta_analysis~~UsesGraph_node4" class="node"><title>m_forces</title>
+<polygon fill="#337ab7" stroke="#337ab7" points="84,-1368 27,-1368 27,-1344 84,-1344 84,-1368"/>
+<text text-anchor="middle" x="55.5" y="-1353.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">m_forces</text>
+</g>
+<!-- proc~siesta_analysis&#45;&gt;m_forces -->
+<g id="proc~~siesta_analysis~~UsesGraph_edge3" class="edge"><title>proc~siesta_analysis&#45;&gt;m_forces</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M188.595,-738.488C188.951,-816.59 187.27,-1237.69 111,-1335 106.587,-1340.63 100.468,-1344.75 93.9172,-1347.77"/>
+<polygon fill="#000000" stroke="#000000" points="92.2833,-1344.64 84.1603,-1351.45 94.7522,-1351.19 92.2833,-1344.64"/>
+</g>
+<!-- siesta_cml -->
+<g id="proc~~siesta_analysis~~UsesGraph_node5" class="node"><title>siesta_cml</title>
+<polygon fill="#337ab7" stroke="#337ab7" points="87,-1326 24,-1326 24,-1302 87,-1302 87,-1326"/>
+<text text-anchor="middle" x="55.5" y="-1311.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">siesta_cml</text>
+</g>
+<!-- proc~siesta_analysis&#45;&gt;siesta_cml -->
+<g id="proc~~siesta_analysis~~UsesGraph_edge4" class="edge"><title>proc~siesta_analysis&#45;&gt;siesta_cml</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M188.467,-738.108C188.035,-812.073 182.362,-1202.82 111,-1293 107.211,-1297.79 102.189,-1301.49 96.7234,-1304.34"/>
+<polygon fill="#000000" stroke="#000000" points="95.0645,-1301.24 87.2465,-1308.39 97.8172,-1307.68 95.0645,-1301.24"/>
+</g>
+<!-- parallel -->
+<g id="proc~~siesta_analysis~~UsesGraph_node6" class="node"><title>parallel</title>
+<polygon fill="#337ab7" stroke="#337ab7" points="82.5,-1284 28.5,-1284 28.5,-1260 82.5,-1260 82.5,-1284"/>
+<text text-anchor="middle" x="55.5" y="-1269.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">parallel</text>
+</g>
+<!-- proc~siesta_analysis&#45;&gt;parallel -->
+<g id="proc~~siesta_analysis~~UsesGraph_edge5" class="edge"><title>proc~siesta_analysis&#45;&gt;parallel</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M188.321,-738.121C187.045,-808.863 177.336,-1168.09 111,-1251 106.209,-1256.99 99.4931,-1261.27 92.4069,-1264.33"/>
+<polygon fill="#000000" stroke="#000000" points="90.9104,-1261.15 82.6608,-1267.8 93.2555,-1267.75 90.9104,-1261.15"/>
+</g>
+<!-- m_mpi_utils -->
+<g id="proc~~siesta_analysis~~UsesGraph_node7" class="node"><title>m_mpi_utils</title>
+<polygon fill="#337ab7" stroke="#337ab7" points="90.5,-1242 20.5,-1242 20.5,-1218 90.5,-1218 90.5,-1242"/>
+<text text-anchor="middle" x="55.5" y="-1227.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">m_mpi_utils</text>
+</g>
+<!-- proc~siesta_analysis&#45;&gt;m_mpi_utils -->
+<g id="proc~~siesta_analysis~~UsesGraph_edge6" class="edge"><title>proc~siesta_analysis&#45;&gt;m_mpi_utils</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M188.153,-738.021C185.989,-805.146 172.358,-1133.29 111,-1209 107.892,-1212.84 103.994,-1215.97 99.7207,-1218.54"/>
+<polygon fill="#000000" stroke="#000000" points="97.9864,-1215.49 90.5517,-1223.04 101.071,-1221.77 97.9864,-1215.49"/>
+</g>
+<!-- siesta_geom -->
+<g id="proc~~siesta_analysis~~UsesGraph_node8" class="node"><title>siesta_geom</title>
+<polygon fill="#337ab7" stroke="#337ab7" points="92,-1200 19,-1200 19,-1176 92,-1176 92,-1200"/>
+<text text-anchor="middle" x="55.5" y="-1185.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">siesta_geom</text>
+</g>
+<!-- proc~siesta_analysis&#45;&gt;siesta_geom -->
+<g id="proc~~siesta_analysis~~UsesGraph_edge7" class="edge"><title>proc~siesta_analysis&#45;&gt;siesta_geom</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M187.942,-738.217C184.791,-802.224 167.305,-1098.57 111,-1167 108.246,-1170.35 104.892,-1173.16 101.215,-1175.53"/>
+<polygon fill="#000000" stroke="#000000" points="99.4023,-1172.53 92.1799,-1180.28 102.66,-1178.72 99.4023,-1172.53"/>
+</g>
+<!-- zmatrix -->
+<g id="proc~~siesta_analysis~~UsesGraph_node9" class="node"><title>zmatrix</title>
+<polygon fill="#337ab7" stroke="#337ab7" points="82.5,-1158 28.5,-1158 28.5,-1134 82.5,-1134 82.5,-1158"/>
+<text text-anchor="middle" x="55.5" y="-1143.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">zmatrix</text>
+</g>
+<!-- proc~siesta_analysis&#45;&gt;zmatrix -->
+<g id="proc~~siesta_analysis~~UsesGraph_edge8" class="edge"><title>proc~siesta_analysis&#45;&gt;zmatrix</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M187.694,-738.234C183.497,-798.541 162.325,-1063.75 111,-1125 106.12,-1130.82 99.4268,-1135.04 92.4003,-1138.09"/>
+<polygon fill="#000000" stroke="#000000" points="90.9744,-1134.88 82.7512,-1141.56 93.3456,-1141.47 90.9744,-1134.88"/>
+</g>
+<!-- m_dipol -->
+<g id="proc~~siesta_analysis~~UsesGraph_node10" class="node"><title>m_dipol</title>
+<polygon fill="#337ab7" stroke="#337ab7" points="82.5,-1116 28.5,-1116 28.5,-1092 82.5,-1092 82.5,-1116"/>
+<text text-anchor="middle" x="55.5" y="-1101.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">m_dipol</text>
+</g>
+<!-- proc~siesta_analysis&#45;&gt;m_dipol -->
+<g id="proc~~siesta_analysis~~UsesGraph_edge9" class="edge"><title>proc~siesta_analysis&#45;&gt;m_dipol</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M187.408,-738.053C182.11,-794.103 157.422,-1028.82 111,-1083 106.056,-1088.77 99.3369,-1092.96 92.305,-1096"/>
+<polygon fill="#000000" stroke="#000000" points="90.88,-1092.8 82.6597,-1099.48 93.2541,-1099.38 90.88,-1092.8"/>
+</g>
+<!-- files -->
+<g id="proc~~siesta_analysis~~UsesGraph_node11" class="node"><title>files</title>
+<polygon fill="#337ab7" stroke="#337ab7" points="82.5,-1074 28.5,-1074 28.5,-1050 82.5,-1050 82.5,-1074"/>
+<text text-anchor="middle" x="55.5" y="-1059.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">files</text>
+</g>
+<!-- proc~siesta_analysis&#45;&gt;files -->
+<g id="proc~~siesta_analysis~~UsesGraph_edge10" class="edge"><title>proc~siesta_analysis&#45;&gt;files</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M187.038,-738.004C180.508,-789.828 152.506,-993.878 111,-1041 105.977,-1046.7 99.2254,-1050.87 92.1867,-1053.9"/>
+<polygon fill="#000000" stroke="#000000" points="90.763,-1050.69 82.5464,-1057.38 93.1407,-1057.28 90.763,-1050.69"/>
+</g>
+<!-- band -->
+<g id="proc~~siesta_analysis~~UsesGraph_node12" class="node"><title>band</title>
+<polygon fill="#337ab7" stroke="#337ab7" points="82.5,-1032 28.5,-1032 28.5,-1008 82.5,-1008 82.5,-1032"/>
+<text text-anchor="middle" x="55.5" y="-1017.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">band</text>
+</g>
+<!-- proc~siesta_analysis&#45;&gt;band -->
+<g id="proc~~siesta_analysis~~UsesGraph_edge11" class="edge"><title>proc~siesta_analysis&#45;&gt;band</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M188.67,-738.155C188.593,-780.084 182.743,-920.398 111,-999 105.924,-1004.56 99.2084,-1008.66 92.2305,-1011.68"/>
+<polygon fill="#000000" stroke="#000000" points="90.8757,-1008.45 82.6823,-1015.17 93.2762,-1015.03 90.8757,-1008.45"/>
+</g>
+<!-- m_partial_charges -->
+<g id="proc~~siesta_analysis~~UsesGraph_node13" class="node"><title>m_partial_charges</title>
+<polygon fill="#337ab7" stroke="#337ab7" points="106,-990 5,-990 5,-966 106,-966 106,-990"/>
+<text text-anchor="middle" x="55.5" y="-975.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">m_partial_charges</text>
+</g>
+<!-- proc~siesta_analysis&#45;&gt;m_partial_charges -->
+<g id="proc~~siesta_analysis~~UsesGraph_edge14" class="edge"><title>proc~siesta_analysis&#45;&gt;m_partial_charges</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M187.93,-738.117C185.519,-775.762 173.145,-892.053 111,-957 109.948,-958.099 108.833,-959.141 107.665,-960.13"/>
+<polygon fill="#000000" stroke="#000000" points="105.546,-957.34 99.3064,-965.903 109.524,-963.099 105.546,-957.34"/>
+</g>
+<!-- m_gamma -->
+<g id="proc~~siesta_analysis~~UsesGraph_node14" class="node"><title>m_gamma</title>
+<polygon fill="#337ab7" stroke="#337ab7" points="87.5,-948 23.5,-948 23.5,-924 87.5,-924 87.5,-948"/>
+<text text-anchor="middle" x="55.5" y="-933.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">m_gamma</text>
+</g>
+<!-- proc~siesta_analysis&#45;&gt;m_gamma -->
+<g id="proc~~siesta_analysis~~UsesGraph_edge12" class="edge"><title>proc~siesta_analysis&#45;&gt;m_gamma</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M186.835,-738.478C181.754,-771.769 163.46,-863.648 111,-915 106.969,-918.946 102.117,-922.168 96.9908,-924.795"/>
+<polygon fill="#000000" stroke="#000000" points="95.3448,-921.695 87.5855,-928.909 98.15,-928.108 95.3448,-921.695"/>
+</g>
+<!-- m_ntm -->
+<g id="proc~~siesta_analysis~~UsesGraph_node15" class="node"><title>m_ntm</title>
+<polygon fill="#337ab7" stroke="#337ab7" points="82.5,-906 28.5,-906 28.5,-882 82.5,-882 82.5,-906"/>
+<text text-anchor="middle" x="55.5" y="-891.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">m_ntm</text>
+</g>
+<!-- proc~siesta_analysis&#45;&gt;m_ntm -->
+<g id="proc~~siesta_analysis~~UsesGraph_edge13" class="edge"><title>proc~siesta_analysis&#45;&gt;m_ntm</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M185.307,-738.105C177.399,-765.824 154.339,-834.471 111,-873 105.654,-877.753 99.1153,-881.481 92.4478,-884.388"/>
+<polygon fill="#000000" stroke="#000000" points="90.8177,-881.263 82.7104,-888.084 93.3016,-887.807 90.8177,-881.263"/>
+</g>
+<!-- m_iodm_old -->
+<g id="proc~~siesta_analysis~~UsesGraph_node16" class="node"><title>m_iodm_old</title>
+<polygon fill="#337ab7" stroke="#337ab7" points="91,-864 20,-864 20,-840 91,-840 91,-864"/>
+<text text-anchor="middle" x="55.5" y="-849.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">m_iodm_old</text>
+</g>
+<!-- proc~siesta_analysis&#45;&gt;m_iodm_old -->
+<g id="proc~~siesta_analysis~~UsesGraph_edge16" class="edge"><title>proc~siesta_analysis&#45;&gt;m_iodm_old</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M182.529,-738.134C171.342,-759.704 145.234,-804.901 111,-831 107.781,-833.454 104.24,-835.654 100.557,-837.618"/>
+<polygon fill="#000000" stroke="#000000" points="98.759,-834.596 91.2084,-842.029 101.746,-840.927 98.759,-834.596"/>
+</g>
+<!-- m_spin -->
+<g id="proc~~siesta_analysis~~UsesGraph_node17" class="node"><title>m_spin</title>
+<polygon fill="#337ab7" stroke="#337ab7" points="82.5,-822 28.5,-822 28.5,-798 82.5,-798 82.5,-822"/>
+<text text-anchor="middle" x="55.5" y="-807.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">m_spin</text>
+</g>
+<!-- proc~siesta_analysis&#45;&gt;m_spin -->
+<g id="proc~~siesta_analysis~~UsesGraph_edge15" class="edge"><title>proc~siesta_analysis&#45;&gt;m_spin</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M176.258,-738.038C161.705,-751.827 136.205,-774.395 111,-789 105.242,-792.336 98.8553,-795.342 92.5398,-797.967"/>
+<polygon fill="#000000" stroke="#000000" points="90.8215,-794.881 82.7751,-801.773 93.3634,-801.403 90.8215,-794.881"/>
+</g>
+<!-- m_siesta2wannier90 -->
+<g id="proc~~siesta_analysis~~UsesGraph_node18" class="node"><title>m_siesta2wannier90</title>
+<polygon fill="#337ab7" stroke="#337ab7" points="111,-780 0,-780 0,-756 111,-756 111,-780"/>
+<text text-anchor="middle" x="55.5" y="-765.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">m_siesta2wannier90</text>
+</g>
+<!-- proc~siesta_analysis&#45;&gt;m_siesta2wannier90 -->
+<g id="proc~~siesta_analysis~~UsesGraph_edge17" class="edge"><title>proc~siesta_analysis&#45;&gt;m_siesta2wannier90</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M150.674,-738.036C136.176,-742.649 119.444,-747.972 104.142,-752.841"/>
+<polygon fill="#000000" stroke="#000000" points="102.799,-749.595 94.3314,-755.963 104.922,-756.266 102.799,-749.595"/>
+</g>
+<!-- siesta_options -->
+<g id="proc~~siesta_analysis~~UsesGraph_node19" class="node"><title>siesta_options</title>
+<polygon fill="#337ab7" stroke="#337ab7" points="96,-738 15,-738 15,-714 96,-714 96,-738"/>
+<text text-anchor="middle" x="55.5" y="-723.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">siesta_options</text>
+</g>
+<!-- proc~siesta_analysis&#45;&gt;siesta_options -->
+<g id="proc~~siesta_analysis~~UsesGraph_edge18" class="edge"><title>proc~siesta_analysis&#45;&gt;siesta_options</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M146.734,-726C133.98,-726 119.824,-726 106.578,-726"/>
+<polygon fill="#000000" stroke="#000000" points="106.194,-722.5 96.1938,-726 106.194,-729.5 106.194,-722.5"/>
+</g>
+<!-- m_pexsi_dos -->
+<g id="proc~~siesta_analysis~~UsesGraph_node20" class="node"><title>m_pexsi_dos</title>
+<polygon fill="#337ab7" stroke="#337ab7" points="93.5,-696 17.5,-696 17.5,-672 93.5,-672 93.5,-696"/>
+<text text-anchor="middle" x="55.5" y="-681.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">m_pexsi_dos</text>
+</g>
+<!-- proc~siesta_analysis&#45;&gt;m_pexsi_dos -->
+<g id="proc~~siesta_analysis~~UsesGraph_edge19" class="edge"><title>proc~siesta_analysis&#45;&gt;m_pexsi_dos</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M150.674,-713.964C136.051,-709.312 119.155,-703.936 103.747,-699.033"/>
+<polygon fill="#000000" stroke="#000000" points="104.466,-695.589 93.8751,-695.892 102.343,-702.259 104.466,-695.589"/>
+</g>
+<!-- Kpoint_grid -->
+<g id="proc~~siesta_analysis~~UsesGraph_node21" class="node"><title>Kpoint_grid</title>
+<polygon fill="#337ab7" stroke="#337ab7" points="89,-654 22,-654 22,-630 89,-630 89,-654"/>
+<text text-anchor="middle" x="55.5" y="-639.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Kpoint_grid</text>
+</g>
+<!-- proc~siesta_analysis&#45;&gt;Kpoint_grid -->
+<g id="proc~~siesta_analysis~~UsesGraph_edge20" class="edge"><title>proc~siesta_analysis&#45;&gt;Kpoint_grid</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M176.258,-713.962C161.705,-700.173 136.205,-677.605 111,-663 107.094,-660.737 102.899,-658.626 98.6332,-656.683"/>
+<polygon fill="#000000" stroke="#000000" points="99.8382,-653.392 89.2658,-652.702 97.1004,-659.834 99.8382,-653.392"/>
+</g>
+<!-- alloc -->
+<g id="proc~~siesta_analysis~~UsesGraph_node22" class="node"><title>alloc</title>
+<polygon fill="#337ab7" stroke="#337ab7" points="82.5,-612 28.5,-612 28.5,-588 82.5,-588 82.5,-612"/>
+<text text-anchor="middle" x="55.5" y="-597.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">alloc</text>
+</g>
+<!-- proc~siesta_analysis&#45;&gt;alloc -->
+<g id="proc~~siesta_analysis~~UsesGraph_edge21" class="edge"><title>proc~siesta_analysis&#45;&gt;alloc</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M182.529,-713.866C171.342,-692.296 145.234,-647.099 111,-621 105.42,-616.746 98.8736,-613.257 92.2919,-610.431"/>
+<polygon fill="#000000" stroke="#000000" points="93.3215,-607.077 82.7317,-606.752 90.8076,-613.61 93.3215,-607.077"/>
+</g>
+<!-- m_dhscf -->
+<g id="proc~~siesta_analysis~~UsesGraph_node23" class="node"><title>m_dhscf</title>
+<polygon fill="#337ab7" stroke="#337ab7" points="82.5,-570 28.5,-570 28.5,-546 82.5,-546 82.5,-570"/>
+<text text-anchor="middle" x="55.5" y="-555.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">m_dhscf</text>
+</g>
+<!-- proc~siesta_analysis&#45;&gt;m_dhscf -->
+<g id="proc~~siesta_analysis~~UsesGraph_edge22" class="edge"><title>proc~siesta_analysis&#45;&gt;m_dhscf</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M185.307,-713.895C177.399,-686.176 154.339,-617.529 111,-579 105.654,-574.247 99.1153,-570.519 92.4478,-567.612"/>
+<polygon fill="#000000" stroke="#000000" points="93.3016,-564.193 82.7104,-563.916 90.8177,-570.737 93.3016,-564.193"/>
+</g>
+<!-- basis_enthalpy -->
+<g id="proc~~siesta_analysis~~UsesGraph_node24" class="node"><title>basis_enthalpy</title>
+<polygon fill="#337ab7" stroke="#337ab7" points="97.5,-528 13.5,-528 13.5,-504 97.5,-504 97.5,-528"/>
+<text text-anchor="middle" x="55.5" y="-513.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">basis_enthalpy</text>
+</g>
+<!-- proc~siesta_analysis&#45;&gt;basis_enthalpy -->
+<g id="proc~~siesta_analysis~~UsesGraph_edge23" class="edge"><title>proc~siesta_analysis&#45;&gt;basis_enthalpy</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M186.835,-713.522C181.754,-680.231 163.46,-588.352 111,-537 109.56,-535.59 108.015,-534.273 106.39,-533.042"/>
+<polygon fill="#000000" stroke="#000000" points="108.042,-529.946 97.7147,-527.581 104.313,-535.87 108.042,-529.946"/>
+</g>
+<!-- units -->
+<g id="proc~~siesta_analysis~~UsesGraph_node25" class="node"><title>units</title>
+<polygon fill="#337ab7" stroke="#337ab7" points="82.5,-486 28.5,-486 28.5,-462 82.5,-462 82.5,-486"/>
+<text text-anchor="middle" x="55.5" y="-471.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">units</text>
+</g>
+<!-- proc~siesta_analysis&#45;&gt;units -->
+<g id="proc~~siesta_analysis~~UsesGraph_edge24" class="edge"><title>proc~siesta_analysis&#45;&gt;units</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M187.93,-713.883C185.519,-676.238 173.145,-559.947 111,-495 105.843,-489.611 99.1498,-485.584 92.2288,-482.583"/>
+<polygon fill="#000000" stroke="#000000" points="93.3662,-479.272 82.7728,-479.094 90.9429,-485.839 93.3662,-479.272"/>
+</g>
+<!-- m_ksvinit -->
+<g id="proc~~siesta_analysis~~UsesGraph_node26" class="node"><title>m_ksvinit</title>
+<polygon fill="#337ab7" stroke="#337ab7" points="84,-444 27,-444 27,-420 84,-420 84,-444"/>
+<text text-anchor="middle" x="55.5" y="-429.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">m_ksvinit</text>
+</g>
+<!-- proc~siesta_analysis&#45;&gt;m_ksvinit -->
+<g id="proc~~siesta_analysis~~UsesGraph_edge25" class="edge"><title>proc~siesta_analysis&#45;&gt;m_ksvinit</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M188.67,-713.845C188.593,-671.916 182.743,-531.602 111,-453 106.269,-447.817 100.114,-443.902 93.6493,-440.947"/>
+<polygon fill="#000000" stroke="#000000" points="94.677,-437.593 84.0871,-437.271 92.1648,-444.127 94.677,-437.593"/>
+</g>
+<!-- m_local_DOS -->
+<g id="proc~~siesta_analysis~~UsesGraph_node27" class="node"><title>m_local_DOS</title>
+<polygon fill="#337ab7" stroke="#337ab7" points="94.5,-402 16.5,-402 16.5,-378 94.5,-378 94.5,-402"/>
+<text text-anchor="middle" x="55.5" y="-387.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">m_local_DOS</text>
+</g>
+<!-- proc~siesta_analysis&#45;&gt;m_local_DOS -->
+<g id="proc~~siesta_analysis~~UsesGraph_edge26" class="edge"><title>proc~siesta_analysis&#45;&gt;m_local_DOS</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M187.038,-713.996C180.508,-662.172 152.506,-458.122 111,-411 108.788,-408.489 106.241,-406.276 103.482,-404.327"/>
+<polygon fill="#000000" stroke="#000000" points="105.098,-401.218 94.6905,-399.233 101.588,-407.275 105.098,-401.218"/>
+</g>
+<!-- m_pexsi_local_DOS -->
+<g id="proc~~siesta_analysis~~UsesGraph_node28" class="node"><title>m_pexsi_local_DOS</title>
+<polygon fill="#337ab7" stroke="#337ab7" points="110,-360 1,-360 1,-336 110,-336 110,-360"/>
+<text text-anchor="middle" x="55.5" y="-345.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">m_pexsi_local_DOS</text>
+</g>
+<!-- proc~siesta_analysis&#45;&gt;m_pexsi_local_DOS -->
+<g id="proc~~siesta_analysis~~UsesGraph_edge27" class="edge"><title>proc~siesta_analysis&#45;&gt;m_pexsi_local_DOS</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M187.408,-713.947C182.11,-657.897 157.422,-423.184 111,-369 110.146,-368.004 109.24,-367.055 108.288,-366.15"/>
+<polygon fill="#000000" stroke="#000000" points="110.316,-363.295 100.227,-360.059 106.095,-368.88 110.316,-363.295"/>
+</g>
+<!-- writewave -->
+<g id="proc~~siesta_analysis~~UsesGraph_node29" class="node"><title>writewave</title>
+<polygon fill="#337ab7" stroke="#337ab7" points="85.5,-318 25.5,-318 25.5,-294 85.5,-294 85.5,-318"/>
+<text text-anchor="middle" x="55.5" y="-303.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">writewave</text>
+</g>
+<!-- proc~siesta_analysis&#45;&gt;writewave -->
+<g id="proc~~siesta_analysis~~UsesGraph_edge28" class="edge"><title>proc~siesta_analysis&#45;&gt;writewave</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M187.694,-713.766C183.497,-653.459 162.325,-388.255 111,-327 106.769,-321.95 101.175,-318.111 95.1833,-315.194"/>
+<polygon fill="#000000" stroke="#000000" points="96.1612,-311.814 85.5776,-311.325 93.5462,-318.308 96.1612,-311.814"/>
+</g>
+<!-- atomlist -->
+<g id="proc~~siesta_analysis~~UsesGraph_node30" class="node"><title>atomlist</title>
+<polygon fill="#337ab7" stroke="#337ab7" points="82.5,-276 28.5,-276 28.5,-252 82.5,-252 82.5,-276"/>
+<text text-anchor="middle" x="55.5" y="-261.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">atomlist</text>
+</g>
+<!-- proc~siesta_analysis&#45;&gt;atomlist -->
+<g id="proc~~siesta_analysis~~UsesGraph_edge29" class="edge"><title>proc~siesta_analysis&#45;&gt;atomlist</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M187.942,-713.783C184.791,-649.776 167.305,-353.432 111,-285 106.128,-279.078 99.3781,-274.823 92.2854,-271.766"/>
+<polygon fill="#000000" stroke="#000000" points="93.1397,-268.355 82.545,-268.296 90.7906,-274.949 93.1397,-268.355"/>
+</g>
+<!-- fdf -->
+<g id="proc~~siesta_analysis~~UsesGraph_node31" class="node"><title>fdf</title>
+<polygon fill="#337ab7" stroke="#337ab7" points="82.5,-234 28.5,-234 28.5,-210 82.5,-210 82.5,-234"/>
+<text text-anchor="middle" x="55.5" y="-219.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">fdf</text>
+</g>
+<!-- proc~siesta_analysis&#45;&gt;fdf -->
+<g id="proc~~siesta_analysis~~UsesGraph_edge30" class="edge"><title>proc~siesta_analysis&#45;&gt;fdf</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M188.153,-713.979C185.989,-646.854 172.358,-318.713 111,-243 106.172,-237.042 99.4403,-232.772 92.3512,-229.712"/>
+<polygon fill="#000000" stroke="#000000" points="93.2024,-226.3 82.6077,-226.245 90.8554,-232.895 93.2024,-226.3"/>
+</g>
+<!-- flook_siesta -->
+<g id="proc~~siesta_analysis~~UsesGraph_node32" class="node"><title>flook_siesta</title>
+<polygon fill="#337ab7" stroke="#337ab7" points="90,-192 21,-192 21,-168 90,-168 90,-192"/>
+<text text-anchor="middle" x="55.5" y="-177.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">flook_siesta</text>
+</g>
+<!-- proc~siesta_analysis&#45;&gt;flook_siesta -->
+<g id="proc~~siesta_analysis~~UsesGraph_edge31" class="edge"><title>proc~siesta_analysis&#45;&gt;flook_siesta</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M188.321,-713.879C187.045,-643.137 177.336,-283.913 111,-201 107.757,-196.947 103.633,-193.675 99.1081,-191.035"/>
+<polygon fill="#000000" stroke="#000000" points="100.572,-187.855 90.0412,-186.694 97.5495,-194.169 100.572,-187.855"/>
+</g>
+<!-- m_steps -->
+<g id="proc~~siesta_analysis~~UsesGraph_node33" class="node"><title>m_steps</title>
+<polygon fill="#337ab7" stroke="#337ab7" points="82.5,-150 28.5,-150 28.5,-126 82.5,-126 82.5,-150"/>
+<text text-anchor="middle" x="55.5" y="-135.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">m_steps</text>
+</g>
+<!-- proc~siesta_analysis&#45;&gt;m_steps -->
+<g id="proc~~siesta_analysis~~UsesGraph_edge32" class="edge"><title>proc~siesta_analysis&#45;&gt;m_steps</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M188.467,-713.892C188.035,-639.927 182.362,-249.181 111,-159 106.242,-152.987 99.5384,-148.694 92.4548,-145.629"/>
+<polygon fill="#000000" stroke="#000000" points="93.3012,-142.215 82.7065,-142.166 90.9576,-148.812 93.3012,-142.215"/>
+</g>
+<!-- m_projected_DOS -->
+<g id="proc~~siesta_analysis~~UsesGraph_node34" class="node"><title>m_projected_DOS</title>
+<polygon fill="#337ab7" stroke="#337ab7" points="105.5,-108 5.5,-108 5.5,-84 105.5,-84 105.5,-108"/>
+<text text-anchor="middle" x="55.5" y="-93.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">m_projected_DOS</text>
+</g>
+<!-- proc~siesta_analysis&#45;&gt;m_projected_DOS -->
+<g id="proc~~siesta_analysis~~UsesGraph_edge33" class="edge"><title>proc~siesta_analysis&#45;&gt;m_projected_DOS</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M188.595,-713.512C188.951,-635.41 187.27,-214.306 111,-117 110.312,-116.122 109.582,-115.281 108.816,-114.475"/>
+<polygon fill="#000000" stroke="#000000" points="111.016,-111.753 101.061,-108.128 106.583,-117.17 111.016,-111.753"/>
+</g>
+<!-- m_energies -->
+<g id="proc~~siesta_analysis~~UsesGraph_node35" class="node"><title>m_energies</title>
+<polygon fill="#337ab7" stroke="#337ab7" points="90,-66 21,-66 21,-42 90,-42 90,-66"/>
+<text text-anchor="middle" x="55.5" y="-51.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">m_energies</text>
+</g>
+<!-- proc~siesta_analysis&#45;&gt;m_energies -->
+<g id="proc~~siesta_analysis~~UsesGraph_edge34" class="edge"><title>proc~siesta_analysis&#45;&gt;m_energies</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M188.703,-713.973C189.817,-634.063 192.464,-179.804 111,-75 107.815,-70.902 103.724,-67.6033 99.2179,-64.9479"/>
+<polygon fill="#000000" stroke="#000000" points="100.697,-61.7756 90.1683,-60.5937 97.662,-68.0834 100.697,-61.7756"/>
+</g>
+<!-- m_eo -->
+<g id="proc~~siesta_analysis~~UsesGraph_node36" class="node"><title>m_eo</title>
+<polygon fill="#337ab7" stroke="#337ab7" points="82.5,-24 28.5,-24 28.5,-0 82.5,-0 82.5,-24"/>
+<text text-anchor="middle" x="55.5" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">m_eo</text>
+</g>
+<!-- proc~siesta_analysis&#45;&gt;m_eo -->
+<g id="proc~~siesta_analysis~~UsesGraph_edge35" class="edge"><title>proc~siesta_analysis&#45;&gt;m_eo</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M187.898,-713.912C183.435,-626.206 154.449,-89.3099 111,-33 106.273,-26.8737 99.5211,-22.5338 92.3718,-19.4596"/>
+<polygon fill="#000000" stroke="#000000" points="93.124,-16.0143 82.5292,-16.0032 90.8047,-22.6189 93.124,-16.0143"/>
+</g>
+</g>
+</svg>
+</div><div><a type="button" class="graph-help" data-toggle="modal" href="#graph-help-text">Help</a></div><div class="modal fade" id="graph-help-text" tabindex="-1" role="dialog"><div class="modal-dialog modal-lg" role="document"><div class="modal-content"><div class="modal-header"><button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button><h4 class="modal-title" id="-graph-help-label">Graph Key</h4></div><div class="modal-body">
+    <p>Nodes of different colours represent the following: </p>
+    <?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+ "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Generated by graphviz version 2.38.0 (20140413.2041)
+ -->
+<!-- Title: Graph Key Pages: 1 -->
+<svg width="490pt" height="32pt"
+ viewBox="0.00 0.00 489.50 32.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 28)">
+<title>Graph Key</title>
+<polygon fill="white" stroke="none" points="-4,4 -4,-28 485.5,-28 485.5,4 -4,4"/>
+<!-- Module -->
+<g id="node1" class="node"><title>Module</title>
+<polygon fill="#337ab7" stroke="#337ab7" points="54,-24 0,-24 0,-0 54,-0 54,-24"/>
+<text text-anchor="middle" x="27" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Module</text>
+</g>
+<!-- Submodule -->
+<g id="node2" class="node"><title>Submodule</title>
+<polygon fill="#5bc0de" stroke="#5bc0de" points="139.5,-24 72.5,-24 72.5,-0 139.5,-0 139.5,-24"/>
+<text text-anchor="middle" x="106" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Submodule</text>
+</g>
+<!-- Subroutine -->
+<g id="node3" class="node"><title>Subroutine</title>
+<polygon fill="#d9534f" stroke="#d9534f" points="222,-24 158,-24 158,-0 222,-0 222,-24"/>
+<text text-anchor="middle" x="190" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Subroutine</text>
+</g>
+<!-- Function -->
+<g id="node4" class="node"><title>Function</title>
+<polygon fill="#d94e8f" stroke="#d94e8f" points="294,-24 240,-24 240,-0 294,-0 294,-24"/>
+<text text-anchor="middle" x="267" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Function</text>
+</g>
+<!-- Program -->
+<g id="node5" class="node"><title>Program</title>
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="366,-24 312,-24 312,-0 366,-0 366,-24"/>
+<text text-anchor="middle" x="339" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Program</text>
+</g>
+<!-- This Page&#39;s Entity -->
+<g id="node6" class="node"><title>This Page&#39;s Entity</title>
+<polygon fill="none" stroke="black" points="481.5,-24 384.5,-24 384.5,-0 481.5,-0 481.5,-24"/>
+<text text-anchor="middle" x="433" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50">This Page&#39;s Entity</text>
+</g>
+</g>
+</svg>
+
+    
+    <p>Solid arrows point from a submodule to the (sub)module which it is
+    descended from. Dashed arrows point from a module or program unit to 
+    modules which it uses.
+    </p>
+    </div></div></div></div>
+      </li>
+      
+      </ul>
+    </div>
+    
+
+
+    
+    <p>Check that we are converged in geometry,
+ if strictly required,
+ before carrying out any analysis.</p>
+<p><pre></p>
+<p>quenched_MD =  ( (iquench &gt; 0) .and. &amp;
+((idyn .eq. 1) .or. (idyn .eq. 3)) )</p>
+<p>if ((nmove .ne. 0) .or. quenched_MD) then
+if (GeometryMustConverge .and. (.not. relaxd)) then
+call message("FATAL", &amp;
+"GEOM_NOT_CONV: Geometry relaxation not converged")
+call die("ABNORMAL_TERMINATION")
+endif
+endif
+</pre>
+    
+
+    <h3>Arguments</h3>
+    
+      
+<table class="table table-striped varlist">
+<thead><tr><th>Type</th>
+<th>Intent</th><th>Optional</th>
+<th>Attributes</th><th></th><th>Name</th><th></th></thead>
+
+
+
+<tbody>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" id="variable-relaxd"></span>logical</td>
+  <td></td>
+  <td></td>
+  
+  <td></td><td>::</td>
+  <td><strong>relaxd</strong></td><td></td>
+  
+</tr>
+
+</tbody>
+</table>
+
+    
+    
+    
+    <br>
+    
+    
+    <div class="panel panel-default">
+      <div class="panel-heading">
+	<h3 class="panel-title">Calls</h3>
+      </div>
+      <div class="panel-body">
+	<div class="depgraph"><?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+ "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Generated by graphviz version 2.38.0 (20140413.2041)
+ -->
+<!-- Title: proc~~siesta_analysis~~CallsGraph Pages: 1 -->
+<svg id="procsiesta_analysisCallsGraph" width="280pt" height="1502pt"
+ viewBox="0.00 0.00 280.00 1502.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="proc~~siesta_analysis~~CallsGraph" class="graph" transform="scale(1 1) rotate(0) translate(4 1498)">
+<title>proc~~siesta_analysis~~CallsGraph</title>
+<polygon fill="white" stroke="none" points="-4,4 -4,-1498 276,-1498 276,4 -4,4"/>
+<!-- proc~siesta_analysis -->
+<g id="proc~~siesta_analysis~~CallsGraph_node1" class="node"><title>proc~siesta_analysis</title>
+<polygon fill="none" stroke="black" points="85,-759 0,-759 0,-735 85,-735 85,-759"/>
+<text text-anchor="middle" x="42.5" y="-744.6" font-family="Helvetica,sans-Serif" font-size="10.50">siesta_analysis</text>
+</g>
+<!-- re_alloc -->
+<g id="proc~~siesta_analysis~~CallsGraph_node2" class="node"><title>re_alloc</title>
+<polygon fill="#777777" stroke="#777777" points="223.5,-1494 169.5,-1494 169.5,-1470 223.5,-1470 223.5,-1494"/>
+<text text-anchor="middle" x="196.5" y="-1479.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">re_alloc</text>
+</g>
+<!-- proc~siesta_analysis&#45;&gt;re_alloc -->
+<g id="proc~~siesta_analysis~~CallsGraph_edge1" class="edge"><title>proc~siesta_analysis&#45;&gt;re_alloc</title>
+<path fill="none" stroke="#000000" d="M44.0115,-759.209C47.8771,-848.979 73.642,-1405.01 121,-1461 130.428,-1472.15 145.269,-1477.61 159.233,-1480.22"/>
+<polygon fill="#000000" stroke="#000000" points="158.758,-1483.68 169.155,-1481.64 159.755,-1476.75 158.758,-1483.68"/>
+</g>
+<!-- bk -->
+<g id="proc~~siesta_analysis~~CallsGraph_node3" class="node"><title>bk</title>
+<polygon fill="#777777" stroke="#777777" points="223.5,-1452 169.5,-1452 169.5,-1428 223.5,-1428 223.5,-1452"/>
+<text text-anchor="middle" x="196.5" y="-1437.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">bk</text>
+</g>
+<!-- proc~siesta_analysis&#45;&gt;bk -->
+<g id="proc~~siesta_analysis~~CallsGraph_edge2" class="edge"><title>proc~siesta_analysis&#45;&gt;bk</title>
+<path fill="none" stroke="#000000" d="M44.0896,-759.037C48.4135,-845.221 76.3131,-1366.53 121,-1419 130.465,-1430.11 145.312,-1435.58 159.27,-1438.18"/>
+<polygon fill="#000000" stroke="#000000" points="158.788,-1441.65 169.186,-1439.62 159.789,-1434.72 158.788,-1441.65"/>
+</g>
+<!-- siesta_write_stress_pressure -->
+<g id="proc~~siesta_analysis~~CallsGraph_node4" class="node"><title>siesta_write_stress_pressure</title>
+<polygon fill="#777777" stroke="#777777" points="272,-1410 121,-1410 121,-1386 272,-1386 272,-1410"/>
+<text text-anchor="middle" x="196.5" y="-1395.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">siesta_write_stress_pressure</text>
+</g>
+<!-- proc~siesta_analysis&#45;&gt;siesta_write_stress_pressure -->
+<g id="proc~~siesta_analysis~~CallsGraph_edge3" class="edge"><title>proc~siesta_analysis&#45;&gt;siesta_write_stress_pressure</title>
+<path fill="none" stroke="#000000" d="M43.235,-759.237C41.7675,-838.56 37.4814,-1279.68 121,-1377 121.744,-1377.87 122.52,-1378.7 123.327,-1379.5"/>
+<polygon fill="#000000" stroke="#000000" points="121.298,-1382.36 131.306,-1385.84 125.652,-1376.88 121.298,-1382.36"/>
+</g>
+<!-- fdf_boolean -->
+<g id="proc~~siesta_analysis~~CallsGraph_node5" class="node"><title>fdf_boolean</title>
+<polygon fill="#777777" stroke="#777777" points="231,-1368 162,-1368 162,-1344 231,-1344 231,-1368"/>
+<text text-anchor="middle" x="196.5" y="-1353.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">fdf_boolean</text>
+</g>
+<!-- proc~siesta_analysis&#45;&gt;fdf_boolean -->
+<g id="proc~~siesta_analysis~~CallsGraph_edge4" class="edge"><title>proc~siesta_analysis&#45;&gt;fdf_boolean</title>
+<path fill="none" stroke="#000000" d="M43.3545,-759.154C42.692,-835.15 42.8237,-1244.7 121,-1335 128.823,-1344.04 140.203,-1349.33 151.725,-1352.39"/>
+<polygon fill="#000000" stroke="#000000" points="151.29,-1355.87 161.8,-1354.54 152.751,-1349.03 151.29,-1355.87"/>
+</g>
+<!-- read_spmatrix -->
+<g id="proc~~siesta_analysis~~CallsGraph_node6" class="node"><title>read_spmatrix</title>
+<polygon fill="#777777" stroke="#777777" points="237,-1326 156,-1326 156,-1302 237,-1302 237,-1326"/>
+<text text-anchor="middle" x="196.5" y="-1311.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">read_spmatrix</text>
+</g>
+<!-- proc~siesta_analysis&#45;&gt;read_spmatrix -->
+<g id="proc~~siesta_analysis~~CallsGraph_edge5" class="edge"><title>proc~siesta_analysis&#45;&gt;read_spmatrix</title>
+<path fill="none" stroke="#000000" d="M43.4903,-759.223C43.6802,-832.175 48.207,-1209.76 121,-1293 127.5,-1300.43 136.406,-1305.33 145.801,-1308.53"/>
+<polygon fill="#000000" stroke="#000000" points="145.116,-1311.97 155.689,-1311.29 146.998,-1305.23 145.116,-1311.97"/>
+</g>
+<!-- ucell_last -->
+<g id="proc~~siesta_analysis~~CallsGraph_node7" class="node"><title>ucell_last</title>
+<polygon fill="#777777" stroke="#777777" points="225,-1284 168,-1284 168,-1260 225,-1260 225,-1284"/>
+<text text-anchor="middle" x="196.5" y="-1269.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">ucell_last</text>
+</g>
+<!-- proc~siesta_analysis&#45;&gt;ucell_last -->
+<g id="proc~~siesta_analysis~~CallsGraph_edge6" class="edge"><title>proc~siesta_analysis&#45;&gt;ucell_last</title>
+<path fill="none" stroke="#000000" d="M43.6483,-759.181C44.74,-828.688 53.5403,-1174.75 121,-1251 130.295,-1261.51 144.398,-1266.94 157.841,-1269.68"/>
+<polygon fill="#000000" stroke="#000000" points="157.474,-1273.17 167.903,-1271.3 158.585,-1266.26 157.474,-1273.17"/>
+</g>
+<!-- message -->
+<g id="proc~~siesta_analysis~~CallsGraph_node8" class="node"><title>message</title>
+<polygon fill="#777777" stroke="#777777" points="224.5,-1242 168.5,-1242 168.5,-1218 224.5,-1218 224.5,-1242"/>
+<text text-anchor="middle" x="196.5" y="-1227.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">message</text>
+</g>
+<!-- proc~siesta_analysis&#45;&gt;message -->
+<g id="proc~~siesta_analysis~~CallsGraph_edge7" class="edge"><title>proc~siesta_analysis&#45;&gt;message</title>
+<path fill="none" stroke="#000000" d="M43.8295,-759.02C45.8699,-824.691 58.822,-1139.68 121,-1209 130.438,-1219.52 144.698,-1224.94 158.224,-1227.68"/>
+<polygon fill="#000000" stroke="#000000" points="157.906,-1231.17 168.332,-1229.29 159.006,-1224.26 157.906,-1231.17"/>
+</g>
+<!-- dhscf -->
+<g id="proc~~siesta_analysis~~CallsGraph_node9" class="node"><title>dhscf</title>
+<polygon fill="#777777" stroke="#777777" points="223.5,-1200 169.5,-1200 169.5,-1176 223.5,-1176 223.5,-1200"/>
+<text text-anchor="middle" x="196.5" y="-1185.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">dhscf</text>
+</g>
+<!-- proc~siesta_analysis&#45;&gt;dhscf -->
+<g id="proc~~siesta_analysis~~CallsGraph_edge8" class="edge"><title>proc~siesta_analysis&#45;&gt;dhscf</title>
+<path fill="none" stroke="#000000" d="M44.0549,-759.14C47.1428,-821.433 64.1748,-1104.67 121,-1167 130.74,-1177.68 145.45,-1183.1 159.233,-1185.78"/>
+<polygon fill="#000000" stroke="#000000" points="159.081,-1189.3 169.494,-1187.35 160.136,-1182.38 159.081,-1189.3"/>
+</g>
+<!-- print_spin -->
+<g id="proc~~siesta_analysis~~CallsGraph_node10" class="node"><title>print_spin</title>
+<polygon fill="#777777" stroke="#777777" points="226,-1158 167,-1158 167,-1134 226,-1134 226,-1158"/>
+<text text-anchor="middle" x="196.5" y="-1143.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">print_spin</text>
+</g>
+<!-- proc~siesta_analysis&#45;&gt;print_spin -->
+<g id="proc~~siesta_analysis~~CallsGraph_edge10" class="edge"><title>proc~siesta_analysis&#45;&gt;print_spin</title>
+<path fill="none" stroke="#000000" d="M44.3196,-759.073C48.5174,-817.411 69.4487,-1069.57 121,-1125 130.171,-1134.86 143.577,-1140.22 156.499,-1143.09"/>
+<polygon fill="#000000" stroke="#000000" points="156.209,-1146.59 166.667,-1144.9 157.434,-1139.7 156.209,-1146.59"/>
+</g>
+<!-- xa_last -->
+<g id="proc~~siesta_analysis~~CallsGraph_node11" class="node"><title>xa_last</title>
+<polygon fill="#777777" stroke="#777777" points="223.5,-1116 169.5,-1116 169.5,-1092 223.5,-1092 223.5,-1116"/>
+<text text-anchor="middle" x="196.5" y="-1101.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">xa_last</text>
+</g>
+<!-- proc~siesta_analysis&#45;&gt;xa_last -->
+<g id="proc~~siesta_analysis~~CallsGraph_edge9" class="edge"><title>proc~siesta_analysis&#45;&gt;xa_last</title>
+<path fill="none" stroke="#000000" d="M44.6617,-759.162C50.0996,-813.616 74.7422,-1034.46 121,-1083 130.9,-1093.39 145.503,-1098.76 159.163,-1101.5"/>
+<polygon fill="#000000" stroke="#000000" points="158.906,-1105 169.332,-1103.12 160.006,-1098.09 158.906,-1105"/>
+</g>
+<!-- ksv_pol -->
+<g id="proc~~siesta_analysis~~CallsGraph_node12" class="node"><title>ksv_pol</title>
+<polygon fill="#777777" stroke="#777777" points="223.5,-1074 169.5,-1074 169.5,-1050 223.5,-1050 223.5,-1074"/>
+<text text-anchor="middle" x="196.5" y="-1059.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">ksv_pol</text>
+</g>
+<!-- proc~siesta_analysis&#45;&gt;ksv_pol -->
+<g id="proc~~siesta_analysis~~CallsGraph_edge11" class="edge"><title>proc~siesta_analysis&#45;&gt;ksv_pol</title>
+<path fill="none" stroke="#000000" d="M45.1102,-759.308C51.9346,-809.667 80.0158,-999.313 121,-1041 131.06,-1051.23 145.689,-1056.58 159.326,-1059.34"/>
+<polygon fill="#000000" stroke="#000000" points="159.037,-1062.84 169.468,-1060.99 160.157,-1055.93 159.037,-1062.84"/>
+</g>
+<!-- write_basis_enthalpy -->
+<g id="proc~~siesta_analysis~~CallsGraph_node13" class="node"><title>write_basis_enthalpy</title>
+<polygon fill="#777777" stroke="#777777" points="252.5,-1032 140.5,-1032 140.5,-1008 252.5,-1008 252.5,-1032"/>
+<text text-anchor="middle" x="196.5" y="-1017.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">write_basis_enthalpy</text>
+</g>
+<!-- proc~siesta_analysis&#45;&gt;write_basis_enthalpy -->
+<g id="proc~~siesta_analysis~~CallsGraph_edge12" class="edge"><title>proc~siesta_analysis&#45;&gt;write_basis_enthalpy</title>
+<path fill="none" stroke="#000000" d="M43.4094,-759.03C43.7853,-799.23 50.5969,-930.24 121,-999 124.082,-1002.01 127.561,-1004.6 131.289,-1006.82"/>
+<polygon fill="#000000" stroke="#000000" points="129.86,-1010.02 140.369,-1011.36 132.993,-1003.76 129.86,-1010.02"/>
+</g>
+<!-- projected_dos -->
+<g id="proc~~siesta_analysis~~CallsGraph_node14" class="node"><title>projected_dos</title>
+<polygon fill="#777777" stroke="#777777" points="236.5,-990 156.5,-990 156.5,-966 236.5,-966 236.5,-990"/>
+<text text-anchor="middle" x="196.5" y="-975.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">projected_dos</text>
+</g>
+<!-- proc~siesta_analysis&#45;&gt;projected_dos -->
+<g id="proc~~siesta_analysis~~CallsGraph_edge13" class="edge"><title>proc~siesta_analysis&#45;&gt;projected_dos</title>
+<path fill="none" stroke="#000000" d="M44.2599,-759.026C47.1802,-794.774 60.7796,-901.347 121,-957 128.178,-963.634 137.291,-968.193 146.66,-971.321"/>
+<polygon fill="#000000" stroke="#000000" points="145.871,-974.735 156.446,-974.09 147.777,-968 145.871,-974.735"/>
+</g>
+<!-- xa -->
+<g id="proc~~siesta_analysis~~CallsGraph_node15" class="node"><title>xa</title>
+<polygon fill="#777777" stroke="#777777" points="223.5,-948 169.5,-948 169.5,-924 223.5,-924 223.5,-948"/>
+<text text-anchor="middle" x="196.5" y="-933.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">xa</text>
+</g>
+<!-- proc~siesta_analysis&#45;&gt;xa -->
+<g id="proc~~siesta_analysis~~CallsGraph_edge14" class="edge"><title>proc~siesta_analysis&#45;&gt;xa</title>
+<path fill="none" stroke="#000000" d="M45.5394,-759.256C51.3498,-790.235 70.9212,-872.245 121,-915 131.75,-924.178 146.244,-929.359 159.59,-932.278"/>
+<polygon fill="#000000" stroke="#000000" points="159.023,-935.733 169.491,-934.099 160.289,-928.848 159.023,-935.733"/>
+</g>
+<!-- siesta_write_positions -->
+<g id="proc~~siesta_analysis~~CallsGraph_node16" class="node"><title>siesta_write_positions</title>
+<polygon fill="#777777" stroke="#777777" points="255,-906 138,-906 138,-882 255,-882 255,-906"/>
+<text text-anchor="middle" x="196.5" y="-891.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">siesta_write_positions</text>
+</g>
+<!-- proc~siesta_analysis&#45;&gt;siesta_write_positions -->
+<g id="proc~~siesta_analysis~~CallsGraph_edge15" class="edge"><title>proc~siesta_analysis&#45;&gt;siesta_write_positions</title>
+<path fill="none" stroke="#000000" d="M47.5197,-759.133C56.4999,-784.327 80.6339,-842.501 121,-873 123.362,-874.785 125.869,-876.418 128.479,-877.912"/>
+<polygon fill="#000000" stroke="#000000" points="127.173,-881.171 137.688,-882.477 130.283,-874.899 127.173,-881.171"/>
+</g>
+<!-- bands -->
+<g id="proc~~siesta_analysis~~CallsGraph_node17" class="node"><title>bands</title>
+<polygon fill="#777777" stroke="#777777" points="223.5,-864 169.5,-864 169.5,-840 223.5,-840 223.5,-864"/>
+<text text-anchor="middle" x="196.5" y="-849.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">bands</text>
+</g>
+<!-- proc~siesta_analysis&#45;&gt;bands -->
+<g id="proc~~siesta_analysis~~CallsGraph_edge16" class="edge"><title>proc~siesta_analysis&#45;&gt;bands</title>
+<path fill="none" stroke="#000000" d="M51.4668,-759.266C64.0324,-777.628 90.2167,-812.119 121,-831 132.57,-838.096 146.606,-842.862 159.363,-846.031"/>
+<polygon fill="#000000" stroke="#000000" points="158.724,-849.475 169.247,-848.245 160.253,-842.644 158.724,-849.475"/>
+</g>
+<!-- pexsi_local_dos -->
+<g id="proc~~siesta_analysis~~CallsGraph_node18" class="node"><title>pexsi_local_dos</title>
+<polygon fill="#777777" stroke="#777777" points="240.5,-822 152.5,-822 152.5,-798 240.5,-798 240.5,-822"/>
+<text text-anchor="middle" x="196.5" y="-807.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">pexsi_local_dos</text>
+</g>
+<!-- proc~siesta_analysis&#45;&gt;pexsi_local_dos -->
+<g id="proc~~siesta_analysis~~CallsGraph_edge17" class="edge"><title>proc~siesta_analysis&#45;&gt;pexsi_local_dos</title>
+<path fill="none" stroke="#000000" d="M62.9795,-759.133C78.3072,-768.286 100.44,-780.652 121,-789 127.848,-791.78 135.192,-794.336 142.503,-796.634"/>
+<polygon fill="#000000" stroke="#000000" points="141.819,-800.082 152.403,-799.605 143.832,-793.378 141.819,-800.082"/>
+</g>
+<!-- cmladdproperty -->
+<g id="proc~~siesta_analysis~~CallsGraph_node19" class="node"><title>cmladdproperty</title>
+<polygon fill="#777777" stroke="#777777" points="240,-780 153,-780 153,-756 240,-756 240,-780"/>
+<text text-anchor="middle" x="196.5" y="-765.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">cmladdproperty</text>
+</g>
+<!-- proc~siesta_analysis&#45;&gt;cmladdproperty -->
+<g id="proc~~siesta_analysis~~CallsGraph_edge18" class="edge"><title>proc~siesta_analysis&#45;&gt;cmladdproperty</title>
+<path fill="none" stroke="#000000" d="M85.0347,-752.738C102.917,-755.209 124.028,-758.126 142.98,-760.744"/>
+<polygon fill="#000000" stroke="#000000" points="142.572,-764.221 152.957,-762.122 143.531,-757.287 142.572,-764.221"/>
+</g>
+<!-- wwave -->
+<g id="proc~~siesta_analysis~~CallsGraph_node20" class="node"><title>wwave</title>
+<polygon fill="#777777" stroke="#777777" points="223.5,-738 169.5,-738 169.5,-714 223.5,-714 223.5,-738"/>
+<text text-anchor="middle" x="196.5" y="-723.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">wwave</text>
+</g>
+<!-- proc~siesta_analysis&#45;&gt;wwave -->
+<g id="proc~~siesta_analysis~~CallsGraph_edge36" class="edge"><title>proc~siesta_analysis&#45;&gt;wwave</title>
+<path fill="none" stroke="#000000" d="M85.0347,-741.262C108.254,-738.054 136.92,-734.093 159.23,-731.011"/>
+<polygon fill="#000000" stroke="#000000" points="159.879,-734.455 169.305,-729.619 158.92,-727.521 159.879,-734.455"/>
+</g>
+<!-- pexsi_dos -->
+<g id="proc~~siesta_analysis~~CallsGraph_node21" class="node"><title>pexsi_dos</title>
+<polygon fill="#777777" stroke="#777777" points="227,-696 166,-696 166,-672 227,-672 227,-696"/>
+<text text-anchor="middle" x="196.5" y="-681.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">pexsi_dos</text>
+</g>
+<!-- proc~siesta_analysis&#45;&gt;pexsi_dos -->
+<g id="proc~~siesta_analysis~~CallsGraph_edge19" class="edge"><title>proc~siesta_analysis&#45;&gt;pexsi_dos</title>
+<path fill="none" stroke="#000000" d="M62.9795,-734.867C78.3072,-725.714 100.44,-713.348 121,-705 132.171,-700.464 144.662,-696.529 156.176,-693.329"/>
+<polygon fill="#000000" stroke="#000000" points="157.227,-696.672 165.986,-690.711 155.421,-689.908 157.227,-696.672"/>
+</g>
+<!-- slua_call -->
+<g id="proc~~siesta_analysis~~CallsGraph_node22" class="node"><title>slua_call</title>
+<polygon fill="#777777" stroke="#777777" points="223.5,-654 169.5,-654 169.5,-630 223.5,-630 223.5,-654"/>
+<text text-anchor="middle" x="196.5" y="-639.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">slua_call</text>
+</g>
+<!-- proc~siesta_analysis&#45;&gt;slua_call -->
+<g id="proc~~siesta_analysis~~CallsGraph_edge20" class="edge"><title>proc~siesta_analysis&#45;&gt;slua_call</title>
+<path fill="none" stroke="#000000" d="M51.4668,-734.734C64.0324,-716.372 90.2167,-681.881 121,-663 132.57,-655.904 146.606,-651.138 159.363,-647.969"/>
+<polygon fill="#000000" stroke="#000000" points="160.253,-651.356 169.247,-645.755 158.724,-644.525 160.253,-651.356"/>
+</g>
+<!-- siesta_write_forces -->
+<g id="proc~~siesta_analysis~~CallsGraph_node23" class="node"><title>siesta_write_forces</title>
+<polygon fill="#777777" stroke="#777777" points="248.5,-612 144.5,-612 144.5,-588 248.5,-588 248.5,-612"/>
+<text text-anchor="middle" x="196.5" y="-597.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">siesta_write_forces</text>
+</g>
+<!-- proc~siesta_analysis&#45;&gt;siesta_write_forces -->
+<g id="proc~~siesta_analysis~~CallsGraph_edge21" class="edge"><title>proc~siesta_analysis&#45;&gt;siesta_write_forces</title>
+<path fill="none" stroke="#000000" d="M47.5197,-734.867C56.4999,-709.673 80.6339,-651.499 121,-621 125.181,-617.841 129.818,-615.156 134.674,-612.876"/>
+<polygon fill="#000000" stroke="#000000" points="136.291,-615.996 144.22,-608.97 133.639,-609.518 136.291,-615.996"/>
+</g>
+<!-- optical -->
+<g id="proc~~siesta_analysis~~CallsGraph_node24" class="node"><title>optical</title>
+<polygon fill="#777777" stroke="#777777" points="223.5,-570 169.5,-570 169.5,-546 223.5,-546 223.5,-570"/>
+<text text-anchor="middle" x="196.5" y="-555.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">optical</text>
+</g>
+<!-- proc~siesta_analysis&#45;&gt;optical -->
+<g id="proc~~siesta_analysis~~CallsGraph_edge22" class="edge"><title>proc~siesta_analysis&#45;&gt;optical</title>
+<path fill="none" stroke="#000000" d="M45.5394,-734.744C51.3498,-703.765 70.9212,-621.755 121,-579 131.75,-569.822 146.244,-564.641 159.59,-561.722"/>
+<polygon fill="#000000" stroke="#000000" points="160.289,-565.152 169.491,-559.901 159.023,-558.267 160.289,-565.152"/>
+</g>
+<!-- dipol -->
+<g id="proc~~siesta_analysis~~CallsGraph_node25" class="node"><title>dipol</title>
+<polygon fill="#777777" stroke="#777777" points="223.5,-528 169.5,-528 169.5,-504 223.5,-504 223.5,-528"/>
+<text text-anchor="middle" x="196.5" y="-513.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">dipol</text>
+</g>
+<!-- proc~siesta_analysis&#45;&gt;dipol -->
+<g id="proc~~siesta_analysis~~CallsGraph_edge23" class="edge"><title>proc~siesta_analysis&#45;&gt;dipol</title>
+<path fill="none" stroke="#000000" d="M44.2599,-734.974C47.1802,-699.226 60.7796,-592.653 121,-537 131.381,-527.406 145.809,-522.151 159.205,-519.289"/>
+<polygon fill="#000000" stroke="#000000" points="159.924,-522.716 169.165,-517.534 158.709,-515.822 159.924,-522.716"/>
+</g>
+<!-- eo -->
+<g id="proc~~siesta_analysis~~CallsGraph_node26" class="node"><title>eo</title>
+<polygon fill="#777777" stroke="#777777" points="223.5,-486 169.5,-486 169.5,-462 223.5,-462 223.5,-486"/>
+<text text-anchor="middle" x="196.5" y="-471.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">eo</text>
+</g>
+<!-- proc~siesta_analysis&#45;&gt;eo -->
+<g id="proc~~siesta_analysis~~CallsGraph_edge24" class="edge"><title>proc~siesta_analysis&#45;&gt;eo</title>
+<path fill="none" stroke="#000000" d="M43.4094,-734.97C43.7853,-694.77 50.5969,-563.76 121,-495 131.189,-485.049 145.711,-479.738 159.231,-476.931"/>
+<polygon fill="#000000" stroke="#000000" points="160.007,-480.349 169.287,-475.237 158.844,-473.447 160.007,-480.349"/>
+</g>
+<!-- siesta_write_energies -->
+<g id="proc~~siesta_analysis~~CallsGraph_node27" class="node"><title>siesta_write_energies</title>
+<polygon fill="#777777" stroke="#777777" points="254.5,-444 138.5,-444 138.5,-420 254.5,-420 254.5,-444"/>
+<text text-anchor="middle" x="196.5" y="-429.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">siesta_write_energies</text>
+</g>
+<!-- proc~siesta_analysis&#45;&gt;siesta_write_energies -->
+<g id="proc~~siesta_analysis~~CallsGraph_edge25" class="edge"><title>proc~siesta_analysis&#45;&gt;siesta_write_energies</title>
+<path fill="none" stroke="#000000" d="M45.1102,-734.692C51.9346,-684.333 80.0158,-494.687 121,-453 123.526,-450.431 126.34,-448.169 129.354,-446.179"/>
+<polygon fill="#000000" stroke="#000000" points="131.227,-449.144 138.305,-441.26 127.856,-443.009 131.227,-449.144"/>
+</g>
+<!-- scell -->
+<g id="proc~~siesta_analysis~~CallsGraph_node28" class="node"><title>scell</title>
+<polygon fill="#777777" stroke="#777777" points="223.5,-402 169.5,-402 169.5,-378 223.5,-378 223.5,-402"/>
+<text text-anchor="middle" x="196.5" y="-387.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">scell</text>
+</g>
+<!-- proc~siesta_analysis&#45;&gt;scell -->
+<g id="proc~~siesta_analysis~~CallsGraph_edge26" class="edge"><title>proc~siesta_analysis&#45;&gt;scell</title>
+<path fill="none" stroke="#000000" d="M44.6617,-734.838C50.0996,-680.384 74.7422,-459.536 121,-411 130.9,-400.613 145.503,-395.237 159.163,-392.499"/>
+<polygon fill="#000000" stroke="#000000" points="160.006,-395.909 169.332,-390.881 158.906,-388.996 160.006,-395.909"/>
+</g>
+<!-- setup_wfs_list -->
+<g id="proc~~siesta_analysis~~CallsGraph_node29" class="node"><title>setup_wfs_list</title>
+<polygon fill="#777777" stroke="#777777" points="236,-360 157,-360 157,-336 236,-336 236,-360"/>
+<text text-anchor="middle" x="196.5" y="-345.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">setup_wfs_list</text>
+</g>
+<!-- proc~siesta_analysis&#45;&gt;setup_wfs_list -->
+<g id="proc~~siesta_analysis~~CallsGraph_edge27" class="edge"><title>proc~siesta_analysis&#45;&gt;setup_wfs_list</title>
+<path fill="none" stroke="#000000" d="M44.3196,-734.927C48.5174,-676.589 69.4487,-424.433 121,-369 127.932,-361.546 137.285,-356.664 147.019,-353.486"/>
+<polygon fill="#000000" stroke="#000000" points="148.063,-356.829 156.804,-350.843 146.237,-350.072 148.063,-356.829"/>
+</g>
+<!-- fdf_get -->
+<g id="proc~~siesta_analysis~~CallsGraph_node30" class="node"><title>fdf_get</title>
+<polygon fill="#777777" stroke="#777777" points="223.5,-318 169.5,-318 169.5,-294 223.5,-294 223.5,-318"/>
+<text text-anchor="middle" x="196.5" y="-303.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">fdf_get</text>
+</g>
+<!-- proc~siesta_analysis&#45;&gt;fdf_get -->
+<g id="proc~~siesta_analysis~~CallsGraph_edge29" class="edge"><title>proc~siesta_analysis&#45;&gt;fdf_get</title>
+<path fill="none" stroke="#000000" d="M44.0549,-734.86C47.1428,-672.567 64.1748,-389.327 121,-327 130.74,-316.317 145.45,-310.904 159.233,-308.219"/>
+<polygon fill="#000000" stroke="#000000" points="160.136,-311.622 169.494,-306.655 159.081,-304.702 160.136,-311.622"/>
+</g>
+<!-- cmlstartmodule -->
+<g id="proc~~siesta_analysis~~CallsGraph_node31" class="node"><title>cmlstartmodule</title>
+<polygon fill="#777777" stroke="#777777" points="239,-276 154,-276 154,-252 239,-252 239,-276"/>
+<text text-anchor="middle" x="196.5" y="-261.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">cmlstartmodule</text>
+</g>
+<!-- proc~siesta_analysis&#45;&gt;cmlstartmodule -->
+<g id="proc~~siesta_analysis~~CallsGraph_edge30" class="edge"><title>proc~siesta_analysis&#45;&gt;cmlstartmodule</title>
+<path fill="none" stroke="#000000" d="M43.8295,-734.98C45.8699,-669.309 58.822,-354.322 121,-285 127.194,-278.094 135.465,-273.386 144.242,-270.192"/>
+<polygon fill="#000000" stroke="#000000" points="145.323,-273.522 153.89,-267.288 143.305,-266.819 145.323,-273.522"/>
+</g>
+<!-- outcoor -->
+<g id="proc~~siesta_analysis~~CallsGraph_node32" class="node"><title>outcoor</title>
+<polygon fill="#777777" stroke="#777777" points="223.5,-234 169.5,-234 169.5,-210 223.5,-210 223.5,-234"/>
+<text text-anchor="middle" x="196.5" y="-219.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">outcoor</text>
+</g>
+<!-- proc~siesta_analysis&#45;&gt;outcoor -->
+<g id="proc~~siesta_analysis~~CallsGraph_edge31" class="edge"><title>proc~siesta_analysis&#45;&gt;outcoor</title>
+<path fill="none" stroke="#000000" d="M43.6483,-734.819C44.74,-665.312 53.5403,-319.25 121,-243 130.579,-232.173 145.263,-226.737 159.071,-224.073"/>
+<polygon fill="#000000" stroke="#000000" points="159.987,-227.475 169.359,-222.533 158.951,-220.552 159.987,-227.475"/>
+</g>
+<!-- die -->
+<g id="proc~~siesta_analysis~~CallsGraph_node33" class="node"><title>die</title>
+<polygon fill="#777777" stroke="#777777" points="223.5,-192 169.5,-192 169.5,-168 223.5,-168 223.5,-192"/>
+<text text-anchor="middle" x="196.5" y="-177.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">die</text>
+</g>
+<!-- proc~siesta_analysis&#45;&gt;die -->
+<g id="proc~~siesta_analysis~~CallsGraph_edge32" class="edge"><title>proc~siesta_analysis&#45;&gt;die</title>
+<path fill="none" stroke="#000000" d="M43.4903,-734.777C43.6802,-661.825 48.207,-284.244 121,-201 130.516,-190.118 145.191,-184.673 159.007,-182.018"/>
+<polygon fill="#000000" stroke="#000000" points="159.929,-185.419 169.306,-180.487 158.9,-178.495 159.929,-185.419"/>
+</g>
+<!-- scell_last -->
+<g id="proc~~siesta_analysis~~CallsGraph_node34" class="node"><title>scell_last</title>
+<polygon fill="#777777" stroke="#777777" points="224.5,-150 168.5,-150 168.5,-126 224.5,-126 224.5,-150"/>
+<text text-anchor="middle" x="196.5" y="-135.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">scell_last</text>
+</g>
+<!-- proc~siesta_analysis&#45;&gt;scell_last -->
+<g id="proc~~siesta_analysis~~CallsGraph_edge33" class="edge"><title>proc~siesta_analysis&#45;&gt;scell_last</title>
+<path fill="none" stroke="#000000" d="M43.3545,-734.846C42.692,-658.85 42.8237,-249.303 121,-159 130.252,-148.313 144.478,-142.863 158.03,-140.151"/>
+<polygon fill="#000000" stroke="#000000" points="158.827,-143.569 168.167,-138.569 157.747,-136.652 158.827,-143.569"/>
+</g>
+<!-- de_alloc -->
+<g id="proc~~siesta_analysis~~CallsGraph_node35" class="node"><title>de_alloc</title>
+<polygon fill="#777777" stroke="#777777" points="223.5,-108 169.5,-108 169.5,-84 223.5,-84 223.5,-108"/>
+<text text-anchor="middle" x="196.5" y="-93.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">de_alloc</text>
+</g>
+<!-- proc~siesta_analysis&#45;&gt;de_alloc -->
+<g id="proc~~siesta_analysis~~CallsGraph_edge34" class="edge"><title>proc~siesta_analysis&#45;&gt;de_alloc</title>
+<path fill="none" stroke="#000000" d="M43.235,-734.763C41.7675,-655.44 37.4814,-214.321 121,-117 130.507,-105.922 145.361,-100.464 159.311,-97.8519"/>
+<polygon fill="#000000" stroke="#000000" points="159.828,-101.314 169.221,-96.4128 158.822,-94.3864 159.828,-101.314"/>
+</g>
+<!-- ucell -->
+<g id="proc~~siesta_analysis~~CallsGraph_node36" class="node"><title>ucell</title>
+<polygon fill="#777777" stroke="#777777" points="223.5,-66 169.5,-66 169.5,-42 223.5,-42 223.5,-66"/>
+<text text-anchor="middle" x="196.5" y="-51.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">ucell</text>
+</g>
+<!-- proc~siesta_analysis&#45;&gt;ucell -->
+<g id="proc~~siesta_analysis~~CallsGraph_edge35" class="edge"><title>proc~siesta_analysis&#45;&gt;ucell</title>
+<path fill="none" stroke="#000000" d="M44.0896,-734.963C48.4135,-648.779 76.3131,-127.473 121,-75 130.465,-63.886 145.312,-58.4229 159.27,-55.8161"/>
+<polygon fill="#000000" stroke="#000000" points="159.789,-59.2775 169.186,-54.3828 158.788,-52.3495 159.789,-59.2775"/>
+</g>
+<!-- local_dos -->
+<g id="proc~~siesta_analysis~~CallsGraph_node37" class="node"><title>local_dos</title>
+<polygon fill="#777777" stroke="#777777" points="225.5,-24 167.5,-24 167.5,-0 225.5,-0 225.5,-24"/>
+<text text-anchor="middle" x="196.5" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">local_dos</text>
+</g>
+<!-- proc~siesta_analysis&#45;&gt;local_dos -->
+<g id="proc~~siesta_analysis~~CallsGraph_edge28" class="edge"><title>proc~siesta_analysis&#45;&gt;local_dos</title>
+<path fill="none" stroke="#000000" d="M44.0115,-734.791C47.8771,-645.021 73.642,-88.9883 121,-33 129.99,-22.3714 143.904,-16.9059 157.284,-14.1655"/>
+<polygon fill="#000000" stroke="#000000" points="158,-17.5956 167.322,-12.5607 156.895,-10.6834 158,-17.5956"/>
+</g>
+</g>
+</svg>
+</div><div><a type="button" class="graph-help" data-toggle="modal" href="#graph-help-text">Help</a></div><div class="modal fade" id="graph-help-text" tabindex="-1" role="dialog"><div class="modal-dialog modal-lg" role="document"><div class="modal-content"><div class="modal-header"><button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button><h4 class="modal-title" id="-graph-help-label">Graph Key</h4></div><div class="modal-body">
+    <p>Nodes of different colours represent the following: </p>
+    <?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+ "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Generated by graphviz version 2.38.0 (20140413.2041)
+ -->
+<!-- Title: Graph Key Pages: 1 -->
+<svg width="560pt" height="32pt"
+ viewBox="0.00 0.00 559.50 32.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 28)">
+<title>Graph Key</title>
+<polygon fill="white" stroke="none" points="-4,4 -4,-28 555.5,-28 555.5,4 -4,4"/>
+<!-- Subroutine -->
+<g id="node1" class="node"><title>Subroutine</title>
+<polygon fill="#d9534f" stroke="#d9534f" points="64,-24 0,-24 0,-0 64,-0 64,-24"/>
+<text text-anchor="middle" x="32" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Subroutine</text>
+</g>
+<!-- Function -->
+<g id="node2" class="node"><title>Function</title>
+<polygon fill="#d94e8f" stroke="#d94e8f" points="136,-24 82,-24 82,-0 136,-0 136,-24"/>
+<text text-anchor="middle" x="109" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Function</text>
+</g>
+<!-- Interface -->
+<g id="node3" class="node"><title>Interface</title>
+<polygon fill="#a7506f" stroke="#a7506f" points="209.5,-24 154.5,-24 154.5,-0 209.5,-0 209.5,-24"/>
+<text text-anchor="middle" x="182" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Interface</text>
+</g>
+<!-- Unknown Procedure Type -->
+<g id="node4" class="node"><title>Unknown Procedure Type</title>
+<polygon fill="#777777" stroke="#777777" points="364,-24 228,-24 228,-0 364,-0 364,-24"/>
+<text text-anchor="middle" x="296" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Unknown Procedure Type</text>
+</g>
+<!-- Program -->
+<g id="node5" class="node"><title>Program</title>
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="436,-24 382,-24 382,-0 436,-0 436,-24"/>
+<text text-anchor="middle" x="409" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Program</text>
+</g>
+<!-- This Page&#39;s Entity -->
+<g id="node6" class="node"><title>This Page&#39;s Entity</title>
+<polygon fill="none" stroke="black" points="551.5,-24 454.5,-24 454.5,-0 551.5,-0 551.5,-24"/>
+<text text-anchor="middle" x="503" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50">This Page&#39;s Entity</text>
+</g>
+</g>
+</svg>
+
+    
+    <p>Solid arrows point from a procedure to one which it calls. Dashed 
+    arrows point from an interface to procedures which implement that interface.
+    This could include the module procedures in a generic interface or the
+    implementation in a submodule of an interface in a parent module.
+    </p>
+    </div></div></div></div>
+      </div>
+    </div>
+     
+     
+    <br>
+
+    <section class="visible-xs visible-sm hidden-md">
+      
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="panel panel-primary">
+  <div class="panel-heading text-left"><h3 class="panel-title">Source Code</h3></div>
+  <div class="list-group">
+    <a class="list-group-item" href="../proc/siesta_analysis.html#src">siesta_analysis</a>
+  </div>
+</div>
+
+
+    </section>
+    <br class="visible-xs visible-sm hidden-md">
+
+    
+
+    
+    
+    
+    
+    
+
+    
+    
+    
+    
+    
+
+
+    
+    
+    
+    <section>
+    <h2><span class="anchor" id="src"></span>Source Code</h2>
+    <div class="highlight"><pre><span></span>      <span class="k">subroutine </span><span class="n">siesta_analysis</span><span class="p">(</span> <span class="n">relaxd</span> <span class="p">)</span>
+      <span class="k">USE </span><span class="n">band</span><span class="p">,</span> <span class="n">only</span><span class="p">:</span> <span class="n">nbk</span><span class="p">,</span> <span class="n">bk</span><span class="p">,</span> <span class="n">maxbk</span><span class="p">,</span> <span class="n">bands</span>
+      <span class="k">USE </span><span class="n">writewave</span><span class="p">,</span> <span class="n">only</span><span class="p">:</span> <span class="n">nwk</span><span class="p">,</span> <span class="n">wfk</span><span class="p">,</span> <span class="n">wwave</span>
+      <span class="k">USE </span><span class="n">writewave</span><span class="p">,</span> <span class="n">only</span><span class="p">:</span> <span class="n">setup_wfs_list</span><span class="p">,</span> <span class="n">wfs_filename</span>
+      <span class="k">USE </span><span class="n">m_ksvinit</span><span class="p">,</span> <span class="n">only</span><span class="p">:</span> <span class="n">nkpol</span><span class="p">,</span> <span class="n">kpol</span><span class="p">,</span> <span class="n">wgthpol</span>
+      <span class="k">use </span><span class="n">m_ksv</span>
+      <span class="k">USE </span><span class="n">m_projected_DOS</span><span class="p">,</span> <span class="n">only</span><span class="p">:</span> <span class="n">projected_DOS</span>
+      <span class="k">USE </span><span class="n">m_local_DOS</span><span class="p">,</span> <span class="n">only</span><span class="p">:</span> <span class="n">local_DOS</span>
+<span class="cp">#ifdef SIESTA__PEXSI</span>
+      <span class="k">USE </span><span class="n">m_pexsi_local_DOS</span><span class="p">,</span> <span class="n">only</span><span class="p">:</span> <span class="n">pexsi_local_DOS</span>
+      <span class="k">USE </span><span class="n">m_pexsi_dos</span><span class="p">,</span> <span class="n">only</span><span class="p">:</span> <span class="n">pexsi_dos</span>
+<span class="cp">#endif      </span>
+      <span class="k">USE </span><span class="n">siesta_options</span>
+      <span class="k">use </span><span class="n">units</span><span class="p">,</span> <span class="n">only</span><span class="p">:</span> <span class="n">Debye</span><span class="p">,</span> <span class="n">eV</span>
+      <span class="k">use </span><span class="n">sparse_matrices</span><span class="p">,</span> <span class="n">only</span><span class="p">:</span> <span class="n">maxnh</span><span class="p">,</span> <span class="n">listh</span><span class="p">,</span> <span class="n">listhptr</span><span class="p">,</span> <span class="n">numh</span>
+      <span class="k">use </span><span class="n">sparse_matrices</span><span class="p">,</span> <span class="n">only</span><span class="p">:</span> <span class="n">H</span><span class="p">,</span> <span class="n">S</span><span class="p">,</span> <span class="n">Dscf</span><span class="p">,</span> <span class="n">xijo</span>
+      <span class="k">use </span><span class="n">siesta_geom</span>
+      <span class="k">use </span><span class="n">m_dhscf</span><span class="p">,</span> <span class="n">only</span><span class="p">:</span> <span class="n">dhscf</span>
+      <span class="k">use </span><span class="n">atomlist</span><span class="p">,</span> <span class="n">only</span><span class="p">:</span> <span class="n">indxuo</span><span class="p">,</span> <span class="n">iaorb</span><span class="p">,</span> <span class="n">lastkb</span><span class="p">,</span> <span class="n">lasto</span><span class="p">,</span> <span class="n">datm</span><span class="p">,</span> <span class="n">no_l</span><span class="p">,</span>
+     <span class="p">&amp;</span>                    <span class="n">iphkb</span><span class="p">,</span> <span class="n">no_u</span><span class="p">,</span> <span class="n">no_s</span><span class="p">,</span> <span class="n">iza</span><span class="p">,</span> <span class="n">iphorb</span><span class="p">,</span> <span class="n">rmaxo</span><span class="p">,</span> <span class="n">indxua</span>
+      <span class="k">use </span><span class="n">atomlist</span><span class="p">,</span> <span class="n">only</span><span class="p">:</span> <span class="n">qtot</span>
+      <span class="k">use </span><span class="n">fdf</span>
+      <span class="k">use </span><span class="n">writewave</span><span class="p">,</span>    <span class="n">only</span><span class="p">:</span> <span class="n">wwave</span>
+      <span class="k">use </span><span class="n">siesta_cml</span>
+      <span class="k">use </span><span class="n">files</span><span class="p">,</span>        <span class="n">only</span> <span class="p">:</span> <span class="n">slabel</span>
+      <span class="k">use </span><span class="n">files</span><span class="p">,</span>        <span class="n">only</span> <span class="p">:</span> <span class="n">filesOut_t</span>   <span class="c">! derived type for output file names</span>
+      <span class="k">use </span><span class="n">zmatrix</span><span class="p">,</span>      <span class="n">only</span><span class="p">:</span> <span class="n">lUseZmatrix</span><span class="p">,</span> <span class="n">write_zmatrix</span>
+      <span class="k">use </span><span class="n">Kpoint_grid</span>
+      <span class="k">use </span><span class="n">parallel</span><span class="p">,</span> <span class="n">only</span><span class="p">:</span> <span class="n">IOnode</span>
+      <span class="k">use </span><span class="n">parallel</span><span class="p">,</span> <span class="n">only</span><span class="p">:</span> <span class="n">SIESTA_worker</span>
+      <span class="k">use </span><span class="n">files</span><span class="p">,</span>       <span class="n">only</span> <span class="p">:</span> <span class="n">label_length</span>
+      <span class="k">use </span><span class="n">m_energies</span>
+      <span class="k">use </span><span class="n">m_steps</span><span class="p">,</span> <span class="n">only</span><span class="p">:</span> <span class="k">final</span>
+<span class="k">      use </span><span class="n">m_ntm</span>
+      <span class="k">use </span><span class="n">m_spin</span><span class="p">,</span>         <span class="n">only</span><span class="p">:</span> <span class="n">nspin</span><span class="p">,</span> <span class="n">spinor_dim</span><span class="p">,</span> <span class="n">h_spin_dim</span>
+      <span class="k">use </span><span class="n">m_spin</span><span class="p">,</span>         <span class="n">only</span><span class="p">:</span> <span class="n">SpOrb</span><span class="p">,</span> <span class="n">NonCol</span><span class="p">,</span> <span class="n">SPpol</span><span class="p">,</span> <span class="n">NoMagn</span>
+      <span class="k">use </span><span class="n">m_dipol</span>
+      <span class="k">use </span><span class="n">m_eo</span>
+      <span class="k">use </span><span class="n">m_forces</span><span class="p">,</span>          <span class="n">only</span><span class="p">:</span> <span class="n">fa</span>
+      <span class="k">use </span><span class="n">m_gamma</span> 
+      <span class="k">use </span><span class="n">alloc</span><span class="p">,</span>             <span class="n">only</span><span class="p">:</span> <span class="n">re_alloc</span><span class="p">,</span> <span class="n">de_alloc</span>
+      <span class="k">use </span><span class="n">basis_enthalpy</span><span class="p">,</span>    <span class="n">only</span><span class="p">:</span> <span class="n">write_basis_enthalpy</span>
+      <span class="k">use </span><span class="n">m_partial_charges</span><span class="p">,</span> <span class="n">only</span><span class="p">:</span> <span class="n">want_partial_charges</span>
+      <span class="k">use </span><span class="n">m_iodm_old</span><span class="p">,</span>        <span class="n">only</span><span class="p">:</span> <span class="n">read_spmatrix</span>
+      <span class="k">use </span><span class="n">m_siesta2wannier90</span><span class="p">,</span> <span class="n">only</span><span class="p">:</span> <span class="n">siesta2wannier90</span>
+
+<span class="cp">#ifdef MPI</span>
+      <span class="k">use </span><span class="n">m_mpi_utils</span><span class="p">,</span> <span class="n">only</span><span class="p">:</span> <span class="n">globalize_sum</span>
+<span class="cp">#endif</span>
+<span class="cp">#ifdef SIESTA__FLOOK</span>
+      <span class="k">use </span><span class="n">flook_siesta</span><span class="p">,</span> <span class="n">only</span> <span class="p">:</span> <span class="n">slua_call</span><span class="p">,</span> <span class="n">LUA_ANALYSIS</span>
+<span class="cp">#endif</span>
+
+      <span class="k">implicit none</span>
+
+<span class="k">      </span><span class="kt">logical</span> <span class="kd">::</span> <span class="n">relaxd</span><span class="p">,</span> <span class="n">getPSI</span><span class="p">,</span> <span class="n">quenched_MD</span><span class="p">,</span> <span class="n">found</span>
+
+      <span class="kt">real</span><span class="p">(</span><span class="n">dp</span><span class="p">)</span>          <span class="kd">::</span> <span class="n">dummy_str</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span>
+      <span class="kt">real</span><span class="p">(</span><span class="n">dp</span><span class="p">)</span>          <span class="kd">::</span> <span class="n">dummy_strl</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span>
+      <span class="kt">real</span><span class="p">(</span><span class="n">dp</span><span class="p">)</span>          <span class="kd">::</span> <span class="n">qspin</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>         <span class="c">! Local</span>
+
+      <span class="kt">real</span><span class="p">(</span><span class="n">dp</span><span class="p">)</span>          <span class="kd">::</span> <span class="n">polxyz</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="n">nspin</span><span class="p">)</span>  <span class="c">! Autom., small</span>
+      <span class="kt">real</span><span class="p">(</span><span class="n">dp</span><span class="p">)</span>          <span class="kd">::</span> <span class="n">polR</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="n">nspin</span><span class="p">)</span>    <span class="c">! Autom., small</span>
+      <span class="kt">real</span><span class="p">(</span><span class="n">dp</span><span class="p">)</span>          <span class="kd">::</span> <span class="n">qaux</span>
+      <span class="kt">real</span><span class="p">(</span><span class="n">dp</span><span class="p">),</span> <span class="k">pointer</span> <span class="kd">::</span> <span class="n">ebk</span><span class="p">(:,:,:)</span>       <span class="c">! Band energies</span>
+
+      <span class="kt">integer</span>           <span class="kd">::</span> <span class="n">j</span><span class="p">,</span> <span class="n">ix</span><span class="p">,</span> <span class="n">ind</span><span class="p">,</span> <span class="n">ik</span><span class="p">,</span> <span class="n">io</span><span class="p">,</span> <span class="n">ispin</span>
+      <span class="kt">integer</span>           <span class="kd">::</span> <span class="n">wfs_band_min</span><span class="p">,</span> <span class="n">wfs_band_max</span>
+      <span class="kt">real</span><span class="p">(</span><span class="n">dp</span><span class="p">)</span>          <span class="kd">::</span> <span class="n">g2max</span><span class="p">,</span> <span class="n">current_ef</span>
+<span class="cp">#ifdef MPI</span>
+      <span class="kt">real</span><span class="p">(</span><span class="n">dp</span><span class="p">)</span>          <span class="kd">::</span> <span class="n">qtmp</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
+<span class="cp">#endif</span>
+      <span class="k">type</span><span class="p">(</span><span class="n">filesOut_t</span><span class="p">)</span>  <span class="kd">::</span> <span class="n">filesOut</span>  <span class="c">! blank output file names</span>
+
+<span class="c">!-----------------------------------------------------------------------BEGIN</span>
+
+      <span class="k">if</span> <span class="p">(</span><span class="n">SIESTA_worker</span><span class="p">)</span> <span class="k">call </span><span class="n">timer</span><span class="p">(</span><span class="s2">&quot;Analysis&quot;</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+
+      <span class="c">!! Check that we are converged in geometry,</span>
+      <span class="c">!! if strictly required,</span>
+      <span class="c">!! before carrying out any analysis.</span>
+
+      <span class="c">!!@code</span>
+      <span class="n">quenched_MD</span> <span class="o">=</span>  <span class="p">(</span> <span class="p">(</span><span class="n">iquench</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span> <span class="p">.</span><span class="nb">and</span><span class="p">.</span>
+     <span class="err">$</span>     <span class="p">((</span><span class="n">idyn</span> <span class="p">.</span><span class="n">eq</span><span class="p">.</span> <span class="mi">1</span><span class="p">)</span> <span class="p">.</span><span class="nb">or</span><span class="p">.</span> <span class="p">(</span><span class="n">idyn</span> <span class="p">.</span><span class="n">eq</span><span class="p">.</span> <span class="mi">3</span><span class="p">))</span> <span class="p">)</span>
+
+      <span class="k">if</span> <span class="p">((</span><span class="n">nmove</span> <span class="p">.</span><span class="n">ne</span><span class="p">.</span> <span class="mi">0</span><span class="p">)</span> <span class="p">.</span><span class="nb">or</span><span class="p">.</span> <span class="n">quenched_MD</span><span class="p">)</span> <span class="k">then</span>
+<span class="k">         if</span> <span class="p">(</span><span class="n">GeometryMustConverge</span> <span class="p">.</span><span class="nb">and</span><span class="p">.</span> <span class="p">(.</span><span class="nb">not</span><span class="p">.</span> <span class="n">relaxd</span><span class="p">))</span> <span class="k">then</span>
+<span class="k">            call </span><span class="n">message</span><span class="p">(</span><span class="s2">&quot;FATAL&quot;</span><span class="p">,</span>
+     <span class="err">$</span>           <span class="s2">&quot;GEOM_NOT_CONV: Geometry relaxation not converged&quot;</span><span class="p">)</span>
+            <span class="k">call </span><span class="n">die</span><span class="p">(</span><span class="s2">&quot;ABNORMAL_TERMINATION&quot;</span><span class="p">)</span>
+         <span class="n">endif</span>
+      <span class="n">endif</span>
+      <span class="c">!!@endcode</span>
+
+<span class="c">!     All the comments below assume that this compatibility option</span>
+<span class="c">!     is not used.</span>
+<span class="c">!     Note also that full compatibility cannot be guaranteed</span>
+
+      <span class="k">if</span> <span class="p">(.</span><span class="nb">not</span><span class="p">.</span> <span class="n">compat_pre_v4_dynamics</span><span class="p">)</span> <span class="k">then</span>
+
+<span class="c">!     This is a sanity safeguard: we reset the geometry (which might</span>
+<span class="c">!     have been moved by the relaxation or MD routines) to the one used</span>
+<span class="c">!     in the last computation of the electronic structure.</span>
+<span class="c">!     See the comments below for explanation</span>
+
+<span class="c">!$OMP parallel workshare default(shared)</span>
+         <span class="n">xa</span><span class="p">(</span><span class="mi">1</span><span class="p">:</span><span class="mi">3</span><span class="p">,</span><span class="mi">1</span><span class="p">:</span><span class="n">na_s</span><span class="p">)</span> <span class="o">=</span> <span class="n">xa_last</span><span class="p">(</span><span class="mi">1</span><span class="p">:</span><span class="mi">3</span><span class="p">,</span><span class="mi">1</span><span class="p">:</span><span class="n">na_s</span><span class="p">)</span>
+         <span class="n">ucell</span><span class="p">(</span><span class="mi">1</span><span class="p">:</span><span class="mi">3</span><span class="p">,</span><span class="mi">1</span><span class="p">:</span><span class="mi">3</span><span class="p">)</span> <span class="o">=</span> <span class="n">ucell_last</span><span class="p">(</span><span class="mi">1</span><span class="p">:</span><span class="mi">3</span><span class="p">,</span><span class="mi">1</span><span class="p">:</span><span class="mi">3</span><span class="p">)</span>
+         <span class="n">scell</span><span class="p">(</span><span class="mi">1</span><span class="p">:</span><span class="mi">3</span><span class="p">,</span><span class="mi">1</span><span class="p">:</span><span class="mi">3</span><span class="p">)</span> <span class="o">=</span> <span class="n">scell_last</span><span class="p">(</span><span class="mi">1</span><span class="p">:</span><span class="mi">3</span><span class="p">,</span><span class="mi">1</span><span class="p">:</span><span class="mi">3</span><span class="p">)</span>
+<span class="c">!$OMP end parallel workshare</span>
+
+      <span class="n">endif</span>
+
+      <span class="c">! zmatrix info reset??</span>
+
+      <span class="k">if</span> <span class="p">(</span><span class="n">fdf_get</span><span class="p">(</span><span class="s2">&quot;Read-H-from-file&quot;</span><span class="p">,.</span><span class="n">false</span><span class="p">.))</span> <span class="k">then</span>
+<span class="k">         if</span> <span class="p">(</span><span class="n">SIESTA_worker</span><span class="p">)</span> <span class="k">then</span>
+<span class="k">            call </span><span class="n">read_spmatrix</span><span class="p">(</span><span class="n">maxnh</span><span class="p">,</span> <span class="n">no_l</span><span class="p">,</span> <span class="n">h_spin_dim</span><span class="p">,</span> <span class="n">numh</span><span class="p">,</span>
+     <span class="p">.</span>           <span class="n">listhptr</span><span class="p">,</span> <span class="n">listh</span><span class="p">,</span> <span class="n">H</span><span class="p">,</span> <span class="n">found</span><span class="p">,</span> <span class="n">userfile</span><span class="o">=</span><span class="s2">&quot;H_IN&quot;</span><span class="p">)</span>
+            <span class="k">if</span> <span class="p">(.</span><span class="nb">not</span><span class="p">.</span> <span class="n">found</span><span class="p">)</span> <span class="k">call </span><span class="n">die</span><span class="p">(</span><span class="s2">&quot;Could not find H_IN&quot;</span><span class="p">)</span>
+            <span class="n">current_ef</span> <span class="o">=</span> <span class="n">ef</span>
+            <span class="n">ef</span> <span class="o">=</span> <span class="n">fdf_get</span><span class="p">(</span><span class="s2">&quot;Manual-Fermi-Level&quot;</span><span class="p">,</span><span class="n">current_ef</span><span class="p">,</span><span class="s2">&quot;Ry&quot;</span><span class="p">)</span> 
+         <span class="n">endif</span>
+      <span class="n">endif</span>
+
+<span class="cp">#ifdef SIESTA__PEXSI</span>
+      <span class="k">if</span> <span class="p">(</span><span class="n">fdf_get</span><span class="p">(</span><span class="s2">&quot;PEXSI.DOS&quot;</span><span class="p">,.</span><span class="n">false</span><span class="p">.))</span> <span class="k">then</span>
+<span class="k">         call </span><span class="n">pexsi_dos</span><span class="p">(</span><span class="n">no_u</span><span class="p">,</span> <span class="n">no_l</span><span class="p">,</span> <span class="n">spinor_dim</span><span class="p">,</span>
+     <span class="err">$</span>        <span class="n">maxnh</span><span class="p">,</span> <span class="n">numh</span><span class="p">,</span> <span class="n">listhptr</span><span class="p">,</span> <span class="n">listh</span><span class="p">,</span> <span class="n">H</span><span class="p">,</span> <span class="n">S</span><span class="p">,</span> <span class="n">qtot</span><span class="p">,</span> <span class="n">ef</span><span class="p">)</span>
+         
+      <span class="n">endif</span>
+<span class="cp">#endif</span>
+      <span class="c">! section done by Siesta subset of nodes</span>
+      <span class="k">if</span> <span class="p">(</span><span class="n">SIESTA_worker</span><span class="p">)</span> <span class="k">then</span>
+
+<span class="k">      final</span> <span class="o">=</span> <span class="p">.</span><span class="n">true</span><span class="p">.</span>
+      <span class="k">if</span> <span class="p">(</span><span class="n">cml_p</span><span class="p">)</span> <span class="k">then</span>
+<span class="k">        call </span><span class="n">cmlStartModule</span><span class="p">(</span><span class="n">xf</span><span class="o">=</span><span class="n">mainXML</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s1">&#39;Finalization&#39;</span><span class="p">)</span>
+      <span class="n">endif</span>
+
+<span class="cp">#ifdef SIESTA__FLOOK</span>
+      <span class="c">! Call lua right before doing the analysis,</span>
+      <span class="c">! possibly changing some of the variables</span>
+      <span class="k">call </span><span class="n">slua_call</span><span class="p">(</span><span class="n">LUA</span><span class="p">,</span><span class="n">LUA_ANALYSIS</span><span class="p">)</span>
+<span class="cp">#endif</span>
+
+<span class="c">!</span>
+<span class="c">!     NOTE that the geometry output by the following sections</span>
+<span class="c">!     used to be that &quot;predicted&quot; for the next MD or relaxation step.</span>
+<span class="c">!     This is now changed</span>
+
+<span class="c">!</span>
+      <span class="k">if</span> <span class="p">(</span><span class="n">IOnode</span><span class="p">)</span> <span class="k">then</span>
+        <span class="c">! Print atomic coordinates</span>
+
+        <span class="c">! This covers CG and MD-quench (verlet, pr), instances in which </span>
+        <span class="c">! &quot;relaxd&quot; is meaningful</span>
+
+        <span class="k">if</span> <span class="p">((</span><span class="n">nmove</span> <span class="p">.</span><span class="n">ne</span><span class="p">.</span> <span class="mi">0</span><span class="p">)</span> <span class="p">.</span><span class="nb">or</span><span class="p">.</span> <span class="n">quenched_MD</span> <span class="p">)</span> <span class="k">then</span>
+
+<span class="k">          if</span> <span class="p">(</span><span class="n">relaxd</span><span class="p">)</span> <span class="k">then</span>  <span class="c">! xa = xa_last</span>
+             <span class="c">! The &quot;relaxation&quot; routines do not update</span>
+             <span class="c">! the coordinates if relaxed, so this behavior is unchanged</span>
+             <span class="k">call </span><span class="n">outcoor</span><span class="p">(</span><span class="n">ucell</span><span class="p">,</span> <span class="n">xa</span><span class="p">,</span> <span class="n">na_u</span><span class="p">,</span> <span class="s1">&#39;Relaxed&#39;</span><span class="p">,</span> <span class="p">.</span><span class="n">true</span><span class="p">.</span> <span class="p">)</span>
+          <span class="k">else</span>  
+             <span class="c">! Since xa = xa_last now, this will just repeat the</span>
+             <span class="c">! last set of coordinates used, not the predicted ones.</span>
+             <span class="k">call </span><span class="n">outcoor</span><span class="p">(</span><span class="n">ucell</span><span class="p">,</span> <span class="n">xa</span><span class="p">,</span> <span class="n">na_u</span><span class="p">,</span> <span class="s1">&#39;Final (unrelaxed)&#39;</span><span class="p">,</span> <span class="p">.</span><span class="n">true</span><span class="p">.</span> <span class="p">)</span>
+          <span class="n">endif</span>
+
+        <span class="n">endif</span>
+
+        <span class="c">! This call will write xa_last to the .STRUCT_OUT file</span>
+        <span class="c">! (again, since it has already been written by state_init),</span>
+        <span class="c">! CML records of the latest processed structure, and </span>
+        <span class="c">! possibly zmatrix info.  *** unmoved?? how?</span>
+        <span class="c">! Note that the .STRUCT_NEXT_ITER file is produced</span>
+        <span class="c">! in siesta_move for checkpointing of relaxations and MD runs.</span>
+
+        <span class="c">! If all we want are the CML records (to satisfy some expectation</span>
+        <span class="c">! of appearance in the &quot;finalization&quot; section, we might put the</span>
+        <span class="c">! cml call explicitly and forget about the rest.</span>
+
+        <span class="k">if</span> <span class="p">(</span><span class="n">compat_pre_v4_dynamics</span><span class="p">)</span> <span class="k">then</span>
+<span class="k">           call </span><span class="n">siesta_write_positions</span><span class="p">(</span><span class="n">moved</span><span class="o">=</span><span class="p">.</span><span class="n">true</span><span class="p">.)</span>  
+        <span class="k">else</span>
+<span class="k">           call </span><span class="n">siesta_write_positions</span><span class="p">(</span><span class="n">moved</span><span class="o">=</span><span class="p">.</span><span class="n">false</span><span class="p">.)</span>  
+        <span class="n">endif</span>
+
+
+        
+        <span class="c">! ??  Clarify Zmatrix behavior ****</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">lUseZmatrix</span><span class="p">)</span> <span class="k">call </span><span class="n">write_Zmatrix</span>
+
+        <span class="c">! Print unit cell (cell_last) for variable cell and server operation</span>
+        <span class="k">if</span> <span class="p">(</span> <span class="n">varcel</span> <span class="p">.</span><span class="nb">or</span><span class="p">.</span> <span class="p">(</span><span class="n">idyn</span><span class="p">.</span><span class="n">eq</span><span class="p">.</span><span class="mi">8</span><span class="p">))</span> <span class="k">call </span><span class="n">outcell</span><span class="p">(</span><span class="n">ucell</span><span class="p">)</span>
+
+<span class="c">!------------------------------------------------------------------</span>
+        <span class="c">! It can be argued that these needed the xa_last coordinates</span>
+        <span class="c">! all along</span>
+
+<span class="c">!       Print coordinates in xmol format in a separate file</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">fdf_boolean</span><span class="p">(</span><span class="s1">&#39;WriteCoorXmol&#39;</span><span class="p">,.</span><span class="n">false</span><span class="p">.))</span> 
+     <span class="p">&amp;</span>     <span class="k">call </span><span class="n">coxmol</span><span class="p">(</span><span class="n">iza</span><span class="p">,</span> <span class="n">xa</span><span class="p">,</span> <span class="n">na_u</span> <span class="p">)</span>
+
+<span class="c">!       Print coordinates in cerius format in a separate file</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">fdf_boolean</span><span class="p">(</span><span class="s1">&#39;WriteCoorCerius&#39;</span><span class="p">,.</span><span class="n">false</span><span class="p">.))</span>
+     <span class="p">&amp;</span>     <span class="k">call </span><span class="n">coceri</span><span class="p">(</span><span class="n">iza</span><span class="p">,</span> <span class="n">xa</span><span class="p">,</span> <span class="n">ucell</span><span class="p">,</span> <span class="n">na_u</span><span class="p">,</span> <span class="n">sname</span> <span class="p">)</span>
+
+<span class="c">!       Find interatomic distances (output in file BONDS_FINAL)</span>
+        <span class="k">call </span><span class="n">bonds</span><span class="p">(</span> <span class="n">ucell</span><span class="p">,</span> <span class="n">na_u</span><span class="p">,</span> <span class="n">isa</span><span class="p">,</span> <span class="n">xa</span><span class="p">,</span>
+     <span class="p">&amp;</span>       <span class="n">rmax_bonds</span><span class="p">,</span> <span class="nb">trim</span><span class="p">(</span><span class="n">slabel</span><span class="p">)</span> <span class="o">//</span> <span class="s2">&quot;.BONDS_FINAL&quot;</span> <span class="p">)</span>
+
+      <span class="n">endif</span> <span class="c">! IONode</span>
+<span class="c">!--- end output of geometry information</span>
+<span class="c">!</span>
+<span class="c">!</span>
+<span class="c">! NOTE: In the following sections, wavefunction generation, computation</span>
+<span class="c">!       of band structure, etc, are carried out using the last Hamiltonian</span>
+<span class="c">!       generated in the SCF run for the last geometry considered.</span>
+
+<span class="c">!   But, if xa /= xa_last, the computation of, say, bands, will use</span>
+<span class="c">!      H phases which are not the same as those producing the final </span>
+<span class="c">!      ground-state electronic structure.</span>
+<span class="c">!</span>
+<span class="c">!    Also, since we have removed the replication (superx call) </span>
+<span class="c">!      of &quot;moved&quot; coordinates</span>
+<span class="c">!      into the auxiliary supercell from &#39;siesta_move&#39; (recall that it is</span>
+<span class="c">!      done always in state_init for every new geometry), the &quot;moved unit</span>
+<span class="c">!      cell coordinates&quot; could coexist here with &quot;unmoved non-unit cell SC coords&quot;,</span>
+<span class="c">!      which is wrong.</span>
+
+<span class="c">!      For all of the above, we should put here a sanity safeguard</span>
+<span class="c">!        (if we have not done so already at the top of this routine)</span>
+
+<span class="c">!        xa(1:3,1:na_s) = xa_last(1:3,1:na_s)</span>
+<span class="c">!        ucell(1:3,1:3) = ucell_last(1:3,1:3)</span>
+<span class="c">!        scell(1:3,1:3) = scell_last(1:3,1:3)</span>
+
+<span class="c">!        DM and H issues</span>
+<span class="c">!</span>
+<span class="c">!        Some of the routines that follow use H and S, and some use the DM.</span>
+<span class="c">!        Those which use the DM should work with the final &quot;out&quot; DM for</span>
+<span class="c">!        consistency.</span>
+<span class="c">!        Those which use H,S should work with the latest diagonalized H,S pair.</span>
+<span class="c">!</span>
+<span class="c">!      If mixing the DM during the scf loop we should avoid mixing it one more time</span>
+<span class="c">!        after convergence (or restoring Dold)</span>
+<span class="c">!        If mixing H, we should avoid mixing it one more time</span>
+<span class="c">!        after convergence (and restoring Hold to have the exact H that generated the</span>
+<span class="c">!        latest DM, although this is probably too much).</span>
+<span class="c">!        See the logic in siesta_forces.</span>
+
+<span class="c">!     Find and print wavefunctions at selected k-points</span>
+<span class="c">!   This uses H,S, and xa</span>
+      <span class="k">if</span> <span class="p">(</span><span class="n">nwk</span><span class="p">.</span><span class="n">gt</span><span class="p">.</span><span class="mi">0</span><span class="p">)</span> <span class="k">then</span>
+<span class="k">        </span><span class="n">wfs_filename</span> <span class="o">=</span> <span class="nb">trim</span><span class="p">(</span><span class="n">slabel</span><span class="p">)</span><span class="o">//</span><span class="s2">&quot;.selected.WFSX&quot;</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">IONode</span><span class="p">)</span> <span class="k">print</span> <span class="s2">&quot;(a)&quot;</span><span class="p">,</span>
+     <span class="err">$</span>              <span class="s2">&quot;Writing WFSX for selected k-points in &quot;</span>
+     <span class="err">$</span>                           <span class="o">//</span> <span class="nb">trim</span><span class="p">(</span><span class="n">wfs_filename</span><span class="p">)</span>
+        <span class="k">call </span><span class="n">wwave</span><span class="p">(</span> <span class="n">no_s</span><span class="p">,</span> <span class="n">h_spin_dim</span><span class="p">,</span> <span class="n">spinor_dim</span><span class="p">,</span> <span class="n">no_u</span><span class="p">,</span> <span class="n">no_l</span><span class="p">,</span> <span class="n">maxnh</span><span class="p">,</span> 
+     <span class="p">&amp;</span>              <span class="n">nwk</span><span class="p">,</span>
+     <span class="p">&amp;</span>              <span class="n">numh</span><span class="p">,</span> <span class="n">listhptr</span><span class="p">,</span> <span class="n">listh</span><span class="p">,</span> <span class="n">H</span><span class="p">,</span> <span class="n">S</span><span class="p">,</span> <span class="n">Ef</span><span class="p">,</span> <span class="n">xijo</span><span class="p">,</span> <span class="n">indxuo</span><span class="p">,</span>
+     <span class="p">&amp;</span>              <span class="n">nwk</span><span class="p">,</span> <span class="n">wfk</span><span class="p">,</span> <span class="n">no_u</span><span class="p">,</span> <span class="nb">gamma</span><span class="p">,</span> <span class="n">occtol</span> <span class="p">)</span>
+      <span class="n">endif</span>
+
+
+<span class="c">!   This uses H,S, and xa</span>
+      <span class="k">if</span> <span class="p">(</span><span class="n">write_coop</span><span class="p">)</span> <span class="k">then</span>
+        <span class="c">! Output the wavefunctions for the kpoints in the SCF set</span>
+        <span class="c">! Note that we allow both a band number and an energy range</span>
+        <span class="c">! The user is responsible for using appropriate values.</span>
+        <span class="n">wfs_band_min</span> <span class="o">=</span> <span class="n">fdf_get</span><span class="p">(</span><span class="s2">&quot;WFS.BandMin&quot;</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+        <span class="n">wfs_band_max</span> <span class="o">=</span> <span class="n">fdf_get</span><span class="p">(</span><span class="s2">&quot;WFS.BandMax&quot;</span><span class="p">,</span><span class="n">no_u</span><span class="p">)</span>
+        <span class="k">call </span><span class="n">setup_wfs_list</span><span class="p">(</span><span class="n">nkpnt</span><span class="p">,</span><span class="n">no_u</span><span class="p">,</span><span class="n">wfs_band_min</span><span class="p">,</span><span class="n">wfs_band_max</span><span class="p">,</span>
+     <span class="err">$</span>                      <span class="n">use_scf_weights</span><span class="o">=</span><span class="p">.</span><span class="n">true</span><span class="p">.,</span>
+     <span class="err">$</span>                      <span class="n">use_energy_window</span><span class="o">=</span><span class="p">.</span><span class="n">true</span><span class="p">.)</span>
+         <span class="n">wfs_filename</span> <span class="o">=</span> <span class="nb">trim</span><span class="p">(</span><span class="n">slabel</span><span class="p">)</span><span class="o">//</span><span class="s2">&quot;.fullBZ.WFSX&quot;</span>
+         <span class="k">if</span> <span class="p">(</span><span class="n">IONode</span><span class="p">)</span> <span class="k">print</span> <span class="s2">&quot;(a)&quot;</span><span class="p">,</span> <span class="s2">&quot;Writing WFSX for COOP/COHP in &quot;</span> 
+     <span class="err">$</span>                           <span class="o">//</span> <span class="nb">trim</span><span class="p">(</span><span class="n">wfs_filename</span><span class="p">)</span>
+         <span class="k">call </span><span class="n">wwave</span><span class="p">(</span> <span class="n">no_s</span><span class="p">,</span> <span class="n">h_spin_dim</span><span class="p">,</span> <span class="n">spinor_dim</span><span class="p">,</span> <span class="n">no_u</span><span class="p">,</span> <span class="n">no_l</span><span class="p">,</span> <span class="n">maxnh</span><span class="p">,</span> 
+     <span class="p">.</span>        <span class="n">nkpnt</span><span class="p">,</span>
+     <span class="p">.</span>        <span class="n">numh</span><span class="p">,</span> <span class="n">listhptr</span><span class="p">,</span> <span class="n">listh</span><span class="p">,</span> <span class="n">H</span><span class="p">,</span> <span class="n">S</span><span class="p">,</span> <span class="n">Ef</span><span class="p">,</span> <span class="n">xijo</span><span class="p">,</span> <span class="n">indxuo</span><span class="p">,</span>
+     <span class="p">.</span>        <span class="n">nkpnt</span><span class="p">,</span> <span class="n">kpoint</span><span class="p">,</span> <span class="n">no_u</span><span class="p">,</span> <span class="nb">gamma</span><span class="p">,</span> <span class="n">occtol</span><span class="p">)</span>
+      <span class="n">endif</span>
+
+<span class="c">!     Compute bands</span>
+<span class="c">!   This uses H,S, and xa</span>
+      <span class="k">nullify</span><span class="p">(</span> <span class="n">ebk</span> <span class="p">)</span>
+      <span class="k">call </span><span class="n">re_alloc</span><span class="p">(</span> <span class="n">ebk</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">no_u</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">spinor_dim</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">maxbk</span><span class="p">,</span>
+     <span class="p">&amp;</span>               <span class="s1">&#39;ebk&#39;</span><span class="p">,</span> <span class="s1">&#39;siesta_analysis&#39;</span> <span class="p">)</span>
+
+      <span class="k">if</span> <span class="p">(</span><span class="n">nbk</span><span class="p">.</span><span class="n">gt</span><span class="p">.</span><span class="mi">0</span><span class="p">)</span> <span class="k">then</span>
+<span class="k">        if</span> <span class="p">(</span><span class="n">IONode</span><span class="p">)</span> <span class="k">print</span> <span class="s2">&quot;(a)&quot;</span><span class="p">,</span> <span class="s2">&quot;Computing bands...&quot;</span>
+        <span class="n">getPSI</span> <span class="o">=</span> <span class="n">fdf_get</span><span class="p">(</span><span class="s1">&#39;WFS.Write.For.Bands&#39;</span><span class="p">,</span> <span class="p">.</span><span class="n">false</span><span class="p">.)</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">getPSI</span><span class="p">)</span> <span class="k">then</span>
+<span class="k">           </span><span class="n">wfs_filename</span> <span class="o">=</span> <span class="nb">trim</span><span class="p">(</span><span class="n">slabel</span><span class="p">)</span><span class="o">//</span><span class="s2">&quot;.bands.WFSX&quot;</span>
+         <span class="k">if</span> <span class="p">(</span><span class="n">IONode</span><span class="p">)</span> <span class="k">print</span> <span class="s2">&quot;(a)&quot;</span><span class="p">,</span> <span class="s2">&quot;Writing WFSX for bands in &quot;</span>
+     <span class="err">$</span>                           <span class="o">//</span> <span class="nb">trim</span><span class="p">(</span><span class="n">wfs_filename</span><span class="p">)</span>
+           <span class="n">wfs_band_min</span> <span class="o">=</span> <span class="n">fdf_get</span><span class="p">(</span><span class="s2">&quot;WFS.BandMin&quot;</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+           <span class="n">wfs_band_max</span> <span class="o">=</span> <span class="n">fdf_get</span><span class="p">(</span><span class="s2">&quot;WFS.BandMax&quot;</span><span class="p">,</span><span class="n">no_u</span><span class="p">)</span>
+           <span class="k">call </span><span class="n">setup_wfs_list</span><span class="p">(</span><span class="n">nbk</span><span class="p">,</span><span class="n">no_u</span><span class="p">,</span><span class="n">wfs_band_min</span><span class="p">,</span><span class="n">wfs_band_max</span><span class="p">,</span>
+     <span class="err">$</span>          <span class="n">use_scf_weights</span><span class="o">=</span><span class="p">.</span><span class="n">false</span><span class="p">.,</span>
+     <span class="err">$</span>          <span class="n">use_energy_window</span><span class="o">=</span><span class="p">.</span><span class="n">false</span><span class="p">.)</span>
+        <span class="n">endif</span>
+        <span class="k">call </span><span class="n">bands</span><span class="p">(</span> <span class="n">no_s</span><span class="p">,</span> <span class="n">h_spin_dim</span><span class="p">,</span> <span class="n">spinor_dim</span><span class="p">,</span> <span class="n">no_u</span><span class="p">,</span> <span class="n">no_l</span><span class="p">,</span> <span class="n">maxnh</span><span class="p">,</span> 
+     <span class="p">.</span>              <span class="n">maxbk</span><span class="p">,</span>
+     <span class="p">.</span>              <span class="n">numh</span><span class="p">,</span> <span class="n">listhptr</span><span class="p">,</span> <span class="n">listh</span><span class="p">,</span> <span class="n">H</span><span class="p">,</span> <span class="n">S</span><span class="p">,</span> <span class="n">Ef</span><span class="p">,</span> <span class="n">xijo</span><span class="p">,</span> <span class="n">indxuo</span><span class="p">,</span>
+     <span class="p">.</span>              <span class="p">.</span><span class="n">true</span><span class="p">.,</span> <span class="n">nbk</span><span class="p">,</span> <span class="n">bk</span><span class="p">,</span> <span class="n">ebk</span><span class="p">,</span> <span class="n">occtol</span><span class="p">,</span> <span class="n">getPSI</span> <span class="p">)</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">IOnode</span><span class="p">)</span> <span class="k">then</span>
+<span class="k">          if</span> <span class="p">(</span> <span class="n">writbk</span> <span class="p">)</span> <span class="k">then</span>
+<span class="k">            write</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span><span class="s1">&#39;(/,a,/,a4,a12)&#39;</span><span class="p">)</span>
+     <span class="p">&amp;</span>       <span class="s1">&#39;siesta: Band k vectors (Bohr**-1):&#39;</span><span class="p">,</span> <span class="s1">&#39;ik&#39;</span><span class="p">,</span> <span class="s1">&#39;k&#39;</span>
+            <span class="k">do </span><span class="n">ik</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span><span class="n">nbk</span>
+              <span class="k">write</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span><span class="s1">&#39;(i4,3f12.6)&#39;</span><span class="p">)</span> <span class="n">ik</span><span class="p">,</span> <span class="p">(</span><span class="n">bk</span><span class="p">(</span><span class="n">ix</span><span class="p">,</span><span class="n">ik</span><span class="p">),</span><span class="n">ix</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span>
+            <span class="n">enddo</span>
+          <span class="n">endif</span>
+        
+          <span class="k">if</span> <span class="p">(</span> <span class="n">writb</span> <span class="p">)</span> <span class="k">then</span>
+<span class="k">            write</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span><span class="s1">&#39;(/,a,/,a4,a3,a7)&#39;</span><span class="p">)</span>
+     <span class="p">&amp;</span>       <span class="s1">&#39;siesta: Band energies (eV):&#39;</span><span class="p">,</span> <span class="s1">&#39;ik&#39;</span><span class="p">,</span> <span class="s1">&#39;is&#39;</span><span class="p">,</span> <span class="s1">&#39;eps&#39;</span>
+            <span class="k">do </span><span class="n">ispin</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="n">spinor_dim</span>
+              <span class="k">do </span><span class="n">ik</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span><span class="n">nbk</span>
+                <span class="k">write</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span><span class="s1">&#39;(i4,i3,10f7.2)&#39;</span><span class="p">)</span>
+     <span class="p">&amp;</span>            <span class="n">ik</span><span class="p">,</span> <span class="n">ispin</span><span class="p">,</span> <span class="p">(</span><span class="n">ebk</span><span class="p">(</span><span class="n">io</span><span class="p">,</span><span class="n">ispin</span><span class="p">,</span><span class="n">ik</span><span class="p">)</span><span class="o">/</span><span class="n">eV</span><span class="p">,</span><span class="n">io</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span><span class="nb">min</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="n">no_u</span><span class="p">))</span>
+                <span class="k">if</span> <span class="p">(</span><span class="n">no_u</span><span class="p">.</span><span class="n">gt</span><span class="p">.</span><span class="mi">10</span><span class="p">)</span> <span class="k">write</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span><span class="s1">&#39;(7x,10f7.2)&#39;</span><span class="p">)</span>
+     <span class="p">&amp;</span>              <span class="p">(</span><span class="n">ebk</span><span class="p">(</span><span class="n">io</span><span class="p">,</span><span class="n">ispin</span><span class="p">,</span><span class="n">ik</span><span class="p">)</span><span class="o">/</span><span class="n">eV</span><span class="p">,</span><span class="n">io</span><span class="o">=</span><span class="mi">11</span><span class="p">,</span><span class="n">no_u</span><span class="p">)</span>
+              <span class="n">enddo</span>
+            <span class="n">enddo</span>
+          <span class="n">endif</span>
+        <span class="n">endif</span>
+      <span class="n">endif</span>
+
+<span class="c">!     Print eigenvalues</span>
+      <span class="k">if</span> <span class="p">(</span><span class="n">IOnode</span> <span class="p">.</span><span class="nb">and</span><span class="p">.</span> <span class="n">writeig</span><span class="p">)</span> <span class="k">then</span>
+<span class="k">        if</span> <span class="p">((</span><span class="n">isolve</span><span class="p">.</span><span class="n">eq</span><span class="p">.</span><span class="n">SOLVE_DIAGON</span> <span class="p">.</span><span class="nb">or</span><span class="p">.</span>
+     <span class="p">&amp;</span>       <span class="p">((</span><span class="n">isolve</span><span class="p">.</span><span class="n">eq</span><span class="p">.</span><span class="n">SOLVE_MINIM</span><span class="p">)</span> <span class="p">.</span><span class="nb">and</span><span class="p">.</span> <span class="n">minim_calc_eigenvalues</span><span class="p">))</span>
+     <span class="p">&amp;</span>      <span class="p">.</span><span class="nb">and</span><span class="p">.</span> <span class="n">no_l</span><span class="p">.</span><span class="n">lt</span><span class="p">.</span><span class="mi">1000</span><span class="p">)</span> <span class="k">then</span>
+<span class="k">          if</span> <span class="p">(</span> <span class="n">h_spin_dim</span> <span class="o">&lt;=</span> <span class="mi">2</span> <span class="p">)</span> <span class="k">then</span>
+<span class="k">            write</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span><span class="s1">&#39;(/,a,/,a4,a3,a7)&#39;</span><span class="p">)</span>
+     <span class="p">&amp;</span>       <span class="s1">&#39;siesta: Eigenvalues (eV):&#39;</span><span class="p">,</span> <span class="s1">&#39;ik&#39;</span><span class="p">,</span> <span class="s1">&#39;is&#39;</span><span class="p">,</span> <span class="s1">&#39;eps&#39;</span>
+            <span class="k">do </span><span class="n">ik</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span><span class="n">nkpnt</span>
+              <span class="k">do </span><span class="n">ispin</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span><span class="n">spinor_dim</span>
+                <span class="k">write</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span><span class="s1">&#39;(i4,i3,10f7.2)&#39;</span><span class="p">)</span>
+     <span class="p">&amp;</span>            <span class="n">ik</span><span class="p">,</span><span class="n">ispin</span><span class="p">,(</span><span class="n">eo</span><span class="p">(</span><span class="n">io</span><span class="p">,</span><span class="n">ispin</span><span class="p">,</span><span class="n">ik</span><span class="p">)</span><span class="o">/</span><span class="n">eV</span><span class="p">,</span><span class="n">io</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span><span class="nb">min</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="n">neigwanted</span><span class="p">))</span>
+                <span class="k">if</span> <span class="p">(</span><span class="n">no_u</span><span class="p">.</span><span class="n">gt</span><span class="p">.</span><span class="mi">10</span><span class="p">)</span> <span class="k">write</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span><span class="s1">&#39;(7x,10f7.2)&#39;</span><span class="p">)</span>
+     <span class="p">&amp;</span>            <span class="p">(</span><span class="n">eo</span><span class="p">(</span><span class="n">io</span><span class="p">,</span><span class="n">ispin</span><span class="p">,</span><span class="n">ik</span><span class="p">)</span><span class="o">/</span><span class="n">eV</span><span class="p">,</span><span class="n">io</span><span class="o">=</span><span class="mi">11</span><span class="p">,</span><span class="n">neigwanted</span><span class="p">)</span>
+              <span class="n">enddo</span>
+            <span class="n">enddo</span>
+          <span class="k">else</span>
+<span class="k">            write</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span><span class="s1">&#39;(/,a)&#39;</span><span class="p">)</span> <span class="s1">&#39;siesta: Eigenvalues (eV):&#39;</span>
+            <span class="k">do </span><span class="n">ik</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span><span class="n">nkpnt</span>
+              <span class="k">write</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span><span class="s1">&#39;(a,i6)&#39;</span><span class="p">)</span> <span class="s1">&#39;ik =&#39;</span><span class="p">,</span> <span class="n">ik</span>
+              <span class="k">write</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span><span class="s1">&#39;(10f7.2)&#39;</span><span class="p">)</span>
+     <span class="p">&amp;</span>          <span class="p">((</span><span class="n">eo</span><span class="p">(</span><span class="n">io</span><span class="p">,</span><span class="n">ispin</span><span class="p">,</span><span class="n">ik</span><span class="p">)</span><span class="o">/</span><span class="n">eV</span><span class="p">,</span><span class="n">io</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span><span class="n">neigwanted</span><span class="p">),</span><span class="n">ispin</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
+            <span class="n">enddo</span>
+          <span class="n">endif</span>
+          <span class="k">write</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span><span class="s1">&#39;(a,f15.6,a)&#39;</span><span class="p">)</span> <span class="s1">&#39;siesta: Fermi energy =&#39;</span><span class="p">,</span> <span class="n">ef</span><span class="o">/</span><span class="n">eV</span><span class="p">,</span> <span class="s1">&#39; eV&#39;</span>
+        <span class="n">endif</span>
+      <span class="n">endif</span>
+
+      <span class="k">if</span> <span class="p">(((</span><span class="n">isolve</span><span class="p">.</span><span class="n">eq</span><span class="p">.</span><span class="n">SOLVE_DIAGON</span><span class="p">).</span><span class="nb">or</span><span class="p">.</span>
+     <span class="p">&amp;</span>     <span class="p">((</span><span class="n">isolve</span><span class="p">.</span><span class="n">eq</span><span class="p">.</span><span class="n">SOLVE_MINIM</span><span class="p">).</span><span class="nb">and</span><span class="p">.</span><span class="n">minim_calc_eigenvalues</span><span class="p">))</span>
+     <span class="p">&amp;</span>     <span class="p">.</span><span class="nb">and</span><span class="p">.</span><span class="n">IOnode</span><span class="p">)</span>
+     <span class="p">&amp;</span>     <span class="k">call </span><span class="n">ioeig</span><span class="p">(</span><span class="n">eo</span><span class="p">,</span><span class="n">ef</span><span class="p">,</span><span class="n">neigwanted</span><span class="p">,</span><span class="n">nspin</span><span class="p">,</span><span class="n">nkpnt</span><span class="p">,</span><span class="n">no_u</span><span class="p">,</span><span class="n">spinor_dim</span><span class="p">,</span>
+     <span class="p">&amp;</span>     <span class="n">nkpnt</span><span class="p">,</span><span class="n">kpoint</span><span class="p">,</span> <span class="n">kweight</span><span class="p">)</span>
+
+
+<span class="c">!   This uses H,S, and xa, as it diagonalizes them again</span>
+      <span class="k">call </span><span class="n">projected_DOS</span><span class="p">()</span>
+
+<span class="c">!     Print program&#39;s energy decomposition and final forces</span>
+      <span class="k">if</span> <span class="p">(</span><span class="n">IOnode</span><span class="p">)</span> <span class="k">then</span>
+<span class="k">        call </span><span class="n">siesta_write_energies</span><span class="p">(</span> <span class="n">iscf</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">dDmax</span><span class="o">=</span><span class="mf">0._dp</span><span class="p">,</span> <span class="n">dHmax</span><span class="o">=</span><span class="mf">0._dp</span><span class="p">)</span>
+        <span class="c">! final == .true. which makes the step counter irrelevant</span>
+        <span class="k">call </span><span class="n">siesta_write_forces</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+        <span class="k">call </span><span class="n">siesta_write_stress_pressure</span><span class="p">()</span>
+        <span class="k">call </span><span class="n">write_basis_enthalpy</span><span class="p">(</span><span class="n">FreeE</span><span class="p">,</span><span class="n">FreeEHarris</span><span class="p">)</span>
+      <span class="n">endif</span>
+
+<span class="c">! NOTE: Here, the spin polarization is computed using Dscf, which is</span>
+<span class="c">!       a density matrix obtained after mixing the &quot;in&quot; and &quot;out&quot;</span>
+<span class="c">!       DMs of the SCF run for the last geometry considered.</span>
+<span class="c">!       This can be considered a feature or a bug.</span>
+
+      <span class="k">call </span><span class="n">print_spin</span><span class="p">(</span><span class="n">qspin</span><span class="p">)</span>  <span class="c">! qspin returned for use below</span>
+
+<span class="c">!     This uses the last computed dipole in dhscf during the scf cycle,</span>
+<span class="c">!     which is in fact derived from the &quot;in&quot; DM.</span>
+<span class="c">!     Perhaps this section should be moved after the call to dhscf below</span>
+<span class="c">!     AND use the DM_out of the last step (but there might not be a call</span>
+<span class="c">!     to dhscf if there are no files to output, and the computation of the</span>
+<span class="c">!     charge density is expensive...</span>
+
+<span class="c">!     Print electric dipole</span>
+      <span class="k">if</span> <span class="p">(</span><span class="nb">shape</span> <span class="p">.</span><span class="n">ne</span><span class="p">.</span> <span class="s1">&#39;bulk&#39;</span><span class="p">)</span> <span class="k">then</span>
+<span class="k">        if</span> <span class="p">(</span><span class="n">IOnode</span><span class="p">)</span> <span class="k">then</span>
+<span class="k">          write</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span><span class="s1">&#39;(/,a,3f12.6)&#39;</span><span class="p">)</span>
+     <span class="p">&amp;</span>      <span class="s1">&#39;siesta: Electric dipole (a.u.)  =&#39;</span><span class="p">,</span> <span class="n">dipol</span>
+          <span class="k">write</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span><span class="s1">&#39;(a,3f12.6)&#39;</span><span class="p">)</span>
+     <span class="p">&amp;</span>      <span class="s1">&#39;siesta: Electric dipole (Debye) =&#39;</span><span class="p">,</span> 
+     <span class="p">&amp;</span>      <span class="p">(</span><span class="n">dipol</span><span class="p">(</span><span class="n">ix</span><span class="p">)</span><span class="o">/</span><span class="n">Debye</span><span class="p">,</span><span class="n">ix</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span>
+        <span class="n">endif</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">cml_p</span><span class="p">)</span> <span class="k">then</span>
+<span class="k">          call </span><span class="n">cmlAddProperty</span><span class="p">(</span><span class="n">xf</span><span class="o">=</span><span class="n">mainXML</span><span class="p">,</span> <span class="k">value</span><span class="o">=</span><span class="n">dipol</span><span class="o">/</span><span class="n">Debye</span><span class="p">,</span>
+     <span class="p">&amp;</span>         <span class="n">title</span><span class="o">=</span><span class="s1">&#39;Electric dipole&#39;</span><span class="p">,</span> <span class="n">dictref</span><span class="o">=</span><span class="s1">&#39;siesta:dipol&#39;</span><span class="p">,</span>
+     <span class="p">.</span>         <span class="n">units</span><span class="o">=</span><span class="s1">&#39;siestaUnits:Debye&#39;</span><span class="p">)</span>
+        <span class="n">endif</span> <span class="c">!cml_p</span>
+      <span class="n">endif</span>
+
+<span class="c">! NOTE: The use of *_last geometries in the following sections</span>
+<span class="c">!       guarantees that the analysis of the electronic structure</span>
+<span class="c">!       is done for the geometry for which it was computed.</span>
+
+<span class="c">!  BUT these routines need H,S, so H should not be mixed after</span>
+<span class="c">!       convergence.</span>
+
+<span class="c">!     Calculation of the bulk polarization using the Berry phase</span>
+<span class="c">!     formulas by King-Smith and Vanderbilt</span>
+      <span class="k">if</span> <span class="p">(</span><span class="n">nkpol</span><span class="p">.</span><span class="n">gt</span><span class="p">.</span><span class="mi">0</span> <span class="p">.</span><span class="nb">and</span><span class="p">.</span> <span class="p">.</span><span class="nb">not</span><span class="p">.</span><span class="n">bornz</span><span class="p">)</span> <span class="k">then</span>
+<span class="k">        if</span> <span class="p">(</span><span class="n">NonCol</span> <span class="p">.</span><span class="nb">or</span><span class="p">.</span> <span class="n">SpOrb</span><span class="p">)</span> <span class="k">then</span>
+<span class="k">          if</span> <span class="p">(</span><span class="n">IOnode</span><span class="p">)</span> <span class="k">then</span>
+<span class="k">            write</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span><span class="s1">&#39;(/a)&#39;</span><span class="p">)</span>
+     <span class="p">.</span>       <span class="s1">&#39;siesta_analysis: bulk polarization implemented only for&#39;</span>
+            <span class="k">write</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span><span class="s1">&#39;(/a)&#39;</span><span class="p">)</span>
+     <span class="p">.</span>       <span class="s1">&#39;siesta_analysis: paramagnetic or collinear spin runs&#39;</span>
+          <span class="n">endif</span>
+        <span class="k">else</span>
+<span class="k">         call </span><span class="n">KSV_pol</span><span class="p">(</span><span class="n">na_u</span><span class="p">,</span> <span class="n">na_s</span><span class="p">,</span> <span class="n">xa_last</span><span class="p">,</span> <span class="n">rmaxo</span><span class="p">,</span> <span class="n">scell_last</span><span class="p">,</span> 
+     <span class="p">&amp;</span>               <span class="n">ucell_last</span><span class="p">,</span><span class="n">no_u</span><span class="p">,</span> <span class="n">no_l</span><span class="p">,</span> <span class="n">no_s</span><span class="p">,</span> <span class="n">nspin</span><span class="p">,</span> <span class="n">qspin</span><span class="p">,</span> 
+     <span class="p">&amp;</span>               <span class="n">maxnh</span><span class="p">,</span> <span class="n">nkpol</span><span class="p">,</span> <span class="n">numh</span><span class="p">,</span> <span class="n">listhptr</span><span class="p">,</span> <span class="n">listh</span><span class="p">,</span> 
+     <span class="p">&amp;</span>               <span class="n">H</span><span class="p">,</span> <span class="n">S</span><span class="p">,</span> <span class="n">xijo</span><span class="p">,</span> <span class="n">indxuo</span><span class="p">,</span> <span class="n">isa</span><span class="p">,</span> <span class="n">iphorb</span><span class="p">,</span> 
+     <span class="p">&amp;</span>               <span class="n">iaorb</span><span class="p">,</span> <span class="n">lasto</span><span class="p">,</span> <span class="nb">shape</span><span class="p">,</span>
+     <span class="p">&amp;</span>               <span class="n">nkpol</span><span class="p">,</span><span class="n">kpol</span><span class="p">,</span><span class="n">wgthpol</span><span class="p">,</span> <span class="n">polR</span><span class="p">,</span> <span class="n">polxyz</span> <span class="p">)</span> 
+       <span class="n">endif</span>
+      <span class="n">endif</span>
+
+<span class="c">!     Calculation of the optical conductivity</span>
+      <span class="k">call </span><span class="n">optical</span><span class="p">(</span><span class="n">na_u</span><span class="p">,</span> <span class="n">na_s</span><span class="p">,</span> <span class="n">xa_last</span><span class="p">,</span> <span class="n">scell_last</span><span class="p">,</span> <span class="n">ucell_last</span><span class="p">,</span>
+     <span class="p">&amp;</span>             <span class="n">no_u</span><span class="p">,</span> <span class="n">no_l</span><span class="p">,</span> <span class="n">no_s</span><span class="p">,</span> <span class="n">nspin</span><span class="p">,</span> <span class="n">qspin</span><span class="p">,</span>
+     <span class="p">&amp;</span>             <span class="n">maxnh</span><span class="p">,</span> <span class="n">numh</span><span class="p">,</span> <span class="n">listhptr</span><span class="p">,</span> <span class="n">listh</span><span class="p">,</span> <span class="n">H</span><span class="p">,</span> <span class="n">S</span><span class="p">,</span> <span class="n">xijo</span><span class="p">,</span>
+     <span class="err">$</span>             <span class="n">indxuo</span><span class="p">,</span> <span class="n">ebk</span><span class="p">,</span> <span class="n">ef</span><span class="p">,</span> <span class="n">temp</span><span class="p">,</span>
+     <span class="p">&amp;</span>             <span class="n">isa</span><span class="p">,</span> <span class="n">iphorb</span><span class="p">,</span> <span class="n">iphKB</span><span class="p">,</span> <span class="n">lasto</span><span class="p">,</span> <span class="n">lastkb</span><span class="p">,</span> <span class="nb">shape</span> <span class="p">)</span>
+
+      <span class="k">call </span><span class="n">de_alloc</span><span class="p">(</span> <span class="n">ebk</span><span class="p">,</span> <span class="s1">&#39;ebk&#39;</span><span class="p">,</span> <span class="s1">&#39;siesta_analysis&#39;</span> <span class="p">)</span>
+<span class="c">!...................................</span>
+
+<span class="c">!</span>
+<span class="c">!  NOTE: Dscf here might be the mixed one (see above).</span>
+<span class="c">!</span>
+      <span class="n">want_partial_charges</span> <span class="o">=</span> <span class="p">(</span><span class="n">hirshpop</span> <span class="p">.</span><span class="nb">or</span><span class="p">.</span> <span class="n">voropop</span><span class="p">)</span> <span class="p">.</span><span class="nb">AND</span><span class="p">.</span>
+     <span class="err">$</span>                   <span class="p">(.</span><span class="nb">not</span><span class="p">.</span> <span class="n">partial_charges_at_every_geometry</span><span class="p">)</span>
+
+<span class="c">!     Save electron density and potential</span>
+      <span class="k">if</span> <span class="p">(</span><span class="n">saverho</span> <span class="p">.</span><span class="nb">or</span><span class="p">.</span> <span class="n">savedrho</span> <span class="p">.</span><span class="nb">or</span><span class="p">.</span> <span class="n">saverhoxc</span> <span class="p">.</span><span class="nb">or</span><span class="p">.</span> 
+     <span class="p">&amp;</span>    <span class="n">savevh</span> <span class="p">.</span><span class="nb">or</span><span class="p">.</span> <span class="n">savevt</span> <span class="p">.</span><span class="nb">or</span><span class="p">.</span> <span class="n">savevna</span> <span class="p">.</span><span class="nb">or</span><span class="p">.</span>
+     <span class="p">&amp;</span>    <span class="n">savepsch</span> <span class="p">.</span><span class="nb">or</span><span class="p">.</span> <span class="n">savetoch</span> <span class="p">.</span><span class="nb">or</span><span class="p">.</span> 
+     <span class="p">&amp;</span>    <span class="n">want_partial_charges</span><span class="p">)</span> <span class="k">then</span>
+<span class="k">        if</span> <span class="p">(</span><span class="n">saverho</span><span class="p">)</span>   <span class="n">filesOut</span><span class="p">%</span><span class="n">rho</span>   <span class="o">=</span> <span class="nb">trim</span><span class="p">(</span><span class="n">slabel</span><span class="p">)</span> <span class="o">//</span> <span class="s1">&#39;.RHO&#39;</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">savedrho</span><span class="p">)</span>  <span class="n">filesOut</span><span class="p">%</span><span class="n">drho</span>  <span class="o">=</span> <span class="nb">trim</span><span class="p">(</span><span class="n">slabel</span><span class="p">)</span> <span class="o">//</span> <span class="s1">&#39;.DRHO&#39;</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">saverhoxc</span><span class="p">)</span> <span class="n">filesOut</span><span class="p">%</span><span class="n">rhoxc</span> <span class="o">=</span> <span class="nb">trim</span><span class="p">(</span><span class="n">slabel</span><span class="p">)</span> <span class="o">//</span> <span class="s1">&#39;.RHOXC&#39;</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">savevh</span><span class="p">)</span>    <span class="n">filesOut</span><span class="p">%</span><span class="n">vh</span>    <span class="o">=</span> <span class="nb">trim</span><span class="p">(</span><span class="n">slabel</span><span class="p">)</span> <span class="o">//</span> <span class="s1">&#39;.VH&#39;</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">savevt</span><span class="p">)</span>    <span class="n">filesOut</span><span class="p">%</span><span class="n">vt</span>    <span class="o">=</span> <span class="nb">trim</span><span class="p">(</span><span class="n">slabel</span><span class="p">)</span> <span class="o">//</span> <span class="s1">&#39;.VT&#39;</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">savevna</span><span class="p">)</span>   <span class="n">filesOut</span><span class="p">%</span><span class="n">vna</span>   <span class="o">=</span> <span class="nb">trim</span><span class="p">(</span><span class="n">slabel</span><span class="p">)</span> <span class="o">//</span> <span class="s1">&#39;.VNA&#39;</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">savepsch</span><span class="p">)</span>  <span class="n">filesOut</span><span class="p">%</span><span class="n">psch</span>  <span class="o">=</span> <span class="nb">trim</span><span class="p">(</span><span class="n">slabel</span><span class="p">)</span> <span class="o">//</span> <span class="s1">&#39;.IOCH&#39;</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">savetoch</span><span class="p">)</span>  <span class="n">filesOut</span><span class="p">%</span><span class="n">toch</span>  <span class="o">=</span> <span class="nb">trim</span><span class="p">(</span><span class="n">slabel</span><span class="p">)</span> <span class="o">//</span> <span class="s1">&#39;.TOCH&#39;</span>
+        <span class="n">g2max</span> <span class="o">=</span> <span class="n">g2cut</span>
+        <span class="n">dummy_str</span>  <span class="o">=</span> <span class="mf">0.0</span>
+        <span class="n">dummy_strl</span> <span class="o">=</span> <span class="mf">0.0</span>
+        <span class="k">call </span><span class="n">dhscf</span><span class="p">(</span> <span class="n">nspin</span><span class="p">,</span> <span class="n">no_s</span><span class="p">,</span> <span class="n">iaorb</span><span class="p">,</span> <span class="n">iphorb</span><span class="p">,</span> <span class="n">no_l</span><span class="p">,</span>
+     <span class="p">.</span>              <span class="n">no_u</span><span class="p">,</span> <span class="n">na_u</span><span class="p">,</span> <span class="n">na_s</span><span class="p">,</span> <span class="n">isa</span><span class="p">,</span> <span class="n">xa_last</span><span class="p">,</span> <span class="n">indxua</span><span class="p">,</span> 
+     <span class="p">&amp;</span>              <span class="n">ntm</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">filesOut</span><span class="p">,</span> 
+     <span class="p">&amp;</span>              <span class="n">maxnh</span><span class="p">,</span> <span class="n">numh</span><span class="p">,</span> <span class="n">listhptr</span><span class="p">,</span> <span class="n">listh</span><span class="p">,</span> <span class="n">Dscf</span><span class="p">,</span> <span class="n">Datm</span><span class="p">,</span>
+     <span class="p">&amp;</span>              <span class="n">maxnh</span><span class="p">,</span> <span class="n">H</span><span class="p">,</span> <span class="n">Enaatm</span><span class="p">,</span> <span class="n">Enascf</span><span class="p">,</span> <span class="n">Uatm</span><span class="p">,</span> <span class="n">Uscf</span><span class="p">,</span> <span class="n">DUscf</span><span class="p">,</span> <span class="n">DUext</span><span class="p">,</span>
+     <span class="p">&amp;</span>              <span class="n">Exc</span><span class="p">,</span> <span class="n">Dxc</span><span class="p">,</span> <span class="n">dipol</span><span class="p">,</span> <span class="n">dummy_str</span><span class="p">,</span> <span class="n">fa</span><span class="p">,</span> <span class="n">dummy_strl</span> <span class="p">)</span>
+                    <span class="c">! next to last argument is dummy here,</span>
+                    <span class="c">! as no forces are calculated</span>
+                    <span class="c">! todo: make all these optional</span>
+      <span class="n">endif</span>
+<span class="n">C</span>    
+<span class="n">C</span>     <span class="k">Call </span><span class="n">the</span> <span class="n">wannier90</span> <span class="k">interface </span><span class="n">here</span><span class="p">,</span> <span class="n">as</span> <span class="n">local_DOS</span> <span class="n">destroys</span> <span class="n">the</span> <span class="n">DM</span><span class="p">...</span>
+<span class="n">C</span>
+      <span class="k">if</span><span class="p">(</span> <span class="n">w90_processing</span> <span class="p">)</span> <span class="k">call </span><span class="n">siesta2wannier90</span><span class="p">()</span>
+
+<span class="n">C</span>     <span class="n">Find</span> <span class="n">local</span> <span class="n">density</span> <span class="n">of</span> <span class="n">states</span>
+<span class="c">!  It needs H,S, and xa, as it diagonalizes them again</span>
+<span class="c">!  NOTE: This call will obliterate Dscf</span>
+<span class="c">!  It is better to put a explicit out argument for the partial DM computed.</span>
+      <span class="k">call </span><span class="n">local_DOS</span><span class="p">()</span>
+
+<span class="c">! In summary, it is better to:</span>
+<span class="c">!</span>
+<span class="c">!   -- Avoid (or warn the user about) doing any analysis if the calculation is not converged</span>
+<span class="c">!   -- Avoid mixing DM or H after scf convergence</span>
+<span class="c">!   -- Set xa to xa_last at the top of this file. Write any &quot;next iter&quot; coordinate file</span>
+<span class="c">!      in &#39;siesta_move&#39;</span>
+
+      <span class="n">endif</span> <span class="c">! SIESTA_worker</span>
+<span class="cp">#ifdef SIESTA__PEXSI</span>
+      <span class="k">if</span> <span class="p">(</span><span class="n">fdf_get</span><span class="p">(</span><span class="s2">&quot;PEXSI.LDOS&quot;</span><span class="p">,.</span><span class="n">false</span><span class="p">.))</span> <span class="k">then</span>
+<span class="k">         call </span><span class="n">pexsi_local_DOS</span><span class="p">()</span>
+      <span class="n">endif</span>
+<span class="cp">#endif</span>
+      <span class="k">if</span> <span class="p">(</span><span class="n">SIESTA_worker</span><span class="p">)</span> <span class="k">call </span><span class="n">timer</span><span class="p">(</span><span class="s2">&quot;Analysis&quot;</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
+
+<span class="c">!------------------------------------------------------------------------- END</span>
+      <span class="k">END subroutine </span><span class="n">siesta_analysis</span>
+</pre></div>
+
+    </section>
+    <br>
+    
+    
+    </div>
+  </div>
+
+  <section class="visible-xs visible-sm hidden-md">
+    <hr>
+    
+
+<div class="panel panel-default">
+  <div class="panel-heading text-left"><h3 class="panel-title"><a data-toggle="collapse" href="#allprocs-1">All Procedures</a></h3></div>
+  <div id="allprocs-1" class="panel-collapse collapse">
+    <div class="list-group">
+      
+      <a class="list-group-item" href="../proc/current_itt.html">current_itt</a>
+      
+      <a class="list-group-item" href="../proc/getstackval.html">getstackval</a>
+      
+      <a class="list-group-item" href="../proc/inverse.html">inverse</a>
+      
+      <a class="list-group-item" href="../proc/is_next.html">is_next</a>
+      
+      <a class="list-group-item" href="../proc/mix_method.html">mix_method</a>
+      
+      <a class="list-group-item" href="../proc/mix_method_variant.html">mix_method_variant</a>
+      
+      <a class="list-group-item" href="../proc/mixer_init.html">mixer_init</a>
+      
+      <a class="list-group-item" href="../proc/mixers_history_init.html">mixers_history_init</a>
+      
+      <a class="list-group-item" href="../proc/mixers_init.html">mixers_init</a>
+      
+      <a class="list-group-item" href="../proc/mixers_print.html">mixers_print</a>
+      
+      <a class="list-group-item" href="../proc/mixers_print_block.html">mixers_print_block</a>
+      
+      <a class="list-group-item" href="../proc/mixers_reset.html">mixers_reset</a>
+      
+      <a class="list-group-item" href="../proc/mixers_scf_history_init.html">mixers_scf_history_init</a>
+      
+      <a class="list-group-item" href="../proc/mixers_scf_init.html">mixers_scf_init</a>
+      
+      <a class="list-group-item" href="../proc/mixers_scf_print.html">mixers_scf_print</a>
+      
+      <a class="list-group-item" href="../proc/mixers_scf_print_block.html">mixers_scf_print_block</a>
+      
+      <a class="list-group-item" href="../proc/mixers_scf_reset.html">mixers_scf_reset</a>
+      
+      <a class="list-group-item" href="../interface/mixing.html">mixing</a>
+      
+      <a class="list-group-item" href="../proc/mixing_1d.html">mixing_1d</a>
+      
+      <a class="list-group-item" href="../proc/mixing_2d.html">mixing_2d</a>
+      
+      <a class="list-group-item" href="../proc/mixing_calc_next.html">mixing_calc_next</a>
+      
+      <a class="list-group-item" href="../proc/mixing_coeff.html">mixing_coeff</a>
+      
+      <a class="list-group-item" href="../proc/mixing_finalize.html">mixing_finalize</a>
+      
+      <a class="list-group-item" href="../proc/mixing_init.html">mixing_init</a>
+      
+      <a class="list-group-item" href="../proc/mixing_ncoeff.html">mixing_ncoeff</a>
+      
+      <a class="list-group-item" href="../proc/mixing_scf_converged.html">mixing_scf_converged</a>
+      
+      <a class="list-group-item" href="../proc/mixing_step.html">mixing_step</a>
+      
+      <a class="list-group-item" href="../proc/norm.html">norm</a>
+      
+      <a class="list-group-item" href="../proc/push_diff.html">push_diff</a>
+      
+      <a class="list-group-item" href="../proc/push_f.html">push_F</a>
+      
+      <a class="list-group-item" href="../proc/push_stack_data.html">push_stack_data</a>
+      
+      <a class="list-group-item" href="../proc/setup_h0.html">setup_H0</a>
+      
+      <a class="list-group-item" href="../proc/siesta_analysis.html">siesta_analysis</a>
+      
+      <a class="list-group-item" href="../proc/siesta_forces.html">siesta_forces</a>
+      
+      <a class="list-group-item" href="../proc/stack_check.html">stack_check</a>
+      
+      <a class="list-group-item" href="../proc/state_analysis.html">state_analysis</a>
+      
+      <a class="list-group-item" href="../proc/state_init.html">state_init</a>
+      
+      <a class="list-group-item" href="../proc/svd.html">svd</a>
+      
+      <a class="list-group-item" href="../proc/update_f.html">update_F</a>
+      
+    </div>
+  </div>
+</div>
+
+
+  </section>
+
+    <hr>    
+    </div> <!-- /container -->
+    <footer>
+      <div class="container">
+      <div class="row">
+        <div class="col-xs-6 col-md-4"><p>&copy; 2018 <a rel="license" href="http://www.gnu.org/licenses/old-licenses/fdl-1.2.en.html">GNU Free Documentation License</a>
+                                          </p></div>
+        <div class="col-xs-6 col-md-4 col-md-push-4">
+          <p class="text-right">
+            Documentation generated by 
+            <a href="https://github.com/cmacmackin/ford">FORD</a>
+            
+          </p>
+        </div>
+        <div class="col-xs-12 col-md-4 col-md-pull-4"><p class="text-center"> SIESTA was developed by SIESTA Group</p></div>
+      </div>
+      <br>
+      </div> <!-- /container -->    
+    </footer>
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+<!--
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+-->
+    <script src="../js/bootstrap.min.js"></script>
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script src="../js/ie10-viewport-bug-workaround.js"></script>
+
+    <!-- MathJax JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        TeX: { extensions: ['AMSmath.js','AMSsymbols.js','noErrors.js','noUndefined.js'], equationNumbers: { autoNumber: 'AMS' } },
+        jax: ['input/TeX','input/MathML','output/HTML-CSS'],
+        extensions: ['tex2jax.js','mml2jax.js','MathMenu.js','MathZoom.js']
+      });
+    </script>
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    
+    
+  </body>
+</html>
