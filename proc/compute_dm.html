@@ -44,7 +44,7 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="../index.html">SIESTA <small>trunk-674</small></a>
+          <a class="navbar-brand" href="../index.html">SIESTA <small>trunk-674--vdikan-ford-681</small></a>
         </div>
         <div id="navbar" class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
@@ -124,7 +124,7 @@
      <li><i class="fa fa-list-ol"></i>
        <a data-toggle="tooltip"
 	  data-placement="bottom" data-html="true"
-	  title=" 4.8% of total for procedures.">140 statements</a>
+	  title=" 4.7% of total for procedures.">140 statements</a>
      </li> 
      
      
@@ -192,6 +192,12 @@
     <div class="list-group">
       
       <a class="list-group-item" href="../proc/compute_dm.html">compute_dm</a>
+      
+      <a class="list-group-item" href="../interface/compute_max_diff.html">compute_max_diff</a>
+      
+      <a class="list-group-item" href="../proc/compute_max_diff_1d.html">compute_max_diff_1d</a>
+      
+      <a class="list-group-item" href="../proc/compute_max_diff_2d.html">compute_max_diff_2d</a>
       
       <a class="list-group-item" href="../proc/current_itt.html">current_itt</a>
       
@@ -386,295 +392,295 @@ public subroutine compute_dm(iscf)
 <polygon fill="none" stroke="black" points="229,-612 154,-612 154,-588 229,-588 229,-612"/>
 <text text-anchor="middle" x="191.5" y="-597.6" font-family="Helvetica,sans-Serif" font-size="10.50">compute_dm</text>
 </g>
-<!-- m_energies -->
-<g id="proc~~compute_dm~~UsesGraph_node2" class="node"><title>m_energies</title>
-<polygon fill="#337ab7" stroke="#337ab7" points="93.5,-1200 24.5,-1200 24.5,-1176 93.5,-1176 93.5,-1200"/>
-<text text-anchor="middle" x="59" y="-1185.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">m_energies</text>
+<!-- mpi_siesta -->
+<g id="proc~~compute_dm~~UsesGraph_node2" class="node"><title>mpi_siesta</title>
+<polygon fill="#337ab7" stroke="#337ab7" points="91,-1200 27,-1200 27,-1176 91,-1176 91,-1200"/>
+<text text-anchor="middle" x="59" y="-1185.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">mpi_siesta</text>
 </g>
-<!-- proc~compute_dm&#45;&gt;m_energies -->
-<g id="proc~~compute_dm~~UsesGraph_edge1" class="edge"><title>proc~compute_dm&#45;&gt;m_energies</title>
-<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M190.608,-612.122C191.032,-686.173 189.808,-1077.34 118,-1167 114.002,-1171.99 108.713,-1175.8 102.953,-1178.7"/>
-<polygon fill="#000000" stroke="#000000" points="101.535,-1175.5 93.6317,-1182.55 104.21,-1181.97 101.535,-1175.5"/>
+<!-- proc~compute_dm&#45;&gt;mpi_siesta -->
+<g id="proc~~compute_dm~~UsesGraph_edge1" class="edge"><title>proc~compute_dm&#45;&gt;mpi_siesta</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M190.608,-612.122C191.032,-686.173 189.808,-1077.34 118,-1167 113.547,-1172.56 107.493,-1176.65 100.969,-1179.65"/>
+<polygon fill="#000000" stroke="#000000" points="99.3337,-1176.53 91.2086,-1183.33 101.801,-1183.08 99.3337,-1176.53"/>
 </g>
-<!-- units -->
-<g id="proc~~compute_dm~~UsesGraph_node3" class="node"><title>units</title>
-<polygon fill="#337ab7" stroke="#337ab7" points="86,-1158 32,-1158 32,-1134 86,-1134 86,-1158"/>
-<text text-anchor="middle" x="59" y="-1143.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">units</text>
+<!-- m_pexsi_solver -->
+<g id="proc~~compute_dm~~UsesGraph_node3" class="node"><title>m_pexsi_solver</title>
+<polygon fill="#337ab7" stroke="#337ab7" points="102.5,-1158 15.5,-1158 15.5,-1134 102.5,-1134 102.5,-1158"/>
+<text text-anchor="middle" x="59" y="-1143.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">m_pexsi_solver</text>
 </g>
-<!-- proc~compute_dm&#45;&gt;units -->
-<g id="proc~~compute_dm~~UsesGraph_edge2" class="edge"><title>proc~compute_dm&#45;&gt;units</title>
-<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M190.471,-612.136C190.065,-682.958 184.705,-1042.57 118,-1125 112.383,-1131.94 104.273,-1136.59 95.8895,-1139.7"/>
-<polygon fill="#000000" stroke="#000000" points="94.6031,-1136.43 86.055,-1142.69 96.6408,-1143.13 94.6031,-1136.43"/>
+<!-- proc~compute_dm&#45;&gt;m_pexsi_solver -->
+<g id="proc~~compute_dm~~UsesGraph_edge2" class="edge"><title>proc~compute_dm&#45;&gt;m_pexsi_solver</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M190.471,-612.136C190.065,-682.958 184.705,-1042.57 118,-1125 116.074,-1127.38 113.854,-1129.49 111.431,-1131.36"/>
+<polygon fill="#000000" stroke="#000000" points="109.211,-1128.62 102.537,-1136.85 112.886,-1134.58 109.211,-1128.62"/>
+</g>
+<!-- m_rmaxh -->
+<g id="proc~~compute_dm~~UsesGraph_node4" class="node"><title>m_rmaxh</title>
+<polygon fill="#337ab7" stroke="#337ab7" points="88,-1116 30,-1116 30,-1092 88,-1092 88,-1116"/>
+<text text-anchor="middle" x="59" y="-1101.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">m_rmaxh</text>
+</g>
+<!-- proc~compute_dm&#45;&gt;m_rmaxh -->
+<g id="proc~~compute_dm~~UsesGraph_edge3" class="edge"><title>proc~compute_dm&#45;&gt;m_rmaxh</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M190.312,-612.035C189.031,-679.236 179.65,-1007.72 118,-1083 112.742,-1089.42 105.353,-1093.88 97.6041,-1096.97"/>
+<polygon fill="#000000" stroke="#000000" points="96.4924,-1093.65 88.0936,-1100.11 98.6868,-1100.3 96.4924,-1093.65"/>
 </g>
 <!-- m_zminim -->
-<g id="proc~~compute_dm~~UsesGraph_node4" class="node"><title>m_zminim</title>
-<polygon fill="#337ab7" stroke="#337ab7" points="89.5,-1116 28.5,-1116 28.5,-1092 89.5,-1092 89.5,-1116"/>
-<text text-anchor="middle" x="59" y="-1101.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">m_zminim</text>
+<g id="proc~~compute_dm~~UsesGraph_node5" class="node"><title>m_zminim</title>
+<polygon fill="#337ab7" stroke="#337ab7" points="89.5,-1074 28.5,-1074 28.5,-1050 89.5,-1050 89.5,-1074"/>
+<text text-anchor="middle" x="59" y="-1059.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">m_zminim</text>
 </g>
 <!-- proc~compute_dm&#45;&gt;m_zminim -->
-<g id="proc~~compute_dm~~UsesGraph_edge3" class="edge"><title>proc~compute_dm&#45;&gt;m_zminim</title>
-<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M190.312,-612.035C189.031,-679.236 179.65,-1007.72 118,-1083 113.148,-1088.92 106.483,-1093.18 99.3943,-1096.23"/>
-<polygon fill="#000000" stroke="#000000" points="97.8584,-1093.06 89.5973,-1099.69 100.192,-1099.66 97.8584,-1093.06"/>
+<g id="proc~~compute_dm~~UsesGraph_edge4" class="edge"><title>proc~compute_dm&#45;&gt;m_zminim</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M190.116,-612.231C187.872,-676.309 174.52,-972.96 118,-1041 113.107,-1046.89 106.423,-1051.13 99.3301,-1054.18"/>
+<polygon fill="#000000" stroke="#000000" points="97.7944,-1051.01 89.5339,-1057.64 100.129,-1057.61 97.7944,-1051.01"/>
 </g>
-<!-- m_chess -->
-<g id="proc~~compute_dm~~UsesGraph_node5" class="node"><title>m_chess</title>
-<polygon fill="#337ab7" stroke="#337ab7" points="86.5,-1074 31.5,-1074 31.5,-1050 86.5,-1050 86.5,-1074"/>
-<text text-anchor="middle" x="59" y="-1059.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">m_chess</text>
+<!-- m_normalize_dm -->
+<g id="proc~~compute_dm~~UsesGraph_node6" class="node"><title>m_normalize_dm</title>
+<polygon fill="#337ab7" stroke="#337ab7" points="106.5,-1032 11.5,-1032 11.5,-1008 106.5,-1008 106.5,-1032"/>
+<text text-anchor="middle" x="59" y="-1017.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">m_normalize_dm</text>
 </g>
-<!-- proc~compute_dm&#45;&gt;m_chess -->
-<g id="proc~~compute_dm~~UsesGraph_edge6" class="edge"><title>proc~compute_dm&#45;&gt;m_chess</title>
-<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M190.116,-612.231C187.872,-676.309 174.52,-972.96 118,-1041 112.393,-1047.75 104.434,-1052.33 96.2019,-1055.44"/>
-<polygon fill="#000000" stroke="#000000" points="95.0425,-1052.13 86.5383,-1058.45 97.1269,-1058.82 95.0425,-1052.13"/>
+<!-- proc~compute_dm&#45;&gt;m_normalize_dm -->
+<g id="proc~~compute_dm~~UsesGraph_edge5" class="edge"><title>proc~compute_dm&#45;&gt;m_normalize_dm</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M189.884,-612.248C186.614,-672.623 169.462,-938.097 118,-999 117.006,-1000.18 115.942,-1001.29 114.816,-1002.33"/>
+<polygon fill="#000000" stroke="#000000" points="112.593,-999.625 106.636,-1008.39 116.757,-1005.25 112.593,-999.625"/>
 </g>
-<!-- iodmhs_netcdf -->
-<g id="proc~~compute_dm~~UsesGraph_node6" class="node"><title>iodmhs_netcdf</title>
-<polygon fill="#337ab7" stroke="#337ab7" points="100,-1032 18,-1032 18,-1008 100,-1008 100,-1032"/>
-<text text-anchor="middle" x="59" y="-1017.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">iodmhs_netcdf</text>
+<!-- m_compute_ebs_shift -->
+<g id="proc~~compute_dm~~UsesGraph_node7" class="node"><title>m_compute_ebs_shift</title>
+<polygon fill="#337ab7" stroke="#337ab7" points="118,-990 0,-990 0,-966 118,-966 118,-990"/>
+<text text-anchor="middle" x="59" y="-975.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">m_compute_ebs_shift</text>
 </g>
-<!-- proc~compute_dm&#45;&gt;iodmhs_netcdf -->
-<g id="proc~~compute_dm~~UsesGraph_edge4" class="edge"><title>proc~compute_dm&#45;&gt;iodmhs_netcdf</title>
-<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M189.884,-612.248C186.614,-672.623 169.462,-938.097 118,-999 115.503,-1001.95 112.556,-1004.49 109.335,-1006.68"/>
-<polygon fill="#000000" stroke="#000000" points="107.363,-1003.77 100.293,-1011.66 110.74,-1009.9 107.363,-1003.77"/>
+<!-- proc~compute_dm&#45;&gt;m_compute_ebs_shift -->
+<g id="proc~~compute_dm~~UsesGraph_edge7" class="edge"><title>proc~compute_dm&#45;&gt;m_compute_ebs_shift</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M189.613,-612.067C185.261,-668.179 164.479,-903.13 118,-957 117.134,-958.003 116.217,-958.959 115.254,-959.869"/>
+<polygon fill="#000000" stroke="#000000" points="113.005,-957.181 107.116,-965.988 117.212,-962.776 113.005,-957.181"/>
 </g>
-<!-- m_gamma -->
-<g id="proc~~compute_dm~~UsesGraph_node7" class="node"><title>m_gamma</title>
-<polygon fill="#337ab7" stroke="#337ab7" points="91,-990 27,-990 27,-966 91,-966 91,-990"/>
-<text text-anchor="middle" x="59" y="-975.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">m_gamma</text>
+<!-- units -->
+<g id="proc~~compute_dm~~UsesGraph_node8" class="node"><title>units</title>
+<polygon fill="#337ab7" stroke="#337ab7" points="86,-948 32,-948 32,-924 86,-924 86,-948"/>
+<text text-anchor="middle" x="59" y="-933.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">units</text>
 </g>
-<!-- proc~compute_dm&#45;&gt;m_gamma -->
-<g id="proc~~compute_dm~~UsesGraph_edge5" class="edge"><title>proc~compute_dm&#45;&gt;m_gamma</title>
-<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M189.613,-612.067C185.261,-668.179 164.479,-903.13 118,-957 113.394,-962.339 107.32,-966.32 100.838,-969.29"/>
-<polygon fill="#000000" stroke="#000000" points="99.2821,-966.137 91.1739,-972.957 101.765,-972.682 99.2821,-966.137"/>
+<!-- proc~compute_dm&#45;&gt;units -->
+<g id="proc~~compute_dm~~UsesGraph_edge8" class="edge"><title>proc~compute_dm&#45;&gt;units</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M189.264,-612.018C183.708,-663.9 159.484,-868.158 118,-915 112.182,-921.569 104.147,-926.084 95.9097,-929.188"/>
+<polygon fill="#000000" stroke="#000000" points="94.7567,-925.881 86.2677,-932.22 96.8571,-932.559 94.7567,-925.881"/>
 </g>
-<!-- sparse_matrices -->
-<g id="proc~~compute_dm~~UsesGraph_node8" class="node"><title>sparse_matrices</title>
-<polygon fill="#337ab7" stroke="#337ab7" points="104.5,-948 13.5,-948 13.5,-924 104.5,-924 104.5,-948"/>
-<text text-anchor="middle" x="59" y="-933.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">sparse_matrices</text>
-</g>
-<!-- proc~compute_dm&#45;&gt;sparse_matrices -->
-<g id="proc~~compute_dm~~UsesGraph_edge7" class="edge"><title>proc~compute_dm&#45;&gt;sparse_matrices</title>
-<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M189.264,-612.018C183.708,-663.9 159.484,-868.158 118,-915 116.615,-916.563 115.105,-918.01 113.497,-919.35"/>
-<polygon fill="#000000" stroke="#000000" points="111.129,-916.723 104.759,-925.189 115.018,-922.542 111.129,-916.723"/>
-</g>
-<!-- sys -->
-<g id="proc~~compute_dm~~UsesGraph_node9" class="node"><title>sys</title>
+<!-- m_spin -->
+<g id="proc~~compute_dm~~UsesGraph_node9" class="node"><title>m_spin</title>
 <polygon fill="#337ab7" stroke="#337ab7" points="86,-906 32,-906 32,-882 86,-882 86,-906"/>
-<text text-anchor="middle" x="59" y="-891.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">sys</text>
+<text text-anchor="middle" x="59" y="-891.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">m_spin</text>
 </g>
-<!-- proc~compute_dm&#45;&gt;sys -->
-<g id="proc~~compute_dm~~UsesGraph_edge8" class="edge"><title>proc~compute_dm&#45;&gt;sys</title>
+<!-- proc~compute_dm&#45;&gt;m_spin -->
+<g id="proc~~compute_dm~~UsesGraph_edge28" class="edge"><title>proc~compute_dm&#45;&gt;m_spin</title>
 <path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M190.983,-612.191C191.97,-654.237 189.54,-794.886 118,-873 112.074,-879.471 103.999,-883.951 95.7588,-887.052"/>
 <polygon fill="#000000" stroke="#000000" points="94.609,-883.744 86.128,-890.095 96.7179,-890.419 94.609,-883.744"/>
 </g>
-<!-- Kpoint_grid -->
-<g id="proc~~compute_dm~~UsesGraph_node10" class="node"><title>Kpoint_grid</title>
-<polygon fill="#337ab7" stroke="#337ab7" points="92.5,-864 25.5,-864 25.5,-840 92.5,-840 92.5,-864"/>
-<text text-anchor="middle" x="59" y="-849.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Kpoint_grid</text>
+<!-- m_ordern -->
+<g id="proc~~compute_dm~~UsesGraph_node10" class="node"><title>m_ordern</title>
+<polygon fill="#337ab7" stroke="#337ab7" points="88.5,-864 29.5,-864 29.5,-840 88.5,-840 88.5,-864"/>
+<text text-anchor="middle" x="59" y="-849.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">m_ordern</text>
 </g>
-<!-- proc~compute_dm&#45;&gt;Kpoint_grid -->
-<g id="proc~~compute_dm~~UsesGraph_edge9" class="edge"><title>proc~compute_dm&#45;&gt;Kpoint_grid</title>
-<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M190.283,-612.155C188.949,-649.911 179.778,-766.49 118,-831 113.528,-835.67 107.939,-839.305 102.01,-842.134"/>
-<polygon fill="#000000" stroke="#000000" points="100.495,-838.97 92.5219,-845.948 103.106,-845.465 100.495,-838.97"/>
+<!-- proc~compute_dm&#45;&gt;m_ordern -->
+<g id="proc~~compute_dm~~UsesGraph_edge9" class="edge"><title>proc~compute_dm&#45;&gt;m_ordern</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M190.283,-612.155C188.949,-649.911 179.778,-766.49 118,-831 112.653,-836.583 105.71,-840.688 98.4957,-843.703"/>
+<polygon fill="#000000" stroke="#000000" points="96.8879,-840.558 88.6148,-847.177 99.2096,-847.162 96.8879,-840.558"/>
 </g>
-<!-- m_spin -->
-<g id="proc~~compute_dm~~UsesGraph_node11" class="node"><title>m_spin</title>
+<!-- m_eo -->
+<g id="proc~~compute_dm~~UsesGraph_node11" class="node"><title>m_eo</title>
 <polygon fill="#337ab7" stroke="#337ab7" points="86,-822 32,-822 32,-798 86,-798 86,-822"/>
-<text text-anchor="middle" x="59" y="-807.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">m_spin</text>
+<text text-anchor="middle" x="59" y="-807.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">m_eo</text>
 </g>
-<!-- proc~compute_dm&#45;&gt;m_spin -->
-<g id="proc~~compute_dm~~UsesGraph_edge10" class="edge"><title>proc~compute_dm&#45;&gt;m_spin</title>
+<!-- proc~compute_dm&#45;&gt;m_eo -->
+<g id="proc~~compute_dm~~UsesGraph_edge10" class="edge"><title>proc~compute_dm&#45;&gt;m_eo</title>
 <path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M189.312,-612.042C185.427,-645.031 170.175,-737.802 118,-789 111.914,-794.972 104.002,-799.261 95.9902,-802.336"/>
 <polygon fill="#000000" stroke="#000000" points="94.6965,-799.076 86.2829,-805.516 96.8756,-805.729 94.6965,-799.076"/>
 </g>
-<!-- mpi_siesta -->
-<g id="proc~~compute_dm~~UsesGraph_node12" class="node"><title>mpi_siesta</title>
-<polygon fill="#337ab7" stroke="#337ab7" points="91,-780 27,-780 27,-756 91,-756 91,-780"/>
-<text text-anchor="middle" x="59" y="-765.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">mpi_siesta</text>
+<!-- m_energies -->
+<g id="proc~~compute_dm~~UsesGraph_node12" class="node"><title>m_energies</title>
+<polygon fill="#337ab7" stroke="#337ab7" points="93.5,-780 24.5,-780 24.5,-756 93.5,-756 93.5,-780"/>
+<text text-anchor="middle" x="59" y="-765.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">m_energies</text>
 </g>
-<!-- proc~compute_dm&#45;&gt;mpi_siesta -->
-<g id="proc~~compute_dm~~UsesGraph_edge11" class="edge"><title>proc~compute_dm&#45;&gt;mpi_siesta</title>
-<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M187.801,-612.158C181.008,-639.99 160.621,-708.858 118,-747 113.077,-751.405 107.159,-754.907 101.011,-757.685"/>
-<polygon fill="#000000" stroke="#000000" points="99.3183,-754.588 91.2711,-761.48 101.86,-761.111 99.3183,-754.588"/>
+<!-- proc~compute_dm&#45;&gt;m_energies -->
+<g id="proc~~compute_dm~~UsesGraph_edge11" class="edge"><title>proc~compute_dm&#45;&gt;m_energies</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M187.801,-612.158C181.008,-639.99 160.621,-708.858 118,-747 113.603,-750.935 108.413,-754.148 102.974,-756.769"/>
+<polygon fill="#000000" stroke="#000000" points="101.565,-753.564 93.6819,-760.643 104.259,-760.025 101.565,-753.564"/>
 </g>
-<!-- m_dminim -->
-<g id="proc~~compute_dm~~UsesGraph_node13" class="node"><title>m_dminim</title>
-<polygon fill="#337ab7" stroke="#337ab7" points="90,-738 28,-738 28,-714 90,-714 90,-738"/>
-<text text-anchor="middle" x="59" y="-723.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">m_dminim</text>
+<!-- iodmhs_netcdf -->
+<g id="proc~~compute_dm~~UsesGraph_node13" class="node"><title>iodmhs_netcdf</title>
+<polygon fill="#337ab7" stroke="#337ab7" points="100,-738 18,-738 18,-714 100,-714 100,-738"/>
+<text text-anchor="middle" x="59" y="-723.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">iodmhs_netcdf</text>
 </g>
-<!-- proc~compute_dm&#45;&gt;m_dminim -->
-<g id="proc~~compute_dm~~UsesGraph_edge12" class="edge"><title>proc~compute_dm&#45;&gt;m_dminim</title>
-<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M185.174,-612.213C175.121,-633.908 151.329,-679.296 118,-705 112.53,-709.218 106.135,-712.644 99.6276,-715.409"/>
-<polygon fill="#000000" stroke="#000000" points="98.2279,-712.196 90.1082,-719.002 100.7,-718.745 98.2279,-712.196"/>
+<!-- proc~compute_dm&#45;&gt;iodmhs_netcdf -->
+<g id="proc~~compute_dm~~UsesGraph_edge12" class="edge"><title>proc~compute_dm&#45;&gt;iodmhs_netcdf</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M185.174,-612.213C175.121,-633.908 151.329,-679.296 118,-705 115.245,-707.124 112.256,-709.048 109.135,-710.787"/>
+<polygon fill="#000000" stroke="#000000" points="107.527,-707.678 100.081,-715.215 110.602,-713.966 107.527,-707.678"/>
 </g>
-<!-- m_hsx -->
-<g id="proc~~compute_dm~~UsesGraph_node14" class="node"><title>m_hsx</title>
-<polygon fill="#337ab7" stroke="#337ab7" points="86,-696 32,-696 32,-672 86,-672 86,-696"/>
-<text text-anchor="middle" x="59" y="-681.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">m_hsx</text>
+<!-- sparse_matrices -->
+<g id="proc~~compute_dm~~UsesGraph_node14" class="node"><title>sparse_matrices</title>
+<polygon fill="#337ab7" stroke="#337ab7" points="104.5,-696 13.5,-696 13.5,-672 104.5,-672 104.5,-696"/>
+<text text-anchor="middle" x="59" y="-681.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">sparse_matrices</text>
 </g>
-<!-- proc~compute_dm&#45;&gt;m_hsx -->
-<g id="proc~~compute_dm~~UsesGraph_edge13" class="edge"><title>proc~compute_dm&#45;&gt;m_hsx</title>
-<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M179.25,-612.183C165.827,-626.109 142.151,-648.804 118,-663 111.054,-667.083 103.181,-670.58 95.5266,-673.482"/>
-<polygon fill="#000000" stroke="#000000" points="94.2935,-670.206 86.0332,-676.84 96.628,-676.805 94.2935,-670.206"/>
+<!-- proc~compute_dm&#45;&gt;sparse_matrices -->
+<g id="proc~~compute_dm~~UsesGraph_edge13" class="edge"><title>proc~compute_dm&#45;&gt;sparse_matrices</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M179.25,-612.183C165.827,-626.109 142.151,-648.804 118,-663 115.138,-664.682 112.119,-666.265 109.022,-667.748"/>
+<polygon fill="#000000" stroke="#000000" points="107.328,-664.669 99.5802,-671.895 110.144,-671.078 107.328,-664.669"/>
 </g>
-<!-- m_pexsi_solver -->
-<g id="proc~~compute_dm~~UsesGraph_node15" class="node"><title>m_pexsi_solver</title>
-<polygon fill="#337ab7" stroke="#337ab7" points="102.5,-654 15.5,-654 15.5,-630 102.5,-630 102.5,-654"/>
-<text text-anchor="middle" x="59" y="-639.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">m_pexsi_solver</text>
+<!-- m_transiesta -->
+<g id="proc~~compute_dm~~UsesGraph_node15" class="node"><title>m_transiesta</title>
+<polygon fill="#337ab7" stroke="#337ab7" points="96,-654 22,-654 22,-630 96,-630 96,-654"/>
+<text text-anchor="middle" x="59" y="-639.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">m_transiesta</text>
 </g>
-<!-- proc~compute_dm&#45;&gt;m_pexsi_solver -->
-<g id="proc~~compute_dm~~UsesGraph_edge14" class="edge"><title>proc~compute_dm&#45;&gt;m_pexsi_solver</title>
-<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M153.801,-611.811C139.33,-616.468 122.525,-621.877 107.171,-626.819"/>
-<polygon fill="#000000" stroke="#000000" points="105.776,-623.591 97.3292,-629.986 107.921,-630.254 105.776,-623.591"/>
+<!-- proc~compute_dm&#45;&gt;m_transiesta -->
+<g id="proc~~compute_dm~~UsesGraph_edge14" class="edge"><title>proc~compute_dm&#45;&gt;m_transiesta</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M153.801,-611.811C139.083,-616.548 121.95,-622.062 106.385,-627.072"/>
+<polygon fill="#000000" stroke="#000000" points="104.87,-623.882 96.4233,-630.278 107.015,-630.546 104.87,-623.882"/>
 </g>
-<!-- class_dSpData1D -->
-<g id="proc~~compute_dm~~UsesGraph_node16" class="node"><title>class_dSpData1D</title>
-<polygon fill="#337ab7" stroke="#337ab7" points="107.5,-612 10.5,-612 10.5,-588 107.5,-588 107.5,-612"/>
-<text text-anchor="middle" x="59" y="-597.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">class_dSpData1D</text>
+<!-- siesta_options -->
+<g id="proc~~compute_dm~~UsesGraph_node16" class="node"><title>siesta_options</title>
+<polygon fill="#337ab7" stroke="#337ab7" points="99.5,-612 18.5,-612 18.5,-588 99.5,-588 99.5,-612"/>
+<text text-anchor="middle" x="59" y="-597.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">siesta_options</text>
 </g>
-<!-- proc~compute_dm&#45;&gt;class_dSpData1D -->
-<g id="proc~~compute_dm~~UsesGraph_edge15" class="edge"><title>proc~compute_dm&#45;&gt;class_dSpData1D</title>
-<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M153.801,-600C142.611,-600 130.025,-600 117.793,-600"/>
-<polygon fill="#000000" stroke="#000000" points="117.64,-596.5 107.64,-600 117.64,-603.5 117.64,-596.5"/>
+<!-- proc~compute_dm&#45;&gt;siesta_options -->
+<g id="proc~~compute_dm~~UsesGraph_edge15" class="edge"><title>proc~compute_dm&#45;&gt;siesta_options</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M153.801,-600C140.213,-600 124.566,-600 109.995,-600"/>
+<polygon fill="#000000" stroke="#000000" points="109.619,-596.5 99.6193,-600 109.619,-603.5 109.619,-596.5"/>
 </g>
-<!-- atomlist -->
-<g id="proc~~compute_dm~~UsesGraph_node17" class="node"><title>atomlist</title>
-<polygon fill="#337ab7" stroke="#337ab7" points="86,-570 32,-570 32,-546 86,-546 86,-570"/>
-<text text-anchor="middle" x="59" y="-555.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">atomlist</text>
+<!-- m_ts_global_vars -->
+<g id="proc~~compute_dm~~UsesGraph_node17" class="node"><title>m_ts_global_vars</title>
+<polygon fill="#337ab7" stroke="#337ab7" points="107.5,-570 10.5,-570 10.5,-546 107.5,-546 107.5,-570"/>
+<text text-anchor="middle" x="59" y="-555.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">m_ts_global_vars</text>
 </g>
-<!-- proc~compute_dm&#45;&gt;atomlist -->
-<g id="proc~~compute_dm~~UsesGraph_edge16" class="edge"><title>proc~compute_dm&#45;&gt;atomlist</title>
-<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M153.801,-588.189C135.609,-582.334 113.729,-575.292 95.6779,-569.483"/>
-<polygon fill="#000000" stroke="#000000" points="96.6828,-566.129 86.0913,-566.397 94.5382,-572.793 96.6828,-566.129"/>
+<!-- proc~compute_dm&#45;&gt;m_ts_global_vars -->
+<g id="proc~~compute_dm~~UsesGraph_edge16" class="edge"><title>proc~compute_dm&#45;&gt;m_ts_global_vars</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M153.801,-588.189C139.33,-583.532 122.525,-578.123 107.171,-573.181"/>
+<polygon fill="#000000" stroke="#000000" points="107.921,-569.746 97.3292,-570.014 105.776,-576.409 107.921,-569.746"/>
 </g>
-<!-- m_eo -->
-<g id="proc~~compute_dm~~UsesGraph_node18" class="node"><title>m_eo</title>
+<!-- sys -->
+<g id="proc~~compute_dm~~UsesGraph_node18" class="node"><title>sys</title>
 <polygon fill="#337ab7" stroke="#337ab7" points="86,-528 32,-528 32,-504 86,-504 86,-528"/>
-<text text-anchor="middle" x="59" y="-513.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">m_eo</text>
+<text text-anchor="middle" x="59" y="-513.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">sys</text>
 </g>
-<!-- proc~compute_dm&#45;&gt;m_eo -->
-<g id="proc~~compute_dm~~UsesGraph_edge17" class="edge"><title>proc~compute_dm&#45;&gt;m_eo</title>
+<!-- proc~compute_dm&#45;&gt;sys -->
+<g id="proc~~compute_dm~~UsesGraph_edge17" class="edge"><title>proc~compute_dm&#45;&gt;sys</title>
 <path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M179.25,-587.817C165.827,-573.891 142.151,-551.196 118,-537 111.054,-532.917 103.181,-529.42 95.5266,-526.518"/>
 <polygon fill="#000000" stroke="#000000" points="96.628,-523.195 86.0332,-523.16 94.2935,-529.794 96.628,-523.195"/>
 </g>
-<!-- m_ts_global_vars -->
-<g id="proc~~compute_dm~~UsesGraph_node19" class="node"><title>m_ts_global_vars</title>
-<polygon fill="#337ab7" stroke="#337ab7" points="107.5,-486 10.5,-486 10.5,-462 107.5,-462 107.5,-486"/>
-<text text-anchor="middle" x="59" y="-471.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">m_ts_global_vars</text>
+<!-- m_steps -->
+<g id="proc~~compute_dm~~UsesGraph_node19" class="node"><title>m_steps</title>
+<polygon fill="#337ab7" stroke="#337ab7" points="86,-486 32,-486 32,-462 86,-462 86,-486"/>
+<text text-anchor="middle" x="59" y="-471.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">m_steps</text>
 </g>
-<!-- proc~compute_dm&#45;&gt;m_ts_global_vars -->
-<g id="proc~~compute_dm~~UsesGraph_edge18" class="edge"><title>proc~compute_dm&#45;&gt;m_ts_global_vars</title>
-<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M185.174,-587.787C175.121,-566.092 151.329,-520.704 118,-495 116.174,-493.592 114.245,-492.272 112.243,-491.036"/>
-<polygon fill="#000000" stroke="#000000" points="113.561,-487.771 103.093,-486.134 110.255,-493.941 113.561,-487.771"/>
+<!-- proc~compute_dm&#45;&gt;m_steps -->
+<g id="proc~~compute_dm~~UsesGraph_edge18" class="edge"><title>proc~compute_dm&#45;&gt;m_steps</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M185.174,-587.787C175.121,-566.092 151.329,-520.704 118,-495 111.501,-489.988 103.695,-486.094 95.9465,-483.099"/>
+<polygon fill="#000000" stroke="#000000" points="96.8609,-479.713 86.2662,-479.769 94.5838,-486.332 96.8609,-479.713"/>
 </g>
-<!-- m_rmaxh -->
-<g id="proc~~compute_dm~~UsesGraph_node20" class="node"><title>m_rmaxh</title>
-<polygon fill="#337ab7" stroke="#337ab7" points="88,-444 30,-444 30,-420 88,-420 88,-444"/>
-<text text-anchor="middle" x="59" y="-429.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">m_rmaxh</text>
+<!-- atomlist -->
+<g id="proc~~compute_dm~~UsesGraph_node20" class="node"><title>atomlist</title>
+<polygon fill="#337ab7" stroke="#337ab7" points="86,-444 32,-444 32,-420 86,-420 86,-444"/>
+<text text-anchor="middle" x="59" y="-429.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">atomlist</text>
 </g>
-<!-- proc~compute_dm&#45;&gt;m_rmaxh -->
-<g id="proc~~compute_dm~~UsesGraph_edge19" class="edge"><title>proc~compute_dm&#45;&gt;m_rmaxh</title>
-<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M187.801,-587.842C181.008,-560.01 160.621,-491.142 118,-453 112.294,-447.894 105.251,-444.002 98.063,-441.044"/>
-<polygon fill="#000000" stroke="#000000" points="98.8778,-437.619 88.2831,-437.563 96.5307,-444.214 98.8778,-437.619"/>
-</g>
-<!-- m_compute_ebs_shift -->
-<g id="proc~~compute_dm~~UsesGraph_node21" class="node"><title>m_compute_ebs_shift</title>
-<polygon fill="#337ab7" stroke="#337ab7" points="118,-402 0,-402 0,-378 118,-378 118,-402"/>
-<text text-anchor="middle" x="59" y="-387.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">m_compute_ebs_shift</text>
-</g>
-<!-- proc~compute_dm&#45;&gt;m_compute_ebs_shift -->
-<g id="proc~~compute_dm~~UsesGraph_edge20" class="edge"><title>proc~compute_dm&#45;&gt;m_compute_ebs_shift</title>
-<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M189.312,-587.958C185.427,-554.969 170.175,-462.198 118,-411 116.765,-409.788 115.455,-408.646 114.084,-407.569"/>
-<polygon fill="#000000" stroke="#000000" points="115.959,-404.613 105.669,-402.087 112.138,-410.478 115.959,-404.613"/>
-</g>
-<!-- m_normalize_dm -->
-<g id="proc~~compute_dm~~UsesGraph_node22" class="node"><title>m_normalize_dm</title>
-<polygon fill="#337ab7" stroke="#337ab7" points="106.5,-360 11.5,-360 11.5,-336 106.5,-336 106.5,-360"/>
-<text text-anchor="middle" x="59" y="-345.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">m_normalize_dm</text>
-</g>
-<!-- proc~compute_dm&#45;&gt;m_normalize_dm -->
-<g id="proc~~compute_dm~~UsesGraph_edge21" class="edge"><title>proc~compute_dm&#45;&gt;m_normalize_dm</title>
-<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M190.283,-587.845C188.949,-550.089 179.778,-433.51 118,-369 116.935,-367.888 115.807,-366.835 114.626,-365.837"/>
-<polygon fill="#000000" stroke="#000000" points="116.4,-362.809 106.177,-360.027 112.434,-368.577 116.4,-362.809"/>
-</g>
-<!-- precision -->
-<g id="proc~~compute_dm~~UsesGraph_node23" class="node"><title>precision</title>
-<polygon fill="#337ab7" stroke="#337ab7" points="86.5,-318 31.5,-318 31.5,-294 86.5,-294 86.5,-318"/>
-<text text-anchor="middle" x="59" y="-303.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">precision</text>
-</g>
-<!-- proc~compute_dm&#45;&gt;precision -->
-<g id="proc~~compute_dm~~UsesGraph_edge22" class="edge"><title>proc~compute_dm&#45;&gt;precision</title>
-<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M190.983,-587.809C191.97,-545.763 189.54,-405.114 118,-327 112.241,-320.712 104.453,-316.303 96.4561,-313.214"/>
-<polygon fill="#000000" stroke="#000000" points="97.3116,-309.812 86.7198,-310.062 95.1558,-316.472 97.3116,-309.812"/>
-</g>
-<!-- m_transiesta -->
-<g id="proc~~compute_dm~~UsesGraph_node24" class="node"><title>m_transiesta</title>
-<polygon fill="#337ab7" stroke="#337ab7" points="96,-276 22,-276 22,-252 96,-252 96,-276"/>
-<text text-anchor="middle" x="59" y="-261.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">m_transiesta</text>
-</g>
-<!-- proc~compute_dm&#45;&gt;m_transiesta -->
-<g id="proc~~compute_dm~~UsesGraph_edge23" class="edge"><title>proc~compute_dm&#45;&gt;m_transiesta</title>
-<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M189.264,-587.982C183.708,-536.1 159.484,-331.842 118,-285 114.495,-281.043 110.186,-277.831 105.513,-275.224"/>
-<polygon fill="#000000" stroke="#000000" points="106.738,-271.935 96.1923,-270.92 103.803,-278.29 106.738,-271.935"/>
-</g>
-<!-- siesta_options -->
-<g id="proc~~compute_dm~~UsesGraph_node25" class="node"><title>siesta_options</title>
-<polygon fill="#337ab7" stroke="#337ab7" points="99.5,-234 18.5,-234 18.5,-210 99.5,-210 99.5,-234"/>
-<text text-anchor="middle" x="59" y="-219.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">siesta_options</text>
-</g>
-<!-- proc~compute_dm&#45;&gt;siesta_options -->
-<g id="proc~~compute_dm~~UsesGraph_edge24" class="edge"><title>proc~compute_dm&#45;&gt;siesta_options</title>
-<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M189.613,-587.933C185.261,-531.821 164.479,-296.87 118,-243 115.322,-239.896 112.148,-237.251 108.686,-234.997"/>
-<polygon fill="#000000" stroke="#000000" points="110.078,-231.772 99.6065,-230.16 106.787,-237.95 110.078,-231.772"/>
+<!-- proc~compute_dm&#45;&gt;atomlist -->
+<g id="proc~~compute_dm~~UsesGraph_edge19" class="edge"><title>proc~compute_dm&#45;&gt;atomlist</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M187.801,-587.842C181.008,-560.01 160.621,-491.142 118,-453 111.702,-447.364 103.776,-443.208 95.8236,-440.154"/>
+<polygon fill="#000000" stroke="#000000" points="96.8117,-436.794 86.218,-436.95 94.597,-443.434 96.8117,-436.794"/>
 </g>
 <!-- parallel -->
-<g id="proc~~compute_dm~~UsesGraph_node26" class="node"><title>parallel</title>
-<polygon fill="#337ab7" stroke="#337ab7" points="86,-192 32,-192 32,-168 86,-168 86,-192"/>
-<text text-anchor="middle" x="59" y="-177.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">parallel</text>
+<g id="proc~~compute_dm~~UsesGraph_node21" class="node"><title>parallel</title>
+<polygon fill="#337ab7" stroke="#337ab7" points="86,-402 32,-402 32,-378 86,-378 86,-402"/>
+<text text-anchor="middle" x="59" y="-387.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">parallel</text>
 </g>
 <!-- proc~compute_dm&#45;&gt;parallel -->
-<g id="proc~~compute_dm~~UsesGraph_edge25" class="edge"><title>proc~compute_dm&#45;&gt;parallel</title>
+<g id="proc~~compute_dm~~UsesGraph_edge20" class="edge"><title>proc~compute_dm&#45;&gt;parallel</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M189.312,-587.958C185.427,-554.969 170.175,-462.198 118,-411 111.914,-405.028 104.002,-400.739 95.9902,-397.664"/>
+<polygon fill="#000000" stroke="#000000" points="96.8756,-394.271 86.2829,-394.484 94.6965,-400.924 96.8756,-394.271"/>
+</g>
+<!-- Kpoint_grid -->
+<g id="proc~~compute_dm~~UsesGraph_node22" class="node"><title>Kpoint_grid</title>
+<polygon fill="#337ab7" stroke="#337ab7" points="92.5,-360 25.5,-360 25.5,-336 92.5,-336 92.5,-360"/>
+<text text-anchor="middle" x="59" y="-345.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Kpoint_grid</text>
+</g>
+<!-- proc~compute_dm&#45;&gt;Kpoint_grid -->
+<g id="proc~~compute_dm~~UsesGraph_edge21" class="edge"><title>proc~compute_dm&#45;&gt;Kpoint_grid</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M190.283,-587.845C188.949,-550.089 179.778,-433.51 118,-369 113.528,-364.33 107.939,-360.695 102.01,-357.866"/>
+<polygon fill="#000000" stroke="#000000" points="103.106,-354.535 92.5219,-354.052 100.495,-361.03 103.106,-354.535"/>
+</g>
+<!-- class_dSpData1D -->
+<g id="proc~~compute_dm~~UsesGraph_node23" class="node"><title>class_dSpData1D</title>
+<polygon fill="#337ab7" stroke="#337ab7" points="107.5,-318 10.5,-318 10.5,-294 107.5,-294 107.5,-318"/>
+<text text-anchor="middle" x="59" y="-303.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">class_dSpData1D</text>
+</g>
+<!-- proc~compute_dm&#45;&gt;class_dSpData1D -->
+<g id="proc~~compute_dm~~UsesGraph_edge22" class="edge"><title>proc~compute_dm&#45;&gt;class_dSpData1D</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M190.983,-587.809C191.97,-545.763 189.54,-405.114 118,-327 116.983,-325.889 115.902,-324.837 114.769,-323.841"/>
+<polygon fill="#000000" stroke="#000000" points="116.796,-320.988 106.62,-318.039 112.736,-326.69 116.796,-320.988"/>
+</g>
+<!-- m_chess -->
+<g id="proc~~compute_dm~~UsesGraph_node24" class="node"><title>m_chess</title>
+<polygon fill="#337ab7" stroke="#337ab7" points="86.5,-276 31.5,-276 31.5,-252 86.5,-252 86.5,-276"/>
+<text text-anchor="middle" x="59" y="-261.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">m_chess</text>
+</g>
+<!-- proc~compute_dm&#45;&gt;m_chess -->
+<g id="proc~~compute_dm~~UsesGraph_edge23" class="edge"><title>proc~compute_dm&#45;&gt;m_chess</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M189.264,-587.982C183.708,-536.1 159.484,-331.842 118,-285 112.233,-278.489 104.288,-273.995 96.1264,-270.894"/>
+<polygon fill="#000000" stroke="#000000" points="97.1544,-267.549 86.564,-267.857 95.0351,-274.22 97.1544,-267.549"/>
+</g>
+<!-- m_gamma -->
+<g id="proc~~compute_dm~~UsesGraph_node25" class="node"><title>m_gamma</title>
+<polygon fill="#337ab7" stroke="#337ab7" points="91,-234 27,-234 27,-210 91,-210 91,-234"/>
+<text text-anchor="middle" x="59" y="-219.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">m_gamma</text>
+</g>
+<!-- proc~compute_dm&#45;&gt;m_gamma -->
+<g id="proc~~compute_dm~~UsesGraph_edge24" class="edge"><title>proc~compute_dm&#45;&gt;m_gamma</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M189.613,-587.933C185.261,-531.821 164.479,-296.87 118,-243 113.394,-237.661 107.32,-233.68 100.838,-230.71"/>
+<polygon fill="#000000" stroke="#000000" points="101.765,-227.318 91.1739,-227.043 99.2821,-233.863 101.765,-227.318"/>
+</g>
+<!-- m_hsx -->
+<g id="proc~~compute_dm~~UsesGraph_node26" class="node"><title>m_hsx</title>
+<polygon fill="#337ab7" stroke="#337ab7" points="86,-192 32,-192 32,-168 86,-168 86,-192"/>
+<text text-anchor="middle" x="59" y="-177.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">m_hsx</text>
+</g>
+<!-- proc~compute_dm&#45;&gt;m_hsx -->
+<g id="proc~~compute_dm~~UsesGraph_edge25" class="edge"><title>proc~compute_dm&#45;&gt;m_hsx</title>
 <path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M189.884,-587.752C186.614,-527.377 169.462,-261.903 118,-201 112.287,-194.239 104.217,-189.654 95.9068,-186.546"/>
 <polygon fill="#000000" stroke="#000000" points="96.7565,-183.145 86.1688,-183.533 94.6875,-189.833 96.7565,-183.145"/>
 </g>
-<!-- m_ordern -->
-<g id="proc~~compute_dm~~UsesGraph_node27" class="node"><title>m_ordern</title>
-<polygon fill="#337ab7" stroke="#337ab7" points="88.5,-150 29.5,-150 29.5,-126 88.5,-126 88.5,-150"/>
-<text text-anchor="middle" x="59" y="-135.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">m_ordern</text>
-</g>
-<!-- proc~compute_dm&#45;&gt;m_ordern -->
-<g id="proc~~compute_dm~~UsesGraph_edge26" class="edge"><title>proc~compute_dm&#45;&gt;m_ordern</title>
-<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M190.116,-587.769C187.872,-523.691 174.52,-227.04 118,-159 112.852,-152.802 105.72,-148.434 98.2155,-145.355"/>
-<polygon fill="#000000" stroke="#000000" points="99.2259,-142.001 88.6315,-142.103 96.9768,-148.63 99.2259,-142.001"/>
-</g>
 <!-- m_diagon -->
-<g id="proc~~compute_dm~~UsesGraph_node28" class="node"><title>m_diagon</title>
-<polygon fill="#337ab7" stroke="#337ab7" points="89,-108 29,-108 29,-84 89,-84 89,-108"/>
-<text text-anchor="middle" x="59" y="-93.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">m_diagon</text>
+<g id="proc~~compute_dm~~UsesGraph_node27" class="node"><title>m_diagon</title>
+<polygon fill="#337ab7" stroke="#337ab7" points="89,-150 29,-150 29,-126 89,-126 89,-150"/>
+<text text-anchor="middle" x="59" y="-135.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">m_diagon</text>
 </g>
 <!-- proc~compute_dm&#45;&gt;m_diagon -->
-<g id="proc~~compute_dm~~UsesGraph_edge27" class="edge"><title>proc~compute_dm&#45;&gt;m_diagon</title>
-<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M190.312,-587.965C189.031,-520.764 179.65,-192.277 118,-117 113.102,-111.019 106.354,-106.741 99.1897,-103.682"/>
-<polygon fill="#000000" stroke="#000000" points="99.8908,-100.219 89.296,-100.22 97.5786,-106.826 99.8908,-100.219"/>
+<g id="proc~~compute_dm~~UsesGraph_edge26" class="edge"><title>proc~compute_dm&#45;&gt;m_diagon</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M190.116,-587.769C187.872,-523.691 174.52,-227.04 118,-159 113.06,-153.053 106.295,-148.791 99.1254,-145.735"/>
+<polygon fill="#000000" stroke="#000000" points="99.8277,-142.273 89.2328,-142.272 97.5146,-148.879 99.8277,-142.273"/>
 </g>
 <!-- siesta_geom -->
-<g id="proc~~compute_dm~~UsesGraph_node29" class="node"><title>siesta_geom</title>
-<polygon fill="#337ab7" stroke="#337ab7" points="95.5,-66 22.5,-66 22.5,-42 95.5,-42 95.5,-66"/>
-<text text-anchor="middle" x="59" y="-51.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">siesta_geom</text>
+<g id="proc~~compute_dm~~UsesGraph_node28" class="node"><title>siesta_geom</title>
+<polygon fill="#337ab7" stroke="#337ab7" points="95.5,-108 22.5,-108 22.5,-84 95.5,-84 95.5,-108"/>
+<text text-anchor="middle" x="59" y="-93.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">siesta_geom</text>
 </g>
 <!-- proc~compute_dm&#45;&gt;siesta_geom -->
-<g id="proc~~compute_dm~~UsesGraph_edge28" class="edge"><title>proc~compute_dm&#45;&gt;siesta_geom</title>
-<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M190.471,-587.864C190.065,-517.042 184.705,-157.434 118,-75 114.463,-70.6294 109.938,-67.1682 104.978,-64.4273"/>
-<polygon fill="#000000" stroke="#000000" points="106.255,-61.1633 95.7009,-60.2306 103.369,-67.5411 106.255,-61.1633"/>
+<g id="proc~~compute_dm~~UsesGraph_edge27" class="edge"><title>proc~compute_dm&#45;&gt;siesta_geom</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M190.312,-587.965C189.031,-520.764 179.65,-192.277 118,-117 114.438,-112.65 109.897,-109.201 104.93,-106.467"/>
+<polygon fill="#000000" stroke="#000000" points="106.2,-103.2 95.6454,-102.276 103.32,-109.58 106.2,-103.2"/>
 </g>
-<!-- m_steps -->
-<g id="proc~~compute_dm~~UsesGraph_node30" class="node"><title>m_steps</title>
-<polygon fill="#337ab7" stroke="#337ab7" points="86,-24 32,-24 32,-0 86,-0 86,-24"/>
-<text text-anchor="middle" x="59" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">m_steps</text>
+<!-- precision -->
+<g id="proc~~compute_dm~~UsesGraph_node29" class="node"><title>precision</title>
+<polygon fill="#337ab7" stroke="#337ab7" points="86.5,-66 31.5,-66 31.5,-42 86.5,-42 86.5,-66"/>
+<text text-anchor="middle" x="59" y="-51.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">precision</text>
 </g>
-<!-- proc~compute_dm&#45;&gt;m_steps -->
-<g id="proc~~compute_dm~~UsesGraph_edge29" class="edge"><title>proc~compute_dm&#45;&gt;m_steps</title>
-<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M190.608,-587.878C191.032,-513.827 189.808,-122.658 118,-33 112.418,-26.0309 104.32,-21.3738 95.9372,-18.2619"/>
-<polygon fill="#000000" stroke="#000000" points="96.6843,-14.831 86.0987,-15.2727 94.6493,-21.5287 96.6843,-14.831"/>
+<!-- proc~compute_dm&#45;&gt;precision -->
+<g id="proc~~compute_dm~~UsesGraph_edge6" class="edge"><title>proc~compute_dm&#45;&gt;precision</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M190.471,-587.864C190.065,-517.042 184.705,-157.434 118,-75 112.48,-68.1787 104.552,-63.5727 96.3229,-60.4626"/>
+<polygon fill="#000000" stroke="#000000" points="97.2385,-57.0821 86.6503,-57.4557 95.1605,-63.7665 97.2385,-57.0821"/>
+</g>
+<!-- m_dminim -->
+<g id="proc~~compute_dm~~UsesGraph_node30" class="node"><title>m_dminim</title>
+<polygon fill="#337ab7" stroke="#337ab7" points="90,-24 28,-24 28,-0 90,-0 90,-24"/>
+<text text-anchor="middle" x="59" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">m_dminim</text>
+</g>
+<!-- proc~compute_dm&#45;&gt;m_dminim -->
+<g id="proc~~compute_dm~~UsesGraph_edge29" class="edge"><title>proc~compute_dm&#45;&gt;m_dminim</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M190.608,-587.878C191.032,-513.827 189.808,-122.658 118,-33 113.305,-27.1384 106.831,-22.9124 99.9034,-19.8657"/>
+<polygon fill="#000000" stroke="#000000" points="100.896,-16.5028 90.3012,-16.3992 98.5186,-23.0869 100.896,-16.5028"/>
 </g>
 </g>
 </svg>
@@ -796,125 +802,125 @@ public subroutine compute_dm(iscf)
 <polygon fill="none" stroke="black" points="75,-465 7.10543e-15,-465 7.10543e-15,-441 75,-441 75,-465"/>
 <text text-anchor="middle" x="37.5" y="-450.6" font-family="Helvetica,sans-Serif" font-size="10.50">compute_dm</text>
 </g>
-<!-- write_orb_indx -->
-<g id="proc~~compute_dm~~CallsGraph_node2" class="node"><title>write_orb_indx</title>
-<polygon fill="#777777" stroke="#777777" points="204,-906 122,-906 122,-882 204,-882 204,-906"/>
-<text text-anchor="middle" x="163" y="-891.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">write_orb_indx</text>
-</g>
-<!-- proc~compute_dm&#45;&gt;write_orb_indx -->
-<g id="proc~~compute_dm~~CallsGraph_edge1" class="edge"><title>proc~compute_dm&#45;&gt;write_orb_indx</title>
-<path fill="none" stroke="#000000" d="M39.0386,-465.015C42.0247,-526.686 58.3659,-807.318 111,-873 111.842,-874.051 112.745,-875.049 113.701,-875.999"/>
-<polygon fill="#000000" stroke="#000000" points="111.844,-878.988 121.892,-882.348 116.133,-873.455 111.844,-878.988"/>
-</g>
-<!-- bye -->
-<g id="proc~~compute_dm~~CallsGraph_node3" class="node"><title>bye</title>
-<polygon fill="#777777" stroke="#777777" points="190,-864 136,-864 136,-840 190,-840 190,-864"/>
-<text text-anchor="middle" x="163" y="-849.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">bye</text>
-</g>
-<!-- proc~compute_dm&#45;&gt;bye -->
-<g id="proc~~compute_dm~~CallsGraph_edge2" class="edge"><title>proc~compute_dm&#45;&gt;bye</title>
-<path fill="none" stroke="#000000" d="M39.3127,-465.333C43.3905,-523.8 63.343,-772.647 111,-831 115.094,-836.013 120.582,-839.843 126.442,-842.765"/>
-<polygon fill="#000000" stroke="#000000" points="125.231,-846.052 135.809,-846.649 127.912,-839.586 125.231,-846.052"/>
-</g>
-<!-- write_hs_formatted -->
-<g id="proc~~compute_dm~~CallsGraph_node4" class="node"><title>write_hs_formatted</title>
-<polygon fill="#777777" stroke="#777777" points="215,-822 111,-822 111,-798 215,-798 215,-822"/>
-<text text-anchor="middle" x="163" y="-807.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">write_hs_formatted</text>
-</g>
-<!-- proc~compute_dm&#45;&gt;write_hs_formatted -->
-<g id="proc~~compute_dm~~CallsGraph_edge3" class="edge"><title>proc~compute_dm&#45;&gt;write_hs_formatted</title>
-<path fill="none" stroke="#000000" d="M39.6057,-465.034C44.7745,-518.931 68.1292,-737.724 111,-789 111.737,-789.882 112.517,-790.727 113.334,-791.537"/>
-<polygon fill="#000000" stroke="#000000" points="111.502,-794.546 121.545,-797.921 115.799,-789.02 111.502,-794.546"/>
-</g>
-<!-- chess_wrapper -->
-<g id="proc~~compute_dm~~CallsGraph_node5" class="node"><title>chess_wrapper</title>
-<polygon fill="#777777" stroke="#777777" points="205.5,-780 120.5,-780 120.5,-756 205.5,-756 205.5,-780"/>
-<text text-anchor="middle" x="163" y="-765.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">chess_wrapper</text>
-</g>
-<!-- proc~compute_dm&#45;&gt;chess_wrapper -->
-<g id="proc~~compute_dm~~CallsGraph_edge4" class="edge"><title>proc~compute_dm&#45;&gt;chess_wrapper</title>
-<path fill="none" stroke="#000000" d="M40.0251,-465.176C46.4836,-515.012 73.0056,-702.884 111,-747 111.861,-748 112.777,-748.953 113.74,-749.861"/>
-<polygon fill="#000000" stroke="#000000" points="111.798,-752.78 121.896,-755.987 116.002,-747.183 111.798,-752.78"/>
-</g>
 <!-- moments -->
-<g id="proc~~compute_dm~~CallsGraph_node6" class="node"><title>moments</title>
-<polygon fill="#777777" stroke="#777777" points="191.5,-738 134.5,-738 134.5,-714 191.5,-714 191.5,-738"/>
-<text text-anchor="middle" x="163" y="-723.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">moments</text>
+<g id="proc~~compute_dm~~CallsGraph_node2" class="node"><title>moments</title>
+<polygon fill="#777777" stroke="#777777" points="191.5,-906 134.5,-906 134.5,-882 191.5,-882 191.5,-906"/>
+<text text-anchor="middle" x="163" y="-891.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">moments</text>
 </g>
 <!-- proc~compute_dm&#45;&gt;moments -->
-<g id="proc~~compute_dm~~CallsGraph_edge5" class="edge"><title>proc~compute_dm&#45;&gt;moments</title>
-<path fill="none" stroke="#000000" d="M38.4669,-465.262C39.0161,-505.087 46.0201,-632.414 111,-705 114.832,-709.281 119.669,-712.708 124.83,-715.448"/>
-<polygon fill="#000000" stroke="#000000" points="123.762,-718.803 134.322,-719.671 126.608,-712.408 123.762,-718.803"/>
+<g id="proc~~compute_dm~~CallsGraph_edge1" class="edge"><title>proc~compute_dm&#45;&gt;moments</title>
+<path fill="none" stroke="#000000" d="M39.0386,-465.015C42.0247,-526.686 58.3659,-807.318 111,-873 114.759,-877.691 119.742,-881.344 125.122,-884.187"/>
+<polygon fill="#000000" stroke="#000000" points="123.84,-887.446 134.405,-888.244 126.644,-881.032 123.84,-887.446"/>
 </g>
-<!-- mulliken -->
-<g id="proc~~compute_dm~~CallsGraph_node7" class="node"><title>mulliken</title>
-<polygon fill="#777777" stroke="#777777" points="190,-696 136,-696 136,-672 190,-672 190,-696"/>
-<text text-anchor="middle" x="163" y="-681.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">mulliken</text>
+<!-- write_orb_indx -->
+<g id="proc~~compute_dm~~CallsGraph_node3" class="node"><title>write_orb_indx</title>
+<polygon fill="#777777" stroke="#777777" points="204,-864 122,-864 122,-840 204,-840 204,-864"/>
+<text text-anchor="middle" x="163" y="-849.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">write_orb_indx</text>
 </g>
-<!-- proc~compute_dm&#45;&gt;mulliken -->
-<g id="proc~~compute_dm~~CallsGraph_edge6" class="edge"><title>proc~compute_dm&#45;&gt;mulliken</title>
-<path fill="none" stroke="#000000" d="M39.2974,-465.198C42.2386,-500.516 55.4167,-604.085 111,-663 115.252,-667.507 120.612,-671.077 126.249,-673.896"/>
-<polygon fill="#000000" stroke="#000000" points="125.277,-677.285 135.85,-677.963 128.008,-670.839 125.277,-677.285"/>
+<!-- proc~compute_dm&#45;&gt;write_orb_indx -->
+<g id="proc~~compute_dm~~CallsGraph_edge2" class="edge"><title>proc~compute_dm&#45;&gt;write_orb_indx</title>
+<path fill="none" stroke="#000000" d="M39.3127,-465.333C43.3905,-523.8 63.343,-772.647 111,-831 111.852,-832.043 112.764,-833.035 113.727,-833.978"/>
+<polygon fill="#000000" stroke="#000000" points="111.895,-836.984 121.96,-840.294 116.156,-831.43 111.895,-836.984"/>
+</g>
+<!-- dold -->
+<g id="proc~~compute_dm~~CallsGraph_node4" class="node"><title>dold</title>
+<polygon fill="#777777" stroke="#777777" points="190,-822 136,-822 136,-798 190,-798 190,-822"/>
+<text text-anchor="middle" x="163" y="-807.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">dold</text>
+</g>
+<!-- proc~compute_dm&#45;&gt;dold -->
+<g id="proc~~compute_dm~~CallsGraph_edge3" class="edge"><title>proc~compute_dm&#45;&gt;dold</title>
+<path fill="none" stroke="#000000" d="M39.6057,-465.034C44.7745,-518.931 68.1292,-737.724 111,-789 115.152,-793.966 120.666,-797.773 126.535,-800.688"/>
+<polygon fill="#000000" stroke="#000000" points="125.325,-803.975 135.903,-804.571 128.006,-797.508 125.325,-803.975"/>
 </g>
 <!-- dminim -->
-<g id="proc~~compute_dm~~CallsGraph_node8" class="node"><title>dminim</title>
-<polygon fill="#777777" stroke="#777777" points="190,-654 136,-654 136,-630 190,-630 190,-654"/>
-<text text-anchor="middle" x="163" y="-639.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">dminim</text>
+<g id="proc~~compute_dm~~CallsGraph_node5" class="node"><title>dminim</title>
+<polygon fill="#777777" stroke="#777777" points="190,-780 136,-780 136,-756 190,-756 190,-780"/>
+<text text-anchor="middle" x="163" y="-765.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">dminim</text>
 </g>
 <!-- proc~compute_dm&#45;&gt;dminim -->
-<g id="proc~~compute_dm~~CallsGraph_edge7" class="edge"><title>proc~compute_dm&#45;&gt;dminim</title>
+<g id="proc~~compute_dm~~CallsGraph_edge4" class="edge"><title>proc~compute_dm&#45;&gt;dminim</title>
+<path fill="none" stroke="#000000" d="M40.0251,-465.176C46.4836,-515.012 73.0056,-702.884 111,-747 115.183,-751.857 120.665,-755.609 126.481,-758.503"/>
+<polygon fill="#000000" stroke="#000000" points="125.18,-761.753 135.757,-762.379 127.879,-755.294 125.18,-761.753"/>
+</g>
+<!-- compute_ebs_shift -->
+<g id="proc~~compute_dm~~CallsGraph_node6" class="node"><title>compute_ebs_shift</title>
+<polygon fill="#777777" stroke="#777777" points="214.5,-738 111.5,-738 111.5,-714 214.5,-714 214.5,-738"/>
+<text text-anchor="middle" x="163" y="-723.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">compute_ebs_shift</text>
+</g>
+<!-- proc~compute_dm&#45;&gt;compute_ebs_shift -->
+<g id="proc~~compute_dm~~CallsGraph_edge5" class="edge"><title>proc~compute_dm&#45;&gt;compute_ebs_shift</title>
+<path fill="none" stroke="#000000" d="M38.4669,-465.262C39.0161,-505.087 46.0201,-632.414 111,-705 111.88,-705.983 112.813,-706.921 113.791,-707.817"/>
+<polygon fill="#000000" stroke="#000000" points="111.898,-710.769 122.028,-713.871 116.043,-705.128 111.898,-710.769"/>
+</g>
+<!-- normalize_dm -->
+<g id="proc~~compute_dm~~CallsGraph_node7" class="node"><title>normalize_dm</title>
+<polygon fill="#777777" stroke="#777777" points="203,-696 123,-696 123,-672 203,-672 203,-696"/>
+<text text-anchor="middle" x="163" y="-681.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">normalize_dm</text>
+</g>
+<!-- proc~compute_dm&#45;&gt;normalize_dm -->
+<g id="proc~~compute_dm~~CallsGraph_edge6" class="edge"><title>proc~compute_dm&#45;&gt;normalize_dm</title>
+<path fill="none" stroke="#000000" d="M39.2974,-465.198C42.2386,-500.516 55.4167,-604.085 111,-663 112.068,-664.132 113.206,-665.205 114.4,-666.221"/>
+<polygon fill="#000000" stroke="#000000" points="112.752,-669.337 122.967,-672.147 116.734,-663.58 112.752,-669.337"/>
+</g>
+<!-- timer -->
+<g id="proc~~compute_dm~~CallsGraph_node8" class="node"><title>timer</title>
+<polygon fill="#777777" stroke="#777777" points="190,-654 136,-654 136,-630 190,-630 190,-654"/>
+<text text-anchor="middle" x="163" y="-639.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">timer</text>
+</g>
+<!-- proc~compute_dm&#45;&gt;timer -->
+<g id="proc~~compute_dm~~CallsGraph_edge7" class="edge"><title>proc~compute_dm&#45;&gt;timer</title>
 <path fill="none" stroke="#000000" d="M40.5394,-465.355C46.1904,-495.86 64.7934,-575.563 111,-621 115.374,-625.301 120.752,-628.764 126.359,-631.54"/>
 <polygon fill="#000000" stroke="#000000" points="125.3,-634.893 135.872,-635.589 128.041,-628.452 125.3,-634.893"/>
 </g>
-<!-- eold -->
-<g id="proc~~compute_dm~~CallsGraph_node9" class="node"><title>eold</title>
-<polygon fill="#777777" stroke="#777777" points="190,-612 136,-612 136,-588 190,-588 190,-612"/>
-<text text-anchor="middle" x="163" y="-597.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">eold</text>
+<!-- write_hs_formatted -->
+<g id="proc~~compute_dm~~CallsGraph_node9" class="node"><title>write_hs_formatted</title>
+<polygon fill="#777777" stroke="#777777" points="215,-612 111,-612 111,-588 215,-588 215,-612"/>
+<text text-anchor="middle" x="163" y="-597.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">write_hs_formatted</text>
 </g>
-<!-- proc~compute_dm&#45;&gt;eold -->
-<g id="proc~~compute_dm~~CallsGraph_edge8" class="edge"><title>proc~compute_dm&#45;&gt;eold</title>
-<path fill="none" stroke="#000000" d="M42.4503,-465.147C51.064,-489.858 73.7993,-546.396 111,-579 115.521,-582.962 120.892,-586.244 126.424,-588.941"/>
-<polygon fill="#000000" stroke="#000000" points="125.194,-592.222 135.764,-592.944 127.951,-585.788 125.194,-592.222"/>
+<!-- proc~compute_dm&#45;&gt;write_hs_formatted -->
+<g id="proc~~compute_dm~~CallsGraph_edge8" class="edge"><title>proc~compute_dm&#45;&gt;write_hs_formatted</title>
+<path fill="none" stroke="#000000" d="M42.4503,-465.147C51.064,-489.858 73.7993,-546.396 111,-579 112.485,-580.302 114.062,-581.53 115.706,-582.688"/>
+<polygon fill="#000000" stroke="#000000" points="114.004,-585.748 124.375,-587.911 117.616,-579.753 114.004,-585.748"/>
 </g>
-<!-- ordern -->
-<g id="proc~~compute_dm~~CallsGraph_node10" class="node"><title>ordern</title>
-<polygon fill="#777777" stroke="#777777" points="190,-570 136,-570 136,-546 190,-546 190,-570"/>
-<text text-anchor="middle" x="163" y="-555.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">ordern</text>
+<!-- transiesta -->
+<g id="proc~~compute_dm~~CallsGraph_node10" class="node"><title>transiesta</title>
+<polygon fill="#777777" stroke="#777777" points="192.5,-570 133.5,-570 133.5,-546 192.5,-546 192.5,-570"/>
+<text text-anchor="middle" x="163" y="-555.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">transiesta</text>
 </g>
-<!-- proc~compute_dm&#45;&gt;ordern -->
-<g id="proc~~compute_dm~~CallsGraph_edge9" class="edge"><title>proc~compute_dm&#45;&gt;ordern</title>
-<path fill="none" stroke="#000000" d="M46.2394,-465.154C58.1856,-483.061 82.7169,-516.608 111,-537 115.66,-540.36 120.938,-543.299 126.287,-545.829"/>
-<polygon fill="#000000" stroke="#000000" points="125.305,-549.216 135.875,-549.945 128.066,-542.784 125.305,-549.216"/>
+<!-- proc~compute_dm&#45;&gt;transiesta -->
+<g id="proc~~compute_dm~~CallsGraph_edge9" class="edge"><title>proc~compute_dm&#45;&gt;transiesta</title>
+<path fill="none" stroke="#000000" d="M46.2394,-465.154C58.1856,-483.061 82.7169,-516.608 111,-537 114.966,-539.86 119.379,-542.414 123.903,-544.671"/>
+<polygon fill="#000000" stroke="#000000" points="122.682,-547.96 133.236,-548.889 125.565,-541.581 122.682,-547.96"/>
 </g>
-<!-- normalize_dm -->
-<g id="proc~~compute_dm~~CallsGraph_node11" class="node"><title>normalize_dm</title>
-<polygon fill="#777777" stroke="#777777" points="203,-528 123,-528 123,-504 203,-504 203,-528"/>
-<text text-anchor="middle" x="163" y="-513.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">normalize_dm</text>
+<!-- pexsi_solver -->
+<g id="proc~~compute_dm~~CallsGraph_node11" class="node"><title>pexsi_solver</title>
+<polygon fill="#777777" stroke="#777777" points="199,-528 127,-528 127,-504 199,-504 199,-528"/>
+<text text-anchor="middle" x="163" y="-513.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">pexsi_solver</text>
 </g>
-<!-- proc~compute_dm&#45;&gt;normalize_dm -->
-<g id="proc~~compute_dm~~CallsGraph_edge10" class="edge"><title>proc~compute_dm&#45;&gt;normalize_dm</title>
+<!-- proc~compute_dm&#45;&gt;pexsi_solver -->
+<g id="proc~~compute_dm~~CallsGraph_edge10" class="edge"><title>proc~compute_dm&#45;&gt;pexsi_solver</title>
 <path fill="none" stroke="#000000" d="M57.8037,-465.137C72.1914,-473.946 92.4715,-485.87 111,-495 114.377,-496.664 117.919,-498.312 121.496,-499.91"/>
 <polygon fill="#000000" stroke="#000000" points="120.39,-503.245 130.958,-503.999 123.167,-496.819 120.39,-503.245"/>
 </g>
-<!-- timer -->
-<g id="proc~~compute_dm~~CallsGraph_node12" class="node"><title>timer</title>
-<polygon fill="#777777" stroke="#777777" points="190,-486 136,-486 136,-462 190,-462 190,-486"/>
-<text text-anchor="middle" x="163" y="-471.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">timer</text>
+<!-- chess_wrapper -->
+<g id="proc~~compute_dm~~CallsGraph_node12" class="node"><title>chess_wrapper</title>
+<polygon fill="#777777" stroke="#777777" points="205.5,-486 120.5,-486 120.5,-462 205.5,-462 205.5,-486"/>
+<text text-anchor="middle" x="163" y="-471.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">chess_wrapper</text>
 </g>
-<!-- proc~compute_dm&#45;&gt;timer -->
-<g id="proc~~compute_dm~~CallsGraph_edge11" class="edge"><title>proc~compute_dm&#45;&gt;timer</title>
-<path fill="none" stroke="#000000" d="M75.2197,-459.244C91.2011,-461.961 109.875,-465.137 125.798,-467.844"/>
-<polygon fill="#000000" stroke="#000000" points="125.362,-471.32 135.808,-469.546 126.536,-464.419 125.362,-471.32"/>
+<!-- proc~compute_dm&#45;&gt;chess_wrapper -->
+<g id="proc~~compute_dm~~CallsGraph_edge11" class="edge"><title>proc~compute_dm&#45;&gt;chess_wrapper</title>
+<path fill="none" stroke="#000000" d="M75.2197,-459.244C86.2184,-461.114 98.4923,-463.201 110.267,-465.203"/>
+<polygon fill="#000000" stroke="#000000" points="109.996,-468.707 120.441,-466.933 111.17,-461.806 109.996,-468.707"/>
 </g>
-<!-- transiesta -->
-<g id="proc~~compute_dm~~CallsGraph_node13" class="node"><title>transiesta</title>
-<polygon fill="#777777" stroke="#777777" points="192.5,-444 133.5,-444 133.5,-420 192.5,-420 192.5,-444"/>
-<text text-anchor="middle" x="163" y="-429.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">transiesta</text>
+<!-- val -->
+<g id="proc~~compute_dm~~CallsGraph_node13" class="node"><title>val</title>
+<polygon fill="#777777" stroke="#777777" points="190,-444 136,-444 136,-420 190,-420 190,-444"/>
+<text text-anchor="middle" x="163" y="-429.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">val</text>
 </g>
-<!-- proc~compute_dm&#45;&gt;transiesta -->
-<g id="proc~~compute_dm~~CallsGraph_edge12" class="edge"><title>proc~compute_dm&#45;&gt;transiesta</title>
-<path fill="none" stroke="#000000" d="M75.2197,-446.756C90.3556,-444.182 107.907,-441.198 123.248,-438.589"/>
-<polygon fill="#000000" stroke="#000000" points="124.188,-441.98 133.459,-436.853 123.014,-435.079 124.188,-441.98"/>
+<!-- proc~compute_dm&#45;&gt;val -->
+<g id="proc~~compute_dm~~CallsGraph_edge12" class="edge"><title>proc~compute_dm&#45;&gt;val</title>
+<path fill="none" stroke="#000000" d="M75.2197,-446.756C91.2011,-444.039 109.875,-440.863 125.798,-438.156"/>
+<polygon fill="#000000" stroke="#000000" points="126.536,-441.581 135.808,-436.454 125.362,-434.68 126.536,-441.581"/>
 </g>
 <!-- escf -->
 <g id="proc~~compute_dm~~CallsGraph_node14" class="node"><title>escf</title>
@@ -926,75 +932,75 @@ public subroutine compute_dm(iscf)
 <path fill="none" stroke="#000000" d="M57.8037,-440.863C72.1914,-432.054 92.4715,-420.13 111,-411 115.939,-408.566 121.232,-406.167 126.471,-403.908"/>
 <polygon fill="#000000" stroke="#000000" points="127.884,-407.111 135.755,-400.019 125.179,-400.655 127.884,-407.111"/>
 </g>
-<!-- mpi_bcast -->
-<g id="proc~~compute_dm~~CallsGraph_node15" class="node"><title>mpi_bcast</title>
-<polygon fill="#777777" stroke="#777777" points="193.5,-360 132.5,-360 132.5,-336 193.5,-336 193.5,-360"/>
-<text text-anchor="middle" x="163" y="-345.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">mpi_bcast</text>
+<!-- mulliken -->
+<g id="proc~~compute_dm~~CallsGraph_node15" class="node"><title>mulliken</title>
+<polygon fill="#777777" stroke="#777777" points="190,-360 136,-360 136,-336 190,-336 190,-360"/>
+<text text-anchor="middle" x="163" y="-345.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">mulliken</text>
 </g>
-<!-- proc~compute_dm&#45;&gt;mpi_bcast -->
-<g id="proc~~compute_dm~~CallsGraph_edge14" class="edge"><title>proc~compute_dm&#45;&gt;mpi_bcast</title>
-<path fill="none" stroke="#000000" d="M46.2394,-440.846C58.1856,-422.939 82.7169,-389.392 111,-369 114.727,-366.313 118.849,-363.895 123.086,-361.741"/>
-<polygon fill="#000000" stroke="#000000" points="124.815,-364.798 132.439,-357.441 121.891,-358.438 124.815,-364.798"/>
+<!-- proc~compute_dm&#45;&gt;mulliken -->
+<g id="proc~~compute_dm~~CallsGraph_edge14" class="edge"><title>proc~compute_dm&#45;&gt;mulliken</title>
+<path fill="none" stroke="#000000" d="M46.2394,-440.846C58.1856,-422.939 82.7169,-389.392 111,-369 115.66,-365.64 120.938,-362.701 126.287,-360.171"/>
+<polygon fill="#000000" stroke="#000000" points="128.066,-363.216 135.875,-356.055 125.305,-356.784 128.066,-363.216"/>
 </g>
-<!-- val -->
-<g id="proc~~compute_dm~~CallsGraph_node16" class="node"><title>val</title>
+<!-- ordern -->
+<g id="proc~~compute_dm~~CallsGraph_node16" class="node"><title>ordern</title>
 <polygon fill="#777777" stroke="#777777" points="190,-318 136,-318 136,-294 190,-294 190,-318"/>
-<text text-anchor="middle" x="163" y="-303.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">val</text>
+<text text-anchor="middle" x="163" y="-303.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">ordern</text>
 </g>
-<!-- proc~compute_dm&#45;&gt;val -->
-<g id="proc~~compute_dm~~CallsGraph_edge15" class="edge"><title>proc~compute_dm&#45;&gt;val</title>
+<!-- proc~compute_dm&#45;&gt;ordern -->
+<g id="proc~~compute_dm~~CallsGraph_edge15" class="edge"><title>proc~compute_dm&#45;&gt;ordern</title>
 <path fill="none" stroke="#000000" d="M42.4503,-440.853C51.064,-416.142 73.7993,-359.604 111,-327 115.521,-323.038 120.892,-319.756 126.424,-317.059"/>
 <polygon fill="#000000" stroke="#000000" points="127.951,-320.212 135.764,-313.056 125.194,-313.778 127.951,-320.212"/>
 </g>
-<!-- dold -->
-<g id="proc~~compute_dm~~CallsGraph_node17" class="node"><title>dold</title>
+<!-- dscf -->
+<g id="proc~~compute_dm~~CallsGraph_node17" class="node"><title>dscf</title>
 <polygon fill="#777777" stroke="#777777" points="190,-276 136,-276 136,-252 190,-252 190,-276"/>
-<text text-anchor="middle" x="163" y="-261.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">dold</text>
+<text text-anchor="middle" x="163" y="-261.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">dscf</text>
 </g>
-<!-- proc~compute_dm&#45;&gt;dold -->
-<g id="proc~~compute_dm~~CallsGraph_edge16" class="edge"><title>proc~compute_dm&#45;&gt;dold</title>
+<!-- proc~compute_dm&#45;&gt;dscf -->
+<g id="proc~~compute_dm~~CallsGraph_edge16" class="edge"><title>proc~compute_dm&#45;&gt;dscf</title>
 <path fill="none" stroke="#000000" d="M40.5394,-440.645C46.1904,-410.14 64.7934,-330.437 111,-285 115.374,-280.699 120.752,-277.236 126.359,-274.46"/>
 <polygon fill="#000000" stroke="#000000" points="128.041,-277.548 135.872,-270.411 125.3,-271.107 128.041,-277.548"/>
 </g>
-<!-- dscf -->
-<g id="proc~~compute_dm~~CallsGraph_node18" class="node"><title>dscf</title>
+<!-- zminim -->
+<g id="proc~~compute_dm~~CallsGraph_node18" class="node"><title>zminim</title>
 <polygon fill="#777777" stroke="#777777" points="190,-234 136,-234 136,-210 190,-210 190,-234"/>
-<text text-anchor="middle" x="163" y="-219.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">dscf</text>
+<text text-anchor="middle" x="163" y="-219.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">zminim</text>
 </g>
-<!-- proc~compute_dm&#45;&gt;dscf -->
-<g id="proc~~compute_dm~~CallsGraph_edge17" class="edge"><title>proc~compute_dm&#45;&gt;dscf</title>
+<!-- proc~compute_dm&#45;&gt;zminim -->
+<g id="proc~~compute_dm~~CallsGraph_edge17" class="edge"><title>proc~compute_dm&#45;&gt;zminim</title>
 <path fill="none" stroke="#000000" d="M39.2974,-440.802C42.2386,-405.484 55.4167,-301.915 111,-243 115.252,-238.493 120.612,-234.923 126.249,-232.104"/>
 <polygon fill="#000000" stroke="#000000" points="128.008,-235.161 135.85,-228.037 125.277,-228.715 128.008,-235.161"/>
 </g>
+<!-- mpi_bcast -->
+<g id="proc~~compute_dm~~CallsGraph_node19" class="node"><title>mpi_bcast</title>
+<polygon fill="#777777" stroke="#777777" points="193.5,-192 132.5,-192 132.5,-168 193.5,-168 193.5,-192"/>
+<text text-anchor="middle" x="163" y="-177.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">mpi_bcast</text>
+</g>
+<!-- proc~compute_dm&#45;&gt;mpi_bcast -->
+<g id="proc~~compute_dm~~CallsGraph_edge18" class="edge"><title>proc~compute_dm&#45;&gt;mpi_bcast</title>
+<path fill="none" stroke="#000000" d="M38.4669,-440.738C39.0161,-400.913 46.0201,-273.586 111,-201 114.464,-197.131 118.749,-193.958 123.352,-191.361"/>
+<polygon fill="#000000" stroke="#000000" points="124.925,-194.489 132.463,-187.044 121.927,-188.163 124.925,-194.489"/>
+</g>
 <!-- diagon -->
-<g id="proc~~compute_dm~~CallsGraph_node19" class="node"><title>diagon</title>
-<polygon fill="#777777" stroke="#777777" points="190,-192 136,-192 136,-168 190,-168 190,-192"/>
-<text text-anchor="middle" x="163" y="-177.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">diagon</text>
+<g id="proc~~compute_dm~~CallsGraph_node20" class="node"><title>diagon</title>
+<polygon fill="#777777" stroke="#777777" points="190,-150 136,-150 136,-126 190,-126 190,-150"/>
+<text text-anchor="middle" x="163" y="-135.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">diagon</text>
 </g>
 <!-- proc~compute_dm&#45;&gt;diagon -->
-<g id="proc~~compute_dm~~CallsGraph_edge18" class="edge"><title>proc~compute_dm&#45;&gt;diagon</title>
-<path fill="none" stroke="#000000" d="M38.4669,-440.738C39.0161,-400.913 46.0201,-273.586 111,-201 115.275,-196.224 120.801,-192.511 126.632,-189.63"/>
-<polygon fill="#000000" stroke="#000000" points="128.031,-192.839 135.91,-185.755 125.333,-186.379 128.031,-192.839"/>
-</g>
-<!-- zminim -->
-<g id="proc~~compute_dm~~CallsGraph_node20" class="node"><title>zminim</title>
-<polygon fill="#777777" stroke="#777777" points="190,-150 136,-150 136,-126 190,-126 190,-150"/>
-<text text-anchor="middle" x="163" y="-135.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">zminim</text>
-</g>
-<!-- proc~compute_dm&#45;&gt;zminim -->
-<g id="proc~~compute_dm~~CallsGraph_edge19" class="edge"><title>proc~compute_dm&#45;&gt;zminim</title>
+<g id="proc~~compute_dm~~CallsGraph_edge19" class="edge"><title>proc~compute_dm&#45;&gt;diagon</title>
 <path fill="none" stroke="#000000" d="M40.0251,-440.824C46.4836,-390.988 73.0056,-203.116 111,-159 115.183,-154.143 120.665,-150.391 126.481,-147.497"/>
 <polygon fill="#000000" stroke="#000000" points="127.879,-150.706 135.757,-143.621 125.18,-144.247 127.879,-150.706"/>
 </g>
-<!-- compute_ebs_shift -->
-<g id="proc~~compute_dm~~CallsGraph_node21" class="node"><title>compute_ebs_shift</title>
-<polygon fill="#777777" stroke="#777777" points="214.5,-108 111.5,-108 111.5,-84 214.5,-84 214.5,-108"/>
-<text text-anchor="middle" x="163" y="-93.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">compute_ebs_shift</text>
+<!-- eold -->
+<g id="proc~~compute_dm~~CallsGraph_node21" class="node"><title>eold</title>
+<polygon fill="#777777" stroke="#777777" points="190,-108 136,-108 136,-84 190,-84 190,-108"/>
+<text text-anchor="middle" x="163" y="-93.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">eold</text>
 </g>
-<!-- proc~compute_dm&#45;&gt;compute_ebs_shift -->
-<g id="proc~~compute_dm~~CallsGraph_edge20" class="edge"><title>proc~compute_dm&#45;&gt;compute_ebs_shift</title>
-<path fill="none" stroke="#000000" d="M39.6057,-440.966C44.7745,-387.069 68.1292,-168.276 111,-117 111.737,-116.118 112.517,-115.273 113.334,-114.463"/>
-<polygon fill="#000000" stroke="#000000" points="115.799,-116.98 121.545,-108.079 111.502,-111.454 115.799,-116.98"/>
+<!-- proc~compute_dm&#45;&gt;eold -->
+<g id="proc~~compute_dm~~CallsGraph_edge20" class="edge"><title>proc~compute_dm&#45;&gt;eold</title>
+<path fill="none" stroke="#000000" d="M39.6057,-440.966C44.7745,-387.069 68.1292,-168.276 111,-117 115.152,-112.034 120.666,-108.227 126.535,-105.312"/>
+<polygon fill="#000000" stroke="#000000" points="128.006,-108.492 135.903,-101.429 125.325,-102.025 128.006,-108.492"/>
 </g>
 <!-- write_dmh_netcdf -->
 <g id="proc~~compute_dm~~CallsGraph_node22" class="node"><title>write_dmh_netcdf</title>
@@ -1006,15 +1012,15 @@ public subroutine compute_dm(iscf)
 <path fill="none" stroke="#000000" d="M39.3127,-440.667C43.3905,-382.2 63.343,-133.353 111,-75 111.727,-74.11 112.498,-73.2574 113.307,-72.4405"/>
 <polygon fill="#000000" stroke="#000000" points="115.776,-74.9504 121.464,-66.0119 111.444,-69.4523 115.776,-74.9504"/>
 </g>
-<!-- pexsi_solver -->
-<g id="proc~~compute_dm~~CallsGraph_node23" class="node"><title>pexsi_solver</title>
-<polygon fill="#777777" stroke="#777777" points="199,-24 127,-24 127,-0 199,-0 199,-24"/>
-<text text-anchor="middle" x="163" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">pexsi_solver</text>
+<!-- bye -->
+<g id="proc~~compute_dm~~CallsGraph_node23" class="node"><title>bye</title>
+<polygon fill="#777777" stroke="#777777" points="190,-24 136,-24 136,-0 190,-0 190,-24"/>
+<text text-anchor="middle" x="163" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">bye</text>
 </g>
-<!-- proc~compute_dm&#45;&gt;pexsi_solver -->
-<g id="proc~~compute_dm~~CallsGraph_edge22" class="edge"><title>proc~compute_dm&#45;&gt;pexsi_solver</title>
-<path fill="none" stroke="#000000" d="M39.0386,-440.985C42.0247,-379.314 58.3659,-98.682 111,-33 113.096,-30.3847 115.572,-28.092 118.285,-26.0826"/>
-<polygon fill="#000000" stroke="#000000" points="120.213,-29.0072 126.992,-20.8648 116.615,-23.0028 120.213,-29.0072"/>
+<!-- proc~compute_dm&#45;&gt;bye -->
+<g id="proc~~compute_dm~~CallsGraph_edge22" class="edge"><title>proc~compute_dm&#45;&gt;bye</title>
+<path fill="none" stroke="#000000" d="M39.0386,-440.985C42.0247,-379.314 58.3659,-98.682 111,-33 115.087,-27.9002 120.619,-24.027 126.536,-21.0889"/>
+<polygon fill="#000000" stroke="#000000" points="128.08,-24.2387 135.998,-17.1997 125.419,-17.7643 128.08,-24.2387"/>
 </g>
 </g>
 </svg>
@@ -1519,6 +1525,12 @@ public subroutine compute_dm(iscf)
     <div class="list-group">
       
       <a class="list-group-item" href="../proc/compute_dm.html">compute_dm</a>
+      
+      <a class="list-group-item" href="../interface/compute_max_diff.html">compute_max_diff</a>
+      
+      <a class="list-group-item" href="../proc/compute_max_diff_1d.html">compute_max_diff_1d</a>
+      
+      <a class="list-group-item" href="../proc/compute_max_diff_2d.html">compute_max_diff_2d</a>
       
       <a class="list-group-item" href="../proc/current_itt.html">current_itt</a>
       

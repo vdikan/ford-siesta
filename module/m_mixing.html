@@ -44,7 +44,7 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="../index.html">SIESTA <small>trunk-674</small></a>
+          <a class="navbar-brand" href="../index.html">SIESTA <small>trunk-674--vdikan-ford-681</small></a>
         </div>
         <div id="navbar" class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
@@ -124,7 +124,7 @@
      <li><i class="fa fa-list-ol"></i>
        <a data-toggle="tooltip"
 	  data-placement="bottom" data-html="true"
-	  title="46.8% of total for modules and submodules.">1414 statements</a>
+	  title="46.1% of total for modules and submodules.">1414 statements</a>
      </li> 
      
      
@@ -313,6 +313,8 @@
       
       <a class="list-group-item" href="../module/m_compute_dm.html">m_compute_dm</a>
       
+      <a class="list-group-item" href="../module/m_compute_max_diff.html">m_compute_max_diff</a>
+      
       <a class="list-group-item" href="../module/m_mixing.html">m_mixing</a>
       
       <a class="list-group-item" href="../module/m_mixing_scf.html">m_mixing_scf</a>
@@ -380,15 +382,15 @@
 <polygon fill="none" stroke="black" points="216,-66 158,-66 158,-42 216,-42 216,-66"/>
 <text text-anchor="middle" x="187" y="-51.6" font-family="Helvetica,sans-Serif" font-size="10.50">m_mixing</text>
 </g>
-<!-- precision -->
-<g id="module~~m_mixing~~UsesGraph_node2" class="node"><title>precision</title>
-<polygon fill="#337ab7" stroke="#337ab7" points="88.5,-108 33.5,-108 33.5,-84 88.5,-84 88.5,-108"/>
-<text text-anchor="middle" x="61" y="-93.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">precision</text>
+<!-- class_dData1D -->
+<g id="module~~m_mixing~~UsesGraph_node2" class="node"><title>class_dData1D</title>
+<polygon fill="#337ab7" stroke="#337ab7" points="103.5,-108 18.5,-108 18.5,-84 103.5,-84 103.5,-108"/>
+<text text-anchor="middle" x="61" y="-93.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">class_dData1D</text>
 </g>
-<!-- module~m_mixing&#45;&gt;precision -->
-<g id="module~~m_mixing~~UsesGraph_edge1" class="edge"><title>module~m_mixing&#45;&gt;precision</title>
-<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M157.862,-63.5305C140.216,-69.5074 117.291,-77.2724 98.2844,-83.7101"/>
-<polygon fill="#000000" stroke="#000000" points="97.0997,-80.416 88.7511,-86.9391 99.3454,-87.046 97.0997,-80.416"/>
+<!-- module~m_mixing&#45;&gt;class_dData1D -->
+<g id="module~~m_mixing~~UsesGraph_edge1" class="edge"><title>module~m_mixing&#45;&gt;class_dData1D</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M157.862,-63.5305C142.929,-68.5884 124.216,-74.9269 107.296,-80.6579"/>
+<polygon fill="#000000" stroke="#000000" points="105.931,-77.4246 97.5827,-83.9478 108.177,-84.0547 105.931,-77.4246"/>
 </g>
 <!-- class_Fstack_dData1D -->
 <g id="module~~m_mixing~~UsesGraph_node3" class="node"><title>class_Fstack_dData1D</title>
@@ -400,15 +402,15 @@
 <path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M157.862,-54C150.127,-54 141.377,-54 132.387,-54"/>
 <polygon fill="#000000" stroke="#000000" points="132.177,-50.5001 122.177,-54 132.177,-57.5001 132.177,-50.5001"/>
 </g>
-<!-- class_dData1D -->
-<g id="module~~m_mixing~~UsesGraph_node4" class="node"><title>class_dData1D</title>
-<polygon fill="#337ab7" stroke="#337ab7" points="103.5,-24 18.5,-24 18.5,-0 103.5,-0 103.5,-24"/>
-<text text-anchor="middle" x="61" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">class_dData1D</text>
+<!-- precision -->
+<g id="module~~m_mixing~~UsesGraph_node4" class="node"><title>precision</title>
+<polygon fill="#337ab7" stroke="#337ab7" points="88.5,-24 33.5,-24 33.5,-0 88.5,-0 88.5,-24"/>
+<text text-anchor="middle" x="61" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">precision</text>
 </g>
-<!-- module~m_mixing&#45;&gt;class_dData1D -->
-<g id="module~~m_mixing~~UsesGraph_edge3" class="edge"><title>module~m_mixing&#45;&gt;class_dData1D</title>
-<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M157.862,-44.4695C142.929,-39.4116 124.216,-33.0731 107.296,-27.3421"/>
-<polygon fill="#000000" stroke="#000000" points="108.177,-23.9453 97.5827,-24.0522 105.931,-30.5754 108.177,-23.9453"/>
+<!-- module~m_mixing&#45;&gt;precision -->
+<g id="module~~m_mixing~~UsesGraph_edge3" class="edge"><title>module~m_mixing&#45;&gt;precision</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M157.862,-44.4695C140.216,-38.4926 117.291,-30.7276 98.2844,-24.2899"/>
+<polygon fill="#000000" stroke="#000000" points="99.3454,-20.954 88.7511,-21.0609 97.0997,-27.584 99.3454,-20.954"/>
 </g>
 </g>
 </svg>
@@ -496,31 +498,44 @@
 <polygon fill="none" stroke="black" points="58,-150 0,-150 0,-126 58,-126 58,-150"/>
 <text text-anchor="middle" x="29" y="-135.6" font-family="Helvetica,sans-Serif" font-size="10.50">m_mixing</text>
 </g>
-<!-- proc~mixers_scf_history_init -->
-<g id="module~~m_mixing~~UsedByGraph_node2" class="node"><title>proc~mixers_scf_history_init</title>
-<g id="a_module~~m_mixing~~UsedByGraph_node2"><a xlink:href=".././proc/mixers_scf_history_init.html" xlink:title="mixers_scf_history_init">
-<polygon fill="#d9534f" stroke="#d9534f" points="215,-272 94,-272 94,-248 215,-248 215,-272"/>
-<text text-anchor="middle" x="154.5" y="-257.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">mixers_scf_history_init</text>
+<!-- proc~mixers_scf_init -->
+<g id="module~~m_mixing~~UsedByGraph_node2" class="node"><title>proc~mixers_scf_init</title>
+<g id="a_module~~m_mixing~~UsedByGraph_node2"><a xlink:href=".././proc/mixers_scf_init.html" xlink:title="mixers_scf_init">
+<polygon fill="#d9534f" stroke="#d9534f" points="196,-272 113,-272 113,-248 196,-248 196,-272"/>
+<text text-anchor="middle" x="154.5" y="-257.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">mixers_scf_init</text>
 </a>
 </g>
 </g>
-<!-- proc~mixers_scf_history_init&#45;&gt;module~m_mixing -->
-<g id="module~~m_mixing~~UsedByGraph_edge1" class="edge"><title>proc~mixers_scf_history_init&#45;&gt;module~m_mixing</title>
+<!-- proc~mixers_scf_init&#45;&gt;module~m_mixing -->
+<g id="module~~m_mixing~~UsedByGraph_edge1" class="edge"><title>proc~mixers_scf_init&#45;&gt;module~m_mixing</title>
 <path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M116.981,-247.96C108.897,-244.266 100.74,-239.647 94,-234 69.3458,-213.344 50.4406,-180.832 39.7719,-159.464"/>
 <polygon fill="#000000" stroke="#000000" points="42.8236,-157.733 35.3327,-150.241 36.5162,-160.769 42.8236,-157.733"/>
 </g>
+<!-- proc~state_init -->
+<g id="module~~m_mixing~~UsedByGraph_node3" class="node"><title>proc~state_init</title>
+<g id="a_module~~m_mixing~~UsedByGraph_node3"><a xlink:href=".././proc/state_init.html" xlink:title="state_init">
+<polygon fill="#d9534f" stroke="#d9534f" points="316.5,-232 261.5,-232 261.5,-208 316.5,-208 316.5,-232"/>
+<text text-anchor="middle" x="289" y="-217.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">state_init</text>
+</a>
+</g>
+</g>
+<!-- proc~state_init&#45;&gt;module~m_mixing -->
+<g id="module~~m_mixing~~UsedByGraph_edge2" class="edge"><title>proc~state_init&#45;&gt;module~m_mixing</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M261.446,-222.796C222.671,-225.719 149.176,-226.812 94,-201 73.6949,-191.501 56.0098,-172.799 44.4068,-158.228"/>
+<polygon fill="#000000" stroke="#000000" points="47.1518,-156.056 38.3042,-150.227 41.586,-160.301 47.1518,-156.056"/>
+</g>
 <!-- module~m_mixing_scf -->
-<g id="module~~m_mixing~~UsedByGraph_node3" class="node"><title>module~m_mixing_scf</title>
-<g id="a_module~~m_mixing~~UsedByGraph_node3"><a xlink:href=".././module/m_mixing_scf.html" xlink:title="m_mixing_scf">
+<g id="module~~m_mixing~~UsedByGraph_node7" class="node"><title>module~m_mixing_scf</title>
+<g id="a_module~~m_mixing~~UsedByGraph_node7"><a xlink:href=".././module/m_mixing_scf.html" xlink:title="m_mixing_scf">
 <polygon fill="#337ab7" stroke="#337ab7" points="193.5,-192 115.5,-192 115.5,-168 193.5,-168 193.5,-192"/>
 <text text-anchor="middle" x="154.5" y="-177.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">m_mixing_scf</text>
 </a>
 </g>
 </g>
-<!-- module~m_mixing_scf&#45;&gt;module~m_mixing -->
-<g id="module~~m_mixing~~UsedByGraph_edge2" class="edge"><title>module~m_mixing_scf&#45;&gt;module~m_mixing</title>
-<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M118.11,-167.964C102.409,-162.625 83.9086,-156.333 67.9242,-150.897"/>
-<polygon fill="#000000" stroke="#000000" points="68.9387,-147.546 58.3443,-147.639 66.6849,-154.173 68.9387,-147.546"/>
+<!-- proc~state_init&#45;&gt;module~m_mixing_scf -->
+<g id="module~~m_mixing~~UsedByGraph_edge9" class="edge"><title>proc~state_init&#45;&gt;module~m_mixing_scf</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M261.187,-211.905C244.561,-206.886 222.727,-200.295 203.222,-194.407"/>
+<polygon fill="#000000" stroke="#000000" points="204.157,-191.033 193.572,-191.493 202.134,-197.734 204.157,-191.033"/>
 </g>
 <!-- proc~mixers_scf_reset -->
 <g id="module~~m_mixing~~UsedByGraph_node4" class="node"><title>proc~mixers_scf_reset</title>
@@ -535,61 +550,48 @@
 <path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M107.162,-138C94.4568,-138 80.8218,-138 68.6013,-138"/>
 <polygon fill="#000000" stroke="#000000" points="68.285,-134.5 58.285,-138 68.285,-141.5 68.285,-134.5"/>
 </g>
-<!-- proc~mixers_scf_init -->
-<g id="module~~m_mixing~~UsedByGraph_node5" class="node"><title>proc~mixers_scf_init</title>
-<g id="a_module~~m_mixing~~UsedByGraph_node5"><a xlink:href=".././proc/mixers_scf_init.html" xlink:title="mixers_scf_init">
-<polygon fill="#d9534f" stroke="#d9534f" points="196,-108 113,-108 113,-84 196,-84 196,-108"/>
-<text text-anchor="middle" x="154.5" y="-93.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">mixers_scf_init</text>
+<!-- proc~mixers_scf_history_init -->
+<g id="module~~m_mixing~~UsedByGraph_node5" class="node"><title>proc~mixers_scf_history_init</title>
+<g id="a_module~~m_mixing~~UsedByGraph_node5"><a xlink:href=".././proc/mixers_scf_history_init.html" xlink:title="mixers_scf_history_init">
+<polygon fill="#d9534f" stroke="#d9534f" points="215,-108 94,-108 94,-84 215,-84 215,-108"/>
+<text text-anchor="middle" x="154.5" y="-93.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">mixers_scf_history_init</text>
 </a>
 </g>
 </g>
-<!-- proc~mixers_scf_init&#45;&gt;module~m_mixing -->
-<g id="module~~m_mixing~~UsedByGraph_edge4" class="edge"><title>proc~mixers_scf_init&#45;&gt;module~m_mixing</title>
+<!-- proc~mixers_scf_history_init&#45;&gt;module~m_mixing -->
+<g id="module~~m_mixing~~UsedByGraph_edge4" class="edge"><title>proc~mixers_scf_history_init&#45;&gt;module~m_mixing</title>
 <path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M118.11,-108.036C102.409,-113.375 83.9086,-119.667 67.9242,-125.103"/>
 <polygon fill="#000000" stroke="#000000" points="66.6849,-121.827 58.3443,-128.361 68.9387,-128.454 66.6849,-121.827"/>
 </g>
-<!-- proc~state_init -->
-<g id="module~~m_mixing~~UsedByGraph_node6" class="node"><title>proc~state_init</title>
-<g id="a_module~~m_mixing~~UsedByGraph_node6"><a xlink:href=".././proc/state_init.html" xlink:title="state_init">
-<polygon fill="#d9534f" stroke="#d9534f" points="316.5,-232 261.5,-232 261.5,-208 316.5,-208 316.5,-232"/>
-<text text-anchor="middle" x="289" y="-217.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">state_init</text>
-</a>
-</g>
-</g>
-<!-- proc~state_init&#45;&gt;module~m_mixing -->
-<g id="module~~m_mixing~~UsedByGraph_edge5" class="edge"><title>proc~state_init&#45;&gt;module~m_mixing</title>
-<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M261.446,-222.796C222.671,-225.719 149.176,-226.812 94,-201 73.6949,-191.501 56.0098,-172.799 44.4068,-158.228"/>
-<polygon fill="#000000" stroke="#000000" points="47.1518,-156.056 38.3042,-150.227 41.586,-160.301 47.1518,-156.056"/>
-</g>
-<!-- proc~state_init&#45;&gt;module~m_mixing_scf -->
-<g id="module~~m_mixing~~UsedByGraph_edge8" class="edge"><title>proc~state_init&#45;&gt;module~m_mixing_scf</title>
-<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M261.187,-211.905C244.561,-206.886 222.727,-200.295 203.222,-194.407"/>
-<polygon fill="#000000" stroke="#000000" points="204.157,-191.033 193.572,-191.493 202.134,-197.734 204.157,-191.033"/>
-</g>
-<!-- proc~mixers_scf_print_block -->
-<g id="module~~m_mixing~~UsedByGraph_node7" class="node"><title>proc~mixers_scf_print_block</title>
-<g id="a_module~~m_mixing~~UsedByGraph_node7"><a xlink:href=".././proc/mixers_scf_print_block.html" xlink:title="mixers_scf_print_block">
-<polygon fill="#d9534f" stroke="#d9534f" points="215,-66 94,-66 94,-42 215,-42 215,-66"/>
-<text text-anchor="middle" x="154.5" y="-51.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">mixers_scf_print_block</text>
-</a>
-</g>
-</g>
-<!-- proc~mixers_scf_print_block&#45;&gt;module~m_mixing -->
-<g id="module~~m_mixing~~UsedByGraph_edge6" class="edge"><title>proc~mixers_scf_print_block&#45;&gt;module~m_mixing</title>
-<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M111.762,-66.0843C105.597,-68.6142 99.4813,-71.5756 94,-75 75.6037,-86.4928 58.3004,-104.101 46.3355,-117.783"/>
-<polygon fill="#000000" stroke="#000000" points="43.4148,-115.815 39.6134,-125.705 48.7522,-120.344 43.4148,-115.815"/>
-</g>
 <!-- proc~mixers_scf_print -->
-<g id="module~~m_mixing~~UsedByGraph_node8" class="node"><title>proc~mixers_scf_print</title>
-<g id="a_module~~m_mixing~~UsedByGraph_node8"><a xlink:href=".././proc/mixers_scf_print.html" xlink:title="mixers_scf_print">
-<polygon fill="#d9534f" stroke="#d9534f" points="200,-24 109,-24 109,-0 200,-0 200,-24"/>
-<text text-anchor="middle" x="154.5" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">mixers_scf_print</text>
+<g id="module~~m_mixing~~UsedByGraph_node6" class="node"><title>proc~mixers_scf_print</title>
+<g id="a_module~~m_mixing~~UsedByGraph_node6"><a xlink:href=".././proc/mixers_scf_print.html" xlink:title="mixers_scf_print">
+<polygon fill="#d9534f" stroke="#d9534f" points="200,-66 109,-66 109,-42 200,-42 200,-66"/>
+<text text-anchor="middle" x="154.5" y="-51.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">mixers_scf_print</text>
 </a>
 </g>
 </g>
 <!-- proc~mixers_scf_print&#45;&gt;module~m_mixing -->
-<g id="module~~m_mixing~~UsedByGraph_edge7" class="edge"><title>proc~mixers_scf_print&#45;&gt;module~m_mixing</title>
-<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M108.796,-23.9179C103.506,-26.4156 98.4244,-29.4123 94,-33 66.5556,-55.2545 47.8468,-92.6213 38.0495,-116.258"/>
+<g id="module~~m_mixing~~UsedByGraph_edge5" class="edge"><title>proc~mixers_scf_print&#45;&gt;module~m_mixing</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M111.762,-66.0843C105.597,-68.6142 99.4813,-71.5756 94,-75 75.6037,-86.4928 58.3004,-104.101 46.3355,-117.783"/>
+<polygon fill="#000000" stroke="#000000" points="43.4148,-115.815 39.6134,-125.705 48.7522,-120.344 43.4148,-115.815"/>
+</g>
+<!-- module~m_mixing_scf&#45;&gt;module~m_mixing -->
+<g id="module~~m_mixing~~UsedByGraph_edge6" class="edge"><title>module~m_mixing_scf&#45;&gt;module~m_mixing</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M118.11,-167.964C102.409,-162.625 83.9086,-156.333 67.9242,-150.897"/>
+<polygon fill="#000000" stroke="#000000" points="68.9387,-147.546 58.3443,-147.639 66.6849,-154.173 68.9387,-147.546"/>
+</g>
+<!-- proc~mixers_scf_print_block -->
+<g id="module~~m_mixing~~UsedByGraph_node8" class="node"><title>proc~mixers_scf_print_block</title>
+<g id="a_module~~m_mixing~~UsedByGraph_node8"><a xlink:href=".././proc/mixers_scf_print_block.html" xlink:title="mixers_scf_print_block">
+<polygon fill="#d9534f" stroke="#d9534f" points="215,-24 94,-24 94,-0 215,-0 215,-24"/>
+<text text-anchor="middle" x="154.5" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">mixers_scf_print_block</text>
+</a>
+</g>
+</g>
+<!-- proc~mixers_scf_print_block&#45;&gt;module~m_mixing -->
+<g id="module~~m_mixing~~UsedByGraph_edge7" class="edge"><title>proc~mixers_scf_print_block&#45;&gt;module~m_mixing</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M108.491,-24.0625C103.311,-26.5311 98.3393,-29.4813 94,-33 66.5556,-55.2545 47.8468,-92.6213 38.0495,-116.258"/>
 <polygon fill="#000000" stroke="#000000" points="34.716,-115.17 34.286,-125.756 41.2237,-117.748 34.716,-115.17"/>
 </g>
 <!-- proc~siesta_forces -->
@@ -601,7 +603,7 @@
 </g>
 </g>
 <!-- proc~siesta_forces&#45;&gt;module~m_mixing_scf -->
-<g id="module~~m_mixing~~UsedByGraph_edge9" class="edge"><title>proc~siesta_forces&#45;&gt;module~m_mixing_scf</title>
+<g id="module~~m_mixing~~UsedByGraph_edge8" class="edge"><title>proc~siesta_forces&#45;&gt;module~m_mixing_scf</title>
 <path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M250.739,-178.562C236.31,-178.78 219.597,-179.033 204.237,-179.264"/>
 <polygon fill="#000000" stroke="#000000" points="203.809,-175.77 193.863,-179.421 203.915,-182.77 203.809,-175.77"/>
 </g>
@@ -3993,6 +3995,8 @@ private subroutine <a href='../proc/push_diff.html'>push_diff</a>(s_rres, s_res,
     <div class="list-group">
       
       <a class="list-group-item" href="../module/m_compute_dm.html">m_compute_dm</a>
+      
+      <a class="list-group-item" href="../module/m_compute_max_diff.html">m_compute_max_diff</a>
       
       <a class="list-group-item" href="../module/m_mixing.html">m_mixing</a>
       

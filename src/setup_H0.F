@@ -13,8 +13,6 @@
       subroutine setup_H0(G2max)
       !! Computes non-self-consistent part of the Hamiltonian
       !! and initializes data structures on the grid.
-      !!@warning 
-      !! What exactly IS the nscf H?
 
       USE siesta_options,  only: g2cut
       use sparse_matrices, only: H_kin_1D, H_vkb_1D

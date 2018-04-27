@@ -44,7 +44,7 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="../index.html">SIESTA <small>trunk-674</small></a>
+          <a class="navbar-brand" href="../index.html">SIESTA <small>trunk-674--vdikan-ford-681</small></a>
         </div>
         <div id="navbar" class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
@@ -193,6 +193,12 @@
       
       <a class="list-group-item" href="../proc/compute_dm.html">compute_dm</a>
       
+      <a class="list-group-item" href="../interface/compute_max_diff.html">compute_max_diff</a>
+      
+      <a class="list-group-item" href="../proc/compute_max_diff_1d.html">compute_max_diff_1d</a>
+      
+      <a class="list-group-item" href="../proc/compute_max_diff_2d.html">compute_max_diff_2d</a>
+      
       <a class="list-group-item" href="../proc/current_itt.html">current_itt</a>
       
       <a class="list-group-item" href="../proc/getstackval.html">getstackval</a>
@@ -337,15 +343,15 @@ public subroutine mixers_scf_reset()
 <path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M251.987,-54C243.46,-54 234.636,-54 226.367,-54"/>
 <polygon fill="#000000" stroke="#000000" points="226.252,-50.5001 216.252,-54 226.252,-57.5001 226.252,-50.5001"/>
 </g>
-<!-- precision -->
-<g id="proc~~mixers_scf_reset~~UsesGraph_node3" class="node"><title>precision</title>
-<polygon fill="#337ab7" stroke="#337ab7" points="88.5,-108 33.5,-108 33.5,-84 88.5,-84 88.5,-108"/>
-<text text-anchor="middle" x="61" y="-93.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">precision</text>
+<!-- class_dData1D -->
+<g id="proc~~mixers_scf_reset~~UsesGraph_node3" class="node"><title>class_dData1D</title>
+<polygon fill="#337ab7" stroke="#337ab7" points="103.5,-108 18.5,-108 18.5,-84 103.5,-84 103.5,-108"/>
+<text text-anchor="middle" x="61" y="-93.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">class_dData1D</text>
 </g>
-<!-- module~m_mixing&#45;&gt;precision -->
-<g id="proc~~mixers_scf_reset~~UsesGraph_edge2" class="edge"><title>module~m_mixing&#45;&gt;precision</title>
-<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M157.862,-63.5305C140.216,-69.5074 117.291,-77.2724 98.2844,-83.7101"/>
-<polygon fill="#000000" stroke="#000000" points="97.0997,-80.416 88.7511,-86.9391 99.3454,-87.046 97.0997,-80.416"/>
+<!-- module~m_mixing&#45;&gt;class_dData1D -->
+<g id="proc~~mixers_scf_reset~~UsesGraph_edge2" class="edge"><title>module~m_mixing&#45;&gt;class_dData1D</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M157.862,-63.5305C142.929,-68.5884 124.216,-74.9269 107.296,-80.6579"/>
+<polygon fill="#000000" stroke="#000000" points="105.931,-77.4246 97.5827,-83.9478 108.177,-84.0547 105.931,-77.4246"/>
 </g>
 <!-- class_Fstack_dData1D -->
 <g id="proc~~mixers_scf_reset~~UsesGraph_node4" class="node"><title>class_Fstack_dData1D</title>
@@ -357,15 +363,15 @@ public subroutine mixers_scf_reset()
 <path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M157.862,-54C150.127,-54 141.377,-54 132.387,-54"/>
 <polygon fill="#000000" stroke="#000000" points="132.177,-50.5001 122.177,-54 132.177,-57.5001 132.177,-50.5001"/>
 </g>
-<!-- class_dData1D -->
-<g id="proc~~mixers_scf_reset~~UsesGraph_node5" class="node"><title>class_dData1D</title>
-<polygon fill="#337ab7" stroke="#337ab7" points="103.5,-24 18.5,-24 18.5,-0 103.5,-0 103.5,-24"/>
-<text text-anchor="middle" x="61" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">class_dData1D</text>
+<!-- precision -->
+<g id="proc~~mixers_scf_reset~~UsesGraph_node5" class="node"><title>precision</title>
+<polygon fill="#337ab7" stroke="#337ab7" points="88.5,-24 33.5,-24 33.5,-0 88.5,-0 88.5,-24"/>
+<text text-anchor="middle" x="61" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">precision</text>
 </g>
-<!-- module~m_mixing&#45;&gt;class_dData1D -->
-<g id="proc~~mixers_scf_reset~~UsesGraph_edge4" class="edge"><title>module~m_mixing&#45;&gt;class_dData1D</title>
-<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M157.862,-44.4695C142.929,-39.4116 124.216,-33.0731 107.296,-27.3421"/>
-<polygon fill="#000000" stroke="#000000" points="108.177,-23.9453 97.5827,-24.0522 105.931,-30.5754 108.177,-23.9453"/>
+<!-- module~m_mixing&#45;&gt;precision -->
+<g id="proc~~mixers_scf_reset~~UsesGraph_edge4" class="edge"><title>module~m_mixing&#45;&gt;precision</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M157.862,-44.4695C140.216,-38.4926 117.291,-30.7276 98.2844,-24.2899"/>
+<polygon fill="#000000" stroke="#000000" points="99.3454,-20.954 88.7511,-21.0609 97.0997,-27.584 99.3454,-20.954"/>
 </g>
 </g>
 </svg>
@@ -624,6 +630,12 @@ public subroutine mixers_scf_reset()
     <div class="list-group">
       
       <a class="list-group-item" href="../proc/compute_dm.html">compute_dm</a>
+      
+      <a class="list-group-item" href="../interface/compute_max_diff.html">compute_max_diff</a>
+      
+      <a class="list-group-item" href="../proc/compute_max_diff_1d.html">compute_max_diff_1d</a>
+      
+      <a class="list-group-item" href="../proc/compute_max_diff_2d.html">compute_max_diff_2d</a>
       
       <a class="list-group-item" href="../proc/current_itt.html">current_itt</a>
       

@@ -44,7 +44,7 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="../index.html">SIESTA <small>trunk-674</small></a>
+          <a class="navbar-brand" href="../index.html">SIESTA <small>trunk-674--vdikan-ford-681</small></a>
         </div>
         <div id="navbar" class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
@@ -192,6 +192,12 @@
     <div class="list-group">
       
       <a class="list-group-item" href="../proc/compute_dm.html">compute_dm</a>
+      
+      <a class="list-group-item" href="../interface/compute_max_diff.html">compute_max_diff</a>
+      
+      <a class="list-group-item" href="../proc/compute_max_diff_1d.html">compute_max_diff_1d</a>
+      
+      <a class="list-group-item" href="../proc/compute_max_diff_2d.html">compute_max_diff_2d</a>
       
       <a class="list-group-item" href="../proc/current_itt.html">current_itt</a>
       
@@ -454,43 +460,43 @@ private subroutine mixing_step(mix)
 <polygon fill="none" stroke="black" points="70,-87 0,-87 0,-63 70,-63 70,-87"/>
 <text text-anchor="middle" x="35" y="-72.6" font-family="Helvetica,sans-Serif" font-size="10.50">mixing_step</text>
 </g>
-<!-- reset -->
-<g id="proc~~mixing_step~~CallsGraph_node2" class="node"><title>reset</title>
+<!-- n_items -->
+<g id="proc~~mixing_step~~CallsGraph_node2" class="node"><title>n_items</title>
 <polygon fill="#777777" stroke="#777777" points="166.5,-150 112.5,-150 112.5,-126 166.5,-126 166.5,-150"/>
-<text text-anchor="middle" x="139.5" y="-135.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">reset</text>
+<text text-anchor="middle" x="139.5" y="-135.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">n_items</text>
 </g>
-<!-- proc~mixing_step&#45;&gt;reset -->
-<g id="proc~~mixing_step~~CallsGraph_edge1" class="edge"><title>proc~mixing_step&#45;&gt;reset</title>
+<!-- proc~mixing_step&#45;&gt;n_items -->
+<g id="proc~~mixing_step~~CallsGraph_edge2" class="edge"><title>proc~mixing_step&#45;&gt;n_items</title>
 <path fill="none" stroke="#000000" d="M55.763,-87.147C71.2193,-96.647 92.9137,-109.981 110.21,-120.612"/>
 <polygon fill="#000000" stroke="#000000" points="108.445,-123.636 118.798,-125.89 112.111,-117.672 108.445,-123.636"/>
 </g>
-<!-- push -->
-<g id="proc~~mixing_step~~CallsGraph_node3" class="node"><title>push</title>
+<!-- reset -->
+<g id="proc~~mixing_step~~CallsGraph_node3" class="node"><title>reset</title>
 <polygon fill="#777777" stroke="#777777" points="166.5,-108 112.5,-108 112.5,-84 166.5,-84 166.5,-108"/>
-<text text-anchor="middle" x="139.5" y="-93.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">push</text>
+<text text-anchor="middle" x="139.5" y="-93.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">reset</text>
 </g>
-<!-- proc~mixing_step&#45;&gt;push -->
-<g id="proc~~mixing_step~~CallsGraph_edge2" class="edge"><title>proc~mixing_step&#45;&gt;push</title>
+<!-- proc~mixing_step&#45;&gt;reset -->
+<g id="proc~~mixing_step~~CallsGraph_edge4" class="edge"><title>proc~mixing_step&#45;&gt;reset</title>
 <path fill="none" stroke="#000000" d="M70.131,-81.9927C80.439,-84.1046 91.7907,-86.4303 102.233,-88.5696"/>
 <polygon fill="#000000" stroke="#000000" points="101.8,-92.0536 112.299,-90.632 103.205,-85.1961 101.8,-92.0536"/>
 </g>
-<!-- n_items -->
-<g id="proc~~mixing_step~~CallsGraph_node4" class="node"><title>n_items</title>
-<polygon fill="#777777" stroke="#777777" points="166.5,-66 112.5,-66 112.5,-42 166.5,-42 166.5,-66"/>
-<text text-anchor="middle" x="139.5" y="-51.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">n_items</text>
-</g>
-<!-- proc~mixing_step&#45;&gt;n_items -->
-<g id="proc~~mixing_step~~CallsGraph_edge3" class="edge"><title>proc~mixing_step&#45;&gt;n_items</title>
-<path fill="none" stroke="#000000" d="M70.131,-68.0073C80.439,-65.8954 91.7907,-63.5697 102.233,-61.4304"/>
-<polygon fill="#000000" stroke="#000000" points="103.205,-64.8039 112.299,-59.368 101.8,-57.9464 103.205,-64.8039"/>
-</g>
 <!-- get_pointer -->
-<g id="proc~~mixing_step~~CallsGraph_node5" class="node"><title>get_pointer</title>
-<polygon fill="#777777" stroke="#777777" points="173,-24 106,-24 106,-0 173,-0 173,-24"/>
-<text text-anchor="middle" x="139.5" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">get_pointer</text>
+<g id="proc~~mixing_step~~CallsGraph_node4" class="node"><title>get_pointer</title>
+<polygon fill="#777777" stroke="#777777" points="173,-66 106,-66 106,-42 173,-42 173,-66"/>
+<text text-anchor="middle" x="139.5" y="-51.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">get_pointer</text>
 </g>
 <!-- proc~mixing_step&#45;&gt;get_pointer -->
-<g id="proc~~mixing_step~~CallsGraph_edge4" class="edge"><title>proc~mixing_step&#45;&gt;get_pointer</title>
+<g id="proc~~mixing_step~~CallsGraph_edge1" class="edge"><title>proc~mixing_step&#45;&gt;get_pointer</title>
+<path fill="none" stroke="#000000" d="M70.131,-68.0073C78.4189,-66.3093 87.3815,-64.4731 96.0035,-62.7066"/>
+<polygon fill="#000000" stroke="#000000" points="96.8137,-66.1134 105.908,-60.6774 95.4087,-59.2558 96.8137,-66.1134"/>
+</g>
+<!-- push -->
+<g id="proc~~mixing_step~~CallsGraph_node5" class="node"><title>push</title>
+<polygon fill="#777777" stroke="#777777" points="166.5,-24 112.5,-24 112.5,-0 166.5,-0 166.5,-24"/>
+<text text-anchor="middle" x="139.5" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">push</text>
+</g>
+<!-- proc~mixing_step&#45;&gt;push -->
+<g id="proc~~mixing_step~~CallsGraph_edge3" class="edge"><title>proc~mixing_step&#45;&gt;push</title>
 <path fill="none" stroke="#000000" d="M55.763,-62.853C71.2193,-53.353 92.9137,-40.0189 110.21,-29.388"/>
 <polygon fill="#000000" stroke="#000000" points="112.111,-32.3279 118.798,-24.1097 108.445,-26.3643 112.111,-32.3279"/>
 </g>
@@ -837,6 +843,12 @@ private subroutine mixing_step(mix)
     <div class="list-group">
       
       <a class="list-group-item" href="../proc/compute_dm.html">compute_dm</a>
+      
+      <a class="list-group-item" href="../interface/compute_max_diff.html">compute_max_diff</a>
+      
+      <a class="list-group-item" href="../proc/compute_max_diff_1d.html">compute_max_diff_1d</a>
+      
+      <a class="list-group-item" href="../proc/compute_max_diff_2d.html">compute_max_diff_2d</a>
       
       <a class="list-group-item" href="../proc/current_itt.html">current_itt</a>
       
