@@ -82,7 +82,7 @@ contains
 #endif
     use m_compute_energies, only: compute_energies
 
-    use m_mpi_utils, only: broadcast
+    use m_mpi_utils, only: broadcast, barrier
     use fdf
 #ifdef SIESTA__PEXSI
     use m_pexsi, only: pexsi_finalize_scfloop
@@ -101,7 +101,7 @@ contains
     use m_ts_charge,           only: TS_RHOCORR_FERMI
     use m_ts_charge,           only: TS_RHOCORR_FERMI_TOLERANCE
     use m_transiesta,          only: transiesta
-    use kpoint_grid, only : gamma_scf
+    use kpoint_scf_m, only : gamma_scf
     use m_energies, only : Ef
 
     use m_initwf, only: initwf
@@ -150,12 +150,10 @@ contains
     call broadcast(nscf, comm=true_MPI_Comm_World)
 #endif
 
-    !! Initialization tasks for a given geometry:
-    !!@code
+    !  Initialization tasks for a given geometry:
     if ( SIESTA_worker )  then
        call state_init( istep )
     end if
-    !!@endcode
 
 #ifdef SIESTA__PEXSI
     if (ionode) call memory_snapshot("after state_init")
@@ -202,11 +200,9 @@ contains
     next_mixer = ' '
 #endif
 
-    !* This call computes the **non-scf** part of \( H \) and initializes the
+    !  This call computes the **non-scf** part of \( H \) and initializes the
     !  real-space grid structures:
-    !!@code
     if ( SIESTA_worker ) call setup_H0(G2max)
-    !!@endcode
     !!@todo
     !* It might be better to split the two,
     !  putting the grid initialization into **state_init (link!)** and moving the
@@ -293,10 +289,8 @@ contains
     !  * At the top, to catch a non-positive nscf and # of iterations
     !  * At the bottom, based on convergence
     !
-    !!@code
     iscf = 0
     do while ( iscf < nscf )
-    !!@endcode
 
        iscf = iscf + 1
 
@@ -314,13 +308,16 @@ contains
           call check_walltime(time_is_up)
           if ( time_is_up ) then
              ! Save DM/H if we were not saving it...
-             ! Do any other bookeeping not done by "die"
+             !   Do any other bookeeping not done by "die"
+             call timer('all',2)
+             call timer('all',3)
              call message('WARNING', &
                   'SCF_NOT_CONV: SCF did not converge'// &
                   ' before wall time exhaustion')
              write(tmp_str,"(2(i5,tr1),f12.6)") istep, iscf, prevDmax
              call message(' (info)',"Geom step, scf iteration, dmax:"//trim(tmp_str))
-
+             
+             call barrier() ! A non-root node might get first to the 'die' call
              call die("OUT_OF_TIME: Time is up.")
 
           end if
@@ -517,10 +514,8 @@ contains
        call broadcast(SCFconverged, comm=true_MPI_Comm_World)
 #endif
 
-       !! Exit if converged:
-       !!@code
+       !  Exit if converged:
        if ( SCFconverged ) exit
-       !!@endcode
 
     end do
     !! **end of SCF cycle**
@@ -541,6 +536,9 @@ contains
                ' in maximum number of steps (required).')
           write(tmp_str,"(2(i5,tr1),f12.6)") istep, iscf, prevDmax
           call message(' (info)',"Geom step, scf iteration, dmax:"//trim(tmp_str))
+          call timer( 'all', 2 ) ! New call to close the tree
+          call timer( 'all', 3 )
+          call barrier()
           call die('ABNORMAL_TERMINATION')
        else if ( .not. harrisfun ) then
           call message('WARNING', &
@@ -602,12 +600,12 @@ contains
     subroutine get_H_from_file()
       use sparse_matrices, only: maxnh, numh, listh, listhptr
       use atomlist,        only: no_l
-      use m_spin,          only: nspin
+      use m_spin,          only: spin
       use m_iodm_old,      only: read_spmatrix
 
       logical :: found
 
-      call read_spmatrix(maxnh, no_l, nspin, numh, &
+      call read_spmatrix(maxnh, no_l, spin%H, numh, &
            listhptr, listh, H, found, userfile="H_IN")
       if (.not. found) call die("Could not find H_IN")
 
