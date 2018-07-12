@@ -10,7 +10,7 @@
     <meta name="author" content="SIESTA Group" >
     <link rel="icon" href="../favicon.png">
 
-    <title>m_compute_dm &ndash; SIESTA</title>
+    <title>check_cohp &ndash; SIESTA</title>
 
     <link href="../css/bootstrap.min.css" rel="stylesheet">
     <link href="../css/pygments.css" rel="stylesheet">
@@ -99,8 +99,8 @@
     
   
   <div class="row">
-    <h1>m_compute_dm 
-    <small>Module</small>
+    <h1>check_cohp
+      <small>Subroutine</small>
     
     </h1>
     
@@ -117,22 +117,24 @@
      <li><i class="fa fa-list-ol"></i>
        <a data-toggle="tooltip"
     data-placement="bottom" data-html="true"
-    title=" 2.2% of total for modules and submodules.">138 statements</a>
+    title=" 0.1% of total for procedures.">9 statements</a>
      </li> 
      
      
      
-    <li><i class="fa fa-code"></i><a href="../src/compute_dm.F"> Source File</a></li>
+    <li><i class="fa fa-code"></i><a href="../src/state_init.F"> Source File</a></li>
      
      
   </ul>
   <ol class="breadcrumb in-well text-right">
   
     
-     <li><a href='../sourcefile/compute_dm.f.html'>compute_dm.F</a></li>
+     <li><a href='../sourcefile/state_init.f.html'>state_init.F</a></li>
+    
+     <li><a href='../module/m_state_init.html'>m_state_init</a></li>
     
   
-     <li class="active">m_compute_dm</li>
+     <li class="active">check_cohp</li>
   </ol>
 </div>
 </div>
@@ -155,16 +157,11 @@
 
 
 
-<div class="panel panel-primary">
-  <div class="panel-heading text-left"><h3 class="panel-title"><a data-toggle="collapse" href="#vars-0">Variables</a></h3></div>
-  <div id="vars-0" class="panel-collapse collapse">
-    <div class="list-group">
-      
-      <a class="list-group-item" href="../module/m_compute_dm.html#variable-previouscalldiagon">PreviousCallDiagon</a>
-      
-    </div>
-  </div>
-</div>
+
+
+
+
+
 
 
 
@@ -179,22 +176,11 @@
 
 
 <div class="panel panel-primary">
-  <div class="panel-heading text-left"><h3 class="panel-title"><a data-toggle="collapse" href="#subs-0">Subroutines</a></h3></div>
+  <div class="panel-heading text-left"><h3 class="panel-title">Source Code</h3></div>
   <div class="list-group">
-    <div id="subs-0" class="panel-collapse collapse">
-      
-      <a class="list-group-item" href="../module/m_compute_dm.html#proc-compute_dm">compute_dm</a>
-      
-    </div>
+    <a class="list-group-item" href="../proc/check_cohp.html#src">check_cohp</a>
   </div>
 </div>
-
-
-
-
-
-
-
 
 
 
@@ -203,14 +189,48 @@
     </div>
     
     <div class="col-md-9" id='text'>
+    <h2>
+private subroutine check_cohp()
     
-      
+    
+   
+</h2>
     
   
+    <div class="panel panel-default">
+      <div class="panel-heading">
+  <h3 class="panel-title">Uses</h3>
+      </div>
+      <ul class="list-group">
+      
+      <li class="list-group-item">
+  <ul class="list-inline">
+    
+    <li>siesta_options</li>
+    
+    <li>sys</li>
+    
+  </ul>
+      </li>
+      
+      
+      
+      </ul>
+    </div>
+    
+
 
     
-    
 
+    <h3>Arguments</h3>
+    
+    <em>None</em>
+    <br>
+    
+    
+    
+    
+     
     <br>
 
     <section class="visible-xs visible-sm hidden-md">
@@ -220,16 +240,11 @@
 
 
 
-<div class="panel panel-primary">
-  <div class="panel-heading text-left"><h3 class="panel-title"><a data-toggle="collapse" href="#vars-1">Variables</a></h3></div>
-  <div id="vars-1" class="panel-collapse collapse">
-    <div class="list-group">
-      
-      <a class="list-group-item" href="../module/m_compute_dm.html#variable-previouscalldiagon">PreviousCallDiagon</a>
-      
-    </div>
-  </div>
-</div>
+
+
+
+
+
 
 
 
@@ -244,22 +259,11 @@
 
 
 <div class="panel panel-primary">
-  <div class="panel-heading text-left"><h3 class="panel-title"><a data-toggle="collapse" href="#subs-1">Subroutines</a></h3></div>
+  <div class="panel-heading text-left"><h3 class="panel-title">Source Code</h3></div>
   <div class="list-group">
-    <div id="subs-1" class="panel-collapse collapse">
-      
-      <a class="list-group-item" href="../module/m_compute_dm.html#proc-compute_dm">compute_dm</a>
-      
-    </div>
+    <a class="list-group-item" href="../proc/check_cohp.html#src">check_cohp</a>
   </div>
 </div>
-
-
-
-
-
-
-
 
 
 
@@ -269,113 +273,46 @@
     
 
     
-    <section>
-    <h2>Variables</h2>
     
-<table class="table table-striped varlist">
-<thead><tr><th>Type</th><th>Visibility</th>
+    
+    
+    
 
-<th>Attributes</th><th></th><th>Name</th><th></th><th>Initial</th><th></th></thead>
+    
+    
+    
+    
+    
 
 
-
-<tbody>
-
-  
-  
-  
-  
-<tr>
-  
-  <td><span class="anchor" id="variable-previouscalldiagon"></span>logical,</td>
-  
-  <td>public,</td>
-  <td>save</td><td>::</td>
-  <td><strong>PreviousCallDiagon</strong></td><td> =</td><td>.false.</td><td></td>
-  
-</tr>
-
-</tbody>
-</table>
+    
+    
+    
+    <section>
+    <h2><span class="anchor" id="src"></span>Source Code</h2>
+    <div class="highlight"><pre><span></span>      <span class="k">subroutine </span><span class="n">check_cohp</span><span class="p">()</span>
+      <span class="k">use </span><span class="n">siesta_options</span><span class="p">,</span> <span class="n">only</span><span class="p">:</span> <span class="n">write_coop</span>
+      <span class="k">use </span><span class="n">sys</span><span class="p">,</span>            <span class="n">only</span><span class="p">:</span> <span class="n">message</span>
+      
+      <span class="k">if</span> <span class="p">(</span><span class="n">write_coop</span><span class="p">)</span> <span class="k">then</span>
+<span class="k">         call </span><span class="n">message</span><span class="p">(</span><span class="s2">&quot;WARNING&quot;</span><span class="p">,</span><span class="s2">&quot;There are multiply-connected &quot;</span><span class="o">//</span>
+     <span class="err">$</span>                          <span class="s2">&quot;orbitals.&quot;</span><span class="p">)</span>
+         <span class="k">call </span><span class="n">message</span><span class="p">(</span><span class="s2">&quot;WARNING&quot;</span><span class="p">,</span><span class="s2">&quot;Your COOP/COHP analysis might &quot;</span> <span class="o">//</span>
+     <span class="err">$</span>                          <span class="s2">&quot;be affected by folding.&quot;</span><span class="p">)</span>
+         <span class="k">call </span><span class="n">message</span><span class="p">(</span><span class="s2">&quot;WARNING&quot;</span><span class="p">,</span><span class="s1">&#39;Use &quot;force-aux-cell T &quot;&#39;</span> <span class="o">//</span>
+     <span class="err">$</span>                          <span class="s1">&#39;or k-point sampling&#39;</span><span class="p">)</span>
+      <span class="n">endif</span>
+      <span class="k">end subroutine </span><span class="n">check_cohp</span>
+</pre></div>
 
     </section>
     <br>
     
     
-    
-    
-    
-
-    
-    
-    
-    
-    
-
-    
-    <section>
-    <h2>Subroutines</h2>
-    
-    
-  <div class="panel panel-default">
-  <div class="panel-heading codesum"><span class="anchor" id="proc-compute_dm"></span><h3>
-public subroutine <a href='../proc/compute_dm.html'>compute_dm</a>(iscf)
-    
-    
-   
-</h3></div>
-  <div class="panel-body">
-       
-    
-    
-    <h4>Arguments</h4>
-    
-      
-      
-<table class="table table-striped varlist">
-<thead><tr><th>Type</th>
-<th>Intent</th><th>Optional</th>
-<th>Attributes</th><th></th><th>Name</th><th></th></thead>
-
-
-
-<tbody>
-
-  
-  
-  
-  
-<tr>
-  
-  <td><span class="anchor" ></span>integer,</td>
-  <td>intent(in)</td>
-  <td></td>
-  
-  <td></td><td>::</td>
-  <td><strong>iscf</strong></td><td></td>
-  
-</tr>
-
-</tbody>
-</table>
-
-      
-    
-    
-
-  </div>
-  </div>
-
-    
-    </section>    
-    <br>
-    
-    
-    
     </div>
   </div>
 
-  
+
     <hr>    
     </div> <!-- /container -->
     <footer>

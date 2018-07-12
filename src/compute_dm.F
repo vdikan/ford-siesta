@@ -23,7 +23,7 @@
       use atomlist, only: qa, lasto, iphorb, iaorb, no_u, no_s, indxuo, 
      &                    qtot, Qtots, no_l
       use sys, only: die, bye
-      use Kpoint_grid
+      use kpoint_scf_m, only: kpoints_scf
       use m_energies,   only: Ebs, Ecorrec, Entropy, DE_NEGF
       use m_energies,   only: Ef, Efs
       use m_rmaxh
@@ -177,7 +177,8 @@ c$$$     &           S, 'S.matrix')
      &              no_l, maxnh, maxnh, no_u,
      &              numh, listhptr, listh, numh, listhptr, listh, 
      &              H, S, qtot, fixspin, qtots, temp, e1, e2,
-     &              gamma, xijo, indxuo, nkpnt, kpoint, kweight,
+     &              gamma, xijo, indxuo,
+     &              kpoints_scf%N, kpoints_scf%k, kpoints_scf%w,
      &              eo, qo, Dscf, Escf, ef, efs, Entropy, no_u,
      &              occtol, iscf, neigwanted)
         Ecorrec = 0.0_dp
@@ -204,8 +205,9 @@ c$$$     &           S, 'S.matrix')
         else
           call zminim(.false., PreviousCallDiagon, iscf, istp, no_l,
      &                 spin%H, no_u, maxnh, numh, listhptr, listh, Dscf,
-     &                 eta, qtots, no_s, xijo, indxuo, nkpnt, kpoint,
-     &                 kweight, H, S, H_kin)
+     &                 eta, qtots, no_s, xijo, indxuo,
+     &                 kpoints_scf%N, kpoints_scf%k, kpoints_scf%w,
+     &                 H, S, H_kin)
         end if
         Ecorrec = 0.0_dp
         Entropy = 0.0_dp
@@ -229,7 +231,8 @@ c$$$     &           S, 'S.matrix')
      &              no_l, maxnh, maxnh, no_u,
      &              numh, listhptr, listh, numh, listhptr, listh,
      &              H, S, qtot, fixspin, qtots, temp, e1, e2,
-     &              gamma, xijo, indxuo, nkpnt, kpoint, kweight,
+     &              gamma, xijo, indxuo,
+     &              kpoints_scf%N, kpoints_scf%k, kpoints_scf%w,
      &              eo, qo, Dscf, Escf, ef, efs, Entropy, no_u,
      &              occtol, iscf, neigwanted)
 
@@ -256,21 +259,6 @@ c$$$     &           S, 'S.matrix')
      &                         overwrite=.true. )
       endif
 #endif
-
-!     Print populations at each SCF step if requested before mixing ......
-      if (muldeb) then
-        if (ionode) write (6,"(/a)")
-     &    'siesta: Mulliken populations (DM_out)'
-            if ( spin%SO ) then
-              call moments( mullipop, na_u, no_u, maxnh, numh, listhptr,
-     .                      listh, S, Dscf, isa, lasto, iaorb, iphorb,
-     .                      indxuo )
-            else
-             call mulliken( mullipop, spin%DM, na_u, no_u, maxnh,
-     &                 numh, listhptr, listh, S, Dscf, isa,
-     &                 lasto, iaorb, iphorb )
-            endif
-      endif
 
 ! Write orbital indexes. JMS Dec.2009
       if (IOnode .and. iscf==1) then

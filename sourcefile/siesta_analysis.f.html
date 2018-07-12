@@ -17,8 +17,6 @@
     <link href="../css/font-awesome.min.css" rel="stylesheet">
     <link href="../css/local.css" rel="stylesheet">
     
-    <link  href="../tipuesearch/tipuesearch.css" rel="stylesheet">
-    
     
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
@@ -44,7 +42,7 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="../index.html">SIESTA <small>trunk-674--vdikan-ford-681</small></a>
+          <a class="navbar-brand" href="../index.html">SIESTA <small>trunk-700--vdikan-edens-704-ford-68</small></a>
         </div>
         <div id="navbar" class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
@@ -93,15 +91,6 @@
 
           </ul>
         
-        <form action="../search.html" class="navbar-form navbar-right" role="search">
-        <div class="form-group">
-          <input type="text" class="form-control" placeholder="Search" name="q" id="tipue_search_input" autocomplete="off" required>
-        </div>
-<!--
-        <button type="submit" class="btn btn-default">Submit</button>
--->
-        </form>
-        
         </div><!--/.nav-collapse -->
       </div>
     </nav>
@@ -128,7 +117,7 @@
      <li><i class="fa fa-list-ol"></i>
        <a data-toggle="tooltip"
     data-placement="bottom" data-html="true"
-    title=" 4.3% of total for source files.">230 statements</a>
+    title=" 3.7% of total for source files.">235 statements</a>
      </li> 
      
      
@@ -305,7 +294,7 @@
 <a name="ln-40"></a><span class="nl">     </span> <span class="k">use </span><span class="n">files</span><span class="p">,</span>        <span class="n">only</span> <span class="p">:</span> <span class="n">slabel</span>
 <a name="ln-41"></a><span class="nl">     </span> <span class="k">use </span><span class="n">files</span><span class="p">,</span>        <span class="n">only</span> <span class="p">:</span> <span class="n">filesOut_t</span>   <span class="c">! derived type for output file names</span>
 <a name="ln-42"></a><span class="nl">     </span> <span class="k">use </span><span class="n">zmatrix</span><span class="p">,</span>      <span class="n">only</span><span class="p">:</span> <span class="n">lUseZmatrix</span><span class="p">,</span> <span class="n">write_zmatrix</span>
-<a name="ln-43"></a><span class="nl">     </span> <span class="k">use </span><span class="n">Kpoint_grid</span>
+<a name="ln-43"></a><span class="nl">     </span> <span class="k">use </span><span class="n">kpoint_scf_m</span><span class="p">,</span> <span class="n">only</span><span class="p">:</span> <span class="n">kpoints_scf</span>
 <a name="ln-44"></a><span class="nl">     </span> <span class="k">use </span><span class="n">parallel</span><span class="p">,</span> <span class="n">only</span><span class="p">:</span> <span class="n">IOnode</span>
 <a name="ln-45"></a><span class="nl">     </span> <span class="k">use </span><span class="n">parallel</span><span class="p">,</span> <span class="n">only</span><span class="p">:</span> <span class="n">SIESTA_worker</span>
 <a name="ln-46"></a><span class="nl">     </span> <span class="k">use </span><span class="n">files</span><span class="p">,</span>       <span class="n">only</span> <span class="p">:</span> <span class="n">label_length</span>
@@ -324,51 +313,51 @@
 <a name="ln-59"></a><span class="nl">     </span> <span class="k">use </span><span class="n">m_iodm_old</span><span class="p">,</span>        <span class="n">only</span><span class="p">:</span> <span class="n">read_spmatrix</span>
 <a name="ln-60"></a><span class="nl">     </span> <span class="k">use </span><span class="n">m_siesta2wannier90</span><span class="p">,</span> <span class="n">only</span><span class="p">:</span> <span class="n">siesta2wannier90</span>
 <a name="ln-61"></a>
-<a name="ln-62"></a><span class="cp">#ifdef MPI</span>
-<a name="ln-63"></a><span class="nl">     </span> <span class="k">use </span><span class="n">m_mpi_utils</span><span class="p">,</span> <span class="n">only</span><span class="p">:</span> <span class="n">globalize_sum</span>
-<a name="ln-64"></a><span class="cp">#endif</span>
-<a name="ln-65"></a><span class="cp">#ifdef SIESTA__FLOOK</span>
-<a name="ln-66"></a><span class="nl">     </span> <span class="k">use </span><span class="n">flook_siesta</span><span class="p">,</span> <span class="n">only</span> <span class="p">:</span> <span class="n">slua_call</span><span class="p">,</span> <span class="n">LUA_ANALYSIS</span>
-<a name="ln-67"></a><span class="cp">#endif</span>
+<a name="ln-62"></a><span class="nl">     </span> <span class="k">use </span><span class="n">m_mpi_utils</span><span class="p">,</span> <span class="n">only</span><span class="p">:</span> <span class="n">barrier</span>
+<a name="ln-63"></a><span class="cp">#ifdef SIESTA__FLOOK</span>
+<a name="ln-64"></a><span class="nl">     </span> <span class="k">use </span><span class="n">flook_siesta</span><span class="p">,</span> <span class="n">only</span> <span class="p">:</span> <span class="n">slua_call</span><span class="p">,</span> <span class="n">LUA_ANALYSIS</span>
+<a name="ln-65"></a><span class="cp">#endif</span>
+<a name="ln-66"></a><span class="nl">     </span> 
+<a name="ln-67"></a><span class="nl">     </span> <span class="k">implicit none</span>
 <a name="ln-68"></a>
-<a name="ln-69"></a><span class="nl">     </span> <span class="k">implicit none</span>
+<a name="ln-69"></a><span class="nl">     </span> <span class="kt">logical</span> <span class="kd">::</span> <span class="n">relaxd</span><span class="p">,</span> <span class="n">getPSI</span><span class="p">,</span> <span class="n">quenched_MD</span><span class="p">,</span> <span class="n">found</span>
 <a name="ln-70"></a>
-<a name="ln-71"></a><span class="nl">     </span> <span class="kt">logical</span> <span class="kd">::</span> <span class="n">relaxd</span><span class="p">,</span> <span class="n">getPSI</span><span class="p">,</span> <span class="n">quenched_MD</span><span class="p">,</span> <span class="n">found</span>
-<a name="ln-72"></a>
-<a name="ln-73"></a><span class="nl">     </span> <span class="kt">real</span><span class="p">(</span><span class="n">dp</span><span class="p">)</span>          <span class="kd">::</span> <span class="n">dummy_str</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span>
-<a name="ln-74"></a><span class="nl">     </span> <span class="kt">real</span><span class="p">(</span><span class="n">dp</span><span class="p">)</span>          <span class="kd">::</span> <span class="n">dummy_strl</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span>
-<a name="ln-75"></a><span class="nl">     </span> <span class="kt">real</span><span class="p">(</span><span class="n">dp</span><span class="p">)</span>          <span class="kd">::</span> <span class="n">qspin</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>         <span class="c">! Local</span>
-<a name="ln-76"></a>
-<a name="ln-77"></a><span class="nl">     </span> <span class="kt">real</span><span class="p">(</span><span class="n">dp</span><span class="p">)</span>          <span class="kd">::</span> <span class="n">polxyz</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="n">nspin</span><span class="p">)</span>  <span class="c">! Autom., small</span>
-<a name="ln-78"></a><span class="nl">     </span> <span class="kt">real</span><span class="p">(</span><span class="n">dp</span><span class="p">)</span>          <span class="kd">::</span> <span class="n">polR</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="n">nspin</span><span class="p">)</span>    <span class="c">! Autom., small</span>
-<a name="ln-79"></a><span class="nl">     </span> <span class="kt">real</span><span class="p">(</span><span class="n">dp</span><span class="p">)</span>          <span class="kd">::</span> <span class="n">qaux</span>
-<a name="ln-80"></a><span class="nl">     </span> <span class="kt">real</span><span class="p">(</span><span class="n">dp</span><span class="p">),</span> <span class="k">pointer</span> <span class="kd">::</span> <span class="n">ebk</span><span class="p">(:,:,:)</span>       <span class="c">! Band energies</span>
-<a name="ln-81"></a>
-<a name="ln-82"></a><span class="nl">     </span> <span class="kt">integer</span>           <span class="kd">::</span> <span class="n">j</span><span class="p">,</span> <span class="n">ix</span><span class="p">,</span> <span class="n">ind</span><span class="p">,</span> <span class="n">ik</span><span class="p">,</span> <span class="n">io</span><span class="p">,</span> <span class="n">ispin</span>
-<a name="ln-83"></a><span class="nl">     </span> <span class="kt">integer</span>           <span class="kd">::</span> <span class="n">wfs_band_min</span><span class="p">,</span> <span class="n">wfs_band_max</span>
-<a name="ln-84"></a><span class="nl">     </span> <span class="kt">real</span><span class="p">(</span><span class="n">dp</span><span class="p">)</span>          <span class="kd">::</span> <span class="n">g2max</span><span class="p">,</span> <span class="n">current_ef</span>
-<a name="ln-85"></a><span class="cp">#ifdef MPI</span>
-<a name="ln-86"></a><span class="nl">     </span> <span class="kt">real</span><span class="p">(</span><span class="n">dp</span><span class="p">)</span>          <span class="kd">::</span> <span class="n">qtmp</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
-<a name="ln-87"></a><span class="cp">#endif</span>
-<a name="ln-88"></a><span class="nl">     </span> <span class="k">type</span><span class="p">(</span><span class="n">filesOut_t</span><span class="p">)</span>  <span class="kd">::</span> <span class="n">filesOut</span>  <span class="c">! blank output file names</span>
-<a name="ln-89"></a>
-<a name="ln-90"></a><span class="c">!-----------------------------------------------------------------------BEGIN</span>
-<a name="ln-91"></a>
-<a name="ln-92"></a><span class="nl">     </span> <span class="k">if</span> <span class="p">(</span><span class="n">SIESTA_worker</span><span class="p">)</span> <span class="k">call </span><span class="n">timer</span><span class="p">(</span><span class="s2">&quot;Analysis&quot;</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
-<a name="ln-93"></a>
-<a name="ln-94"></a><span class="nl">     </span> <span class="c">!! Check that we are converged in geometry,</span>
-<a name="ln-95"></a><span class="nl">     </span> <span class="c">!! if strictly required,</span>
-<a name="ln-96"></a><span class="nl">     </span> <span class="c">!! before carrying out any analysis.</span>
-<a name="ln-97"></a>
-<a name="ln-98"></a><span class="nl">     </span> <span class="c">!!@code</span>
-<a name="ln-99"></a><span class="nl">     </span> <span class="n">quenched_MD</span> <span class="o">=</span>  <span class="p">(</span> <span class="p">(</span><span class="n">iquench</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span> <span class="p">.</span><span class="nb">and</span><span class="p">.</span>
-<a name="ln-100"></a><span class="nl">     </span><span class="gs">$</span>     <span class="p">((</span><span class="n">idyn</span> <span class="p">.</span><span class="n">eq</span><span class="p">.</span> <span class="mi">1</span><span class="p">)</span> <span class="p">.</span><span class="nb">or</span><span class="p">.</span> <span class="p">(</span><span class="n">idyn</span> <span class="p">.</span><span class="n">eq</span><span class="p">.</span> <span class="mi">3</span><span class="p">))</span> <span class="p">)</span>
-<a name="ln-101"></a>
-<a name="ln-102"></a><span class="nl">     </span> <span class="k">if</span> <span class="p">((</span><span class="n">nmove</span> <span class="p">.</span><span class="n">ne</span><span class="p">.</span> <span class="mi">0</span><span class="p">)</span> <span class="p">.</span><span class="nb">or</span><span class="p">.</span> <span class="n">quenched_MD</span><span class="p">)</span> <span class="k">then</span>
-<a name="ln-103"></a><span class="nl">     </span>    <span class="k">if</span> <span class="p">(</span><span class="n">GeometryMustConverge</span> <span class="p">.</span><span class="nb">and</span><span class="p">.</span> <span class="p">(.</span><span class="nb">not</span><span class="p">.</span> <span class="n">relaxd</span><span class="p">))</span> <span class="k">then</span>
-<a name="ln-104"></a><span class="nl">     </span>       <span class="k">call </span><span class="n">message</span><span class="p">(</span><span class="s2">&quot;FATAL&quot;</span><span class="p">,</span>
-<a name="ln-105"></a><span class="nl">     </span><span class="gs">$</span>           <span class="s2">&quot;GEOM_NOT_CONV: Geometry relaxation not converged&quot;</span><span class="p">)</span>
-<a name="ln-106"></a><span class="nl">     </span>       <span class="k">call </span><span class="n">die</span><span class="p">(</span><span class="s2">&quot;ABNORMAL_TERMINATION&quot;</span><span class="p">)</span>
+<a name="ln-71"></a><span class="nl">     </span> <span class="kt">real</span><span class="p">(</span><span class="n">dp</span><span class="p">)</span>          <span class="kd">::</span> <span class="n">dummy_str</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span>
+<a name="ln-72"></a><span class="nl">     </span> <span class="kt">real</span><span class="p">(</span><span class="n">dp</span><span class="p">)</span>          <span class="kd">::</span> <span class="n">dummy_strl</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span>
+<a name="ln-73"></a><span class="nl">     </span> <span class="kt">real</span><span class="p">(</span><span class="n">dp</span><span class="p">)</span>          <span class="kd">::</span> <span class="n">qspin</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>         <span class="c">! Local</span>
+<a name="ln-74"></a>
+<a name="ln-75"></a><span class="nl">     </span> <span class="kt">real</span><span class="p">(</span><span class="n">dp</span><span class="p">)</span>          <span class="kd">::</span> <span class="n">polxyz</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="n">nspin</span><span class="p">)</span>  <span class="c">! Autom., small</span>
+<a name="ln-76"></a><span class="nl">     </span> <span class="kt">real</span><span class="p">(</span><span class="n">dp</span><span class="p">)</span>          <span class="kd">::</span> <span class="n">polR</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="n">nspin</span><span class="p">)</span>    <span class="c">! Autom., small</span>
+<a name="ln-77"></a><span class="nl">     </span> <span class="kt">real</span><span class="p">(</span><span class="n">dp</span><span class="p">)</span>          <span class="kd">::</span> <span class="n">qaux</span>
+<a name="ln-78"></a><span class="nl">     </span> <span class="kt">real</span><span class="p">(</span><span class="n">dp</span><span class="p">),</span> <span class="k">pointer</span> <span class="kd">::</span> <span class="n">ebk</span><span class="p">(:,:,:)</span>       <span class="c">! Band energies</span>
+<a name="ln-79"></a>
+<a name="ln-80"></a><span class="nl">     </span> <span class="kt">integer</span>           <span class="kd">::</span> <span class="n">j</span><span class="p">,</span> <span class="n">ix</span><span class="p">,</span> <span class="n">ind</span><span class="p">,</span> <span class="n">ik</span><span class="p">,</span> <span class="n">io</span><span class="p">,</span> <span class="n">ispin</span>
+<a name="ln-81"></a><span class="nl">     </span> <span class="kt">integer</span>           <span class="kd">::</span> <span class="n">wfs_band_min</span><span class="p">,</span> <span class="n">wfs_band_max</span>
+<a name="ln-82"></a><span class="nl">     </span> <span class="kt">real</span><span class="p">(</span><span class="n">dp</span><span class="p">)</span>          <span class="kd">::</span> <span class="n">g2max</span><span class="p">,</span> <span class="n">current_ef</span>
+<a name="ln-83"></a><span class="nl">     </span> <span class="k">type</span><span class="p">(</span><span class="n">filesOut_t</span><span class="p">)</span>  <span class="kd">::</span> <span class="n">filesOut</span> <span class="c">! blank output file names</span>
+<a name="ln-84"></a>
+<a name="ln-85"></a><span class="c">!-----------------------------------------------------------------------BEGIN</span>
+<a name="ln-86"></a>
+<a name="ln-87"></a><span class="nl">     </span> <span class="k">if</span> <span class="p">(</span><span class="n">SIESTA_worker</span><span class="p">)</span> <span class="k">call </span><span class="n">timer</span><span class="p">(</span><span class="s2">&quot;Analysis&quot;</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+<a name="ln-88"></a>
+<a name="ln-89"></a><span class="nl">     </span> <span class="c">!! Check that we are converged in geometry,</span>
+<a name="ln-90"></a><span class="nl">     </span> <span class="c">!! if strictly required,</span>
+<a name="ln-91"></a><span class="nl">     </span> <span class="c">!! before carrying out any analysis.</span>
+<a name="ln-92"></a>
+<a name="ln-93"></a><span class="nl">     </span> <span class="c">!!@code</span>
+<a name="ln-94"></a><span class="nl">     </span> <span class="n">quenched_MD</span> <span class="o">=</span>  <span class="p">(</span> <span class="p">(</span><span class="n">iquench</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span> <span class="p">.</span><span class="nb">and</span><span class="p">.</span>
+<a name="ln-95"></a><span class="nl">     </span><span class="gs">$</span>     <span class="p">((</span><span class="n">idyn</span> <span class="p">.</span><span class="n">eq</span><span class="p">.</span> <span class="mi">1</span><span class="p">)</span> <span class="p">.</span><span class="nb">or</span><span class="p">.</span> <span class="p">(</span><span class="n">idyn</span> <span class="p">.</span><span class="n">eq</span><span class="p">.</span> <span class="mi">3</span><span class="p">))</span> <span class="p">)</span>
+<a name="ln-96"></a>
+<a name="ln-97"></a><span class="nl">     </span> <span class="k">if</span> <span class="p">((</span><span class="n">nmove</span> <span class="p">.</span><span class="n">ne</span><span class="p">.</span> <span class="mi">0</span><span class="p">)</span> <span class="p">.</span><span class="nb">or</span><span class="p">.</span> <span class="n">quenched_MD</span><span class="p">)</span> <span class="k">then</span>
+<a name="ln-98"></a><span class="nl">     </span>    <span class="k">if</span> <span class="p">(</span><span class="n">SIESTA_worker</span><span class="p">)</span> <span class="k">then</span>  <span class="c">! For timing ops and associated barrier</span>
+<a name="ln-99"></a><span class="nl">     </span>     <span class="k">if</span> <span class="p">(</span><span class="n">GeometryMustConverge</span> <span class="p">.</span><span class="nb">and</span><span class="p">.</span> <span class="p">(.</span><span class="nb">not</span><span class="p">.</span> <span class="n">relaxd</span><span class="p">))</span> <span class="k">then</span>
+<a name="ln-100"></a><span class="nl">     </span>       <span class="k">call </span><span class="n">message</span><span class="p">(</span><span class="s2">&quot;FATAL&quot;</span><span class="p">,</span>
+<a name="ln-101"></a><span class="nl">     </span><span class="gs">$</span>           <span class="s2">&quot;GEOM_NOT_CONV: Geometry relaxation not converged&quot;</span><span class="p">)</span>
+<a name="ln-102"></a><span class="nl">     </span>       <span class="k">call </span><span class="n">timer</span><span class="p">(</span><span class="s1">&#39;all&#39;</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
+<a name="ln-103"></a><span class="nl">     </span>       <span class="k">call </span><span class="n">timer</span><span class="p">(</span><span class="s1">&#39;all&#39;</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span>
+<a name="ln-104"></a><span class="nl">     </span>       <span class="k">call </span><span class="n">barrier</span><span class="p">()</span>
+<a name="ln-105"></a><span class="nl">     </span>       <span class="k">call </span><span class="n">die</span><span class="p">(</span><span class="s2">&quot;ABNORMAL_TERMINATION&quot;</span><span class="p">)</span>
+<a name="ln-106"></a><span class="nl">     </span>     <span class="n">endif</span>
 <a name="ln-107"></a><span class="nl">     </span>    <span class="n">endif</span>
 <a name="ln-108"></a><span class="nl">     </span> <span class="n">endif</span>
 <a name="ln-109"></a><span class="nl">     </span> <span class="c">!!@endcode</span>
@@ -553,240 +542,244 @@
 <a name="ln-288"></a><span class="nl">     </span>   <span class="c">! The user is responsible for using appropriate values.</span>
 <a name="ln-289"></a><span class="nl">     </span>   <span class="n">wfs_band_min</span> <span class="o">=</span> <span class="n">fdf_get</span><span class="p">(</span><span class="s2">&quot;WFS.BandMin&quot;</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
 <a name="ln-290"></a><span class="nl">     </span>   <span class="n">wfs_band_max</span> <span class="o">=</span> <span class="n">fdf_get</span><span class="p">(</span><span class="s2">&quot;WFS.BandMax&quot;</span><span class="p">,</span><span class="n">no_u</span><span class="p">)</span>
-<a name="ln-291"></a><span class="nl">     </span>   <span class="k">call </span><span class="n">setup_wfs_list</span><span class="p">(</span><span class="n">nkpnt</span><span class="p">,</span><span class="n">no_u</span><span class="p">,</span><span class="n">wfs_band_min</span><span class="p">,</span><span class="n">wfs_band_max</span><span class="p">,</span>
-<a name="ln-292"></a><span class="nl">     </span><span class="gs">$</span>                      <span class="n">use_scf_weights</span><span class="o">=</span><span class="p">.</span><span class="n">true</span><span class="p">.,</span>
-<a name="ln-293"></a><span class="nl">     </span><span class="gs">$</span>                      <span class="n">use_energy_window</span><span class="o">=</span><span class="p">.</span><span class="n">true</span><span class="p">.)</span>
-<a name="ln-294"></a><span class="nl">     </span>    <span class="n">wfs_filename</span> <span class="o">=</span> <span class="nb">trim</span><span class="p">(</span><span class="n">slabel</span><span class="p">)</span><span class="o">//</span><span class="s2">&quot;.fullBZ.WFSX&quot;</span>
-<a name="ln-295"></a><span class="nl">     </span>    <span class="k">if</span> <span class="p">(</span><span class="n">IONode</span><span class="p">)</span> <span class="k">print</span> <span class="s2">&quot;(a)&quot;</span><span class="p">,</span> <span class="s2">&quot;Writing WFSX for COOP/COHP in &quot;</span> 
-<a name="ln-296"></a><span class="nl">     </span><span class="gs">$</span>                           <span class="o">//</span> <span class="nb">trim</span><span class="p">(</span><span class="n">wfs_filename</span><span class="p">)</span>
-<a name="ln-297"></a><span class="nl">     </span>    <span class="k">call </span><span class="n">wwave</span><span class="p">(</span> <span class="n">no_s</span><span class="p">,</span> <span class="n">h_spin_dim</span><span class="p">,</span> <span class="n">spinor_dim</span><span class="p">,</span> <span class="n">no_u</span><span class="p">,</span> <span class="n">no_l</span><span class="p">,</span> <span class="n">maxnh</span><span class="p">,</span> 
-<a name="ln-298"></a><span class="nl">     </span><span class="gs">.</span>        <span class="n">nkpnt</span><span class="p">,</span>
-<a name="ln-299"></a><span class="nl">     </span><span class="gs">.</span>        <span class="n">numh</span><span class="p">,</span> <span class="n">listhptr</span><span class="p">,</span> <span class="n">listh</span><span class="p">,</span> <span class="n">H</span><span class="p">,</span> <span class="n">S</span><span class="p">,</span> <span class="n">Ef</span><span class="p">,</span> <span class="n">xijo</span><span class="p">,</span> <span class="n">indxuo</span><span class="p">,</span>
-<a name="ln-300"></a><span class="nl">     </span><span class="gs">.</span>        <span class="n">nkpnt</span><span class="p">,</span> <span class="n">kpoint</span><span class="p">,</span> <span class="n">no_u</span><span class="p">,</span> <span class="nb">gamma</span><span class="p">,</span> <span class="n">occtol</span><span class="p">)</span>
-<a name="ln-301"></a><span class="nl">     </span> <span class="n">endif</span>
-<a name="ln-302"></a>
-<a name="ln-303"></a><span class="c">!     Compute bands</span>
-<a name="ln-304"></a><span class="c">!   This uses H,S, and xa</span>
-<a name="ln-305"></a><span class="nl">     </span> <span class="k">nullify</span><span class="p">(</span> <span class="n">ebk</span> <span class="p">)</span>
-<a name="ln-306"></a><span class="nl">     </span> <span class="k">call </span><span class="n">re_alloc</span><span class="p">(</span> <span class="n">ebk</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">no_u</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">spinor_dim</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">maxbk</span><span class="p">,</span>
-<a name="ln-307"></a><span class="nl">     </span><span class="gs">&amp;</span>               <span class="s1">&#39;ebk&#39;</span><span class="p">,</span> <span class="s1">&#39;siesta_analysis&#39;</span> <span class="p">)</span>
-<a name="ln-308"></a>
-<a name="ln-309"></a><span class="nl">     </span> <span class="k">if</span> <span class="p">(</span><span class="n">nbk</span><span class="p">.</span><span class="n">gt</span><span class="p">.</span><span class="mi">0</span><span class="p">)</span> <span class="k">then</span>
-<a name="ln-310"></a><span class="nl">     </span>   <span class="k">if</span> <span class="p">(</span><span class="n">IONode</span><span class="p">)</span> <span class="k">print</span> <span class="s2">&quot;(a)&quot;</span><span class="p">,</span> <span class="s2">&quot;Computing bands...&quot;</span>
-<a name="ln-311"></a><span class="nl">     </span>   <span class="n">getPSI</span> <span class="o">=</span> <span class="n">fdf_get</span><span class="p">(</span><span class="s1">&#39;WFS.Write.For.Bands&#39;</span><span class="p">,</span> <span class="p">.</span><span class="n">false</span><span class="p">.)</span>
-<a name="ln-312"></a><span class="nl">     </span>   <span class="k">if</span> <span class="p">(</span><span class="n">getPSI</span><span class="p">)</span> <span class="k">then</span>
-<a name="ln-313"></a><span class="nl">     </span>      <span class="n">wfs_filename</span> <span class="o">=</span> <span class="nb">trim</span><span class="p">(</span><span class="n">slabel</span><span class="p">)</span><span class="o">//</span><span class="s2">&quot;.bands.WFSX&quot;</span>
-<a name="ln-314"></a><span class="nl">     </span>    <span class="k">if</span> <span class="p">(</span><span class="n">IONode</span><span class="p">)</span> <span class="k">print</span> <span class="s2">&quot;(a)&quot;</span><span class="p">,</span> <span class="s2">&quot;Writing WFSX for bands in &quot;</span>
-<a name="ln-315"></a><span class="nl">     </span><span class="gs">$</span>                           <span class="o">//</span> <span class="nb">trim</span><span class="p">(</span><span class="n">wfs_filename</span><span class="p">)</span>
-<a name="ln-316"></a><span class="nl">     </span>      <span class="n">wfs_band_min</span> <span class="o">=</span> <span class="n">fdf_get</span><span class="p">(</span><span class="s2">&quot;WFS.BandMin&quot;</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
-<a name="ln-317"></a><span class="nl">     </span>      <span class="n">wfs_band_max</span> <span class="o">=</span> <span class="n">fdf_get</span><span class="p">(</span><span class="s2">&quot;WFS.BandMax&quot;</span><span class="p">,</span><span class="n">no_u</span><span class="p">)</span>
-<a name="ln-318"></a><span class="nl">     </span>      <span class="k">call </span><span class="n">setup_wfs_list</span><span class="p">(</span><span class="n">nbk</span><span class="p">,</span><span class="n">no_u</span><span class="p">,</span><span class="n">wfs_band_min</span><span class="p">,</span><span class="n">wfs_band_max</span><span class="p">,</span>
-<a name="ln-319"></a><span class="nl">     </span><span class="gs">$</span>          <span class="n">use_scf_weights</span><span class="o">=</span><span class="p">.</span><span class="n">false</span><span class="p">.,</span>
-<a name="ln-320"></a><span class="nl">     </span><span class="gs">$</span>          <span class="n">use_energy_window</span><span class="o">=</span><span class="p">.</span><span class="n">false</span><span class="p">.)</span>
-<a name="ln-321"></a><span class="nl">     </span>   <span class="n">endif</span>
-<a name="ln-322"></a><span class="nl">     </span>   <span class="k">call </span><span class="n">bands</span><span class="p">(</span> <span class="n">no_s</span><span class="p">,</span> <span class="n">h_spin_dim</span><span class="p">,</span> <span class="n">spinor_dim</span><span class="p">,</span> <span class="n">no_u</span><span class="p">,</span> <span class="n">no_l</span><span class="p">,</span> <span class="n">maxnh</span><span class="p">,</span> 
-<a name="ln-323"></a><span class="nl">     </span><span class="gs">.</span>              <span class="n">maxbk</span><span class="p">,</span>
-<a name="ln-324"></a><span class="nl">     </span><span class="gs">.</span>              <span class="n">numh</span><span class="p">,</span> <span class="n">listhptr</span><span class="p">,</span> <span class="n">listh</span><span class="p">,</span> <span class="n">H</span><span class="p">,</span> <span class="n">S</span><span class="p">,</span> <span class="n">Ef</span><span class="p">,</span> <span class="n">xijo</span><span class="p">,</span> <span class="n">indxuo</span><span class="p">,</span>
-<a name="ln-325"></a><span class="nl">     </span><span class="gs">.</span>              <span class="p">.</span><span class="n">true</span><span class="p">.,</span> <span class="n">nbk</span><span class="p">,</span> <span class="n">bk</span><span class="p">,</span> <span class="n">ebk</span><span class="p">,</span> <span class="n">occtol</span><span class="p">,</span> <span class="n">getPSI</span> <span class="p">)</span>
-<a name="ln-326"></a><span class="nl">     </span>   <span class="k">if</span> <span class="p">(</span><span class="n">IOnode</span><span class="p">)</span> <span class="k">then</span>
-<a name="ln-327"></a><span class="nl">     </span>     <span class="k">if</span> <span class="p">(</span> <span class="n">writbk</span> <span class="p">)</span> <span class="k">then</span>
-<a name="ln-328"></a><span class="nl">     </span>       <span class="k">write</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span><span class="s1">&#39;(/,a,/,a4,a12)&#39;</span><span class="p">)</span>
-<a name="ln-329"></a><span class="nl">     </span><span class="gs">&amp;</span>       <span class="s1">&#39;siesta: Band k vectors (Bohr**-1):&#39;</span><span class="p">,</span> <span class="s1">&#39;ik&#39;</span><span class="p">,</span> <span class="s1">&#39;k&#39;</span>
-<a name="ln-330"></a><span class="nl">     </span>       <span class="k">do </span><span class="n">ik</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span><span class="n">nbk</span>
-<a name="ln-331"></a><span class="nl">     </span>         <span class="k">write</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span><span class="s1">&#39;(i4,3f12.6)&#39;</span><span class="p">)</span> <span class="n">ik</span><span class="p">,</span> <span class="p">(</span><span class="n">bk</span><span class="p">(</span><span class="n">ix</span><span class="p">,</span><span class="n">ik</span><span class="p">),</span><span class="n">ix</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span>
-<a name="ln-332"></a><span class="nl">     </span>       <span class="n">enddo</span>
-<a name="ln-333"></a><span class="nl">     </span>     <span class="n">endif</span>
-<a name="ln-334"></a><span class="nl">     </span>   
-<a name="ln-335"></a><span class="nl">     </span>     <span class="k">if</span> <span class="p">(</span> <span class="n">writb</span> <span class="p">)</span> <span class="k">then</span>
-<a name="ln-336"></a><span class="nl">     </span>       <span class="k">write</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span><span class="s1">&#39;(/,a,/,a4,a3,a7)&#39;</span><span class="p">)</span>
-<a name="ln-337"></a><span class="nl">     </span><span class="gs">&amp;</span>       <span class="s1">&#39;siesta: Band energies (eV):&#39;</span><span class="p">,</span> <span class="s1">&#39;ik&#39;</span><span class="p">,</span> <span class="s1">&#39;is&#39;</span><span class="p">,</span> <span class="s1">&#39;eps&#39;</span>
-<a name="ln-338"></a><span class="nl">     </span>       <span class="k">do </span><span class="n">ispin</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="n">spinor_dim</span>
-<a name="ln-339"></a><span class="nl">     </span>         <span class="k">do </span><span class="n">ik</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span><span class="n">nbk</span>
-<a name="ln-340"></a><span class="nl">     </span>           <span class="k">write</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span><span class="s1">&#39;(i4,i3,10f7.2)&#39;</span><span class="p">)</span>
-<a name="ln-341"></a><span class="nl">     </span><span class="gs">&amp;</span>            <span class="n">ik</span><span class="p">,</span> <span class="n">ispin</span><span class="p">,</span> <span class="p">(</span><span class="n">ebk</span><span class="p">(</span><span class="n">io</span><span class="p">,</span><span class="n">ispin</span><span class="p">,</span><span class="n">ik</span><span class="p">)</span><span class="o">/</span><span class="n">eV</span><span class="p">,</span><span class="n">io</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span><span class="nb">min</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="n">no_u</span><span class="p">))</span>
-<a name="ln-342"></a><span class="nl">     </span>           <span class="k">if</span> <span class="p">(</span><span class="n">no_u</span><span class="p">.</span><span class="n">gt</span><span class="p">.</span><span class="mi">10</span><span class="p">)</span> <span class="k">write</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span><span class="s1">&#39;(7x,10f7.2)&#39;</span><span class="p">)</span>
-<a name="ln-343"></a><span class="nl">     </span><span class="gs">&amp;</span>              <span class="p">(</span><span class="n">ebk</span><span class="p">(</span><span class="n">io</span><span class="p">,</span><span class="n">ispin</span><span class="p">,</span><span class="n">ik</span><span class="p">)</span><span class="o">/</span><span class="n">eV</span><span class="p">,</span><span class="n">io</span><span class="o">=</span><span class="mi">11</span><span class="p">,</span><span class="n">no_u</span><span class="p">)</span>
-<a name="ln-344"></a><span class="nl">     </span>         <span class="n">enddo</span>
-<a name="ln-345"></a><span class="nl">     </span>       <span class="n">enddo</span>
-<a name="ln-346"></a><span class="nl">     </span>     <span class="n">endif</span>
-<a name="ln-347"></a><span class="nl">     </span>   <span class="n">endif</span>
-<a name="ln-348"></a><span class="nl">     </span> <span class="n">endif</span>
-<a name="ln-349"></a>
-<a name="ln-350"></a><span class="c">!     Print eigenvalues</span>
-<a name="ln-351"></a><span class="nl">     </span> <span class="k">if</span> <span class="p">(</span><span class="n">IOnode</span> <span class="p">.</span><span class="nb">and</span><span class="p">.</span> <span class="n">writeig</span><span class="p">)</span> <span class="k">then</span>
-<a name="ln-352"></a><span class="nl">     </span>   <span class="k">if</span> <span class="p">((</span><span class="n">isolve</span><span class="p">.</span><span class="n">eq</span><span class="p">.</span><span class="n">SOLVE_DIAGON</span> <span class="p">.</span><span class="nb">or</span><span class="p">.</span>
-<a name="ln-353"></a><span class="nl">     </span><span class="gs">&amp;</span>       <span class="p">((</span><span class="n">isolve</span><span class="p">.</span><span class="n">eq</span><span class="p">.</span><span class="n">SOLVE_MINIM</span><span class="p">)</span> <span class="p">.</span><span class="nb">and</span><span class="p">.</span> <span class="n">minim_calc_eigenvalues</span><span class="p">))</span>
-<a name="ln-354"></a><span class="nl">     </span><span class="gs">&amp;</span>      <span class="p">.</span><span class="nb">and</span><span class="p">.</span> <span class="n">no_l</span><span class="p">.</span><span class="n">lt</span><span class="p">.</span><span class="mi">1000</span><span class="p">)</span> <span class="k">then</span>
-<a name="ln-355"></a><span class="nl">     </span>     <span class="k">if</span> <span class="p">(</span> <span class="n">h_spin_dim</span> <span class="o">&lt;=</span> <span class="mi">2</span> <span class="p">)</span> <span class="k">then</span>
-<a name="ln-356"></a><span class="nl">     </span>       <span class="k">write</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span><span class="s1">&#39;(/,a,/,a4,a3,a7)&#39;</span><span class="p">)</span>
-<a name="ln-357"></a><span class="nl">     </span><span class="gs">&amp;</span>       <span class="s1">&#39;siesta: Eigenvalues (eV):&#39;</span><span class="p">,</span> <span class="s1">&#39;ik&#39;</span><span class="p">,</span> <span class="s1">&#39;is&#39;</span><span class="p">,</span> <span class="s1">&#39;eps&#39;</span>
-<a name="ln-358"></a><span class="nl">     </span>       <span class="k">do </span><span class="n">ik</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span><span class="n">nkpnt</span>
-<a name="ln-359"></a><span class="nl">     </span>         <span class="k">do </span><span class="n">ispin</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span><span class="n">spinor_dim</span>
-<a name="ln-360"></a><span class="nl">     </span>           <span class="k">write</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span><span class="s1">&#39;(i4,i3,10f7.2)&#39;</span><span class="p">)</span>
-<a name="ln-361"></a><span class="nl">     </span><span class="gs">&amp;</span>            <span class="n">ik</span><span class="p">,</span><span class="n">ispin</span><span class="p">,(</span><span class="n">eo</span><span class="p">(</span><span class="n">io</span><span class="p">,</span><span class="n">ispin</span><span class="p">,</span><span class="n">ik</span><span class="p">)</span><span class="o">/</span><span class="n">eV</span><span class="p">,</span><span class="n">io</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span><span class="nb">min</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="n">neigwanted</span><span class="p">))</span>
-<a name="ln-362"></a><span class="nl">     </span>           <span class="k">if</span> <span class="p">(</span><span class="n">no_u</span><span class="p">.</span><span class="n">gt</span><span class="p">.</span><span class="mi">10</span><span class="p">)</span> <span class="k">write</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span><span class="s1">&#39;(7x,10f7.2)&#39;</span><span class="p">)</span>
-<a name="ln-363"></a><span class="nl">     </span><span class="gs">&amp;</span>            <span class="p">(</span><span class="n">eo</span><span class="p">(</span><span class="n">io</span><span class="p">,</span><span class="n">ispin</span><span class="p">,</span><span class="n">ik</span><span class="p">)</span><span class="o">/</span><span class="n">eV</span><span class="p">,</span><span class="n">io</span><span class="o">=</span><span class="mi">11</span><span class="p">,</span><span class="n">neigwanted</span><span class="p">)</span>
-<a name="ln-364"></a><span class="nl">     </span>         <span class="n">enddo</span>
-<a name="ln-365"></a><span class="nl">     </span>       <span class="n">enddo</span>
-<a name="ln-366"></a><span class="nl">     </span>     <span class="k">else</span>
-<a name="ln-367"></a><span class="nl">     </span>       <span class="k">write</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span><span class="s1">&#39;(/,a)&#39;</span><span class="p">)</span> <span class="s1">&#39;siesta: Eigenvalues (eV):&#39;</span>
-<a name="ln-368"></a><span class="nl">     </span>       <span class="k">do </span><span class="n">ik</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span><span class="n">nkpnt</span>
-<a name="ln-369"></a><span class="nl">     </span>         <span class="k">write</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span><span class="s1">&#39;(a,i6)&#39;</span><span class="p">)</span> <span class="s1">&#39;ik =&#39;</span><span class="p">,</span> <span class="n">ik</span>
-<a name="ln-370"></a><span class="nl">     </span>         <span class="k">write</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span><span class="s1">&#39;(10f7.2)&#39;</span><span class="p">)</span>
-<a name="ln-371"></a><span class="nl">     </span><span class="gs">&amp;</span>          <span class="p">((</span><span class="n">eo</span><span class="p">(</span><span class="n">io</span><span class="p">,</span><span class="n">ispin</span><span class="p">,</span><span class="n">ik</span><span class="p">)</span><span class="o">/</span><span class="n">eV</span><span class="p">,</span><span class="n">io</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span><span class="n">neigwanted</span><span class="p">),</span><span class="n">ispin</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
-<a name="ln-372"></a><span class="nl">     </span>       <span class="n">enddo</span>
-<a name="ln-373"></a><span class="nl">     </span>     <span class="n">endif</span>
-<a name="ln-374"></a><span class="nl">     </span>     <span class="k">write</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span><span class="s1">&#39;(a,f15.6,a)&#39;</span><span class="p">)</span> <span class="s1">&#39;siesta: Fermi energy =&#39;</span><span class="p">,</span> <span class="n">ef</span><span class="o">/</span><span class="n">eV</span><span class="p">,</span> <span class="s1">&#39; eV&#39;</span>
-<a name="ln-375"></a><span class="nl">     </span>   <span class="n">endif</span>
-<a name="ln-376"></a><span class="nl">     </span> <span class="n">endif</span>
-<a name="ln-377"></a>
-<a name="ln-378"></a><span class="nl">     </span> <span class="k">if</span> <span class="p">(((</span><span class="n">isolve</span><span class="p">.</span><span class="n">eq</span><span class="p">.</span><span class="n">SOLVE_DIAGON</span><span class="p">).</span><span class="nb">or</span><span class="p">.</span>
-<a name="ln-379"></a><span class="nl">     </span><span class="gs">&amp;</span>     <span class="p">((</span><span class="n">isolve</span><span class="p">.</span><span class="n">eq</span><span class="p">.</span><span class="n">SOLVE_MINIM</span><span class="p">).</span><span class="nb">and</span><span class="p">.</span><span class="n">minim_calc_eigenvalues</span><span class="p">))</span>
-<a name="ln-380"></a><span class="nl">     </span><span class="gs">&amp;</span>     <span class="p">.</span><span class="nb">and</span><span class="p">.</span><span class="n">IOnode</span><span class="p">)</span>
-<a name="ln-381"></a><span class="nl">     </span><span class="gs">&amp;</span>     <span class="k">call </span><span class="n">ioeig</span><span class="p">(</span><span class="n">eo</span><span class="p">,</span><span class="n">ef</span><span class="p">,</span><span class="n">neigwanted</span><span class="p">,</span><span class="n">nspin</span><span class="p">,</span><span class="n">nkpnt</span><span class="p">,</span><span class="n">no_u</span><span class="p">,</span><span class="n">spinor_dim</span><span class="p">,</span>
-<a name="ln-382"></a><span class="nl">     </span><span class="gs">&amp;</span>     <span class="n">nkpnt</span><span class="p">,</span><span class="n">kpoint</span><span class="p">,</span> <span class="n">kweight</span><span class="p">)</span>
-<a name="ln-383"></a>
-<a name="ln-384"></a>
-<a name="ln-385"></a><span class="c">!   This uses H,S, and xa, as it diagonalizes them again</span>
-<a name="ln-386"></a><span class="nl">     </span> <span class="k">call </span><span class="n">projected_DOS</span><span class="p">()</span>
-<a name="ln-387"></a>
-<a name="ln-388"></a><span class="c">!     Print program&#39;s energy decomposition and final forces</span>
-<a name="ln-389"></a><span class="nl">     </span> <span class="k">if</span> <span class="p">(</span><span class="n">IOnode</span><span class="p">)</span> <span class="k">then</span>
-<a name="ln-390"></a><span class="nl">     </span>   <span class="k">call </span><span class="n">siesta_write_energies</span><span class="p">(</span> <span class="n">iscf</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">dDmax</span><span class="o">=</span><span class="mf">0._dp</span><span class="p">,</span> <span class="n">dHmax</span><span class="o">=</span><span class="mf">0._dp</span><span class="p">)</span>
-<a name="ln-391"></a><span class="nl">     </span>   <span class="c">! final == .true. which makes the step counter irrelevant</span>
-<a name="ln-392"></a><span class="nl">     </span>   <span class="k">call </span><span class="n">siesta_write_forces</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
-<a name="ln-393"></a><span class="nl">     </span>   <span class="k">call </span><span class="n">siesta_write_stress_pressure</span><span class="p">()</span>
-<a name="ln-394"></a><span class="nl">     </span>   <span class="k">call </span><span class="n">write_basis_enthalpy</span><span class="p">(</span><span class="n">FreeE</span><span class="p">,</span><span class="n">FreeEHarris</span><span class="p">)</span>
-<a name="ln-395"></a><span class="nl">     </span> <span class="n">endif</span>
-<a name="ln-396"></a>
-<a name="ln-397"></a><span class="c">! NOTE: Here, the spin polarization is computed using Dscf, which is</span>
-<a name="ln-398"></a><span class="c">!       a density matrix obtained after mixing the &quot;in&quot; and &quot;out&quot;</span>
-<a name="ln-399"></a><span class="c">!       DMs of the SCF run for the last geometry considered.</span>
-<a name="ln-400"></a><span class="c">!       This can be considered a feature or a bug.</span>
-<a name="ln-401"></a>
-<a name="ln-402"></a><span class="nl">     </span> <span class="k">call </span><span class="n">print_spin</span><span class="p">(</span><span class="n">qspin</span><span class="p">)</span>  <span class="c">! qspin returned for use below</span>
+<a name="ln-291"></a><span class="nl">     </span>   <span class="k">call </span><span class="n">setup_wfs_list</span><span class="p">(</span><span class="n">kpoints_scf</span><span class="p">%</span><span class="n">N</span><span class="p">,</span><span class="n">no_u</span><span class="p">,</span>
+<a name="ln-292"></a><span class="nl">     </span><span class="gs">&amp;</span>                      <span class="n">wfs_band_min</span><span class="p">,</span><span class="n">wfs_band_max</span><span class="p">,</span>
+<a name="ln-293"></a><span class="nl">     </span><span class="gs">$</span>                      <span class="n">use_scf_weights</span><span class="o">=</span><span class="p">.</span><span class="n">true</span><span class="p">.,</span>
+<a name="ln-294"></a><span class="nl">     </span><span class="gs">$</span>                      <span class="n">use_energy_window</span><span class="o">=</span><span class="p">.</span><span class="n">true</span><span class="p">.)</span>
+<a name="ln-295"></a><span class="nl">     </span>    <span class="n">wfs_filename</span> <span class="o">=</span> <span class="nb">trim</span><span class="p">(</span><span class="n">slabel</span><span class="p">)</span><span class="o">//</span><span class="s2">&quot;.fullBZ.WFSX&quot;</span>
+<a name="ln-296"></a><span class="nl">     </span>    <span class="k">if</span> <span class="p">(</span><span class="n">IONode</span><span class="p">)</span> <span class="k">print</span> <span class="s2">&quot;(a)&quot;</span><span class="p">,</span> <span class="s2">&quot;Writing WFSX for COOP/COHP in &quot;</span> 
+<a name="ln-297"></a><span class="nl">     </span><span class="gs">$</span>                           <span class="o">//</span> <span class="nb">trim</span><span class="p">(</span><span class="n">wfs_filename</span><span class="p">)</span>
+<a name="ln-298"></a><span class="nl">     </span>    <span class="k">call </span><span class="n">wwave</span><span class="p">(</span> <span class="n">no_s</span><span class="p">,</span> <span class="n">h_spin_dim</span><span class="p">,</span> <span class="n">spinor_dim</span><span class="p">,</span> <span class="n">no_u</span><span class="p">,</span> <span class="n">no_l</span><span class="p">,</span> <span class="n">maxnh</span><span class="p">,</span> 
+<a name="ln-299"></a><span class="nl">     </span><span class="gs">.</span>        <span class="n">kpoints_scf</span><span class="p">%</span><span class="n">N</span><span class="p">,</span>
+<a name="ln-300"></a><span class="nl">     </span><span class="gs">.</span>        <span class="n">numh</span><span class="p">,</span> <span class="n">listhptr</span><span class="p">,</span> <span class="n">listh</span><span class="p">,</span> <span class="n">H</span><span class="p">,</span> <span class="n">S</span><span class="p">,</span> <span class="n">Ef</span><span class="p">,</span> <span class="n">xijo</span><span class="p">,</span> <span class="n">indxuo</span><span class="p">,</span>
+<a name="ln-301"></a><span class="nl">     </span><span class="gs">.</span>        <span class="n">kpoints_scf</span><span class="p">%</span><span class="n">N</span><span class="p">,</span> <span class="n">kpoints_scf</span><span class="p">%</span><span class="n">k</span><span class="p">,</span> <span class="n">no_u</span><span class="p">,</span> <span class="nb">gamma</span><span class="p">,</span> <span class="n">occtol</span><span class="p">)</span>
+<a name="ln-302"></a><span class="nl">     </span> <span class="n">endif</span>
+<a name="ln-303"></a>
+<a name="ln-304"></a><span class="c">!     Compute bands</span>
+<a name="ln-305"></a><span class="c">!   This uses H,S, and xa</span>
+<a name="ln-306"></a><span class="nl">     </span> <span class="k">nullify</span><span class="p">(</span> <span class="n">ebk</span> <span class="p">)</span>
+<a name="ln-307"></a><span class="nl">     </span> <span class="k">call </span><span class="n">re_alloc</span><span class="p">(</span> <span class="n">ebk</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">no_u</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">spinor_dim</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">maxbk</span><span class="p">,</span>
+<a name="ln-308"></a><span class="nl">     </span><span class="gs">&amp;</span>               <span class="s1">&#39;ebk&#39;</span><span class="p">,</span> <span class="s1">&#39;siesta_analysis&#39;</span> <span class="p">)</span>
+<a name="ln-309"></a>
+<a name="ln-310"></a><span class="nl">     </span> <span class="k">if</span> <span class="p">(</span><span class="n">nbk</span><span class="p">.</span><span class="n">gt</span><span class="p">.</span><span class="mi">0</span><span class="p">)</span> <span class="k">then</span>
+<a name="ln-311"></a><span class="nl">     </span>   <span class="k">if</span> <span class="p">(</span><span class="n">IONode</span><span class="p">)</span> <span class="k">print</span> <span class="s2">&quot;(a)&quot;</span><span class="p">,</span> <span class="s2">&quot;Computing bands...&quot;</span>
+<a name="ln-312"></a><span class="nl">     </span>   <span class="n">getPSI</span> <span class="o">=</span> <span class="n">fdf_get</span><span class="p">(</span><span class="s1">&#39;WFS.Write.For.Bands&#39;</span><span class="p">,</span> <span class="p">.</span><span class="n">false</span><span class="p">.)</span>
+<a name="ln-313"></a><span class="nl">     </span>   <span class="k">if</span> <span class="p">(</span><span class="n">getPSI</span><span class="p">)</span> <span class="k">then</span>
+<a name="ln-314"></a><span class="nl">     </span>      <span class="n">wfs_filename</span> <span class="o">=</span> <span class="nb">trim</span><span class="p">(</span><span class="n">slabel</span><span class="p">)</span><span class="o">//</span><span class="s2">&quot;.bands.WFSX&quot;</span>
+<a name="ln-315"></a><span class="nl">     </span>    <span class="k">if</span> <span class="p">(</span><span class="n">IONode</span><span class="p">)</span> <span class="k">print</span> <span class="s2">&quot;(a)&quot;</span><span class="p">,</span> <span class="s2">&quot;Writing WFSX for bands in &quot;</span>
+<a name="ln-316"></a><span class="nl">     </span><span class="gs">$</span>                           <span class="o">//</span> <span class="nb">trim</span><span class="p">(</span><span class="n">wfs_filename</span><span class="p">)</span>
+<a name="ln-317"></a><span class="nl">     </span>      <span class="n">wfs_band_min</span> <span class="o">=</span> <span class="n">fdf_get</span><span class="p">(</span><span class="s2">&quot;WFS.BandMin&quot;</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+<a name="ln-318"></a><span class="nl">     </span>      <span class="n">wfs_band_max</span> <span class="o">=</span> <span class="n">fdf_get</span><span class="p">(</span><span class="s2">&quot;WFS.BandMax&quot;</span><span class="p">,</span><span class="n">no_u</span><span class="p">)</span>
+<a name="ln-319"></a><span class="nl">     </span>      <span class="k">call </span><span class="n">setup_wfs_list</span><span class="p">(</span><span class="n">nbk</span><span class="p">,</span><span class="n">no_u</span><span class="p">,</span><span class="n">wfs_band_min</span><span class="p">,</span><span class="n">wfs_band_max</span><span class="p">,</span>
+<a name="ln-320"></a><span class="nl">     </span><span class="gs">$</span>          <span class="n">use_scf_weights</span><span class="o">=</span><span class="p">.</span><span class="n">false</span><span class="p">.,</span>
+<a name="ln-321"></a><span class="nl">     </span><span class="gs">$</span>          <span class="n">use_energy_window</span><span class="o">=</span><span class="p">.</span><span class="n">false</span><span class="p">.)</span>
+<a name="ln-322"></a><span class="nl">     </span>   <span class="n">endif</span>
+<a name="ln-323"></a><span class="nl">     </span>   <span class="k">call </span><span class="n">bands</span><span class="p">(</span> <span class="n">no_s</span><span class="p">,</span> <span class="n">h_spin_dim</span><span class="p">,</span> <span class="n">spinor_dim</span><span class="p">,</span> <span class="n">no_u</span><span class="p">,</span> <span class="n">no_l</span><span class="p">,</span> <span class="n">maxnh</span><span class="p">,</span> 
+<a name="ln-324"></a><span class="nl">     </span><span class="gs">.</span>              <span class="n">maxbk</span><span class="p">,</span>
+<a name="ln-325"></a><span class="nl">     </span><span class="gs">.</span>              <span class="n">numh</span><span class="p">,</span> <span class="n">listhptr</span><span class="p">,</span> <span class="n">listh</span><span class="p">,</span> <span class="n">H</span><span class="p">,</span> <span class="n">S</span><span class="p">,</span> <span class="n">Ef</span><span class="p">,</span> <span class="n">xijo</span><span class="p">,</span> <span class="n">indxuo</span><span class="p">,</span>
+<a name="ln-326"></a><span class="nl">     </span><span class="gs">.</span>              <span class="p">.</span><span class="n">true</span><span class="p">.,</span> <span class="n">nbk</span><span class="p">,</span> <span class="n">bk</span><span class="p">,</span> <span class="n">ebk</span><span class="p">,</span> <span class="n">occtol</span><span class="p">,</span> <span class="n">getPSI</span> <span class="p">)</span>
+<a name="ln-327"></a><span class="nl">     </span>   <span class="k">if</span> <span class="p">(</span><span class="n">IOnode</span><span class="p">)</span> <span class="k">then</span>
+<a name="ln-328"></a><span class="nl">     </span>     <span class="k">if</span> <span class="p">(</span> <span class="n">writbk</span> <span class="p">)</span> <span class="k">then</span>
+<a name="ln-329"></a><span class="nl">     </span>       <span class="k">write</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span><span class="s1">&#39;(/,a,/,a4,a12)&#39;</span><span class="p">)</span>
+<a name="ln-330"></a><span class="nl">     </span><span class="gs">&amp;</span>       <span class="s1">&#39;siesta: Band k vectors (Bohr**-1):&#39;</span><span class="p">,</span> <span class="s1">&#39;ik&#39;</span><span class="p">,</span> <span class="s1">&#39;k&#39;</span>
+<a name="ln-331"></a><span class="nl">     </span>       <span class="k">do </span><span class="n">ik</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span><span class="n">nbk</span>
+<a name="ln-332"></a><span class="nl">     </span>         <span class="k">write</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span><span class="s1">&#39;(i4,3f12.6)&#39;</span><span class="p">)</span> <span class="n">ik</span><span class="p">,</span> <span class="p">(</span><span class="n">bk</span><span class="p">(</span><span class="n">ix</span><span class="p">,</span><span class="n">ik</span><span class="p">),</span><span class="n">ix</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span>
+<a name="ln-333"></a><span class="nl">     </span>       <span class="n">enddo</span>
+<a name="ln-334"></a><span class="nl">     </span>     <span class="n">endif</span>
+<a name="ln-335"></a><span class="nl">     </span>   
+<a name="ln-336"></a><span class="nl">     </span>     <span class="k">if</span> <span class="p">(</span> <span class="n">writb</span> <span class="p">)</span> <span class="k">then</span>
+<a name="ln-337"></a><span class="nl">     </span>       <span class="k">write</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span><span class="s1">&#39;(/,a,/,a4,a3,a7)&#39;</span><span class="p">)</span>
+<a name="ln-338"></a><span class="nl">     </span><span class="gs">&amp;</span>       <span class="s1">&#39;siesta: Band energies (eV):&#39;</span><span class="p">,</span> <span class="s1">&#39;ik&#39;</span><span class="p">,</span> <span class="s1">&#39;is&#39;</span><span class="p">,</span> <span class="s1">&#39;eps&#39;</span>
+<a name="ln-339"></a><span class="nl">     </span>       <span class="k">do </span><span class="n">ispin</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="n">spinor_dim</span>
+<a name="ln-340"></a><span class="nl">     </span>         <span class="k">do </span><span class="n">ik</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span><span class="n">nbk</span>
+<a name="ln-341"></a><span class="nl">     </span>           <span class="k">write</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span><span class="s1">&#39;(i4,i3,10f7.2)&#39;</span><span class="p">)</span>
+<a name="ln-342"></a><span class="nl">     </span><span class="gs">&amp;</span>            <span class="n">ik</span><span class="p">,</span> <span class="n">ispin</span><span class="p">,</span> <span class="p">(</span><span class="n">ebk</span><span class="p">(</span><span class="n">io</span><span class="p">,</span><span class="n">ispin</span><span class="p">,</span><span class="n">ik</span><span class="p">)</span><span class="o">/</span><span class="n">eV</span><span class="p">,</span><span class="n">io</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span><span class="nb">min</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="n">no_u</span><span class="p">))</span>
+<a name="ln-343"></a><span class="nl">     </span>           <span class="k">if</span> <span class="p">(</span><span class="n">no_u</span><span class="p">.</span><span class="n">gt</span><span class="p">.</span><span class="mi">10</span><span class="p">)</span> <span class="k">write</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span><span class="s1">&#39;(7x,10f7.2)&#39;</span><span class="p">)</span>
+<a name="ln-344"></a><span class="nl">     </span><span class="gs">&amp;</span>              <span class="p">(</span><span class="n">ebk</span><span class="p">(</span><span class="n">io</span><span class="p">,</span><span class="n">ispin</span><span class="p">,</span><span class="n">ik</span><span class="p">)</span><span class="o">/</span><span class="n">eV</span><span class="p">,</span><span class="n">io</span><span class="o">=</span><span class="mi">11</span><span class="p">,</span><span class="n">no_u</span><span class="p">)</span>
+<a name="ln-345"></a><span class="nl">     </span>         <span class="n">enddo</span>
+<a name="ln-346"></a><span class="nl">     </span>       <span class="n">enddo</span>
+<a name="ln-347"></a><span class="nl">     </span>     <span class="n">endif</span>
+<a name="ln-348"></a><span class="nl">     </span>   <span class="n">endif</span>
+<a name="ln-349"></a><span class="nl">     </span> <span class="n">endif</span>
+<a name="ln-350"></a>
+<a name="ln-351"></a><span class="c">!     Print eigenvalues</span>
+<a name="ln-352"></a><span class="nl">     </span> <span class="k">if</span> <span class="p">(</span><span class="n">IOnode</span> <span class="p">.</span><span class="nb">and</span><span class="p">.</span> <span class="n">writeig</span><span class="p">)</span> <span class="k">then</span>
+<a name="ln-353"></a><span class="nl">     </span>   <span class="k">if</span> <span class="p">((</span><span class="n">isolve</span><span class="p">.</span><span class="n">eq</span><span class="p">.</span><span class="n">SOLVE_DIAGON</span> <span class="p">.</span><span class="nb">or</span><span class="p">.</span>
+<a name="ln-354"></a><span class="nl">     </span><span class="gs">&amp;</span>       <span class="p">((</span><span class="n">isolve</span><span class="p">.</span><span class="n">eq</span><span class="p">.</span><span class="n">SOLVE_MINIM</span><span class="p">)</span> <span class="p">.</span><span class="nb">and</span><span class="p">.</span> <span class="n">minim_calc_eigenvalues</span><span class="p">))</span>
+<a name="ln-355"></a><span class="nl">     </span><span class="gs">&amp;</span>      <span class="p">.</span><span class="nb">and</span><span class="p">.</span> <span class="n">no_l</span><span class="p">.</span><span class="n">lt</span><span class="p">.</span><span class="mi">1000</span><span class="p">)</span> <span class="k">then</span>
+<a name="ln-356"></a><span class="nl">     </span>     <span class="k">if</span> <span class="p">(</span> <span class="n">h_spin_dim</span> <span class="o">&lt;=</span> <span class="mi">2</span> <span class="p">)</span> <span class="k">then</span>
+<a name="ln-357"></a><span class="nl">     </span>       <span class="k">write</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span><span class="s1">&#39;(/,a,/,a4,a3,a7)&#39;</span><span class="p">)</span>
+<a name="ln-358"></a><span class="nl">     </span><span class="gs">&amp;</span>       <span class="s1">&#39;siesta: Eigenvalues (eV):&#39;</span><span class="p">,</span> <span class="s1">&#39;ik&#39;</span><span class="p">,</span> <span class="s1">&#39;is&#39;</span><span class="p">,</span> <span class="s1">&#39;eps&#39;</span>
+<a name="ln-359"></a><span class="nl">     </span>       <span class="k">do </span><span class="n">ik</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span><span class="n">kpoints_scf</span><span class="p">%</span><span class="n">N</span>
+<a name="ln-360"></a><span class="nl">     </span>         <span class="k">do </span><span class="n">ispin</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span><span class="n">spinor_dim</span>
+<a name="ln-361"></a><span class="nl">     </span>           <span class="k">write</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span><span class="s1">&#39;(i4,i3,10f7.2)&#39;</span><span class="p">)</span>
+<a name="ln-362"></a><span class="nl">     </span><span class="gs">&amp;</span>            <span class="n">ik</span><span class="p">,</span><span class="n">ispin</span><span class="p">,(</span><span class="n">eo</span><span class="p">(</span><span class="n">io</span><span class="p">,</span><span class="n">ispin</span><span class="p">,</span><span class="n">ik</span><span class="p">)</span><span class="o">/</span><span class="n">eV</span><span class="p">,</span><span class="n">io</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span><span class="nb">min</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="n">neigwanted</span><span class="p">))</span>
+<a name="ln-363"></a><span class="nl">     </span>           <span class="k">if</span> <span class="p">(</span><span class="n">no_u</span><span class="p">.</span><span class="n">gt</span><span class="p">.</span><span class="mi">10</span><span class="p">)</span> <span class="k">write</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span><span class="s1">&#39;(7x,10f7.2)&#39;</span><span class="p">)</span>
+<a name="ln-364"></a><span class="nl">     </span><span class="gs">&amp;</span>            <span class="p">(</span><span class="n">eo</span><span class="p">(</span><span class="n">io</span><span class="p">,</span><span class="n">ispin</span><span class="p">,</span><span class="n">ik</span><span class="p">)</span><span class="o">/</span><span class="n">eV</span><span class="p">,</span><span class="n">io</span><span class="o">=</span><span class="mi">11</span><span class="p">,</span><span class="n">neigwanted</span><span class="p">)</span>
+<a name="ln-365"></a><span class="nl">     </span>         <span class="n">enddo</span>
+<a name="ln-366"></a><span class="nl">     </span>       <span class="n">enddo</span>
+<a name="ln-367"></a><span class="nl">     </span>     <span class="k">else</span>
+<a name="ln-368"></a><span class="nl">     </span>       <span class="k">write</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span><span class="s1">&#39;(/,a)&#39;</span><span class="p">)</span> <span class="s1">&#39;siesta: Eigenvalues (eV):&#39;</span>
+<a name="ln-369"></a><span class="nl">     </span>       <span class="k">do </span><span class="n">ik</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span><span class="n">kpoints_scf</span><span class="p">%</span><span class="n">N</span>
+<a name="ln-370"></a><span class="nl">     </span>         <span class="k">write</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span><span class="s1">&#39;(a,i6)&#39;</span><span class="p">)</span> <span class="s1">&#39;ik =&#39;</span><span class="p">,</span> <span class="n">ik</span>
+<a name="ln-371"></a><span class="nl">     </span>         <span class="k">write</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span><span class="s1">&#39;(10f7.2)&#39;</span><span class="p">)</span>
+<a name="ln-372"></a><span class="nl">     </span><span class="gs">&amp;</span>          <span class="p">((</span><span class="n">eo</span><span class="p">(</span><span class="n">io</span><span class="p">,</span><span class="n">ispin</span><span class="p">,</span><span class="n">ik</span><span class="p">)</span><span class="o">/</span><span class="n">eV</span><span class="p">,</span><span class="n">io</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span><span class="n">neigwanted</span><span class="p">),</span><span class="n">ispin</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
+<a name="ln-373"></a><span class="nl">     </span>       <span class="n">enddo</span>
+<a name="ln-374"></a><span class="nl">     </span>     <span class="n">endif</span>
+<a name="ln-375"></a><span class="nl">     </span>     <span class="k">write</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span><span class="s1">&#39;(a,f15.6,a)&#39;</span><span class="p">)</span> <span class="s1">&#39;siesta: Fermi energy =&#39;</span><span class="p">,</span> <span class="n">ef</span><span class="o">/</span><span class="n">eV</span><span class="p">,</span> <span class="s1">&#39; eV&#39;</span>
+<a name="ln-376"></a><span class="nl">     </span>   <span class="n">endif</span>
+<a name="ln-377"></a><span class="nl">     </span> <span class="n">endif</span>
+<a name="ln-378"></a>
+<a name="ln-379"></a><span class="nl">     </span> <span class="k">if</span> <span class="p">(((</span><span class="n">isolve</span><span class="p">.</span><span class="n">eq</span><span class="p">.</span><span class="n">SOLVE_DIAGON</span><span class="p">).</span><span class="nb">or</span><span class="p">.</span>
+<a name="ln-380"></a><span class="nl">     </span><span class="gs">&amp;</span>     <span class="p">((</span><span class="n">isolve</span><span class="p">.</span><span class="n">eq</span><span class="p">.</span><span class="n">SOLVE_MINIM</span><span class="p">).</span><span class="nb">and</span><span class="p">.</span><span class="n">minim_calc_eigenvalues</span><span class="p">))</span>
+<a name="ln-381"></a><span class="nl">     </span><span class="gs">&amp;</span>     <span class="p">.</span><span class="nb">and</span><span class="p">.</span><span class="n">IOnode</span><span class="p">)</span>
+<a name="ln-382"></a><span class="nl">     </span><span class="gs">&amp;</span>    <span class="k">call </span><span class="n">ioeig</span><span class="p">(</span><span class="n">eo</span><span class="p">,</span><span class="n">ef</span><span class="p">,</span><span class="n">neigwanted</span><span class="p">,</span><span class="n">nspin</span><span class="p">,</span><span class="n">kpoints_scf</span><span class="p">%</span><span class="n">N</span><span class="p">,</span>
+<a name="ln-383"></a><span class="nl">     </span><span class="gs">&amp;</span>     <span class="n">no_u</span><span class="p">,</span><span class="n">spinor_dim</span><span class="p">,</span>
+<a name="ln-384"></a><span class="nl">     </span><span class="gs">&amp;</span>     <span class="n">kpoints_scf</span><span class="p">%</span><span class="n">N</span><span class="p">,</span> <span class="n">kpoints_scf</span><span class="p">%</span><span class="n">k</span><span class="p">,</span> <span class="n">kpoints_scf</span><span class="p">%</span><span class="n">w</span><span class="p">)</span>
+<a name="ln-385"></a>
+<a name="ln-386"></a>
+<a name="ln-387"></a><span class="c">!   This uses H,S, and xa, as it diagonalizes them again</span>
+<a name="ln-388"></a><span class="nl">     </span> <span class="k">call </span><span class="n">projected_DOS</span><span class="p">()</span>
+<a name="ln-389"></a>
+<a name="ln-390"></a><span class="c">!     Print program&#39;s energy decomposition and final forces</span>
+<a name="ln-391"></a><span class="nl">     </span> <span class="k">if</span> <span class="p">(</span><span class="n">IOnode</span><span class="p">)</span> <span class="k">then</span>
+<a name="ln-392"></a><span class="nl">     </span>   <span class="k">call </span><span class="n">siesta_write_energies</span><span class="p">(</span> <span class="n">iscf</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">dDmax</span><span class="o">=</span><span class="mf">0._dp</span><span class="p">,</span> <span class="n">dHmax</span><span class="o">=</span><span class="mf">0._dp</span><span class="p">)</span>
+<a name="ln-393"></a><span class="nl">     </span>   <span class="c">! final == .true. which makes the step counter irrelevant</span>
+<a name="ln-394"></a><span class="nl">     </span>   <span class="k">call </span><span class="n">siesta_write_forces</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+<a name="ln-395"></a><span class="nl">     </span>   <span class="k">call </span><span class="n">siesta_write_stress_pressure</span><span class="p">()</span>
+<a name="ln-396"></a><span class="nl">     </span>   <span class="k">call </span><span class="n">write_basis_enthalpy</span><span class="p">(</span><span class="n">FreeE</span><span class="p">,</span><span class="n">FreeEHarris</span><span class="p">)</span>
+<a name="ln-397"></a><span class="nl">     </span> <span class="n">endif</span>
+<a name="ln-398"></a>
+<a name="ln-399"></a><span class="c">! NOTE: Here, the spin polarization is computed using Dscf, which is</span>
+<a name="ln-400"></a><span class="c">!       a density matrix obtained after mixing the &quot;in&quot; and &quot;out&quot;</span>
+<a name="ln-401"></a><span class="c">!       DMs of the SCF run for the last geometry considered.</span>
+<a name="ln-402"></a><span class="c">!       This can be considered a feature or a bug.</span>
 <a name="ln-403"></a>
-<a name="ln-404"></a><span class="c">!     This uses the last computed dipole in dhscf during the scf cycle,</span>
-<a name="ln-405"></a><span class="c">!     which is in fact derived from the &quot;in&quot; DM.</span>
-<a name="ln-406"></a><span class="c">!     Perhaps this section should be moved after the call to dhscf below</span>
-<a name="ln-407"></a><span class="c">!     AND use the DM_out of the last step (but there might not be a call</span>
-<a name="ln-408"></a><span class="c">!     to dhscf if there are no files to output, and the computation of the</span>
-<a name="ln-409"></a><span class="c">!     charge density is expensive...</span>
-<a name="ln-410"></a>
-<a name="ln-411"></a><span class="c">!     Print electric dipole</span>
-<a name="ln-412"></a><span class="nl">     </span> <span class="k">if</span> <span class="p">(</span><span class="nb">shape</span> <span class="p">.</span><span class="n">ne</span><span class="p">.</span> <span class="s1">&#39;bulk&#39;</span><span class="p">)</span> <span class="k">then</span>
-<a name="ln-413"></a><span class="nl">     </span>   <span class="k">if</span> <span class="p">(</span><span class="n">IOnode</span><span class="p">)</span> <span class="k">then</span>
-<a name="ln-414"></a><span class="nl">     </span>     <span class="k">write</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span><span class="s1">&#39;(/,a,3f12.6)&#39;</span><span class="p">)</span>
-<a name="ln-415"></a><span class="nl">     </span><span class="gs">&amp;</span>      <span class="s1">&#39;siesta: Electric dipole (a.u.)  =&#39;</span><span class="p">,</span> <span class="n">dipol</span>
-<a name="ln-416"></a><span class="nl">     </span>     <span class="k">write</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span><span class="s1">&#39;(a,3f12.6)&#39;</span><span class="p">)</span>
-<a name="ln-417"></a><span class="nl">     </span><span class="gs">&amp;</span>      <span class="s1">&#39;siesta: Electric dipole (Debye) =&#39;</span><span class="p">,</span> 
-<a name="ln-418"></a><span class="nl">     </span><span class="gs">&amp;</span>      <span class="p">(</span><span class="n">dipol</span><span class="p">(</span><span class="n">ix</span><span class="p">)</span><span class="o">/</span><span class="n">Debye</span><span class="p">,</span><span class="n">ix</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span>
-<a name="ln-419"></a><span class="nl">     </span>   <span class="n">endif</span>
-<a name="ln-420"></a><span class="nl">     </span>   <span class="k">if</span> <span class="p">(</span><span class="n">cml_p</span><span class="p">)</span> <span class="k">then</span>
-<a name="ln-421"></a><span class="nl">     </span>     <span class="k">call </span><span class="n">cmlAddProperty</span><span class="p">(</span><span class="n">xf</span><span class="o">=</span><span class="n">mainXML</span><span class="p">,</span> <span class="k">value</span><span class="o">=</span><span class="n">dipol</span><span class="o">/</span><span class="n">Debye</span><span class="p">,</span>
-<a name="ln-422"></a><span class="nl">     </span><span class="gs">&amp;</span>         <span class="n">title</span><span class="o">=</span><span class="s1">&#39;Electric dipole&#39;</span><span class="p">,</span> <span class="n">dictref</span><span class="o">=</span><span class="s1">&#39;siesta:dipol&#39;</span><span class="p">,</span>
-<a name="ln-423"></a><span class="nl">     </span><span class="gs">.</span>         <span class="n">units</span><span class="o">=</span><span class="s1">&#39;siestaUnits:Debye&#39;</span><span class="p">)</span>
-<a name="ln-424"></a><span class="nl">     </span>   <span class="n">endif</span> <span class="c">!cml_p</span>
-<a name="ln-425"></a><span class="nl">     </span> <span class="n">endif</span>
-<a name="ln-426"></a>
-<a name="ln-427"></a><span class="c">! NOTE: The use of *_last geometries in the following sections</span>
-<a name="ln-428"></a><span class="c">!       guarantees that the analysis of the electronic structure</span>
-<a name="ln-429"></a><span class="c">!       is done for the geometry for which it was computed.</span>
-<a name="ln-430"></a>
-<a name="ln-431"></a><span class="c">!  BUT these routines need H,S, so H should not be mixed after</span>
-<a name="ln-432"></a><span class="c">!       convergence.</span>
-<a name="ln-433"></a>
-<a name="ln-434"></a><span class="c">!     Calculation of the bulk polarization using the Berry phase</span>
-<a name="ln-435"></a><span class="c">!     formulas by King-Smith and Vanderbilt</span>
-<a name="ln-436"></a><span class="nl">     </span> <span class="k">if</span> <span class="p">(</span><span class="n">nkpol</span><span class="p">.</span><span class="n">gt</span><span class="p">.</span><span class="mi">0</span> <span class="p">.</span><span class="nb">and</span><span class="p">.</span> <span class="p">.</span><span class="nb">not</span><span class="p">.</span><span class="n">bornz</span><span class="p">)</span> <span class="k">then</span>
-<a name="ln-437"></a><span class="nl">     </span>   <span class="k">if</span> <span class="p">(</span><span class="n">NonCol</span> <span class="p">.</span><span class="nb">or</span><span class="p">.</span> <span class="n">SpOrb</span><span class="p">)</span> <span class="k">then</span>
-<a name="ln-438"></a><span class="nl">     </span>     <span class="k">if</span> <span class="p">(</span><span class="n">IOnode</span><span class="p">)</span> <span class="k">then</span>
-<a name="ln-439"></a><span class="nl">     </span>       <span class="k">write</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span><span class="s1">&#39;(/a)&#39;</span><span class="p">)</span>
-<a name="ln-440"></a><span class="nl">     </span><span class="gs">.</span>       <span class="s1">&#39;siesta_analysis: bulk polarization implemented only for&#39;</span>
+<a name="ln-404"></a><span class="nl">     </span> <span class="k">call </span><span class="n">print_spin</span><span class="p">(</span><span class="n">qspin</span><span class="p">)</span>  <span class="c">! qspin returned for use below</span>
+<a name="ln-405"></a>
+<a name="ln-406"></a><span class="c">!     This uses the last computed dipole in dhscf during the scf cycle,</span>
+<a name="ln-407"></a><span class="c">!     which is in fact derived from the &quot;in&quot; DM.</span>
+<a name="ln-408"></a><span class="c">!     Perhaps this section should be moved after the call to dhscf below</span>
+<a name="ln-409"></a><span class="c">!     AND use the DM_out of the last step (but there might not be a call</span>
+<a name="ln-410"></a><span class="c">!     to dhscf if there are no files to output, and the computation of the</span>
+<a name="ln-411"></a><span class="c">!     charge density is expensive...</span>
+<a name="ln-412"></a>
+<a name="ln-413"></a><span class="c">!     Print electric dipole</span>
+<a name="ln-414"></a><span class="nl">     </span> <span class="k">if</span> <span class="p">(</span><span class="nb">shape</span> <span class="p">.</span><span class="n">ne</span><span class="p">.</span> <span class="s1">&#39;bulk&#39;</span><span class="p">)</span> <span class="k">then</span>
+<a name="ln-415"></a><span class="nl">     </span>   <span class="k">if</span> <span class="p">(</span><span class="n">IOnode</span><span class="p">)</span> <span class="k">then</span>
+<a name="ln-416"></a><span class="nl">     </span>     <span class="k">write</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span><span class="s1">&#39;(/,a,3f12.6)&#39;</span><span class="p">)</span>
+<a name="ln-417"></a><span class="nl">     </span><span class="gs">&amp;</span>      <span class="s1">&#39;siesta: Electric dipole (a.u.)  =&#39;</span><span class="p">,</span> <span class="n">dipol</span>
+<a name="ln-418"></a><span class="nl">     </span>     <span class="k">write</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span><span class="s1">&#39;(a,3f12.6)&#39;</span><span class="p">)</span>
+<a name="ln-419"></a><span class="nl">     </span><span class="gs">&amp;</span>      <span class="s1">&#39;siesta: Electric dipole (Debye) =&#39;</span><span class="p">,</span> 
+<a name="ln-420"></a><span class="nl">     </span><span class="gs">&amp;</span>      <span class="p">(</span><span class="n">dipol</span><span class="p">(</span><span class="n">ix</span><span class="p">)</span><span class="o">/</span><span class="n">Debye</span><span class="p">,</span><span class="n">ix</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span>
+<a name="ln-421"></a><span class="nl">     </span>   <span class="n">endif</span>
+<a name="ln-422"></a><span class="nl">     </span>   <span class="k">if</span> <span class="p">(</span><span class="n">cml_p</span><span class="p">)</span> <span class="k">then</span>
+<a name="ln-423"></a><span class="nl">     </span>     <span class="k">call </span><span class="n">cmlAddProperty</span><span class="p">(</span><span class="n">xf</span><span class="o">=</span><span class="n">mainXML</span><span class="p">,</span> <span class="k">value</span><span class="o">=</span><span class="n">dipol</span><span class="o">/</span><span class="n">Debye</span><span class="p">,</span>
+<a name="ln-424"></a><span class="nl">     </span><span class="gs">&amp;</span>         <span class="n">title</span><span class="o">=</span><span class="s1">&#39;Electric dipole&#39;</span><span class="p">,</span> <span class="n">dictref</span><span class="o">=</span><span class="s1">&#39;siesta:dipol&#39;</span><span class="p">,</span>
+<a name="ln-425"></a><span class="nl">     </span><span class="gs">.</span>         <span class="n">units</span><span class="o">=</span><span class="s1">&#39;siestaUnits:Debye&#39;</span><span class="p">)</span>
+<a name="ln-426"></a><span class="nl">     </span>   <span class="n">endif</span> <span class="c">!cml_p</span>
+<a name="ln-427"></a><span class="nl">     </span> <span class="n">endif</span>
+<a name="ln-428"></a>
+<a name="ln-429"></a><span class="c">! NOTE: The use of *_last geometries in the following sections</span>
+<a name="ln-430"></a><span class="c">!       guarantees that the analysis of the electronic structure</span>
+<a name="ln-431"></a><span class="c">!       is done for the geometry for which it was computed.</span>
+<a name="ln-432"></a>
+<a name="ln-433"></a><span class="c">!  BUT these routines need H,S, so H should not be mixed after</span>
+<a name="ln-434"></a><span class="c">!       convergence.</span>
+<a name="ln-435"></a>
+<a name="ln-436"></a><span class="c">!     Calculation of the bulk polarization using the Berry phase</span>
+<a name="ln-437"></a><span class="c">!     formulas by King-Smith and Vanderbilt</span>
+<a name="ln-438"></a><span class="nl">     </span> <span class="k">if</span> <span class="p">(</span><span class="n">nkpol</span><span class="p">.</span><span class="n">gt</span><span class="p">.</span><span class="mi">0</span> <span class="p">.</span><span class="nb">and</span><span class="p">.</span> <span class="p">.</span><span class="nb">not</span><span class="p">.</span><span class="n">bornz</span><span class="p">)</span> <span class="k">then</span>
+<a name="ln-439"></a><span class="nl">     </span>   <span class="k">if</span> <span class="p">(</span><span class="n">NonCol</span> <span class="p">.</span><span class="nb">or</span><span class="p">.</span> <span class="n">SpOrb</span><span class="p">)</span> <span class="k">then</span>
+<a name="ln-440"></a><span class="nl">     </span>     <span class="k">if</span> <span class="p">(</span><span class="n">IOnode</span><span class="p">)</span> <span class="k">then</span>
 <a name="ln-441"></a><span class="nl">     </span>       <span class="k">write</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span><span class="s1">&#39;(/a)&#39;</span><span class="p">)</span>
-<a name="ln-442"></a><span class="nl">     </span><span class="gs">.</span>       <span class="s1">&#39;siesta_analysis: paramagnetic or collinear spin runs&#39;</span>
-<a name="ln-443"></a><span class="nl">     </span>     <span class="n">endif</span>
-<a name="ln-444"></a><span class="nl">     </span>   <span class="k">else</span>
-<a name="ln-445"></a><span class="nl">     </span>    <span class="k">call </span><span class="n">KSV_pol</span><span class="p">(</span><span class="n">na_u</span><span class="p">,</span> <span class="n">na_s</span><span class="p">,</span> <span class="n">xa_last</span><span class="p">,</span> <span class="n">rmaxo</span><span class="p">,</span> <span class="n">scell_last</span><span class="p">,</span> 
-<a name="ln-446"></a><span class="nl">     </span><span class="gs">&amp;</span>               <span class="n">ucell_last</span><span class="p">,</span><span class="n">no_u</span><span class="p">,</span> <span class="n">no_l</span><span class="p">,</span> <span class="n">no_s</span><span class="p">,</span> <span class="n">nspin</span><span class="p">,</span> <span class="n">qspin</span><span class="p">,</span> 
-<a name="ln-447"></a><span class="nl">     </span><span class="gs">&amp;</span>               <span class="n">maxnh</span><span class="p">,</span> <span class="n">nkpol</span><span class="p">,</span> <span class="n">numh</span><span class="p">,</span> <span class="n">listhptr</span><span class="p">,</span> <span class="n">listh</span><span class="p">,</span> 
-<a name="ln-448"></a><span class="nl">     </span><span class="gs">&amp;</span>               <span class="n">H</span><span class="p">,</span> <span class="n">S</span><span class="p">,</span> <span class="n">xijo</span><span class="p">,</span> <span class="n">indxuo</span><span class="p">,</span> <span class="n">isa</span><span class="p">,</span> <span class="n">iphorb</span><span class="p">,</span> 
-<a name="ln-449"></a><span class="nl">     </span><span class="gs">&amp;</span>               <span class="n">iaorb</span><span class="p">,</span> <span class="n">lasto</span><span class="p">,</span> <span class="nb">shape</span><span class="p">,</span>
-<a name="ln-450"></a><span class="nl">     </span><span class="gs">&amp;</span>               <span class="n">nkpol</span><span class="p">,</span><span class="n">kpol</span><span class="p">,</span><span class="n">wgthpol</span><span class="p">,</span> <span class="n">polR</span><span class="p">,</span> <span class="n">polxyz</span> <span class="p">)</span> 
-<a name="ln-451"></a><span class="nl">     </span>  <span class="n">endif</span>
-<a name="ln-452"></a><span class="nl">     </span> <span class="n">endif</span>
-<a name="ln-453"></a>
-<a name="ln-454"></a><span class="c">!     Calculation of the optical conductivity</span>
-<a name="ln-455"></a><span class="nl">     </span> <span class="k">call </span><span class="n">optical</span><span class="p">(</span><span class="n">na_u</span><span class="p">,</span> <span class="n">na_s</span><span class="p">,</span> <span class="n">xa_last</span><span class="p">,</span> <span class="n">scell_last</span><span class="p">,</span> <span class="n">ucell_last</span><span class="p">,</span>
-<a name="ln-456"></a><span class="nl">     </span><span class="gs">&amp;</span>             <span class="n">no_u</span><span class="p">,</span> <span class="n">no_l</span><span class="p">,</span> <span class="n">no_s</span><span class="p">,</span> <span class="n">nspin</span><span class="p">,</span> <span class="n">qspin</span><span class="p">,</span>
-<a name="ln-457"></a><span class="nl">     </span><span class="gs">&amp;</span>             <span class="n">maxnh</span><span class="p">,</span> <span class="n">numh</span><span class="p">,</span> <span class="n">listhptr</span><span class="p">,</span> <span class="n">listh</span><span class="p">,</span> <span class="n">H</span><span class="p">,</span> <span class="n">S</span><span class="p">,</span> <span class="n">xijo</span><span class="p">,</span>
-<a name="ln-458"></a><span class="nl">     </span><span class="gs">$</span>             <span class="n">indxuo</span><span class="p">,</span> <span class="n">ebk</span><span class="p">,</span> <span class="n">ef</span><span class="p">,</span> <span class="n">temp</span><span class="p">,</span>
-<a name="ln-459"></a><span class="nl">     </span><span class="gs">&amp;</span>             <span class="n">isa</span><span class="p">,</span> <span class="n">iphorb</span><span class="p">,</span> <span class="n">iphKB</span><span class="p">,</span> <span class="n">lasto</span><span class="p">,</span> <span class="n">lastkb</span><span class="p">,</span> <span class="nb">shape</span> <span class="p">)</span>
-<a name="ln-460"></a>
-<a name="ln-461"></a><span class="nl">     </span> <span class="k">call </span><span class="n">de_alloc</span><span class="p">(</span> <span class="n">ebk</span><span class="p">,</span> <span class="s1">&#39;ebk&#39;</span><span class="p">,</span> <span class="s1">&#39;siesta_analysis&#39;</span> <span class="p">)</span>
-<a name="ln-462"></a><span class="c">!...................................</span>
-<a name="ln-463"></a>
-<a name="ln-464"></a><span class="c">!</span>
-<a name="ln-465"></a><span class="c">!  NOTE: Dscf here might be the mixed one (see above).</span>
+<a name="ln-442"></a><span class="nl">     </span><span class="gs">.</span>       <span class="s1">&#39;siesta_analysis: bulk polarization implemented only for&#39;</span>
+<a name="ln-443"></a><span class="nl">     </span>       <span class="k">write</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span><span class="s1">&#39;(/a)&#39;</span><span class="p">)</span>
+<a name="ln-444"></a><span class="nl">     </span><span class="gs">.</span>       <span class="s1">&#39;siesta_analysis: paramagnetic or collinear spin runs&#39;</span>
+<a name="ln-445"></a><span class="nl">     </span>     <span class="n">endif</span>
+<a name="ln-446"></a><span class="nl">     </span>   <span class="k">else</span>
+<a name="ln-447"></a><span class="nl">     </span>    <span class="k">call </span><span class="n">KSV_pol</span><span class="p">(</span><span class="n">na_u</span><span class="p">,</span> <span class="n">na_s</span><span class="p">,</span> <span class="n">xa_last</span><span class="p">,</span> <span class="n">rmaxo</span><span class="p">,</span> <span class="n">scell_last</span><span class="p">,</span> 
+<a name="ln-448"></a><span class="nl">     </span><span class="gs">&amp;</span>               <span class="n">ucell_last</span><span class="p">,</span><span class="n">no_u</span><span class="p">,</span> <span class="n">no_l</span><span class="p">,</span> <span class="n">no_s</span><span class="p">,</span> <span class="n">nspin</span><span class="p">,</span> <span class="n">qspin</span><span class="p">,</span> 
+<a name="ln-449"></a><span class="nl">     </span><span class="gs">&amp;</span>               <span class="n">maxnh</span><span class="p">,</span> <span class="n">nkpol</span><span class="p">,</span> <span class="n">numh</span><span class="p">,</span> <span class="n">listhptr</span><span class="p">,</span> <span class="n">listh</span><span class="p">,</span> 
+<a name="ln-450"></a><span class="nl">     </span><span class="gs">&amp;</span>               <span class="n">H</span><span class="p">,</span> <span class="n">S</span><span class="p">,</span> <span class="n">xijo</span><span class="p">,</span> <span class="n">indxuo</span><span class="p">,</span> <span class="n">isa</span><span class="p">,</span> <span class="n">iphorb</span><span class="p">,</span> 
+<a name="ln-451"></a><span class="nl">     </span><span class="gs">&amp;</span>               <span class="n">iaorb</span><span class="p">,</span> <span class="n">lasto</span><span class="p">,</span> <span class="nb">shape</span><span class="p">,</span>
+<a name="ln-452"></a><span class="nl">     </span><span class="gs">&amp;</span>               <span class="n">nkpol</span><span class="p">,</span><span class="n">kpol</span><span class="p">,</span><span class="n">wgthpol</span><span class="p">,</span> <span class="n">polR</span><span class="p">,</span> <span class="n">polxyz</span> <span class="p">)</span> 
+<a name="ln-453"></a><span class="nl">     </span>  <span class="n">endif</span>
+<a name="ln-454"></a><span class="nl">     </span> <span class="n">endif</span>
+<a name="ln-455"></a>
+<a name="ln-456"></a><span class="c">!     Calculation of the optical conductivity</span>
+<a name="ln-457"></a><span class="nl">     </span> <span class="k">call </span><span class="n">optical</span><span class="p">(</span><span class="n">na_u</span><span class="p">,</span> <span class="n">na_s</span><span class="p">,</span> <span class="n">xa_last</span><span class="p">,</span> <span class="n">scell_last</span><span class="p">,</span> <span class="n">ucell_last</span><span class="p">,</span>
+<a name="ln-458"></a><span class="nl">     </span><span class="gs">&amp;</span>             <span class="n">no_u</span><span class="p">,</span> <span class="n">no_l</span><span class="p">,</span> <span class="n">no_s</span><span class="p">,</span> <span class="n">nspin</span><span class="p">,</span> <span class="n">qspin</span><span class="p">,</span>
+<a name="ln-459"></a><span class="nl">     </span><span class="gs">&amp;</span>             <span class="n">maxnh</span><span class="p">,</span> <span class="n">numh</span><span class="p">,</span> <span class="n">listhptr</span><span class="p">,</span> <span class="n">listh</span><span class="p">,</span> <span class="n">H</span><span class="p">,</span> <span class="n">S</span><span class="p">,</span> <span class="n">xijo</span><span class="p">,</span>
+<a name="ln-460"></a><span class="nl">     </span><span class="gs">$</span>             <span class="n">indxuo</span><span class="p">,</span> <span class="n">ebk</span><span class="p">,</span> <span class="n">ef</span><span class="p">,</span> <span class="n">temp</span><span class="p">,</span>
+<a name="ln-461"></a><span class="nl">     </span><span class="gs">&amp;</span>             <span class="n">isa</span><span class="p">,</span> <span class="n">iphorb</span><span class="p">,</span> <span class="n">iphKB</span><span class="p">,</span> <span class="n">lasto</span><span class="p">,</span> <span class="n">lastkb</span><span class="p">,</span> <span class="nb">shape</span> <span class="p">)</span>
+<a name="ln-462"></a>
+<a name="ln-463"></a><span class="nl">     </span> <span class="k">call </span><span class="n">de_alloc</span><span class="p">(</span> <span class="n">ebk</span><span class="p">,</span> <span class="s1">&#39;ebk&#39;</span><span class="p">,</span> <span class="s1">&#39;siesta_analysis&#39;</span> <span class="p">)</span>
+<a name="ln-464"></a><span class="c">!...................................</span>
+<a name="ln-465"></a>
 <a name="ln-466"></a><span class="c">!</span>
-<a name="ln-467"></a><span class="nl">     </span> <span class="n">want_partial_charges</span> <span class="o">=</span> <span class="p">(</span><span class="n">hirshpop</span> <span class="p">.</span><span class="nb">or</span><span class="p">.</span> <span class="n">voropop</span><span class="p">)</span> <span class="p">.</span><span class="nb">AND</span><span class="p">.</span>
-<a name="ln-468"></a><span class="nl">     </span><span class="gs">$</span>                   <span class="p">(.</span><span class="nb">not</span><span class="p">.</span> <span class="n">partial_charges_at_every_geometry</span><span class="p">)</span>
-<a name="ln-469"></a>
-<a name="ln-470"></a><span class="c">!     Save electron density and potential</span>
-<a name="ln-471"></a><span class="nl">     </span> <span class="k">if</span> <span class="p">(</span><span class="n">saverho</span> <span class="p">.</span><span class="nb">or</span><span class="p">.</span> <span class="n">savedrho</span> <span class="p">.</span><span class="nb">or</span><span class="p">.</span> <span class="n">saverhoxc</span> <span class="p">.</span><span class="nb">or</span><span class="p">.</span> 
-<a name="ln-472"></a><span class="nl">     </span><span class="gs">&amp;</span>    <span class="n">savevh</span> <span class="p">.</span><span class="nb">or</span><span class="p">.</span> <span class="n">savevt</span> <span class="p">.</span><span class="nb">or</span><span class="p">.</span> <span class="n">savevna</span> <span class="p">.</span><span class="nb">or</span><span class="p">.</span>
-<a name="ln-473"></a><span class="nl">     </span><span class="gs">&amp;</span>    <span class="n">savepsch</span> <span class="p">.</span><span class="nb">or</span><span class="p">.</span> <span class="n">savetoch</span> <span class="p">.</span><span class="nb">or</span><span class="p">.</span> 
-<a name="ln-474"></a><span class="nl">     </span><span class="gs">&amp;</span>    <span class="n">want_partial_charges</span><span class="p">)</span> <span class="k">then</span>
-<a name="ln-475"></a><span class="nl">     </span>   <span class="k">if</span> <span class="p">(</span><span class="n">saverho</span><span class="p">)</span>   <span class="n">filesOut</span><span class="p">%</span><span class="n">rho</span>   <span class="o">=</span> <span class="nb">trim</span><span class="p">(</span><span class="n">slabel</span><span class="p">)</span> <span class="o">//</span> <span class="s1">&#39;.RHO&#39;</span>
-<a name="ln-476"></a><span class="nl">     </span>   <span class="k">if</span> <span class="p">(</span><span class="n">savedrho</span><span class="p">)</span>  <span class="n">filesOut</span><span class="p">%</span><span class="n">drho</span>  <span class="o">=</span> <span class="nb">trim</span><span class="p">(</span><span class="n">slabel</span><span class="p">)</span> <span class="o">//</span> <span class="s1">&#39;.DRHO&#39;</span>
-<a name="ln-477"></a><span class="nl">     </span>   <span class="k">if</span> <span class="p">(</span><span class="n">saverhoxc</span><span class="p">)</span> <span class="n">filesOut</span><span class="p">%</span><span class="n">rhoxc</span> <span class="o">=</span> <span class="nb">trim</span><span class="p">(</span><span class="n">slabel</span><span class="p">)</span> <span class="o">//</span> <span class="s1">&#39;.RHOXC&#39;</span>
-<a name="ln-478"></a><span class="nl">     </span>   <span class="k">if</span> <span class="p">(</span><span class="n">savevh</span><span class="p">)</span>    <span class="n">filesOut</span><span class="p">%</span><span class="n">vh</span>    <span class="o">=</span> <span class="nb">trim</span><span class="p">(</span><span class="n">slabel</span><span class="p">)</span> <span class="o">//</span> <span class="s1">&#39;.VH&#39;</span>
-<a name="ln-479"></a><span class="nl">     </span>   <span class="k">if</span> <span class="p">(</span><span class="n">savevt</span><span class="p">)</span>    <span class="n">filesOut</span><span class="p">%</span><span class="n">vt</span>    <span class="o">=</span> <span class="nb">trim</span><span class="p">(</span><span class="n">slabel</span><span class="p">)</span> <span class="o">//</span> <span class="s1">&#39;.VT&#39;</span>
-<a name="ln-480"></a><span class="nl">     </span>   <span class="k">if</span> <span class="p">(</span><span class="n">savevna</span><span class="p">)</span>   <span class="n">filesOut</span><span class="p">%</span><span class="n">vna</span>   <span class="o">=</span> <span class="nb">trim</span><span class="p">(</span><span class="n">slabel</span><span class="p">)</span> <span class="o">//</span> <span class="s1">&#39;.VNA&#39;</span>
-<a name="ln-481"></a><span class="nl">     </span>   <span class="k">if</span> <span class="p">(</span><span class="n">savepsch</span><span class="p">)</span>  <span class="n">filesOut</span><span class="p">%</span><span class="n">psch</span>  <span class="o">=</span> <span class="nb">trim</span><span class="p">(</span><span class="n">slabel</span><span class="p">)</span> <span class="o">//</span> <span class="s1">&#39;.IOCH&#39;</span>
-<a name="ln-482"></a><span class="nl">     </span>   <span class="k">if</span> <span class="p">(</span><span class="n">savetoch</span><span class="p">)</span>  <span class="n">filesOut</span><span class="p">%</span><span class="n">toch</span>  <span class="o">=</span> <span class="nb">trim</span><span class="p">(</span><span class="n">slabel</span><span class="p">)</span> <span class="o">//</span> <span class="s1">&#39;.TOCH&#39;</span>
-<a name="ln-483"></a><span class="nl">     </span>   <span class="n">g2max</span> <span class="o">=</span> <span class="n">g2cut</span>
-<a name="ln-484"></a><span class="nl">     </span>   <span class="n">dummy_str</span>  <span class="o">=</span> <span class="mf">0.0</span>
-<a name="ln-485"></a><span class="nl">     </span>   <span class="n">dummy_strl</span> <span class="o">=</span> <span class="mf">0.0</span>
-<a name="ln-486"></a><span class="nl">     </span>   <span class="k">call </span><span class="n">dhscf</span><span class="p">(</span> <span class="n">nspin</span><span class="p">,</span> <span class="n">no_s</span><span class="p">,</span> <span class="n">iaorb</span><span class="p">,</span> <span class="n">iphorb</span><span class="p">,</span> <span class="n">no_l</span><span class="p">,</span>
-<a name="ln-487"></a><span class="nl">     </span><span class="gs">.</span>              <span class="n">no_u</span><span class="p">,</span> <span class="n">na_u</span><span class="p">,</span> <span class="n">na_s</span><span class="p">,</span> <span class="n">isa</span><span class="p">,</span> <span class="n">xa_last</span><span class="p">,</span> <span class="n">indxua</span><span class="p">,</span> 
-<a name="ln-488"></a><span class="nl">     </span><span class="gs">&amp;</span>              <span class="n">ntm</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">filesOut</span><span class="p">,</span> 
-<a name="ln-489"></a><span class="nl">     </span><span class="gs">&amp;</span>              <span class="n">maxnh</span><span class="p">,</span> <span class="n">numh</span><span class="p">,</span> <span class="n">listhptr</span><span class="p">,</span> <span class="n">listh</span><span class="p">,</span> <span class="n">Dscf</span><span class="p">,</span> <span class="n">Datm</span><span class="p">,</span>
-<a name="ln-490"></a><span class="nl">     </span><span class="gs">&amp;</span>              <span class="n">maxnh</span><span class="p">,</span> <span class="n">H</span><span class="p">,</span> <span class="n">Enaatm</span><span class="p">,</span> <span class="n">Enascf</span><span class="p">,</span> <span class="n">Uatm</span><span class="p">,</span> <span class="n">Uscf</span><span class="p">,</span> <span class="n">DUscf</span><span class="p">,</span> <span class="n">DUext</span><span class="p">,</span>
-<a name="ln-491"></a><span class="nl">     </span><span class="gs">&amp;</span>              <span class="n">Exc</span><span class="p">,</span> <span class="n">Dxc</span><span class="p">,</span> <span class="n">dipol</span><span class="p">,</span> <span class="n">dummy_str</span><span class="p">,</span> <span class="n">fa</span><span class="p">,</span> <span class="n">dummy_strl</span> <span class="p">)</span>
-<a name="ln-492"></a><span class="nl">     </span>               <span class="c">! next to last argument is dummy here,</span>
-<a name="ln-493"></a><span class="nl">     </span>               <span class="c">! as no forces are calculated</span>
-<a name="ln-494"></a><span class="nl">     </span>               <span class="c">! todo: make all these optional</span>
-<a name="ln-495"></a><span class="nl">     </span> <span class="n">endif</span>
-<a name="ln-496"></a><span class="c">C    </span>
-<a name="ln-497"></a><span class="c">C     Call the wannier90 interface here, as local_DOS destroys the DM...</span>
-<a name="ln-498"></a><span class="c">C</span>
-<a name="ln-499"></a><span class="nl">     </span> <span class="k">if</span><span class="p">(</span> <span class="n">w90_processing</span> <span class="p">)</span> <span class="k">call </span><span class="n">siesta2wannier90</span><span class="p">()</span>
-<a name="ln-500"></a>
-<a name="ln-501"></a><span class="c">C     Find local density of states</span>
-<a name="ln-502"></a><span class="c">!  It needs H,S, and xa, as it diagonalizes them again</span>
-<a name="ln-503"></a><span class="c">!  NOTE: This call will obliterate Dscf</span>
-<a name="ln-504"></a><span class="c">!  It is better to put a explicit out argument for the partial DM computed.</span>
-<a name="ln-505"></a><span class="nl">     </span> <span class="k">call </span><span class="n">local_DOS</span><span class="p">()</span>
-<a name="ln-506"></a>
-<a name="ln-507"></a><span class="c">! In summary, it is better to:</span>
-<a name="ln-508"></a><span class="c">!</span>
-<a name="ln-509"></a><span class="c">!   -- Avoid (or warn the user about) doing any analysis if the calculation is not converged</span>
-<a name="ln-510"></a><span class="c">!   -- Avoid mixing DM or H after scf convergence</span>
-<a name="ln-511"></a><span class="c">!   -- Set xa to xa_last at the top of this file. Write any &quot;next iter&quot; coordinate file</span>
-<a name="ln-512"></a><span class="c">!      in &#39;siesta_move&#39;</span>
-<a name="ln-513"></a>
-<a name="ln-514"></a><span class="nl">     </span> <span class="n">endif</span> <span class="c">! SIESTA_worker</span>
-<a name="ln-515"></a><span class="cp">#ifdef SIESTA__PEXSI</span>
-<a name="ln-516"></a><span class="nl">     </span> <span class="k">if</span> <span class="p">(</span><span class="n">fdf_get</span><span class="p">(</span><span class="s2">&quot;PEXSI.LDOS&quot;</span><span class="p">,.</span><span class="n">false</span><span class="p">.))</span> <span class="k">then</span>
-<a name="ln-517"></a><span class="nl">     </span>    <span class="k">call </span><span class="n">pexsi_local_DOS</span><span class="p">()</span>
-<a name="ln-518"></a><span class="nl">     </span> <span class="n">endif</span>
-<a name="ln-519"></a><span class="cp">#endif</span>
-<a name="ln-520"></a><span class="nl">     </span> <span class="k">if</span> <span class="p">(</span><span class="n">SIESTA_worker</span><span class="p">)</span> <span class="k">call </span><span class="n">timer</span><span class="p">(</span><span class="s2">&quot;Analysis&quot;</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
-<a name="ln-521"></a>
-<a name="ln-522"></a><span class="c">!------------------------------------------------------------------------- END</span>
-<a name="ln-523"></a><span class="nl">     </span> <span class="k">END subroutine </span><span class="n">siesta_analysis</span>
-<a name="ln-524"></a><span class="nl">     </span> <span class="k">END module </span><span class="n">m_siesta_analysis</span>
+<a name="ln-467"></a><span class="c">!  NOTE: Dscf here might be the mixed one (see above).</span>
+<a name="ln-468"></a><span class="c">!</span>
+<a name="ln-469"></a><span class="nl">     </span> <span class="n">want_partial_charges</span> <span class="o">=</span> <span class="p">(</span><span class="n">hirshpop</span> <span class="p">.</span><span class="nb">or</span><span class="p">.</span> <span class="n">voropop</span><span class="p">)</span> <span class="p">.</span><span class="nb">AND</span><span class="p">.</span>
+<a name="ln-470"></a><span class="nl">     </span><span class="gs">$</span>                   <span class="p">(.</span><span class="nb">not</span><span class="p">.</span> <span class="n">partial_charges_at_every_geometry</span><span class="p">)</span>
+<a name="ln-471"></a>
+<a name="ln-472"></a><span class="c">!     Save electron density and potential</span>
+<a name="ln-473"></a><span class="nl">     </span> <span class="k">if</span> <span class="p">(</span><span class="n">saverho</span> <span class="p">.</span><span class="nb">or</span><span class="p">.</span> <span class="n">savedrho</span> <span class="p">.</span><span class="nb">or</span><span class="p">.</span> <span class="n">saverhoxc</span> <span class="p">.</span><span class="nb">or</span><span class="p">.</span> 
+<a name="ln-474"></a><span class="nl">     </span><span class="gs">&amp;</span>    <span class="n">savevh</span> <span class="p">.</span><span class="nb">or</span><span class="p">.</span> <span class="n">savevt</span> <span class="p">.</span><span class="nb">or</span><span class="p">.</span> <span class="n">savevna</span> <span class="p">.</span><span class="nb">or</span><span class="p">.</span>
+<a name="ln-475"></a><span class="nl">     </span><span class="gs">&amp;</span>    <span class="n">savepsch</span> <span class="p">.</span><span class="nb">or</span><span class="p">.</span> <span class="n">savetoch</span> <span class="p">.</span><span class="nb">or</span><span class="p">.</span> 
+<a name="ln-476"></a><span class="nl">     </span><span class="gs">&amp;</span>    <span class="n">save_ebs_dens</span> <span class="p">.</span><span class="nb">or</span><span class="p">.</span> 
+<a name="ln-477"></a><span class="nl">     </span><span class="gs">&amp;</span>    <span class="n">want_partial_charges</span><span class="p">)</span> <span class="k">then</span>
+<a name="ln-478"></a><span class="nl">     </span>   <span class="k">if</span> <span class="p">(</span><span class="n">saverho</span><span class="p">)</span>   <span class="n">filesOut</span><span class="p">%</span><span class="n">rho</span>   <span class="o">=</span> <span class="nb">trim</span><span class="p">(</span><span class="n">slabel</span><span class="p">)</span> <span class="o">//</span> <span class="s1">&#39;.RHO&#39;</span>
+<a name="ln-479"></a><span class="nl">     </span>   <span class="k">if</span> <span class="p">(</span><span class="n">savedrho</span><span class="p">)</span>  <span class="n">filesOut</span><span class="p">%</span><span class="n">drho</span>  <span class="o">=</span> <span class="nb">trim</span><span class="p">(</span><span class="n">slabel</span><span class="p">)</span> <span class="o">//</span> <span class="s1">&#39;.DRHO&#39;</span>
+<a name="ln-480"></a><span class="nl">     </span>   <span class="k">if</span> <span class="p">(</span><span class="n">saverhoxc</span><span class="p">)</span> <span class="n">filesOut</span><span class="p">%</span><span class="n">rhoxc</span> <span class="o">=</span> <span class="nb">trim</span><span class="p">(</span><span class="n">slabel</span><span class="p">)</span> <span class="o">//</span> <span class="s1">&#39;.RHOXC&#39;</span>
+<a name="ln-481"></a><span class="nl">     </span>   <span class="k">if</span> <span class="p">(</span><span class="n">save_ebs_dens</span><span class="p">)</span> <span class="n">filesOut</span><span class="p">%</span><span class="n">ebs_dens</span> <span class="o">=</span> <span class="nb">trim</span><span class="p">(</span><span class="n">slabel</span><span class="p">)</span> <span class="o">//</span> <span class="s1">&#39;.EBS&#39;</span>
+<a name="ln-482"></a><span class="nl">     </span>   <span class="k">if</span> <span class="p">(</span><span class="n">savevh</span><span class="p">)</span>    <span class="n">filesOut</span><span class="p">%</span><span class="n">vh</span>    <span class="o">=</span> <span class="nb">trim</span><span class="p">(</span><span class="n">slabel</span><span class="p">)</span> <span class="o">//</span> <span class="s1">&#39;.VH&#39;</span>
+<a name="ln-483"></a><span class="nl">     </span>   <span class="k">if</span> <span class="p">(</span><span class="n">savevt</span><span class="p">)</span>    <span class="n">filesOut</span><span class="p">%</span><span class="n">vt</span>    <span class="o">=</span> <span class="nb">trim</span><span class="p">(</span><span class="n">slabel</span><span class="p">)</span> <span class="o">//</span> <span class="s1">&#39;.VT&#39;</span>
+<a name="ln-484"></a><span class="nl">     </span>   <span class="k">if</span> <span class="p">(</span><span class="n">savevna</span><span class="p">)</span>   <span class="n">filesOut</span><span class="p">%</span><span class="n">vna</span>   <span class="o">=</span> <span class="nb">trim</span><span class="p">(</span><span class="n">slabel</span><span class="p">)</span> <span class="o">//</span> <span class="s1">&#39;.VNA&#39;</span>
+<a name="ln-485"></a><span class="nl">     </span>   <span class="k">if</span> <span class="p">(</span><span class="n">savepsch</span><span class="p">)</span>  <span class="n">filesOut</span><span class="p">%</span><span class="n">psch</span>  <span class="o">=</span> <span class="nb">trim</span><span class="p">(</span><span class="n">slabel</span><span class="p">)</span> <span class="o">//</span> <span class="s1">&#39;.IOCH&#39;</span>
+<a name="ln-486"></a><span class="nl">     </span>   <span class="k">if</span> <span class="p">(</span><span class="n">savetoch</span><span class="p">)</span>  <span class="n">filesOut</span><span class="p">%</span><span class="n">toch</span>  <span class="o">=</span> <span class="nb">trim</span><span class="p">(</span><span class="n">slabel</span><span class="p">)</span> <span class="o">//</span> <span class="s1">&#39;.TOCH&#39;</span>
+<a name="ln-487"></a><span class="nl">     </span>   <span class="n">g2max</span> <span class="o">=</span> <span class="n">g2cut</span>
+<a name="ln-488"></a><span class="nl">     </span>   <span class="n">dummy_str</span>  <span class="o">=</span> <span class="mf">0.0</span>
+<a name="ln-489"></a><span class="nl">     </span>   <span class="n">dummy_strl</span> <span class="o">=</span> <span class="mf">0.0</span>
+<a name="ln-490"></a><span class="nl">     </span>   <span class="k">call </span><span class="n">dhscf</span><span class="p">(</span> <span class="n">nspin</span><span class="p">,</span> <span class="n">no_s</span><span class="p">,</span> <span class="n">iaorb</span><span class="p">,</span> <span class="n">iphorb</span><span class="p">,</span> <span class="n">no_l</span><span class="p">,</span>
+<a name="ln-491"></a><span class="nl">     </span><span class="gs">.</span>              <span class="n">no_u</span><span class="p">,</span> <span class="n">na_u</span><span class="p">,</span> <span class="n">na_s</span><span class="p">,</span> <span class="n">isa</span><span class="p">,</span> <span class="n">xa_last</span><span class="p">,</span> <span class="n">indxua</span><span class="p">,</span> 
+<a name="ln-492"></a><span class="nl">     </span><span class="gs">&amp;</span>              <span class="n">ntm</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">filesOut</span><span class="p">,</span> 
+<a name="ln-493"></a><span class="nl">     </span><span class="gs">&amp;</span>              <span class="n">maxnh</span><span class="p">,</span> <span class="n">numh</span><span class="p">,</span> <span class="n">listhptr</span><span class="p">,</span> <span class="n">listh</span><span class="p">,</span> <span class="n">Dscf</span><span class="p">,</span> <span class="n">Datm</span><span class="p">,</span>
+<a name="ln-494"></a><span class="nl">     </span><span class="gs">&amp;</span>              <span class="n">maxnh</span><span class="p">,</span> <span class="n">H</span><span class="p">,</span> <span class="n">Enaatm</span><span class="p">,</span> <span class="n">Enascf</span><span class="p">,</span> <span class="n">Uatm</span><span class="p">,</span> <span class="n">Uscf</span><span class="p">,</span> <span class="n">DUscf</span><span class="p">,</span> <span class="n">DUext</span><span class="p">,</span>
+<a name="ln-495"></a><span class="nl">     </span><span class="gs">&amp;</span>              <span class="n">Exc</span><span class="p">,</span> <span class="n">Dxc</span><span class="p">,</span> <span class="n">dipol</span><span class="p">,</span> <span class="n">dummy_str</span><span class="p">,</span> <span class="n">fa</span><span class="p">,</span> <span class="n">dummy_strl</span> <span class="p">)</span>
+<a name="ln-496"></a><span class="nl">     </span>               <span class="c">! next to last argument is dummy here,</span>
+<a name="ln-497"></a><span class="nl">     </span>               <span class="c">! as no forces are calculated</span>
+<a name="ln-498"></a><span class="nl">     </span>               <span class="c">! todo: make all these optional</span>
+<a name="ln-499"></a><span class="nl">     </span> <span class="n">endif</span>
+<a name="ln-500"></a><span class="c">C    </span>
+<a name="ln-501"></a><span class="c">C     Call the wannier90 interface here, as local_DOS destroys the DM...</span>
+<a name="ln-502"></a><span class="c">C</span>
+<a name="ln-503"></a><span class="nl">     </span> <span class="k">if</span><span class="p">(</span> <span class="n">w90_processing</span> <span class="p">)</span> <span class="k">call </span><span class="n">siesta2wannier90</span><span class="p">()</span>
+<a name="ln-504"></a>
+<a name="ln-505"></a><span class="c">C     Find local density of states</span>
+<a name="ln-506"></a><span class="c">!  It needs H,S, and xa, as it diagonalizes them again</span>
+<a name="ln-507"></a><span class="c">!  NOTE: This call will obliterate Dscf</span>
+<a name="ln-508"></a><span class="c">!  It is better to put a explicit out argument for the partial DM computed.</span>
+<a name="ln-509"></a><span class="nl">     </span> <span class="k">call </span><span class="n">local_DOS</span><span class="p">()</span>
+<a name="ln-510"></a>
+<a name="ln-511"></a><span class="c">! In summary, it is better to:</span>
+<a name="ln-512"></a><span class="c">!</span>
+<a name="ln-513"></a><span class="c">!   -- Avoid (or warn the user about) doing any analysis if the calculation is not converged</span>
+<a name="ln-514"></a><span class="c">!   -- Avoid mixing DM or H after scf convergence</span>
+<a name="ln-515"></a><span class="c">!   -- Set xa to xa_last at the top of this file. Write any &quot;next iter&quot; coordinate file</span>
+<a name="ln-516"></a><span class="c">!      in &#39;siesta_move&#39;</span>
+<a name="ln-517"></a>
+<a name="ln-518"></a><span class="nl">     </span> <span class="n">endif</span> <span class="c">! SIESTA_worker</span>
+<a name="ln-519"></a><span class="cp">#ifdef SIESTA__PEXSI</span>
+<a name="ln-520"></a><span class="nl">     </span> <span class="k">if</span> <span class="p">(</span><span class="n">fdf_get</span><span class="p">(</span><span class="s2">&quot;PEXSI.LDOS&quot;</span><span class="p">,.</span><span class="n">false</span><span class="p">.))</span> <span class="k">then</span>
+<a name="ln-521"></a><span class="nl">     </span>    <span class="k">call </span><span class="n">pexsi_local_DOS</span><span class="p">()</span>
+<a name="ln-522"></a><span class="nl">     </span> <span class="n">endif</span>
+<a name="ln-523"></a><span class="cp">#endif</span>
+<a name="ln-524"></a><span class="nl">     </span> <span class="k">if</span> <span class="p">(</span><span class="n">SIESTA_worker</span><span class="p">)</span> <span class="k">call </span><span class="n">timer</span><span class="p">(</span><span class="s2">&quot;Analysis&quot;</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
+<a name="ln-525"></a>
+<a name="ln-526"></a><span class="c">!------------------------------------------------------------------------- END</span>
+<a name="ln-527"></a><span class="nl">     </span> <span class="k">END subroutine </span><span class="n">siesta_analysis</span>
+<a name="ln-528"></a><span class="nl">     </span> <span class="k">END module </span><span class="n">m_siesta_analysis</span>
 </pre></div>
 
     </section>
@@ -837,10 +830,6 @@
     
     <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
     
-    
-    <script src="../tipuesearch/tipuesearch_content.js"></script>
-    <script src="../tipuesearch/tipuesearch_set.js"></script>
-    <script src="../tipuesearch/tipuesearch.js"></script>
     
     
   </body>

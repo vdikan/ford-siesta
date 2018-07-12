@@ -40,7 +40,7 @@
       use files,        only : slabel
       use files,        only : filesOut_t   ! derived type for output file names
       use zmatrix,      only: lUseZmatrix, write_zmatrix
-      use Kpoint_grid
+      use kpoint_scf_m, only: kpoints_scf
       use parallel, only: IOnode
       use parallel, only: SIESTA_worker
       use files,       only : label_length
@@ -59,13 +59,11 @@
       use m_iodm_old,        only: read_spmatrix
       use m_siesta2wannier90, only: siesta2wannier90
 
-#ifdef MPI
-      use m_mpi_utils, only: globalize_sum
-#endif
+      use m_mpi_utils, only: barrier
 #ifdef SIESTA__FLOOK
       use flook_siesta, only : slua_call, LUA_ANALYSIS
 #endif
-
+      
       implicit none
 
       logical :: relaxd, getPSI, quenched_MD, found
@@ -82,10 +80,7 @@
       integer           :: j, ix, ind, ik, io, ispin
       integer           :: wfs_band_min, wfs_band_max
       real(dp)          :: g2max, current_ef
-#ifdef MPI
-      real(dp)          :: qtmp(4)
-#endif
-      type(filesOut_t)  :: filesOut  ! blank output file names
+      type(filesOut_t)  :: filesOut ! blank output file names
 
 !-----------------------------------------------------------------------BEGIN
 
@@ -100,10 +95,15 @@
      $     ((idyn .eq. 1) .or. (idyn .eq. 3)) )
 
       if ((nmove .ne. 0) .or. quenched_MD) then
-         if (GeometryMustConverge .and. (.not. relaxd)) then
+         if (SIESTA_worker) then  ! For timing ops and associated barrier
+          if (GeometryMustConverge .and. (.not. relaxd)) then
             call message("FATAL",
      $           "GEOM_NOT_CONV: Geometry relaxation not converged")
+            call timer('all',2)
+            call timer('all',3)
+            call barrier()
             call die("ABNORMAL_TERMINATION")
+          endif
          endif
       endif
       !!@endcode
@@ -288,16 +288,17 @@
         ! The user is responsible for using appropriate values.
         wfs_band_min = fdf_get("WFS.BandMin",1)
         wfs_band_max = fdf_get("WFS.BandMax",no_u)
-        call setup_wfs_list(nkpnt,no_u,wfs_band_min,wfs_band_max,
+        call setup_wfs_list(kpoints_scf%N,no_u,
+     &                      wfs_band_min,wfs_band_max,
      $                      use_scf_weights=.true.,
      $                      use_energy_window=.true.)
          wfs_filename = trim(slabel)//".fullBZ.WFSX"
          if (IONode) print "(a)", "Writing WFSX for COOP/COHP in " 
      $                           // trim(wfs_filename)
          call wwave( no_s, h_spin_dim, spinor_dim, no_u, no_l, maxnh, 
-     .        nkpnt,
+     .        kpoints_scf%N,
      .        numh, listhptr, listh, H, S, Ef, xijo, indxuo,
-     .        nkpnt, kpoint, no_u, gamma, occtol)
+     .        kpoints_scf%N, kpoints_scf%k, no_u, gamma, occtol)
       endif
 
 !     Compute bands
@@ -355,7 +356,7 @@
           if ( h_spin_dim <= 2 ) then
             write(6,'(/,a,/,a4,a3,a7)')
      &       'siesta: Eigenvalues (eV):', 'ik', 'is', 'eps'
-            do ik = 1,nkpnt
+            do ik = 1,kpoints_scf%N
               do ispin = 1,spinor_dim
                 write(6,'(i4,i3,10f7.2)')
      &            ik,ispin,(eo(io,ispin,ik)/eV,io=1,min(10,neigwanted))
@@ -365,7 +366,7 @@
             enddo
           else
             write(6,'(/,a)') 'siesta: Eigenvalues (eV):'
-            do ik = 1,nkpnt
+            do ik = 1,kpoints_scf%N
               write(6,'(a,i6)') 'ik =', ik
               write(6,'(10f7.2)')
      &          ((eo(io,ispin,ik)/eV,io=1,neigwanted),ispin=1,2)
@@ -378,8 +379,9 @@
       if (((isolve.eq.SOLVE_DIAGON).or.
      &     ((isolve.eq.SOLVE_MINIM).and.minim_calc_eigenvalues))
      &     .and.IOnode)
-     &     call ioeig(eo,ef,neigwanted,nspin,nkpnt,no_u,spinor_dim,
-     &     nkpnt,kpoint, kweight)
+     &    call ioeig(eo,ef,neigwanted,nspin,kpoints_scf%N,
+     &     no_u,spinor_dim,
+     &     kpoints_scf%N, kpoints_scf%k, kpoints_scf%w)
 
 
 !   This uses H,S, and xa, as it diagonalizes them again
@@ -471,10 +473,12 @@
       if (saverho .or. savedrho .or. saverhoxc .or. 
      &    savevh .or. savevt .or. savevna .or.
      &    savepsch .or. savetoch .or. 
+     &    save_ebs_dens .or. 
      &    want_partial_charges) then
         if (saverho)   filesOut%rho   = trim(slabel) // '.RHO'
         if (savedrho)  filesOut%drho  = trim(slabel) // '.DRHO'
         if (saverhoxc) filesOut%rhoxc = trim(slabel) // '.RHOXC'
+        if (save_ebs_dens) filesOut%ebs_dens = trim(slabel) // '.EBS'
         if (savevh)    filesOut%vh    = trim(slabel) // '.VH'
         if (savevt)    filesOut%vt    = trim(slabel) // '.VT'
         if (savevna)   filesOut%vna   = trim(slabel) // '.VNA'
