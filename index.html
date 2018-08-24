@@ -17,6 +17,8 @@
     <link href="./css/font-awesome.min.css" rel="stylesheet">
     <link href="./css/local.css" rel="stylesheet">
     
+    <link  href="./tipuesearch/tipuesearch.css" rel="stylesheet">
+    
     
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
@@ -42,7 +44,7 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="./index.html">SIESTA <small>trunk-700--vdikan-edens-704-ford-68</small></a>
+          <a class="navbar-brand" href="./index.html">SIESTA <small>trunk-700--vdikan-edens-708-ford-681</small></a>
         </div>
         <div id="navbar" class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
@@ -90,6 +92,15 @@
 
 
           </ul>
+        
+        <form action="./search.html" class="navbar-form navbar-right" role="search">
+        <div class="form-group">
+          <input type="text" class="form-control" placeholder="Search" name="q" id="tipue_search_input" autocomplete="off" required>
+        </div>
+<!--
+        <button type="submit" class="btn btn-default">Submit</button>
+-->
+        </form>
         
         </div><!--/.nav-collapse -->
       </div>
@@ -169,6 +180,10 @@ using Density Functional Theory.</p>
                   
                 
                   
+                    <li><a href='./sourcefile/cross.f.html'>cross.f</a></li>
+                  
+                
+                  
                     <li><a href='./sourcefile/dhscf.f.html'>dhscf.F</a></li>
                   
                 
@@ -185,6 +200,10 @@ using Density Functional Theory.</p>
                   
                 
                   
+                    <li><a href='./sourcefile/reord.f.html'>reord.f</a></li>
+                  
+                
+                  
                     <li><a href='./sourcefile/setup_h0.f.html'>setup_H0.F</a></li>
                   
                 
@@ -193,15 +212,11 @@ using Density Functional Theory.</p>
                   
                 
                   
-                    <li><a href='./sourcefile/siesta_analysis.f.html'>siesta_analysis.F</a></li>
-                  
-                
-                  
-                    <li><a href='./sourcefile/siesta_forces.f90.html'>siesta_forces.F90</a></li>
-                  
-                
-                  
                     <li><a href="./lists/files.html"><em>All source files&hellip;</em></a></li>
+                  
+                
+                  
+                
                   
                 
                   
@@ -425,6 +440,10 @@ using Density Functional Theory.</p>
                 
                   
                 
+                  
+                
+                  
+                
               </ul>
           </div>
           
@@ -493,6 +512,10 @@ using Density Functional Theory.</p>
     
     <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
     
+    
+    <script src="./tipuesearch/tipuesearch_content.js"></script>
+    <script src="./tipuesearch/tipuesearch_set.js"></script>
+    <script src="./tipuesearch/tipuesearch.js"></script>
     
     
   </body>

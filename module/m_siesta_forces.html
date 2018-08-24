@@ -17,6 +17,8 @@
     <link href="../css/font-awesome.min.css" rel="stylesheet">
     <link href="../css/local.css" rel="stylesheet">
     
+    <link  href="../tipuesearch/tipuesearch.css" rel="stylesheet">
+    
     
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
@@ -42,7 +44,7 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="../index.html">SIESTA <small>trunk-700--vdikan-edens-704-ford-68</small></a>
+          <a class="navbar-brand" href="../index.html">SIESTA <small>trunk-700--vdikan-edens-708-ford-681</small></a>
         </div>
         <div id="navbar" class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
@@ -91,6 +93,15 @@
 
           </ul>
         
+        <form action="../search.html" class="navbar-form navbar-right" role="search">
+        <div class="form-group">
+          <input type="text" class="form-control" placeholder="Search" name="q" id="tipue_search_input" autocomplete="off" required>
+        </div>
+<!--
+        <button type="submit" class="btn btn-default">Submit</button>
+-->
+        </form>
+        
         </div><!--/.nav-collapse -->
       </div>
     </nav>
@@ -117,7 +128,7 @@
      <li><i class="fa fa-list-ol"></i>
        <a data-toggle="tooltip"
     data-placement="bottom" data-html="true"
-    title=" 6.1% of total for modules and submodules.">381 statements</a>
+    title=" 6.0% of total for modules and submodules.">381 statements</a>
      </li> 
      
      
@@ -371,6 +382,10 @@ public subroutine <a href='../proc/siesta_forces.html'>siesta_forces</a>(istep)
     
     <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
     
+    
+    <script src="../tipuesearch/tipuesearch_content.js"></script>
+    <script src="../tipuesearch/tipuesearch_set.js"></script>
+    <script src="../tipuesearch/tipuesearch.js"></script>
     
     
   </body>

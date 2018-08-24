@@ -17,6 +17,8 @@
     <link href="../css/font-awesome.min.css" rel="stylesheet">
     <link href="../css/local.css" rel="stylesheet">
     
+    <link  href="../tipuesearch/tipuesearch.css" rel="stylesheet">
+    
     
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
@@ -42,7 +44,7 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="../index.html">SIESTA <small>trunk-700--vdikan-edens-704-ford-68</small></a>
+          <a class="navbar-brand" href="../index.html">SIESTA <small>trunk-700--vdikan-edens-708-ford-681</small></a>
         </div>
         <div id="navbar" class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
@@ -90,6 +92,15 @@
 
 
           </ul>
+        
+        <form action="../search.html" class="navbar-form navbar-right" role="search">
+        <div class="form-group">
+          <input type="text" class="form-control" placeholder="Search" name="q" id="tipue_search_input" autocomplete="off" required>
+        </div>
+<!--
+        <button type="submit" class="btn btn-default">Submit</button>
+-->
+        </form>
         
         </div><!--/.nav-collapse -->
       </div>
@@ -206,7 +217,8 @@
     
     <div class="col-md-9" id='text'>
       <h2>type, private :: meshCommType</h2>
-    
+    <p>Private type to hold communications to move data from one
+ distribution to another.</p>
     
     
     
@@ -288,7 +300,7 @@
   
   <td>public</td>
   <td></td><td>::</td>
-  <td><strong>ncom</strong></td><td></td><td></td><td></td>
+  <td><strong>ncom</strong></td><td></td><td></td><td><p>Number of needed communications</p></td>
   
 </tr>
 
@@ -302,7 +314,7 @@
   
   <td>public,</td>
   <td>pointer</td><td>::</td>
-  <td><strong>src</strong>(:)</td><td></td><td></td><td></td>
+  <td><strong>src</strong>(:)</td><td></td><td></td><td><p>Sources of communications</p></td>
   
 </tr>
 
@@ -316,7 +328,7 @@
   
   <td>public,</td>
   <td>pointer</td><td>::</td>
-  <td><strong>dst</strong>(:)</td><td></td><td></td><td></td>
+  <td><strong>dst</strong>(:)</td><td></td><td></td><td><p>Destination of communications</p></td>
   
 </tr>
 
@@ -337,9 +349,14 @@
     <section>
     <h3><span class="anchor" id="src"></span>Source Code</h3>
     <div class="highlight"><pre><span></span>      <span class="k">TYPE </span><span class="n">meshCommType</span>
-      <span class="kt">integer</span>          <span class="kd">::</span> <span class="n">ncom</span>    <span class="c">! Number of needed communications</span>
-      <span class="kt">integer</span><span class="p">,</span> <span class="k">pointer</span> <span class="kd">::</span> <span class="n">src</span><span class="p">(:)</span>  <span class="c">! Sources of communications</span>
-      <span class="kt">integer</span><span class="p">,</span> <span class="k">pointer</span> <span class="kd">::</span> <span class="n">dst</span><span class="p">(:)</span>  <span class="c">! Destination of communications </span>
+        <span class="c">!! Private type to hold communications to move data from one</span>
+        <span class="c">!! distribution to another.</span>
+      <span class="kt">integer</span>          <span class="kd">::</span> <span class="n">ncom</span>
+        <span class="c">!! Number of needed communications</span>
+      <span class="kt">integer</span><span class="p">,</span> <span class="k">pointer</span> <span class="kd">::</span> <span class="n">src</span><span class="p">(:)</span>
+        <span class="c">!! Sources of communications</span>
+      <span class="kt">integer</span><span class="p">,</span> <span class="k">pointer</span> <span class="kd">::</span> <span class="n">dst</span><span class="p">(:)</span>
+        <span class="c">!! Destination of communications</span>
       <span class="k">END TYPE </span><span class="n">meshCommType</span>
 </pre></div>
 
@@ -393,6 +410,10 @@
     
     <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
     
+    
+    <script src="../tipuesearch/tipuesearch_content.js"></script>
+    <script src="../tipuesearch/tipuesearch_set.js"></script>
+    <script src="../tipuesearch/tipuesearch.js"></script>
     
     
   </body>

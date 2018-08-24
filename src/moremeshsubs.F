@@ -1,4 +1,4 @@
-! 
+!
 ! Copyright (C) 1996-2016	The SIESTA group
 !  This file is distributed under the terms of the
 !  GNU General Public License: see COPYING in the top directory
@@ -12,21 +12,26 @@
 # endif
 #endif
 
-C This file contains module moreMeshSubs. It defines and handles
-C different parallel mesh distributions.
-C
-C Written by Rogeli Grima (BSC) Dec.2007
-C
-C Includes the following subroutines connected to the mesh :
-C
-C initMeshDistr     = Precompute a new data distribution for the grid mesh
-C                     to be used in Hamiltonian construction.
-C setMeshDistr      = Select a mesh distribution and set the grid sizes.
-C distMeshData      = Move data from one data distribution to another.
-C allocASynBuffer   = Allocate buffer for asynchronous
-C                     communications if necessary
-C 
+!!  author: Rogeli Grima (BSC)
+!!  date: December 2007
+!!  license: GNU GPL
+!!
+!!  This file contains module moreMeshSubs. It defines and handles
+!!  different parallel mesh distributions.
+!!
+!!  Includes the following subroutines connected to the mesh :
+!!
+!!  * `[[initMeshDistr(proc)]]` - Precompute a new data distribution for the
+!!    grid mesh to be used in Hamiltonian construction.
+!!  * `[[setMeshDistr(proc)]]`- Select a mesh distribution and set the grid sizes.
+!!  * `[[distMeshData(proc)]]`- Move data from one data distribution to another.
+!!  * `[[allocASynBuffer(proc)]]` - Allocate buffer for asynchronous
+!!    communications  if necessary.
+
       MODULE moreMeshSubs
+      !! author: Rogeli Grima (BSC)
+      !! date: December 2007
+
       use precision, only : grid_p, dp, i8b
       use parallel,  only : node, Nodes, ProcessorY
       use sys,       only : die
@@ -47,105 +52,138 @@ C
       integer, parameter, public :: LINEAR = 3
 
 !
-!     Symbolic names for "reord"-type operations  
+!     Symbolic names for "reord"-type operations
 !
       integer, parameter, public :: TO_SEQUENTIAL = +1
+!! alias to translation direction for `[[reord(proc)]]` procedure
       integer, parameter, public :: TO_CLUSTER = -1
+!! alias to translation direction for `[[reord(proc)]]` procedure
       integer, parameter, public :: KEEP       =  0
 
       PRIVATE
 
       interface distMeshData
+!! Move data from vector `fsrc`, that uses distribution `iDistr`, to vector
+!! `fdst`, that uses distribution `oDistr`. It also re-orders a clustered
+!! data array into a sequential one and viceversa.
+!! If this is a sequencial execution, it only reorders the data.
+
+!!@note
+!! There are two subroutines: one to deal with real data and
+!! the other with integers. Both are called using the same interface.
+!!@endnote
+
+!!@note
+!! *AG*: Note that the integer version does NOT have the exact functionality
+!! of the real version. In particular, the integer version has no provision
+!! for a "serial fallback", and so this case has been trapped.
+!!@endnote
+
+!! Check the communications that this process should do to move data
+!! from `iDistr` to `oDistr`. We have 3 kind of communications (send, receive
+!! and keep on the same node). We have 3 kind of reorderings (clustered to
+!! sequential, sequential to clustered and keep the same ordering).
+
+!! For the sequencial code we call subroutine `[[reord(proc)]]`
+
+!!#### INPUT
+!!
+!! * `iDistr` : Distribution index of the input vector.
+!! * `fsrc`   : Input vector.
+!! * `oDistr` : Distribution index of the output vector.
+!! * `itr`    : TRanslation-direction switch:  
+!!     `itr`=+1 => From clustered to sequential  
+!!     `itr`=-1 => From sequential to clustered  
+!!     `itr`=0  => Keep the status
+!!
+!!
+!!#### OUTPUT
+!!
+!! * `fdst`   : Output vector.
+!
         module procedure distMeshData_rea, distMeshData_int
       end interface distMeshData
 
-!     Private type to hold mesh distribution data
       TYPE meshDisType
-      integer           :: nMesh(3)      ! Number of mesh div. in each axis
-      integer,  pointer :: box(:,:,:)    ! Mesh box bounds of each node:
-                                         ! box(1,iAxis,iNode)=lower bounds
-                                         ! box(2,iAxis,iNode)=upper bounds
+        !! Private type to hold mesh distribution data.
+      integer           :: nMesh(3)
+        !! Number of mesh div. in each axis.
+      integer,  pointer :: box(:,:,:)
+        !! Mesh box bounds of each node:  
+        !! box(1,iAxis,iNode)=lower bounds  
+        !! box(2,iAxis,iNode)=upper bounds
       integer,  pointer :: indexp(:)
       integer,  pointer :: idop(:)
       real(dp), pointer :: xdop(:,:)
       integer,  pointer :: ipa(:)
       END TYPE meshDisType
 
-!     Private type to hold communications to move data from one
-!     distribution to another
       TYPE meshCommType
-      integer          :: ncom    ! Number of needed communications
-      integer, pointer :: src(:)  ! Sources of communications
-      integer, pointer :: dst(:)  ! Destination of communications 
+        !! Private type to hold communications to move data from one
+        !! distribution to another.
+      integer          :: ncom
+        !! Number of needed communications
+      integer, pointer :: src(:)
+        !! Sources of communications
+      integer, pointer :: dst(:)
+        !! Destination of communications
       END TYPE meshCommType
 
-C ----------------------------------------------------------------------
-C moreMeshSubs variables
-C ----------------------------------------------------------------------
-C character    moduName  : Name of the module
-C integer      maxDistr  : Maximum number of data distribution that
-C                          can be handled.
-C integer      gp        : Alias of the grid precision
-C meshDisType  meshDistr : Contains information of the several data
-C                          distributions
-C meshCommType meshCommu : Contains all the communications to move among
-C                          the several data distributions
-C meshCommType exteCommu : Contains all the needed communications to
-C                          compute the extencil
-C ----------------------------------------------------------------------
       character(len=*),      parameter :: moduName = 'moreMeshSubs'
+        !! Name of the module.
       integer,               parameter :: maxDistr = 5
+        !! Maximum number of data distribution that can be handled
       integer,               parameter :: gp = grid_p
+        !! Alias of the grid precision
       type(meshDisType),  target, save :: meshDistr(maxDistr)
+        !! Contains information of the several data distributions
       type(meshCommType), target, save ::
      &                   meshCommu((maxDistr*(maxDistr-1))/2)
+        !! Contains all the communications to move among the
+        !! several data distributions
       type(meshCommType), target, save :: exteCommu(maxDistr,3)
+        !! Contains all the needed communications to compute
+        !! the extencil
 
 #ifdef ASYNCHRONOUS
       real(grid_p),            pointer :: tBuff1(:)
+        !! Memory buffer for asynchronous communications
       real(grid_p),            pointer :: tBuff2(:)
+        !! Memory buffer for asynchronous communications
 #endif
 
       CONTAINS
 
       subroutine initMeshDistr( iDistr, oDistr, nm, wload )
-C ==================================================================
-C Computes a new data distribution and the communications needed to
-C move data from/to the current distribution to the existing ones.
-C The limits of the new distributions are stored in meshDistr(oDistr).
-C ==================================================================
-C SUBROUTINE initMeshDistr( iDistr, oDistr, nm, wload )
-C
-C INPUT:
-C integer iDistr  : Distribution index of the input vector
-C integer oDistr  : The new data distribution index.
-C integer nm(3)   : Number of Mesh divisions of each cell vector
-C integer wload   : Weights of every point of the mesh using the
-C                   input distribution
-C
-C OUTPUT:
-C The output values are stored in the current module:
-C        meshDistr(oDistr)
-C        meshCommu(((oDistr-2)*(oDistr-1))/2+1:(oDistr-1)*oDistr/2)
-C
-C BEHAVIOR:
-C If this is the first distribution, we split the mesh uniformly among
-C the several processes (we only split it in dimensions Y and Z).
-C
-C For the other data distributions we should split the vector wload.
-C The subroutine splitwload will return the limits of the new data
-C distribution. The subroutine compMeshComm will return the communications
-C needed to move data from/to the current distribution to/from the
-C previous ones.
-C
-C ==================================================================
+!! Computes a new data distribution and the communications needed to
+!! move data from/to the current distribution to the existing ones.
+!!
+!! The limits of the new distributions are stored in the current module
+!! in `[[moreMeshSubs(module):meshDistr(variable)]]`:
+!!
+!!     meshDistr(oDistr)
+!!     meshCommu(((oDistr-2)*(oDistr-1))/2+1:(oDistr-1)*oDistr/2)
+!!
+!! If this is the first distribution, we split the mesh uniformly among
+!! the several processes (we only split it in dimensions Y and Z).
+!!
+!! For the other data distributions we should split the vector wload.
+!! The subroutine splitwload will return the limits of the new data
+!! distribution. The subroutine compMeshComm will return the communications
+!! needed to move data from/to the current distribution to/from the
+!! previous ones.
+
       implicit none
-C     Passed arguments
       integer, optional,  intent(in) :: iDistr
+        !!  Distribution index of the input vector
       integer,            intent(in) :: oDistr
+        !!  The new data distribution index
       integer,            intent(in) :: nm(3)
+        !!  Number of Mesh divisions of each cell vector
       integer, optional,  intent(in) :: wload(*)
-C     Local variables
+        !!  Weights of every point of the mesh using the input distribution
+
+!     Local variables
       character(len=*), parameter :: myName = moduName//'initMeshDistr '
       character(len=*), parameter :: errMsg = myName//'ERROR: '
       integer                     :: ii, jj, PY, PZ, PP, ProcessorZ,
@@ -154,14 +192,14 @@ C     Local variables
       type(meshDisType),  pointer :: distr
       logical,               save :: firstime=.true.
       integer, pointer            :: box(:,:,:), mybox(:,:)
-!------------------------------------------------------------------------- BEGIN
+
       call timer( 'INITMESH', 1 )
 
-C     Check the number of mesh distribution
+!     Check the number of mesh distribution
       if (oDistr.gt.maxDistr)
      &  call die( errMsg // 'oDistr.gt.maxDistr' )
 
-C     Reset data if necessay
+!     Reset data if necessay
       if (firstime) then
         do ii= 1, maxDistr
           nullify(meshDistr(ii)%box)
@@ -188,16 +226,16 @@ C     Reset data if necessay
       endif
 
       distr => meshDistr(oDistr)
-C     Allocate memory for the current distribution
+!     Allocate memory for the current distribution
       nullify( distr%box )
       call re_alloc( distr%box, 1, 2, 1, 3, 1, Nodes,
      &               'distr%box', moduName )
 
-C     The first distribution should be the uniform distribution
+!     The first distribution should be the uniform distribution
       if (oDistr.eq.1) then
         ProcessorZ = Nodes/ProcessorY
-        blocY = (nm(2)/ProcessorY) 
-        blocZ = (nm(3)/ProcessorZ) 
+        blocY = (nm(2)/ProcessorY)
+        blocZ = (nm(3)/ProcessorZ)
         nremY = nm(2) - blocY*ProcessorY
         nremZ = nm(3) - blocZ*ProcessorZ
 
@@ -224,8 +262,8 @@ C     The first distribution should be the uniform distribution
           iniY = iniY + dimY
         enddo
       else
-C       In order to compute the other data distributions, we should split
-C       the vector "wload" among the several processes
+!       In order to compute the other data distributions, we should split
+!       the vector "wload" among the several processes
 #ifdef MPI
         if (.NOT. present(iDistr) .OR.
      &      .NOT. present(wload) ) then
@@ -237,8 +275,8 @@ C       the vector "wload" among the several processes
 
         call reordMeshNumbering( meshDistr(1), distr )
 
-C       Precompute the communications needed to move data between the new data
-C       distribution and the previous ones.
+!       Precompute the communications needed to move data between the new data
+!       distribution and the previous ones.
         jj = ((oDistr-2)*(oDistr-1))/2 + 1
         do ii=1, oDistr-1
           call compMeshComm( meshDistr(ii), distr, meshCommu(jj) )
@@ -252,47 +290,36 @@ C       distribution and the previous ones.
             write(6,"(i12,3x,3(i5,a1,i5))")
      $       PP,
      $       (distr%box(1,jj,PP), ":", distr%box(2,jj,PP), jj=1,3)
-         enddo 
-      endif 
+         enddo
+      endif
 
       call timer( 'INITMESH', 2 )
-!--------------------------------------------------------------------------- END
+
       end subroutine initMeshDistr
 
-C ==================================================================
-C Allocate memory buffers for asynchronous communications.
-C It does nothing for synchronous communications.
-C ==================================================================
-C SUBROUTINE allocASynBuffer( ndistr )
-C
-C INPUT:
-C integer ndistr  : Total number of distributions
-C
-C OUTPUT:
-C The output values are stored in the current module:
-C  real(grid_p) tBuff1(:) :  Buffer for distribution 1
-C  real(grid_p) tBuff2(:) :  Buffer for other distributions
-C
-C BEHAVIOR:
-C 
-C
-C ==================================================================
+
       subroutine allocASynBuffer( ndistr )
+!! Allocate memory buffers for asynchronous communications.
+!! It does nothing for synchronous communications.  
+!! The output values are stored in the current module:  
+!! `[[moreMeshSubs(module):tBuff1(variable)]]` : Buffer for distribution 1  
+!! `[[moreMeshSubs(module):tBuff2(variable)]]` : Buffer for other distributions
       use mesh,    only : nsm
       implicit none
-C     Input variables
+
       integer                     :: ndistr
-C     Local variables
+        !! Total number of distributions
+
       integer          :: ii, jj, imax1, imax2, lsize, nsp, Lbox(2,3)
       integer, pointer :: box1(:,:), box2(:,:), nsize(:)
       logical          :: inters
-!------------------------------------------------------------------------- BEGIN
+
 #ifdef ASYNCHRONOUS
-C     Allocate local memory
+!     Allocate local memory
       nsp  = nsm*nsm*nsm
       call re_alloc( nsize, 1, ndistr, 'nsize', moduName )
 
-C     Check the size of the local box for every data distribution
+!     Check the size of the local box for every data distribution
       do ii= 1, ndistr
         box1 => meshDistr(ii)%box(:,:,node+1)
         nsize(ii) = (box1(2,1)-box1(1,1)+1)*
@@ -300,9 +327,9 @@ C     Check the size of the local box for every data distribution
      &              (box1(2,3)-box1(1,3)+1)*nsp
       enddo
 
-C     Check the size of the intersections between the first data distributions
-C     and the others data distributions.
-C     Buffers don't need to store intersections
+!     Check the size of the intersections between the first data distributions
+!     and the others data distributions.
+!     Buffers don't need to store intersections
       imax1 = 0
       imax2 = 0
       box1 => meshDistr(1)%box(:,:,node+1)
@@ -320,23 +347,23 @@ C     Buffers don't need to store intersections
         imax2 = max(imax2,nsize(ii)-lsize)
       enddo
 
-C     Deallocate local memory
+!     Deallocate local memory
       call de_alloc( nsize, 'nsize', moduName )
 
-C     Allocate memory for asynchronous communications
+!     Allocate memory for asynchronous communications
       call re_alloc( tBuff1, 1, imax1, 'tBuff1', moduName )
       call re_alloc( tBuff2, 1, imax2, 'tBuff2', moduName )
 #endif
-!--------------------------------------------------------------------------- END
+
       end subroutine allocASynBuffer
 
 
       subroutine allocExtMeshDistr( iDistr, nep, mop )
       use mesh, only: indexp, idop, xdop
       implicit none
-C     Input variables
+!     Input variables
       integer,         intent(in) :: iDistr, nep, mop
-C     Local variables
+!     Local variables
       type(meshDisType),  pointer :: distr
 
       distr => meshDistr(iDistr)
@@ -349,51 +376,46 @@ C     Local variables
       xdop   => distr%xdop
       end subroutine allocExtMeshDistr
 
+
       subroutine allocIpaDistr( iDistr, na )
       use mesh, only: ipa
       implicit none
-C     Input variables
+!     Input variables
       integer,         intent(in) :: iDistr, na
-C     Local variables
+!     Local variables
       type(meshDisType),  pointer :: distr
-!------------------------------------------------------------------------- BEGIN
+
       distr => meshDistr(iDistr)
       call re_alloc( distr%ipa, 1, na, 'distr%ipa', moduName )
       ipa => meshDistr(iDistr)%ipa
-!--------------------------------------------------------------------------- END
+
       end subroutine allocIpaDistr
 
+
       subroutine setMeshDistr( iDistr, nsm, nsp, nml, nmpl, ntml, ntpl )
-C ==================================================================
-C Fixes the new data limits and dimensions of the mesh to those of
-C the data distribution iDistr.
-C ==================================================================
-C SUBROUTINE setMeshDistr( iDistr, nsm, nsp, nml, nmpl, ntml, ntpl )
-C
-C INPUT:
-C integer iDistr  : Distribution index of the input vector
-C integer nsm     : Number of mesh sub-divisions in each direction
-C integer nsp     : Number of sub-points of each mesh point
-C
-C OUTPUT:
-C integer nml(3)  : Local number of Mesh divisions in each cell vector
-C integer nmpl    : Local number of Mesh divisions
-C integer ntml(3) : Local number of Mesh points in each cell vector
-C integer ntpl    : Local number of Mesh points
-C
-C BEHAVIOR:
-C Fixes the new data limits and dimensions of the mesh to those of
-C the data distribution iDistr.
-C
-C ==================================================================
+!! Fixes the new data limits and dimensions of the mesh to those of
+!! the data distribution `iDistr`.
       use mesh, only: meshLim, indexp, ipa, idop, xdop
       implicit none
-C     Passed arguments
-      integer,  intent(in) :: iDistr, nsm, nsp
-      integer, intent(out) :: nml(3), nmpl, ntml(3), ntpl
-C     Local variables
+
+      integer,  intent(in) :: iDistr
+        !! Distribution index of the input vector
+      integer,  intent(in) :: nsm
+        !! Number of mesh sub-divisions in each direction
+      integer,  intent(in) :: nsp
+        !! Number of sub-points of each mesh point
+      integer, intent(out) :: nml(3)
+        !! Local number of Mesh divisions in each cell vector
+      integer, intent(out) :: nmpl
+        !! Local number of Mesh divisions
+      integer, intent(out) :: ntml(3)
+        !! Local number of Mesh points in each cell vector
+      integer, intent(out) :: ntpl
+        !! Local number of Mesh points
+
+!     Local variables
       type(meshDisType),  pointer :: distr
-!------------------------------------------------------------------------- BEGIN
+
       distr => meshDistr(iDistr)
 
       meshLim = distr%box(1:2,1:3,node+1)
@@ -412,28 +434,19 @@ C     Local variables
       end subroutine setMeshDistr
 
       subroutine resetMeshDistr( iDistr )
-C ==================================================================
-C Reset the data of the distribution iDistr
-C ==================================================================
-C SUBROUTINE resetMeshDistr( iDistr )
-C
-C INPUT:
-C integer iDistr   : Distribution index to be reset.
-C
-C OUTPUT:
-C Modify data of the current module.
-C
-C BEHAVIOR:
-C Deallocate associated arrays of the current distribution
-C ==================================================================
+!! Reset the data of the distribution `iDistr`.
+!! Deallocate associated arrays of the current distribution.  
+!! Modifies data of the current module.
+
       implicit none
-C     Passed arguments
+
       integer, optional,  intent(in) :: iDistr
-C     Local variables
+        !! Distribution index to be reset
+
       integer                        :: idis, ini, fin, icom
       type(meshDisType),  pointer    :: distr
       type(meshCommType), pointer    :: mcomm
-!------------------------------------------------------------------------- BEGIN
+
       if (present(iDistr)) then
         ini = iDistr
         fin = iDistr
@@ -502,45 +515,10 @@ C     Local variables
         call de_alloc(tBuff2, 'tBuff2', 'moreMeshSubs' )
       endif
 #endif
-!--------------------------------------------------------------------------- END
+
       end subroutine resetMeshDistr
 
-C ==================================================================
-C Move data from vector fsrc, that uses distribution iDistr, to vector
-C fdst, that uses distribution oDistr. It also, re-orders a clustered
-C data array into a sequential one and viceversa.
-C If this is a sequencial execution, it only reorders the data.
-C
-C NOTE: There are two subroutines: one to deal with real data and
-C the other with integers. Both are called using the same interface.
-!
-! AG: NOTE that the integer version does NOT have the exact functionality
-! of the real version. In particular, the integer version has no provision
-! for a "serial fallback", and so this case has been trapped.
-C ==================================================================
-C SUBROUTINE distMeshData( iDistr, fsrc, oDistr, fdst, itr )
-C
-C INPUT:
-C integer      iDistr : Distribution index of the input vector.
-C real/integer fsrc   : Input vector.
-C integer      oDistr : Distribution index of the output vector.
-C integer itr         : TRanslation-direction switch
-C                       ITR=+1 => From clustered to sequential
-C                       ITR=-1 => From sequential to clustered
-C                       ITR=0  => Keep the status
-C
-C OUTPUT:
-C real/integer fdst   : Output vector.
-C
-C BEHAVIOR:
-C Check the communications that this process should do to move data
-C from iDistr to odistr. We have 3 kind of communications (send, receive
-C and keep on the same node). We have 3 kind of reorderings (clustered to
-C sequential, sequential to clustered and keep the same ordering).
-C
-C For the sequencial code we call subroutine reord
-C
-C ==================================================================
+
 #ifdef ASYNCHRONOUS
       subroutine distMeshData_rea( iDistr, fsrc, oDistr, fdst, itr )
       use mesh,    only : nsm, nmeshg
@@ -548,11 +526,11 @@ C ==================================================================
       use mpi_siesta
 #endif
       implicit none
-C     Passed arguments
+!     Passed arguments
       integer,         intent(in) :: iDistr, oDistr, itr
       real(grid_p),    intent(in) :: fsrc(*)
       real(grid_p),   intent(out) :: fdst(*)
-C     Local variables
+!     Local variables
       integer                     :: i, I1, I2, I3, N1, N2, N3, NN, ind,
      &                               J1, J2, J3, K1, K2, K3, KS, KR,
      &                               icom, ncom, nsp, me, nsize, lsize,
@@ -584,7 +562,7 @@ C     Local variables
         else if (itr .lt. 0) then
           call reord( fdst, fsrc, nm, nsm, TO_CLUSTER )
         else
-          ! Copy source to destination 
+          ! Copy source to destination
           ! This will be executed only in serial mode,
           ! so we know that the size is the total number
           ! of (small) points, but maybe this information
@@ -593,7 +571,7 @@ C     Local variables
           fdst(1:nsize) = fsrc(1:nsize)
         endif
       else  ! nodes > 1
-C       The communications are stored in a triangular structure.
+!       The communications are stored in a triangular structure.
         if (iDistr.gt.oDistr) then
           ind  = ((iDistr-1)*(iDistr-2))/2 + oDistr
           ncom = meshCommu(ind)%ncom
@@ -643,7 +621,7 @@ C       The communications are stored in a triangular structure.
         NDST(3) = (Dbox(2,3) - Dbox(1,3) + 1)*nsm
 
         if (itr.eq.1) then
-C         From clustered to sequential
+!         From clustered to sequential
           NN = 1
           I3 = 0
           DO N3=0, NSM-1
@@ -669,7 +647,7 @@ C         From clustered to sequential
 
             if (src(icom).eq.ME) then
               if (dst(icom).eq.ME) then
-C               SRC and DST are the current process
+!               SRC and DST are the current process
                 J3 = (Lbox(1,3) - Sbox(1,3))*NSRC(1)*NSRC(2)*NSM
                 K3 = (Lbox(1,3) - Dbox(1,3))*NDST(1)*NDST(2)*NSM
                 do I3 = Lbox(1,3), Lbox(2,3)
@@ -692,7 +670,7 @@ C               SRC and DST are the current process
                   K3 = K3 + NDST(1)*NDST(2)*NSM
                 enddo
               else
-C               We should send data to process dst(icom)-1
+!               We should send data to process dst(icom)-1
                 lsize = (Lbox(2,1) - Lbox(1,1) + 1)*
      &                  (Lbox(2,2) - Lbox(1,2) + 1)*
      &                  (Lbox(2,3) - Lbox(1,3) + 1)*nsp
@@ -722,7 +700,7 @@ C               We should send data to process dst(icom)-1
                 KS = K1
               endif
             else
-C             We should receive data from process src(icom)-1
+!             We should receive data from process src(icom)-1
               lsize = (Lbox(2,1) - Lbox(1,1) + 1)*
      &                (Lbox(2,2) - Lbox(1,2) + 1)*
      &                (Lbox(2,3) - Lbox(1,3) + 1)*nsp
@@ -737,7 +715,7 @@ C             We should receive data from process src(icom)-1
 
           J1 = 1
           do icom= 1, ncom
-C           Wait for received data and move it to the destination buffer
+!           Wait for received data and move it to the destination buffer
             if (src(icom).ne.ME) then
               Sbox => idis%box(:,:,src(icom))
               Dbox => odis%box(:,:,dst(icom))
@@ -764,7 +742,7 @@ C           Wait for received data and move it to the destination buffer
             endif
           enddo
         else if (itr.eq.-1) then
-C         From sequencial to clustered
+!         From sequencial to clustered
           NN = 1
           I3 = 0
           DO N3=0, NSM-1
@@ -790,7 +768,7 @@ C         From sequencial to clustered
 
             if (src(icom).eq.ME) then
               if (dst(icom).eq.ME) then
-C               SRC and DST are the current process
+!               SRC and DST are the current process
                 J3 = (Lbox(1,3) - Sbox(1,3))*NSRC(1)*NSRC(2)*NSM
                 K3 = (Lbox(1,3) - Dbox(1,3))*NDST(1)*NDST(2)*NSM
                 do I3 = Lbox(1,3), Lbox(2,3)
@@ -813,7 +791,7 @@ C               SRC and DST are the current process
                   K3 = K3 + NDST(1)*NDST(2)*NSM
                 enddo
               else
-C               We should send data to process dst(icom)-1
+!               We should send data to process dst(icom)-1
                 lsize = (Lbox(2,1) - Lbox(1,1) + 1)*
      &                  (Lbox(2,2) - Lbox(1,2) + 1)*
      &                  (Lbox(2,3) - Lbox(1,3) + 1)*nsp
@@ -858,7 +836,7 @@ C             We should receive data from process src(icom)-1
 
           J1 = 1
           do icom= 1, ncom
-C           Wait for received data and move it to the destination buffer
+!           Wait for received data and move it to the destination buffer
             if (src(icom).ne.ME) then
               Sbox => idis%box(:,:,src(icom))
               Dbox => odis%box(:,:,dst(icom))
@@ -887,7 +865,7 @@ C           Wait for received data and move it to the destination buffer
         else if (itr.eq.0) then
           KS = 1
           KR = 1
-C         From sequencial to sequencial or from clustered to clustered
+!         From sequencial to sequencial or from clustered to clustered
           do icom= 1, ncom
             Sbox => idis%box(:,:,src(icom))
             Dbox => odis%box(:,:,dst(icom))
@@ -898,7 +876,7 @@ C         From sequencial to sequencial or from clustered to clustered
 
             if (src(icom).eq.ME) then
               if (dst(icom).eq.ME) then
-C               SRC and DST are the current process
+!               SRC and DST are the current process
                 J3 = (Lbox(1,3) - Sbox(1,3))*NSRC(1)*NSRC(2)*NSM
                 K3 = (Lbox(1,3) - Dbox(1,3))*NDST(1)*NDST(2)*NSM
                 do I3 = 1, Zsize
@@ -919,7 +897,7 @@ C               SRC and DST are the current process
                   K3 = K3 + NDST(1)*NDST(2)
                 enddo
               else
-C               We should send data to process dst(icom)-1
+!               We should send data to process dst(icom)-1
                 lsize = Xsize*Ysize*Zsize
 
                 J3 = (Lbox(1,3) - Sbox(1,3))*NSRC(1)*NSRC(2)*NSM
@@ -945,7 +923,7 @@ C               We should send data to process dst(icom)-1
                 KS = K1
               endif
             else
-C             We should receive data from process src(icom)-1
+!             We should receive data from process src(icom)-1
               lsize = Xsize*Ysize*Zsize
 #ifdef MPI
               call mpi_irecv( rBuff(KR), lsize, MPI_grid_real,
@@ -958,7 +936,7 @@ C             We should receive data from process src(icom)-1
 
           J1 = 1
           do icom= 1, ncom
-C           Wait for received data and move it to the destination buffer
+!           Wait for received data and move it to the destination buffer
             if (src(icom).ne.ME) then
               Sbox => idis%box(:,:,src(icom))
               Dbox => odis%box(:,:,dst(icom))
@@ -1012,12 +990,12 @@ C           Wait for received data and move it to the destination buffer
       use mpi_siesta
 #endif
       implicit none
-C     Passed arguments
+!     Passed arguments
       integer,       intent(in) :: iDistr, oDistr, itr
       real(grid_p),  intent(in) :: fsrc(*)
       real(grid_p), intent(out) :: fdst(*)
 
-C     Local variables
+!     Local variables
       character(len=*), parameter :: myName = moduName//'distMeshData '
       character(len=*), parameter :: errMsg = myName//'ERROR: '
       integer                     :: I1, I2, I3, J1, J2, J3, K1, K2, K3,
@@ -1063,7 +1041,7 @@ C     Local variables
         endif
 
       else  ! nodes > 1
-C       The communications are stored in a triangular structure.
+!       The communications are stored in a triangular structure.
         if (iDistr.gt.oDistr) then
           ind  = ((iDistr-1)*(iDistr-2))/2 + oDistr
           ncom = meshCommu(ind)%ncom
@@ -1085,8 +1063,8 @@ C       The communications are stored in a triangular structure.
         nullify( JS )
         call re_alloc( JS, 1, NSP, 'JS', 'moreMeshSubs' )
 
-C       Compute the maximum size of the buffer needed to transfer data
-C       among the several processes
+!       Compute the maximum size of the buffer needed to transfer data
+!       among the several processes
         maxSize = 0
         do icom= 1, ncom
           if (src(icom).ne.dst(icom)) then
@@ -1116,7 +1094,7 @@ C       among the several processes
         NDST(3) = (Dbox(2,3) - Dbox(1,3) + 1)*nsm
 
         if (itr.eq.1) then
-C         From clustered to sequential
+!         From clustered to sequential
           NN = 1
           I3 = 0
           DO N3=0, NSM-1
@@ -1138,7 +1116,7 @@ C         From clustered to sequential
             call boxIntersection( Sbox, Dbox, Lbox, inters )
             if (src(icom).eq.ME) then
               if (dst(icom).eq.ME) then
-C               SRC and DST are the current process
+!               SRC and DST are the current process
                 J3 = (Lbox(1,3) - Sbox(1,3))*NSRC(1)*NSRC(2)*NSM
                 K3 = (Lbox(1,3) - Dbox(1,3))*NDST(1)*NDST(2)*NSM
                 do I3 = Lbox(1,3), Lbox(2,3)
@@ -1161,7 +1139,7 @@ C               SRC and DST are the current process
                   K3 = K3 + NDST(1)*NDST(2)*NSM
                 enddo
               else
-C               We should send data to process dst(icom)-1
+!               We should send data to process dst(icom)-1
                 J3 = (Lbox(1,3) - Sbox(1,3))*NSRC(1)*NSRC(2)*NSM
                 K1 = 1
                 do I3 = Lbox(1,3), Lbox(2,3)
@@ -1190,7 +1168,7 @@ C               We should send data to process dst(icom)-1
 #endif
               endif
             else
-C             We should receive data from process src(icom)-1
+!             We should receive data from process src(icom)-1
               Xsize = Lbox(2,1) - Lbox(1,1) + 1
               Ysize = Lbox(2,2) - Lbox(1,2) + 1
               Zsize = Lbox(2,3) - Lbox(1,3) + 1
@@ -1220,7 +1198,7 @@ C             We should receive data from process src(icom)-1
             endif
           enddo
         else if (itr.eq.-1) then
-C         From sequencial to clustered
+!         From sequencial to clustered
           NN = 1
           I3 = 0
           DO N3=0, NSM-1
@@ -1242,7 +1220,7 @@ C         From sequencial to clustered
             call boxIntersection( Sbox, Dbox, Lbox, inters )
             if (src(icom).eq.ME) then
               if (dst(icom).eq.ME) then
-C               SRC and DST are the current process
+!               SRC and DST are the current process
                 J3 = (Lbox(1,3) - Sbox(1,3))*NSRC(1)*NSRC(2)*NSM
                 K3 = (Lbox(1,3) - Dbox(1,3))*NDST(1)*NDST(2)*NSM
                 do I3 = Lbox(1,3), Lbox(2,3)
@@ -1265,7 +1243,7 @@ C               SRC and DST are the current process
                   K3 = K3 + NDST(1)*NDST(2)*NSM
                 enddo
               else
-C               We should send data to process dst(icom)-1
+!               We should send data to process dst(icom)-1
                 J3 = (Lbox(1,3) - Sbox(1,3))*NSRC(1)*NSRC(2)*NSM
                 K1 = 1
                 do I3 = Lbox(1,3), Lbox(2,3)
@@ -1294,7 +1272,7 @@ C               We should send data to process dst(icom)-1
 #endif
               endif
             else
-C             We should receive data from process src(icom)-1
+!             We should receive data from process src(icom)-1
               Xsize = Lbox(2,1) - Lbox(1,1) + 1
               Ysize = Lbox(2,2) - Lbox(1,2) + 1
               Zsize = Lbox(2,3) - Lbox(1,3) + 1
@@ -1324,7 +1302,7 @@ C             We should receive data from process src(icom)-1
             endif
           enddo
         else if (itr.eq.0) then
-C         From sequencial to sequencial or from clustered to clustered
+!         From sequencial to sequencial or from clustered to clustered
           do icom= 1, ncom
             Sbox => idis%box(:,:,src(icom))
             Dbox => odis%box(:,:,dst(icom))
@@ -1334,7 +1312,7 @@ C         From sequencial to sequencial or from clustered to clustered
             Zsize = (Lbox(2,3) - Lbox(1,3) + 1)*NSM
             if (src(icom).eq.ME) then
               if (dst(icom).eq.ME) then
-C               SRC and DST are the current process
+!               SRC and DST are the current process
                 J3 = (Lbox(1,3) - Sbox(1,3))*NSRC(1)*NSRC(2)*NSM
                 K3 = (Lbox(1,3) - Dbox(1,3))*NDST(1)*NDST(2)*NSM
                 do I3 = 1, Zsize
@@ -1355,7 +1333,7 @@ C               SRC and DST are the current process
                   K3 = K3 + NDST(1)*NDST(2)
                 enddo
               else
-C               We should send data to process dst(icom)-1
+!               We should send data to process dst(icom)-1
                 J3 = (Lbox(1,3) - Sbox(1,3))*NSRC(1)*NSRC(2)*NSM
                 K1 = 1
                 do I3 = 1, Zsize
@@ -1378,7 +1356,7 @@ C               We should send data to process dst(icom)-1
 #endif
               endif
             else
-C             We should receive data from process src(icom)-1
+!             We should receive data from process src(icom)-1
 #ifdef MPI
               call mpi_recv( TBUF, Xsize*Ysize*Zsize,
      &                       MPI_grid_real, src(icom)-1, 1,
@@ -1423,21 +1401,21 @@ C             We should receive data from process src(icom)-1
 #ifdef DEBUG
       call write_debug( '    POS distMeshData' )
 #endif
-!------------------------------------------------------------------------ END
       end subroutine distMeshData_rea
 #endif
+
 
       subroutine distMeshData_int( iDistr, fsrc, oDistr, fdst, itr )
 #ifdef MPI
       use mpi_siesta
 #endif
       implicit none
-C     Passed arguments
+!     Passed arguments
       integer,  intent(in) :: iDistr, oDistr, itr
       integer,  intent(in) :: fsrc(*)
       integer, intent(out) :: fdst(*)
 
-C     Local variables
+!     Local variables
       character(len=*), parameter :: myName = moduName//'distMeshData '
       character(len=*), parameter :: errMsg = myName//'ERROR: '
       integer                     :: I1, I2, I3, J1, J2, J3, K1, K2, K3,
@@ -1452,11 +1430,11 @@ C     Local variables
 #ifdef MPI
       integer                     :: MPIerror, Status(MPI_Status_Size)
 #endif
-!---------------------------------------------------------------------- BEGIN
+
       if (nodes == 1) then
          call die("Called _int version of distMeshData for n=1")
       else
-C       The communications are stored in a triangular structure.
+!       The communications are stored in a triangular structure.
         if (iDistr.gt.oDistr) then
           ind  = ((iDistr-1)*(iDistr-2))/2 + oDistr
           ncom = meshCommu(ind)%ncom
@@ -1474,8 +1452,8 @@ C       The communications are stored in a triangular structure.
 
         ME  = Node + 1
 
-C       Compute the maximum size of the buffer needed to transfer data
-C       among the several processes
+!       Compute the maximum size of the buffer needed to transfer data
+!       among the several processes
         maxSize = 0
         do icom= 1, ncom
           if (src(icom).ne.dst(icom)) then
@@ -1504,7 +1482,7 @@ C       among the several processes
         NDST(3) = Dbox(2,3) - Dbox(1,3) + 1
 
         if (itr.eq.0) then
-C         From sequencial to sequencial
+!         From sequencial to sequencial
           do icom= 1, ncom
             Sbox => idis%box(:,:,src(icom))
             Dbox => odis%box(:,:,dst(icom))
@@ -1514,7 +1492,7 @@ C         From sequencial to sequencial
             Zsize = Lbox(2,3) - Lbox(1,3) + 1
             if (src(icom).eq.ME) then
               if (dst(icom).eq.ME) then
-C               SRC and DST are the current process
+!               SRC and DST are the current process
                 J3 = (Lbox(1,3) - Sbox(1,3))*NSRC(1)*NSRC(2)
                 K3 = (Lbox(1,3) - Dbox(1,3))*NDST(1)*NDST(2)
                 do I3 = 1, Zsize
@@ -1535,7 +1513,7 @@ C               SRC and DST are the current process
                   K3 = K3 + NDST(1)*NDST(2)
                 enddo
               else
-C               We should send data to process dst(icom)-1
+!               We should send data to process dst(icom)-1
                 J3 = (Lbox(1,3) - Sbox(1,3))*NSRC(1)*NSRC(2)
                 K1 = 1
                 do I3 = 1, Zsize
@@ -1558,7 +1536,7 @@ C               We should send data to process dst(icom)-1
 #endif
               endif
             else
-C             We should receive data from process src(icom)-1
+!             We should receive data from process src(icom)-1
 #ifdef MPI
               call mpi_recv( TBUF, Xsize*Ysize*Zsize,
      &                       MPI_Integer, src(icom)-1, 1,
@@ -1592,76 +1570,60 @@ C             We should receive data from process src(icom)-1
           call de_alloc( TBUF, 'TBUF', 'moreMeshSubs' )
         endif
       endif
-!--------------------------------------------------------------------------- END
+
       end subroutine distMeshData_int
 
-C ==================================================================
-C Checks if there is an intersection between 2 boxes and, if it exist
-C it returns the resulting box.
-C ==================================================================
-C SUBROUTINE boxIntersection( ibox1, ibox2, obox, inters )
-C
-C INPUT:
-C integer ibox1(2,3)       : Input box 1
-C integer ibox2(2,3)       : Input box 2
-C
-C OUTPUT:
-C integer obox(2,3)        : Intersection between ibox1 and ibox2
-C logical inters           : TRUE: There is intersection
-C                            FALSE: There is not intersection
-C
-C BEHAVIOR:
-C Checks the three axis of the input boxes to see if there is
-C intersection between the input boxes.
-C
-C ==================================================================
+
       subroutine boxIntersection( ibox1, ibox2, obox, inters )
+!! Checks the three axis of the input boxes to see if there is
+!! intersection between the input boxes. If it exists, returns
+!! the resulting box.
       implicit none
-C     Passed arguments
+!     Passed arguments
       integer,  intent(in) :: ibox1(2,3), ibox2(2,3)
+        !! Input box
       integer, intent(out) :: obox(2,3)
+        !! Intersection between `ibox1` and `ibox2`
       logical, intent(out) :: inters
-C     Local variables
+        !! `TRUE`, if there is an intersection. Otherwise `FALSE`.
+
+!     Local variables
       integer              :: iaxis
-!------------------------------------------------------------------------- BEGIN
+
       inters = .true.
       do iaxis= 1, 3
         obox(1,iaxis) = max(ibox1(1,iaxis),ibox2(1,iaxis))
         obox(2,iaxis) = min(ibox1(2,iaxis),ibox2(2,iaxis))
         if (obox(2,iaxis).lt.obox(1,iaxis)) inters = .false.
       enddo
-!--------------------------------------------------------------------------- END
+
       end subroutine boxIntersection
+
 
 #ifdef MPI
       subroutine initMeshExtencil( iDistr, nm )
-C ==================================================================
-C Compute the needed communications in order to send/receive the
-C extencil (when the data is ordered in the distribution iDistr)
-C ==================================================================
-C SUBROUTINE initMeshExtencil( iDistr, nm )
-C
-C INPUT:
-C integer iDistr   : Distribution index to be used.
-C integer nm(3)    : Number of Mesh divisions in each cell vector
-C
-C OUTPUT:
-C The results are stored in the variable exteCommu(iDistr,1:3) of
-C the current module.
-C
-C BEHAVIOR:
-C For every dimension of the problem, search all the neightbours that
-C we have. Given the current data distribution we compute the limits
-C of our extencil and we check its intersection with all the other 
-C processes. Once we know all our neightbours we call subroutine
-C scheduleComm in order to minimize the number of communications steps.
-C
-C ==================================================================
+!! Compute the needed communications in order to send/receive the
+!! extencil (when the data is ordered in the distribution `iDistr`)
+!! The results are stored in the variable
+!! `[[moreMeshSubs(module):exteCommu(variable)]](iDistr,1:3)`
+!! of the current module.
+!!
+!! For every dimension of the problem, search all the neighbors that
+!! we have. Given the current data distribution we compute the limits
+!! of our extencil and we check its intersection with all the other
+!! processes. Once we know all our neighbors we call subroutine
+!! `[[scheduleComm(proc)]]` in order to minimize the number
+!! of communications steps.
+
       use scheComm
       implicit none
-C     Passed arguments
-      integer,  intent(in)        :: iDistr, nm(3)
-C     Local variables
+!     Passed arguments
+      integer,  intent(in)        :: iDistr
+        !! Distribution index to be used
+      integer,  intent(in)        :: nm(3)
+        !! Number of Mesh divisions in each cell vector
+
+!     Local variables
       integer                     :: Ubox(2,3), Lbox(2,3), Ibox(2,3),
      &                               ii, iaxis, ncom, Gcom, Lcom, P1, P2
       integer,            pointer :: src(:), dst(:), Dbox(:,:)
@@ -1669,19 +1631,19 @@ C     Local variables
       type(meshCommType), pointer :: mcomm
       type(COMM_T)                :: comm
       logical                     :: inters
-!------------------------------------------------------------------------- BEGIN
+
       idis => meshDistr(iDistr)
 
       do iaxis=1, 3
-C       One communication structure for every dimension
+!       One communication structure for every dimension
         mcomm => exteCommu(iDistr,iaxis)
 
-C       Count the number of communications needed to send/receive
-C       the extencil
+!       Count the number of communications needed to send/receive
+!       the extencil
         ncom = 0
         do P1= 1, Nodes
-C         Create the extencil boxes for both sides of the current
-C         partition
+!         Create the extencil boxes for both sides of the current
+!         partition
           Ubox(1:2,1:3) = idis%box(1:2,1:3,P1)
           Ubox(1,iaxis) = Ubox(1,iaxis) - 1
           if (Ubox(1,iaxis).lt.1) Ubox(1,iaxis) = nm(iaxis)
@@ -1705,8 +1667,8 @@ C         partition
         enddo
 
         Gcom = ncom
-C       Create a list of communications needed to send/receive
-C       the extencil
+!       Create a list of communications needed to send/receive
+!       the extencil
         if (Gcom.gt.0) then
           nullify( src, dst )
           call re_alloc( src, 1, Gcom, 'src', 'moreMeshSubs' )
@@ -1743,18 +1705,18 @@ C       the extencil
           enddo
 
           comm%np = Nodes
-C         reschedule the communications in order to minimize the time
+!         reschedule the communications in order to minimize the time
           call scheduleComm( Gcom, src, dst, comm )
 
-C         Count the number of communications needed by the current process
+!         Count the number of communications needed by the current process
           ncom = 0
           do P1= 1, comm%ncol
             if (comm%ind(P1,Node+1).ne.0) ncom = ncom + 1
           enddo
           Lcom = ncom
 
-C         Store the ordered list of communications needed by the current
-C         process to send/receive the extencil.
+!         Store the ordered list of communications needed by the current
+!         process to send/receive the extencil.
           if (Lcom.gt.0) then
             nullify( mcomm%src, mcomm%dst )
             call re_alloc( mcomm%src, 1, Lcom, 'mcomm%src',
@@ -1780,51 +1742,44 @@ C         process to send/receive the extencil.
           call de_alloc( src, 'src', 'moreMeshSubs' )
         endif
       enddo
-!--------------------------------------------------------------------------- END
+
       end subroutine initMeshExtencil
+
 
       subroutine distExtMeshData( iDistr, iaxis, BS, NSM, NN, NSPIN,
      &                            maxp, NMeshG, dens, BDENS )
-C ==================================================================
-C Send/receive the extencil information from the "dens" matrix to the
-C temporal array "BDENS".
-C ==================================================================
-C SUBROUTINE distExtMeshData( iDistr, iaxis, BS, NSM, NN, NSPIN,
-C                             maxp, NMeshG, dens, BDENS )
-C
-C INPUT:
-C integer iDistr    : Distribution index to be used.
-C integer iaxis     : Axe to be splitted
-C integer BS        : Dimmension of a plane in the current axe
-C integer NSM       : Number of mesh sub-divisions in each direction
-C integer NN        : Size of the extencil
-C integer NSPIN     : Number of pollarizations
-C integer MAXP      : Total number of points
-C integer NMeshG(3) : Number of Mesh points in each cell vector
-C real    DENS      : electron density matrix
-C
-C OUTPUT:
-C real    BDENS     : Auxiliar arrays to store the extencil from other
-C                     partitions.
-C
-C BEHAVIOR:
-C Send/receive the extencil information from the "dens" matrix to the
-C temporal array "BDENS".
-C
-C We have a different code for every axis. We should find if we
-C intersects with a neightbour node throught the upper, the lower
-C or both sides.
-C
-C ==================================================================
+!! Send/receive the extencil information from the `DENS` matrix to the
+!! temporal array `BDENS`.
+!!
+!! We have a different code for every axis. We should find if we
+!! intersects with a neightbour node throught the upper, the lower
+!! or both sides.
+
       use mpi_siesta
       implicit none
-C     Passed arguments
-      integer,         intent(in) :: iDistr, iaxis, BS, NSM, NN, NSPIN,
-     &                               maxp, NMeshG(3)
-      real(gp),        intent(in) :: DENS(maxp,NSPIN)
-      real(gp),       intent(out) :: BDENS(BS,2*NN,NSPIN)
 
-C     Local variables
+      integer,         intent(in) :: iDistr
+        !! Distribution index to be used
+      integer,         intent(in) :: iaxis
+        !! Axe to be splitted
+      integer,         intent(in) :: BS
+        !! Dimension of a plane in the current axe
+      integer,         intent(in) :: NSM
+        !! Number of mesh sub-divisions in each direction
+      integer,         intent(in) :: NN
+        !! Size of the extencil
+      integer,         intent(in) :: NSPIN
+        !! Number of pollarizations
+      integer,         intent(in) :: maxp
+        !! Total number of points
+      integer,         intent(in) :: NMeshG(3)
+        !! Number of Mesh points in each cell vector
+      real(gp),        intent(in) :: DENS(maxp,NSPIN)
+        !! Electron density matrix
+      real(gp),       intent(out) :: BDENS(BS,2*NN,NSPIN)
+        !! Auxiliary arrays to store the extencil from other partitions
+
+!     Local variables
       integer                     :: Ubox(2,3), Lbox(2,3), IUbox(2,3),
      &                               ILbox(2,3), nm(3), ispin, Cnode,
      &                               iniX, endX, iniY, endY, iniZ, endZ,
@@ -1835,7 +1790,7 @@ C     Local variables
       type(meshDisType),  pointer :: idis
       type(meshCommType), pointer :: mcomm
       integer                     :: MPIerror, Status(MPI_Status_Size)
-!------------------------------------------------------------------------- BEGIN
+
       idis    => meshDistr(iDistr)
       mcomm   => exteCommu(iDistr,iaxis)
       nm      = NMeshG/NSM
@@ -2197,51 +2152,45 @@ C     Local variables
 
       call de_alloc( RBUF, 'RBUF', 'moreMeshSubs' )
       call de_alloc( SBUF, 'SBUF', 'moreMeshSubs' )
-!--------------------------------------------------------------------------- END
+
       end subroutine distExtMeshData
 
 
-C ==================================================================
-C Send/receive the extencil information from the "BVXC" temporal array
-C to the array "VXC".
-C ==================================================================
-C SUBROUTINE gathExtMeshData( iDistr, iaxis, BS, NSM, NN, NSPIN,
-C                             maxp, NMeshG, BVXC, VXC )
-C
-C INPUT:
-C integer iDistr    : Distribution index to be used.
-C integer iaxis     : Axe to be splitted
-C integer BS        : Dimmension of a plane in the current axe
-C integer NSM       : Number of mesh sub-divisions in each direction
-C integer NN        : Size of the extencil
-C integer NSPIN     : Number of pollarizations
-C integer MAXP      : Total number of points
-C integer NMeshG(3) : Number of Mesh points in each cell vector
-C real    BVXC      : Auxiliar array that contains the extencil of the
-C                     exch-corr potential
-C
-C OUTPUT:
-C real    VXC       : exch-corr potential
-C
-C BEHAVIOR:
-C Send/receive the extencil information from the "BVXC" temporal array
-C to the array "VXC".
-C
-C We have a different code for every axis. We should find if we
-C intersects with a neightbour node throught the upper, the lower
-C or both sides.
-C
-C ==================================================================
       subroutine gathExtMeshData( iDistr, iaxis, BS, NSM, NN, NSPIN,
      &                            maxp, NMeshG, BVXC, VXC )
+!! Send/receive the extencil information from the `BVXC` temporal array
+!! to the array `VXC`.
+!!
+!! We have a different code for every axis. We should find if we
+!! intersects with a neightbour node throught the upper, the lower
+!! or both sides.
+
       use mpi_siesta
       implicit none
-C     Passed arguments
-      integer,         intent(in) :: iDistr, iaxis, BS, NSM, NN, NSPIN,
-     &                               maxp, NMeshG(3)
+
+      integer,         intent(in) :: iDistr
+        !! Distribution index to be used
+      integer,         intent(in) :: iaxis
+        !! Axe to be splitted
+      integer,         intent(in) :: BS
+        !! Dimension of a plane in the current axe
+      integer,         intent(in) :: NSM
+        !! Number of mesh sub-divisions in each direction
+      integer,         intent(in) :: NN
+        !! Size of the extencil
+      integer,         intent(in) :: NSPIN
+        !! Number of pollarizations
+      integer,         intent(in) :: maxp
+        !! Total number of points
+      integer,         intent(in) :: NMeshG(3)
+        !! Number of Mesh points in each cell vector
       real(gp),        intent(in) :: BVXC(BS,2*NN,NSPIN)
+        !! Auxiliar array that contains the extencil of the
+        !! exch-corr potential
       real(gp),       intent(out) :: VXC(maxp,NSPIN)
-C     Local variables
+        !! Exch-corr potential
+
+!     Local variables
       integer                     :: Ubox(2,3), Lbox(2,3), IUbox(2,3),
      &                               ILbox(2,3), nm(3), ispin, Cnode,
      &                               iniX, endX, iniY, endY, iniZ, endZ,
@@ -2252,7 +2201,7 @@ C     Local variables
       type(meshDisType),  pointer :: idis
       type(meshCommType), pointer :: mcomm
       integer                     :: MPIerror, Status(MPI_Status_Size)
-!------------------------------------------------------------------------- BEGIN
+
       idis    => meshDistr(iDistr)
       mcomm   => exteCommu(iDistr,iaxis)
       nm      = NMeshG/NSM
@@ -2601,45 +2550,42 @@ C     Local variables
 
       call de_alloc( RBUF, 'RBUF', 'moreMeshSubs' )
       call de_alloc( SBUF, 'SBUF', 'moreMeshSubs' )
-!--------------------------------------------------------------------------- END
+
       end subroutine gathExtMeshData
 
-C ==================================================================
-C Compute the limits of a new distribution, trying to split the load
-C of the array "wload". We use the nested disection algorithm in
-C order to split the mesh in the 3 dimensions.
-C ==================================================================
-C SUBROUTINE splitwload( Nodes, Node, nm, wload, iDistr, oDistr )
-C
-C INPUT:
-C integer Nodes            : Total number of nodes
-C integer Node             : current Process ID (from 1 to Node)
-C integer NM               : Number of mesh sub-divisions in each direction
-C integer wload            : Weights of every point of the mesh.
-C type(meshDisType) iDistr : Input distribution
-C
-C OUTPUT:
-C type(meshDisType) oDistr : Onput distribution
-C
-C BEHAVIOR:
-C We use the nested disection algorithm to split the load associated
-C to the vector wload among all the processes. The problem is that
-C every process have a different part of wload. Every time that we want
-C to split a piece of the mesh, we should find which processors have that
-C information.
-C wload is a 3D array. In every iteration of the algorithm we should
-C decide the direction of the cut. Then we should made a reduction of
-C this 3-D array to a 1-D array (according to the selected direction).
-C
-C ==================================================================
+
       subroutine splitwload( Nodes, Node, nm, wload, iDistr, oDistr )
+!! Compute the limits of a new distribution, trying to split the load
+!! of the array `wload`. We use the nested disection algorithm in
+!! order to split the mesh in the 3 dimensions.
+!!
+!! We use the nested disection algorithm to split the load associated
+!! to the vector `wload` among all the processes. The problem is that
+!! every process have a different part of wload. Every time that we want
+!! to split a piece of the mesh, we should find which processors have that
+!! information.
+!!
+!! `wload` is a 3D array. In every iteration of the algorithm we should
+!! decide the direction of the cut. Then we should made a reduction of
+!! this 3-D array to a 1-D array (according to the selected direction).
+
       use mpi_siesta
       implicit none
-C     Passed arguments
-      integer,      intent(in)      :: Nodes, Node, nm(3), wload(*)
+
+      integer,      intent(in)      :: Nodes
+        !! Total number of nodes
+      integer,      intent(in)      :: Node
+        !! Current process ID (from 1 to Node)
+      integer,      intent(in)      :: nm(3)
+        !! Number of mesh sub-divisions in each direction
+      integer,      intent(in)      :: wload(*)
+        !! Weights of every point of the mesh.
       type(meshDisType),intent(in)  :: iDistr
+        !! Input distribution
       type(meshDisType),intent(out) :: oDistr
-C     Local variables
+        !! Output distribution
+
+!     Local variables
       character(len=*), parameter :: myName = moduName//'splitwload '
       character(len=*), parameter :: errMsg = myName//'ERROR: '
       integer                     :: PP, Lbox(2,3), Ldim,
@@ -2650,11 +2596,11 @@ C     Local variables
       integer(i8b)                   :: h1, h2
       integer,            pointer :: PROCS(:)
       integer                     :: MPIerror, Status(MPI_Status_Size)
-!------------------------------------------------------------------------- BEGIN
+
       call timer( 'SPLOAD', 1 )
 
-C     At the begining of the algorithm all the mesh is assigned to the
-C     first node:  oDistr%box(*,*,1) = nm
+!     At the begining of the algorithm all the mesh is assigned to the
+!     first node:  oDistr%box(*,*,1) = nm
       oDistr%box(1,1,1) = 1
       oDistr%box(2,1,1) = nm(1)
       oDistr%box(1,2,1) = 1
@@ -2665,9 +2611,9 @@ C     first node:  oDistr%box(*,*,1) = nm
 
       nms = nm
 
-C     Array PROCS will contain the number of processes that are associated to
-C     every box. At the begining all the mesh is assigned to process 1, then
-C     PROCS(1)=Nodes, while the rest are equal to zero
+!     Array PROCS will contain the number of processes that are associated to
+!     every box. At the begining all the mesh is assigned to process 1, then
+!     PROCS(1)=Nodes, while the rest are equal to zero
       nullify( PROCS, lwload, gwload, recvB )
       call re_alloc( PROCS, 1, Nodes, 'PROCS', 'moreMeshSubs' )
       PROCS(1)       = Nodes
@@ -2675,24 +2621,24 @@ C     PROCS(1)=Nodes, while the rest are equal to zero
 
       found = .true.
       do while(found)
-C       Choose the direction to cut the mesh
+!       Choose the direction to cut the mesh
         nAxis = 3
         if (nms(2).gt.nms(nAxis)) nAxis = 2
         if (nms(1).gt.nms(nAxis)) nAxis = 1
         nms(nAxis) = (nms(nAxis)+1)/2
 
-C       Check if we still have to keep cutting the mesh
+!       Check if we still have to keep cutting the mesh
         found = .false.
         do PP=Nodes, 1, -1
           if (PROCS(PP).GT.1) then
-C           There are more than one processes associated to the mesh
-C           of process PP. We are going to split the mesh in two parts
-C           of p1 and p2 processors.
+!           There are more than one processes associated to the mesh
+!           of process PP. We are going to split the mesh in two parts
+!           of p1 and p2 processors.
             p1 = PROCS(PP)/2
             p2 = PROCS(PP) - p1
             found = .true.
-C           Check if the current partition has intersection with the piece of
-C           mesh that we want to cut.
+!           Check if the current partition has intersection with the piece of
+!           mesh that we want to cut.
             call boxIntersection( oDistr%box(:,:,PP),
      &                            iDistr%box(:,:,Node),
      &                            Lbox, inters )
@@ -2704,8 +2650,8 @@ C           mesh that we want to cut.
             endif
 
             if (inters) then
-C             If there is an intersection I should reduce the intersected part
-C             from a 3-D array to a 1-D array.
+!             If there is an intersection I should reduce the intersected part
+!             from a 3-D array to a 1-D array.
               mLdim = Lbox(2,nAxis) - Lbox(1,nAxis) + 1
               call re_alloc( lwload, 1, mLdim, 'lwload',
      &                       'moreMeshSubs' )
@@ -2713,8 +2659,8 @@ C             from a 3-D array to a 1-D array.
      &                           wload, lwload )
             endif
             if (Node.eq.PP) then
-C             If, I'm the process PP I should receive the information from other
-C             processes
+!             If, I'm the process PP I should receive the information from other
+!             processes
               gwload = 0
               do QQ= 1, Nodes
                 call boxIntersection( oDistr%box(:,:,PP),
@@ -2736,14 +2682,14 @@ C             processes
               enddo
               call de_alloc( recvB, 'recvB', 'moreMeshSubs' )
 
-C             Process PP computes where to cut the mesh
+!             Process PP computes where to cut the mesh
               call vecBisec( mGdim, gwload(1:mGdim),
      &                        PROCS(PP), POS, h1, h2 )
               call de_alloc(gwload, 'gwload', 'moreMeshSubs')
 
             else if (inters) then
-C             If, I'm not the process PP I should send the information to
-C             the process PP
+!             If, I'm not the process PP I should send the information to
+!             the process PP
               call MPI_Send( lwload, mLdim,
      &                       MPI_INTEGER8, PP-1, 1, MPI_Comm_World,
      &                       MPIerror )
@@ -2752,19 +2698,19 @@ C             the process PP
             if (associated(lwload))
      &        call de_alloc(lwload, 'lwload', 'moreMeshSubs')
 
-C           Process PP send the position of the cut to the rest of processes
+!           Process PP send the position of the cut to the rest of processes
             call MPI_Bcast( pos, 1, MPI_integer, PP-1,
      &                      MPI_Comm_World, MPIerror )
 
-C           We have splitted the piece of mesh associated to process PP
-C           in two parts. One would be stored in position PP and the other
-C           would be stored in position PP+P1
+!           We have splitted the piece of mesh associated to process PP
+!           in two parts. One would be stored in position PP and the other
+!           would be stored in position PP+P1
             QQ                     = PP + P1
             oDistr%box(1:2,1:3,QQ) = oDistr%box(1:2,1:3,PP)
             pos                    = oDistr%box(1,naxis,QQ) + pos
             oDistr%box(1,naxis,QQ) = pos
             oDistr%box(2,naxis,PP) = pos - 1
-C           We should actualize the numbers of processes associated to PP and QQ
+!           We should actualize the numbers of processes associated to PP and QQ
             PROCS(PP)              = P1
             PROCS(QQ)              = P2
           endif
@@ -2773,59 +2719,55 @@ C           We should actualize the numbers of processes associated to PP and QQ
 
       call de_alloc( PROCS, 'PROCS', 'moreMeshSubs')
       call timer( 'SPLOAD', 2 )
-!--------------------------------------------------------------------------- END
+
       end subroutine splitwload
 
-C ==================================================================
-C Given a 3-D array, "wload", we will make a reduction of its values
-C to one of its dimensions ("iaxis"). "Ibox" gives the limits of the
-C input array "wload" and "Lbox" gives the limits of the part that we
-C want to reduce.
-C ==================================================================
-C SUBROUTINE reduce3Dto1D( iaxis, Ibox, Lbox, wload, lwload )
-C
-C INPUT:
-C integer   iaxis         : Axe to be reduced
-C integer   Ibox(2,3)     : Limits of the input array
-C integer   Lbox(2,3)     : Limits of the intersection that we want to reduce
-C integer(i8b) wload         : 3-D array that we want to reduce to one of its
-C                           dimensions
-C
-C OUTPUT:
-C integer(i8b) lwload        : 1-D array. Reduction of the intersected part
-C                           of wload.
-C
-C BEHAVIOR:
-C First we compute the 3 dimensions of the input array and the
-C intersection. We accumulate the values of the intersection into a
-C 1-D array.
-C
-C   IF (iaxis=1) lwload(II) = SUM(wload(II,*,*))
-C   IF (iaxis=2) lwload(II) = SUM(wload(*,II,*))
-C   IF (iaxis=3) lwload(II) = SUM(wload(*,*,II))
-C
-C ==================================================================
+
       subroutine reduce3Dto1D( iaxis, Ibox, Lbox, wload, lwload )
+!! Given a 3-D array, `wload`, we will make a reduction of its values
+!! to one of its dimensions (`iaxis`). `Ibox` gives the limits of the
+!! input array `wload` and `Lbox` gives the limits of the part that we
+!! want to reduce.
+!!
+!! First we compute the 3 dimensions of the input array and the
+!! intersection. We accumulate the values of the intersection into a
+!! 1-D array.
+!!
+!!     IF (iaxis=1) lwload(II) = SUM(wload(II,*,*))
+!!     IF (iaxis=2) lwload(II) = SUM(wload(*,II,*))
+!!     IF (iaxis=3) lwload(II) = SUM(wload(*,*,II))
+
       implicit none
-C     Passed arguments
-      integer,    intent(in) :: iaxis, Ibox(2,3), Lbox(2,3), wload(*)
+
+      integer,    intent(in) :: iaxis
+        !! Axe to be reduced
+      integer,    intent(in) :: Ibox(2,3)
+        !! Limits of the input array
+      integer,    intent(in) :: Lbox(2,3)
+        !! Limits of the intersection that we want to reduce
+      integer,    intent(in) :: wload(*)
+        !! 3-D array that we want to reduce to one of
+        !! its dimensions
       integer(i8b), intent(out) :: lwload(*)
-C     Local variables
+        !! 1-D array. Reduction of the intersected part
+        !! of wload
+
+!     Local variables
       integer              :: Idim(3), Ldim(3), ind, ind1, ind2, ind3,
      &                        I1, I2, I3
-!------------------------------------------------------------------------- BEGIN
-C     Dimensions of the input array
+
+!     Dimensions of the input array
       Idim(1) = Ibox(2,1) - Ibox(1,1) + 1
       Idim(2) = Ibox(2,2) - Ibox(1,2) + 1
       Idim(3) = Ibox(2,3) - Ibox(1,3) + 1
 
-C     Dimensions of the intersection.
+!     Dimensions of the intersection.
       Ldim(1) = Lbox(2,1) - Lbox(1,1) + 1
       Ldim(2) = Lbox(2,2) - Lbox(1,2) + 1
       Ldim(3) = Lbox(2,3) - Lbox(1,3) + 1
 
       if (iaxis.eq.1) then
-C       Reduction into the X-axis
+!       Reduction into the X-axis
         lwload(1:Ldim(1)) = 0
 
         ind3 = (Lbox(1,3)-Ibox(1,3))*Idim(1)*Idim(2)
@@ -2843,7 +2785,7 @@ C       Reduction into the X-axis
           ind3 = ind3 + Idim(1)*Idim(2)
         enddo
       else if (iaxis.eq.2) then
-C       Reduction into the Y-axis
+!       Reduction into the Y-axis
         lwload(1:Ldim(2)) = 0
 
         ind3 = (Lbox(1,3)-Ibox(1,3))*Idim(1)*Idim(2)
@@ -2861,7 +2803,7 @@ C       Reduction into the Y-axis
           ind3 = ind3 + Idim(1)*Idim(2)
         enddo
       else
-C       Reduction into the Z-axis
+!       Reduction into the Z-axis
         lwload(1:Ldim(3)) = 0
 
         ind3 = (Lbox(1,3)-Ibox(1,3))*Idim(1)*Idim(2)
@@ -2879,71 +2821,68 @@ C       Reduction into the Z-axis
           ind3 = ind3 + Idim(1)*Idim(2)
         enddo
       endif
-!--------------------------------------------------------------------------- END
+
       end subroutine reduce3Dto1D
 
-C ==================================================================
-C Bisection of the load associated to an array.
-C ==================================================================
-C SUBROUTINE vecBisec( nval, values, nparts, pos, h1, h2 )
-C
-C INPUT:
-C integer   nval         : Dimension of the input array
-C integer(i8b) values       : Input array
-C integer   nparts       : Numbers of partitions that we want to make from
-C                          the input array (in this call we only make one cut).
-C
-C OUTPUT:
-C integer   pos          : Position of the cut
-C integer(i8b) h1           : Load of the first part
-C integer(i8b) h2           : Load of the second part
-C
-C BEHAVIOR:
-C We want to split array "values" in "nparts", but in this call to
-C vecBisec we are going to make only one cut. First, we split nparts
-C in two parts: p1=nparts/2 and p2=nparts-p1. Then we compute the total
-C load of the array "values" ("total") and the desired load for the
-C first part: halfG = (total*p1)/nparts.
-C
-C Finally, we try to find the position inside "values" where we are
-C nearer of the the desired solution.
-C 
-C ==================================================================
-      subroutine vecBisec( nval, values, nparts, pos, h1, h2 )
-      implicit none
-C     Input variables
-      integer,    intent(in) :: nval, nparts
-      integer(i8b),  intent(in) :: values(nval)
-      integer,   intent(out) :: pos
-      integer(i8b), intent(out) :: h1, h2
 
-C     Local variables
+      subroutine vecBisec( nval, values, nparts, pos, h1, h2 )
+!! Bisection of the load associated to an array.
+!!
+!! We want to split array `values` in `nparts`, but in this call to
+!! `vecBisec` we are going to make only one cut. First, we split `nparts`
+!! in two parts: `p1=nparts/2` and `p2=nparts-p1`. Then we compute the total
+!! load of the array `values` (`total`) and the desired load for the
+!! first part:
+!!
+!!     halfG = (total*p1)/nparts
+!!
+!! Finally, we try to find the position inside `values` where we are
+!! nearer of the the desired solution.
+
+      implicit none
+
+      integer,    intent(in) :: nval
+        !! Dimension of the input array
+      integer(i8b),  intent(in) :: values(nval)
+        !! Input array
+      integer,    intent(in) :: nparts
+        !! Numbers of partitions that we want to make from
+        !! the input array (in this call we only make one cut)
+
+      integer,   intent(out) :: pos
+        !! Position of the cut
+      integer(i8b), intent(out) :: h1
+        !! Load of the first part
+      integer(i8b), intent(out) :: h2
+        !! Load of the second part
+
+!     Local variables
       integer               :: p1, p2, ii
       integer(i8b)             :: total, halfG, halfL
-!------------------------------------------------------------------------- BEGIN
+
       if (nparts.gt.1) then
-C       Split the number of parts in 2
+!       Split the number of parts in 2
         p1    = nparts/2
         p2    = nparts - p1
 
-C       Compute the total load of the array
+!       Compute the total load of the array
         total = 0
         do ii= 1, nval
           total = total + values(ii)
         enddo
-C       Desired load of the first part
+!       Desired load of the first part
         halfG = (total*p1)/nparts
 
         halfL = 0
         pos   = 0
-C       Loop until we reach the solution
+!       Loop until we reach the solution
         do while(halfL.lt.halfG)
           pos   = pos + 1
           if (pos.eq.nval+1) STOP 'ERROR in vecBisec'
           halfL = halfL + values(pos)
         enddo
-C       Check if the previous position is better than the
-C       current position
+!       Check if the previous position is better than the
+!       current position
         if ((halfL-values(pos)*p2/nparts).gt.halfG) then
           halfL = halfL - values(pos)
           pos   = pos - 1
@@ -2951,50 +2890,48 @@ C       current position
         h1 = halfL
         h2 = total-halfL
       endif
-!--------------------------------------------------------------------------- END
+
       end subroutine vecBisec
 
+
 #ifdef REORD1
-C ==================================================================
-C SUBROUTINE reordMeshNumbering( distr1, distr2 )
-C Given a new distribution, distr2, reasign each box to the proper
-C process. We use the following criteria:
-C   - Minimize the number of communications. Data don't need to
-C     be communicated if it belongs to the same process in
-C     different data distributions
-C
-C INPUT:
-C integer distr1  : First distribution
-C integer distr2  : Second distribution
-C
-C OUTPUT:
-C The output values are stored in the current module:
-C        meshDistr(distr2)%box(:,:,:)
-C
-C BEHAVIOR:
-C 
-C
-C ==================================================================
       subroutine reordMeshNumbering( distr1, distr2 )
+!!@warning
+!! This version of subroutine is called if
+!! the directive `REORD1` is defined.
+!!@endwarning
+!!
+!! Given a new distribution, `distr2`, reasign each box to the proper
+!! process. We use the following criteria:
+!! > Minimize the number of communications. Data don't need to
+!! > be communicated if it belongs to the same process in
+!! > different data distributions
+!!
+!! The output values are stored in the current module:
+!!        `[[moreMeshSubs(module):meshDistr(variable)]](distr2)%box(:,:,:)`
+
       implicit none
-C     Passed arguments
+
       type(meshDisType),   intent(in) :: distr1
+        !! First distribution
       type(meshDisType),  intent(out) :: distr2
-C     Local variables
+        !! Second distribution
+
+!     Local variables
       integer                         :: P1, P2, P3, Lbox(2,3), II, I1,
      &                                   PermI
       integer,                pointer :: Isiz(:,:), perm(:), weig(:),
      &                                   invp(:), box(:,:,:)=>null()
       logical                         :: inters
 
-C     Allocate local arrays
+!     Allocate local arrays
       nullify( Isiz, perm, invp, weig )
       call re_alloc( Isiz, 1, Nodes, 1, Nodes, 'Isiz', 'moreMeshSubs' )
       call re_alloc( perm, 1, Nodes, 'perm', 'moreMeshSubs' )
       call re_alloc( invp, 1, Nodes, 'invp', 'moreMeshSubs' )
       call re_alloc( weig, 1, Nodes, 'weig', 'moreMeshSubs' )
 
-C     Check the intersections sizes between the two distributions
+!     Check the intersections sizes between the two distributions
       Isiz(1:nodes,1:nodes) = 0
       do P1= 1, Nodes
         II=-1
@@ -3015,11 +2952,11 @@ C     Check the intersections sizes between the two distributions
         perm(P1) = I1
       enddo
 
-C     Choose a proper permutation for every row
+!     Choose a proper permutation for every row
       invp(1:Nodes) = 0
       do P1= 1, Nodes
         II = -1
-C       Choose the node with higher weight among those not permuted before
+!       Choose the node with higher weight among those not permuted before
         do P2= 1, Nodes
           if (perm(P2).gt.0) then
             if (weig(P2).gt.II) then
@@ -3029,14 +2966,14 @@ C       Choose the node with higher weight among those not permuted before
           endif
         enddo
 
-C       Save the permutation for this node (a negative number means that
-C       the node has been permuted.
+!       Save the permutation for this node (a negative number means that
+!       the node has been permuted.
         PermI       = perm(I1)
         invp(PermI) = I1
         perm(I1)    = -PermI
 
-C       Change the permutation of those nodes who pretend to use the
-C       permutation permI
+!       Change the permutation of those nodes who pretend to use the
+!       permutation permI
         do P2= 1, Nodes
           if (perm(P2).eq.PermI) then
             II= -1
@@ -3065,40 +3002,45 @@ C       permutation permI
       call de_alloc( perm, 'perm', 'moreMeshSubs' )
       call de_alloc( Isiz, 'Isiz', 'moreMeshSubs' )
       end subroutine reordMeshNumbering
+
+
 #else
-C ==================================================================
-C SUBROUTINE reordMeshNumbering( distr1, distr2 )
-C Given a new distribution, distr2, reasign each box to the proper
-C process. We use the following criteria:
-C   - Minimize the number of communications. Data don't need to
-C     be communicated if it belongs to the same process in
-C     different data distributions
-C   - Distribute memory needs among different NODES (group of processes
-C     that shares the same memory)
-C
-C INPUT:
-C integer distr1  : First distribution
-C integer distr2  : Second distribution
-C integer PROCS_PER_NODE : Number of processes that runs in the same
-C                          node (sharing the same memory)
-C 
-C OUTPUT:
-C The output values are stored in the current module:
-C        meshDistr(distr2)%box(:,:,:)
-C
-C BEHAVIOR:
-C 1) Compute the size of all the boxes of the second distribution
-C 2) Reorder the list of boxes according to its size
-C 3) Create a list of buckets (
-C
-C ==================================================================
       subroutine reordMeshNumbering( distr1, distr2 )
+!!@warning
+!! This version of subroutine is called if
+!! the directive `REORD1` is **NOT** defined.
+!!
+!! Here an integer parameter `PROCS_PER_NODE` is also
+!! used as an input. Value of `PROCS_PER_NODE` is either
+!! read from .fdf-file or set to 4 as default.
+!!@endwarning
+!!
+!! Given a new distribution, `distr2`, reasign each box to the proper
+!! process. We use the following criteria:
+!! > * Minimize the number of communications. Data don't need to
+!! >   be communicated if it belongs to the same process in
+!! >   different data distributions
+!! > * Distribute memory needs among different NODES (group of processes
+!! >   that shares the same memory)
+!!
+!! The output values are stored in the current module:
+!!        `[[moreMeshSubs(module):meshDistr(variable)]](distr2)%box(:,:,:)`
+!!
+!!#### Behavior
+!!
+!! 1. Compute the size of all the boxes of the second distribution
+!! 2. Reorder the list of boxes according to its size
+!! 3. Create a list of buckets
+
       use fdf
       implicit none
-C     Passed arguments
+
       type(meshDisType),   intent(in) :: distr1
+        !! First distribution
       type(meshDisType),  intent(out) :: distr2
-C     Local variables
+        !! Second distribution
+
+!     Local variables
       integer                         :: P1, P2, I1, I2, J1, J2, J3,
      &                                   K1, K2, K3, NN, NB, NM, SI,
      &                                   SIMAX, Lbox(2,3)
@@ -3110,12 +3052,12 @@ C     Local variables
 
       PROCS_PER_NODE = fdf_get( 'PROCS_PER_NODE', 4 )
 
-C     Create groups of PROCS_PER_NODE processes
+!     Create groups of PROCS_PER_NODE processes
       NN = nodes+PROCS_PER_NODE-1
       NB = NN/PROCS_PER_NODE           ! Number of buckets
       NM = MOD(NN,PROCS_PER_NODE)+1    ! Size of the last bucket
 
-C     Allocate local arrays
+!     Allocate local arrays
       nullify( Nsiz, perm, Gprm, chkb )
       call re_alloc( Nsiz, 1, Nodes, 'Nsiz', 'moreMeshSubs' )
       call re_alloc( perm, 1, Nodes, 'perm', 'moreMeshSubs' )
@@ -3123,7 +3065,7 @@ C     Allocate local arrays
       call re_alloc( chkb, 1, NB,    'chkb', 'moreMeshSubs' )
       call re_alloc( box, 1, 2, 1, 3, 1, Nodes, 'box', 'moreMeshSubs' )
 
-C     Compute the size of all the boxes of the second distribution
+!     Compute the size of all the boxes of the second distribution
       do P1= 1, Nodes
         box2 => distr2%box(:,:,P1)
         Nsiz(P1) = (box2(2,1)-box2(1,1)+1)*
@@ -3132,23 +3074,23 @@ C     Compute the size of all the boxes of the second distribution
         perm(P1) = P1
       enddo
 
-C     Reorder the list of boxes according to its size
+!     Reorder the list of boxes according to its size
       call myQsort( Nodes, Nsiz, perm )
 
       Gprm(1:Nodes) = 0
       P1=0
 
-C     We distribute processes in "buckets" of size PROCS_PER_NODE
-C     We have a total number of NB "buckets".
+!     We distribute processes in "buckets" of size PROCS_PER_NODE
+!     We have a total number of NB "buckets".
       DO I1= 1, PROCS_PER_NODE
-C       At every step of loop I1, we assign a box to every bucket
+!       At every step of loop I1, we assign a box to every bucket
         if (I1.EQ.NM+1) NB = NB - 1
 
-C       Reset chkb. All buckets are empty.
+!       Reset chkb. All buckets are empty.
         chkb(1:NB) = 0
 
         DO I2= 1, NB
-C         At every step of loop I2, we assign a box to a different bucket
+!         At every step of loop I2, we assign a box to a different bucket
           P1 = P1 + 1
           P2 = perm(P1)  ! P2 is the "P1"th biggest box
 
@@ -3157,10 +3099,10 @@ C         At every step of loop I2, we assign a box to a different bucket
           J3 = 1
           SIMAX = -1
           DO J1=1, Nodes
-C           J1=node; J2=position inside the bucket; J3=bucket index
+!           J1=node; J2=position inside the bucket; J3=bucket index
             if (chkb(J3).eq.0 .and. Gprm(J1).eq.0) then
-C             chkb(J3).eq.0 => The current bucket is not in use
-C             Gprm(J1).eq.0 => The node has not been permuted yet
+!             chkb(J3).eq.0 => The current bucket is not in use
+!             Gprm(J1).eq.0 => The node has not been permuted yet
               box1 => distr1%box(:,:,J1)
               call boxIntersection( box1, box2, Lbox, inters )
               if (inters) then
@@ -3171,14 +3113,14 @@ C             Gprm(J1).eq.0 => The node has not been permuted yet
                 SI = 0
               endif
               if (SI.gt.SIMAX) then
-C               Save the information of the current node if it has the
-C               biggest intersection with box P2
+!               Save the information of the current node if it has the
+!               biggest intersection with box P2
                 SIMAX = SI
                 K1 = J1
                 K3 = J3
               endif
             endif
-C           Update information about bucket index and position
+!           Update information about bucket index and position
             J2 = J2 + 1
             if (J2.gt.PROCS_PER_NODE) then
               J2 = 1
@@ -3186,20 +3128,20 @@ C           Update information about bucket index and position
             endif
           ENDDO
 
-C         box(P2) will be set to process K1 (that belongs to bucket K3)
+!         box(P2) will be set to process K1 (that belongs to bucket K3)
           chkb(K3) = 1
           Gprm(K1) = P2
         ENDDO
       ENDDO
 
-C     Reorder boxes of the second distribution according to Gprm
+!     Reorder boxes of the second distribution according to Gprm
       box(1:2,1:3,1:Nodes) = distr2%box(1:2,1:3,1:Nodes)
       do P1= 1, Nodes
         P2 = Gprm(P1)
         distr2%box(1:2,1:3,P1) = box(1:2,1:3,P2)
       enddo
 
-C     Deallocate local arrays
+!     Deallocate local arrays
       call de_alloc( box,  'box',  'moreMeshSubs' )
       call de_alloc( chkb, 'chkb', 'moreMeshSubs' )
       call de_alloc( Gprm, 'Gprm', 'moreMeshSubs' )
@@ -3209,43 +3151,38 @@ C     Deallocate local arrays
       end subroutine reordMeshNumbering
 #endif
 
-C ==================================================================
-C Find the communications needed to transform one array that uses
-C distribution "distr1" to distribution "distr2"
-C ==================================================================
-C SUBROUTINE compMeshComm( distr1, distr2, mcomm )
-C
-C INPUT:
-C meshDisType  distr1    : Source distribution
-C meshDisType  distr2    : Destiny distribution
-C
-C OUTPUT:
-C meshCommType mcomm     : Communications needed
-C
-C BEHAVIOR:
-C Count the number of intersections between the source distribution
-C and the destiny distribution. Every intersection represents a
-C communication. Then we call scheduleComm to optime the order of these
-C communications. Finally, we save the communications that belongs to
-C the current process in the variable "mcomm"
-C 
-C ==================================================================
+
       subroutine compMeshComm( distr1, distr2, mcomm )
+!! Find the communications needed to transform one array that uses
+!! distribution `distr1` to distribution `distr2`
+!!
+!! Count the number of intersections between the source distribution
+!! and the destiny distribution. Every intersection represents a
+!! communication. Then we call [[scheduleComm(proc)]]
+!! to optimize the order of these
+!! communications. Finally, we save the communications that belongs to
+!! the current process in the variable `mcomm`
+
       use scheComm
       implicit none
-C     Passed arguments
-      type(meshDisType),   intent(in) :: distr1, distr2
-      type(meshCommType), intent(out) :: mcomm
 
-C     Local variables
+      type(meshDisType),   intent(in) :: distr1
+        !! Source distribution
+      type(meshDisType),   intent(in) :: distr2
+        !! Destination distribution
+
+      type(meshCommType), intent(out) :: mcomm
+        !! Communications needed
+
+!     Local variables
       integer                         :: P1, P2, ncom, Gcom, Lcom,
      &                                   Lind, Lbox(2,3)
       integer,                pointer :: src(:), dst(:)
       logical                         :: inters
       type(COMM_T)                    :: comm
-!------------------------------------------------------------------------- BEGIN
-C     count the number of intersections between Source distribution and
-C     destiny distribution. Every intersection represents a communication.
+
+!     count the number of intersections between Source distribution and
+!     destiny distribution. Every intersection represents a communication.
       ncom = 0
       do P1= 1, Nodes
         do P2= 1, Nodes
@@ -3256,12 +3193,12 @@ C     destiny distribution. Every intersection represents a communication.
       enddo
       Gcom = ncom
 
-C     Allocate local arrays
+!     Allocate local arrays
       nullify( src, dst )
       call re_alloc( src, 1, Gcom, 'src', 'moreMeshSubs' )
       call re_alloc( dst, 1, Gcom, 'dst', 'moreMeshSubs' )
 
-C     Make a list of communications
+!     Make a list of communications
       ncom = 0
       do P1= 1, Nodes
         do P2= 1, Nodes
@@ -3276,23 +3213,23 @@ C     Make a list of communications
       enddo
 
       comm%np = Nodes
-C     reschedule the communications in order to minimize the time
+!     reschedule the communications in order to minimize the time
       call scheduleComm( Gcom, src, dst, comm )
 
-C     Count the number of communications of the current process
+!     Count the number of communications of the current process
       ncom = 0
       do P1= 1, comm%ncol
         if (comm%ind(P1,Node+1).ne.0) ncom = ncom + 1
       enddo
       Lcom = ncom
 
-C     Allocate memory to store data of the communications of the
-C     current process.
+!     Allocate memory to store data of the communications of the
+!     current process.
       nullify( mcomm%src, mcomm%dst )
       call re_alloc( mcomm%src, 1, Lcom, 'mcomm%src', 'moreMeshSubs' )
       call re_alloc( mcomm%dst, 1, Lcom, 'mcomm%dst', 'moreMeshSubs' )
 
-C     Save the list of communications for the current process
+!     Save the list of communications for the current process
       ncom = 0
       do P1= 1, comm%ncol
         Lind = comm%ind(P1,Node+1)
@@ -3307,7 +3244,7 @@ C     Save the list of communications for the current process
       call de_alloc( comm%ind, 'comm%ind', 'scheComm' )
       call de_alloc( dst,      'dst',      'moreMeshSubs' )
       call de_alloc( src,      'src',      'moreMeshSubs' )
-!--------------------------------------------------------------------------- END
+
       end subroutine compMeshComm
 #endif
       END MODULE moreMeshSubs
