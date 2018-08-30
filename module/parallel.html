@@ -1,0 +1,1294 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+   
+   <meta name="description" content="A first-principles materials simulation code using Density Functional Theory.">
+    
+    <meta name="author" content="SIESTA Group" >
+    <link rel="icon" href="../favicon.png">
+
+    <title>parallel &ndash; SIESTA</title>
+
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
+    <link href="../css/pygments.css" rel="stylesheet">
+    <link href="../css/font-awesome.min.css" rel="stylesheet">
+    <link href="../css/local.css" rel="stylesheet">
+    
+    <link  href="../tipuesearch/tipuesearch.css" rel="stylesheet">
+    
+    
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    
+    <script src="../js/jquery-2.1.3.min.js"></script>
+    <script src="../js/svg-pan-zoom.min.js"></script>
+
+  </head>
+
+  <body>
+
+    <!-- Fixed navbar -->
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="../index.html">SIESTA <small>trunk-700--vdikan-edens-710-ford-681</small></a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+          <ul class="nav navbar-nav">
+        
+            <li><a href='../page/index.html'>Program Overview</a></li>
+      
+            <li class="dropdown hidden-xs visible-sm visible-md hidden-lg">
+              <a href="#" class="dropdown-toggle"
+              data-toggle="dropdown" role="button"
+              aria-haspopup="true"
+     aria-expanded="false">Contents <span class="caret"></span></a>
+        <ul class="dropdown-menu">
+          
+              
+            <li><a href="../lists/files.html">Source Files</a></li>
+        
+        
+        
+            <li><a href="../lists/modules.html">Modules</a></li>
+        
+            
+                                
+            <li><a href="../lists/procedures.html">Procedures</a></li>
+        
+               
+            <li><a href="../lists/types.html">Derived Types</a></li>
+        
+        
+            </ul>
+            </li>
+
+
+<li class="visible-xs hidden-sm visible-lg"><a href="../lists/files.html">Source Files</a></li>
+
+
+
+<li class="visible-xs hidden-sm visible-lg"><a href="../lists/modules.html">Modules</a></li>
+
+
+
+<li class="visible-xs hidden-sm visible-lg"><a href="../lists/procedures.html">Procedures</a></li>
+
+                             
+<li class="visible-xs hidden-sm visible-lg"><a href="../lists/types.html">Derived Types</a></li>
+
+
+          </ul>
+        
+        <form action="../search.html" class="navbar-form navbar-right" role="search">
+        <div class="form-group">
+          <input type="text" class="form-control" placeholder="Search" name="q" id="tipue_search_input" autocomplete="off" required>
+        </div>
+<!--
+        <button type="submit" class="btn btn-default">Submit</button>
+-->
+        </form>
+        
+        </div><!--/.nav-collapse -->
+      </div>
+    </nav>
+
+    <div class="container">
+    
+  
+  <div class="row">
+    <h1>parallel 
+    <small>Module</small>
+    
+    </h1>
+    
+<div class="row">
+  <div class="col-lg-12">
+<div class="well well-sm">
+  <ul class="list-inline" style="margin-bottom:0px;display:inline">
+     
+     
+     
+     
+    
+    
+     <li><i class="fa fa-list-ol"></i>
+       <a data-toggle="tooltip"
+    data-placement="bottom" data-html="true"
+    title=" 0.4% of total for modules and submodules.">37 statements</a>
+     </li> 
+     
+     
+     
+    <li><i class="fa fa-code"></i><a href="../src/parallel.F"> Source File</a></li>
+     
+     
+  </ul>
+  <ol class="breadcrumb in-well text-right">
+  
+    
+     <li><a href='../sourcefile/parallel.f.html'>parallel.F</a></li>
+    
+  
+     <li class="active">parallel</li>
+  </ol>
+</div>
+</div>
+</div>
+<script>
+  $(function () {
+  $('[data-toggle="tooltip"]').tooltip()
+  })
+</script>
+
+  </div>
+  
+  <div class="row">
+    <div class="col-md-3 hidden-xs hidden-sm visible-md visible-lg">
+    
+<div id="sidebar">
+  
+<h3>Contents</h3>
+ 
+
+
+
+<div class="panel panel-primary">
+  <div class="panel-heading text-left"><h3 class="panel-title"><a data-toggle="collapse" href="#vars-0">Variables</a></h3></div>
+  <div id="vars-0" class="panel-collapse collapse">
+    <div class="list-group">
+      
+      <a class="list-group-item" href="../module/parallel.html#variable-siesta_group">SIESTA_group</a>
+      
+      <a class="list-group-item" href="../module/parallel.html#variable-siesta_comm">SIESTA_comm</a>
+      
+      <a class="list-group-item" href="../module/parallel.html#variable-siesta_worker">SIESTA_worker</a>
+      
+      <a class="list-group-item" href="../module/parallel.html#variable-node%7E2">Node</a>
+      
+      <a class="list-group-item" href="../module/parallel.html#variable-nodes%7E3">Nodes</a>
+      
+      <a class="list-group-item" href="../module/parallel.html#variable-pexsinodes">PEXSINodes</a>
+      
+      <a class="list-group-item" href="../module/parallel.html#variable-blocksize">BlockSize</a>
+      
+      <a class="list-group-item" href="../module/parallel.html#variable-processory">ProcessorY</a>
+      
+      <a class="list-group-item" href="../module/parallel.html#variable-ionode">IOnode</a>
+      
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+<div class="panel panel-primary">
+  <div class="panel-heading text-left"><h3 class="panel-title"><a data-toggle="collapse" href="#inters-0">Interfaces</a></h3></div>
+  <div id="inters-0" class="panel-collapse collapse">
+    <div class="list-group">
+      
+      <a class="list-group-item" href="../module/parallel.html#interface-operator%28.parcount.%29">operator(.PARCOUNT.)</a>
+      
+    </div>
+  </div>
+</div>
+
+
+
+
+
+<div class="panel panel-primary">
+  <div class="panel-heading text-left"><h3 class="panel-title"><a data-toggle="collapse" href="#funcs-0">Functions</a></h3></div>
+  <div id="funcs-0" class="panel-collapse collapse">
+    <div class="list-group">
+      
+      <a class="list-group-item" href="../module/parallel.html#proc-parcount">parcount</a>
+      
+    </div>
+  </div>
+</div>
+
+
+
+<div class="panel panel-primary">
+  <div class="panel-heading text-left"><h3 class="panel-title"><a data-toggle="collapse" href="#subs-0">Subroutines</a></h3></div>
+  <div class="list-group">
+    <div id="subs-0" class="panel-collapse collapse">
+      
+      <a class="list-group-item" href="../module/parallel.html#proc-parallel_init">parallel_init</a>
+      
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+</div>
+
+    </div>
+    
+    <div class="col-md-9" id='text'>
+    <p>Parallelisation related global parameters</p>
+      <br>
+    
+  
+
+    
+    
+    <div class="panel panel-default">
+      <div class="panel-heading">
+  <h3 class="panel-title">Used by</h3>
+      </div>
+      <ul class="list-group">
+  
+  
+  <li class="list-group-item">
+    <div class="depgraph"><?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+ "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Generated by graphviz version 2.38.0 (20140413.2041)
+ -->
+<!-- Title: module~~parallel~~UsedByGraph Pages: 1 -->
+<svg id="moduleparallelUsedByGraph" width="420pt" height="1146pt"
+ viewBox="0.00 0.00 420.00 1146.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="module~~parallel~~UsedByGraph" class="graph" transform="scale(1 1) rotate(0) translate(4 1142)">
+<title>module~~parallel~~UsedByGraph</title>
+<polygon fill="white" stroke="none" points="-4,4 -4,-1142 416,-1142 416,4 -4,4"/>
+<!-- module~parallel -->
+<g id="module~~parallel~~UsedByGraph_node1" class="node"><title>module~parallel</title>
+<polygon fill="none" stroke="black" points="54,-584 0,-584 0,-560 54,-560 54,-584"/>
+<text text-anchor="middle" x="27" y="-569.6" font-family="Helvetica,sans-Serif" font-size="10.50">parallel</text>
+</g>
+<!-- proc~state_init -->
+<g id="module~~parallel~~UsedByGraph_node2" class="node"><title>proc~state_init</title>
+<g id="a_module~~parallel~~UsedByGraph_node2"><a xlink:href=".././proc/state_init.html" xlink:title="state_init">
+<polygon fill="#d9534f" stroke="#d9534f" points="177,-1138 122,-1138 122,-1114 177,-1114 177,-1138"/>
+<text text-anchor="middle" x="149.5" y="-1123.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">state_init</text>
+</a>
+</g>
+</g>
+<!-- proc~state_init&#45;&gt;module~parallel -->
+<g id="module~~parallel~~UsedByGraph_edge1" class="edge"><title>proc~state_init&#45;&gt;module~parallel</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M121.707,-1120.39C110.154,-1116.58 97.5788,-1110.29 90,-1100 29.5128,-1017.86 27.2573,-683.911 27.769,-594.248"/>
+<polygon fill="#000000" stroke="#000000" points="31.2697,-594.149 27.8455,-584.123 24.2699,-594.096 31.2697,-594.149"/>
+</g>
+<!-- proc~dhscf -->
+<g id="module~~parallel~~UsedByGraph_node3" class="node"><title>proc~dhscf</title>
+<g id="a_module~~parallel~~UsedByGraph_node3"><a xlink:href=".././proc/dhscf.html" xlink:title="dhscf">
+<polygon fill="#d9534f" stroke="#d9534f" points="412,-769 358,-769 358,-745 412,-745 412,-769"/>
+<text text-anchor="middle" x="385" y="-754.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">dhscf</text>
+</a>
+</g>
+</g>
+<!-- proc~dhscf&#45;&gt;module~parallel -->
+<g id="module~~parallel~~UsedByGraph_edge2" class="edge"><title>proc~dhscf&#45;&gt;module~parallel</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M377.358,-744.72C357.475,-709.436 294.469,-607.937 209,-571 162.199,-550.774 102.019,-556.587 64.216,-563.558"/>
+<polygon fill="#000000" stroke="#000000" points="63.3127,-560.168 54.1769,-565.534 64.6646,-567.036 63.3127,-560.168"/>
+</g>
+<!-- module~m_iorho -->
+<g id="module~~parallel~~UsedByGraph_node10" class="node"><title>module~m_iorho</title>
+<g id="a_module~~parallel~~UsedByGraph_node10"><a xlink:href=".././module/m_iorho.html" xlink:title="m_iorho">
+<polygon fill="#337ab7" stroke="#337ab7" points="310.5,-504 256.5,-504 256.5,-480 310.5,-480 310.5,-504"/>
+<text text-anchor="middle" x="283.5" y="-489.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">m_iorho</text>
+</a>
+</g>
+</g>
+<!-- proc~dhscf&#45;&gt;module~m_iorho -->
+<g id="module~~parallel~~UsedByGraph_edge29" class="edge"><title>proc~dhscf&#45;&gt;module~m_iorho</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M382.354,-744.973C377.325,-710.867 360.131,-611.257 322,-538 317.179,-528.738 310.298,-519.6 303.744,-511.939"/>
+<polygon fill="#000000" stroke="#000000" points="306.153,-509.383 296.873,-504.271 300.939,-514.054 306.153,-509.383"/>
+</g>
+<!-- module~m_forhar -->
+<g id="module~~parallel~~UsedByGraph_node16" class="node"><title>module~m_forhar</title>
+<g id="a_module~~parallel~~UsedByGraph_node16"><a xlink:href=".././module/m_forhar.html" xlink:title="m_forhar">
+<polygon fill="#337ab7" stroke="#337ab7" points="311.5,-1016 255.5,-1016 255.5,-992 311.5,-992 311.5,-1016"/>
+<text text-anchor="middle" x="283.5" y="-1001.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">m_forhar</text>
+</a>
+</g>
+</g>
+<!-- proc~dhscf&#45;&gt;module~m_forhar -->
+<g id="module~~parallel~~UsedByGraph_edge30" class="edge"><title>proc~dhscf&#45;&gt;module~m_forhar</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M383.343,-769.144C380.895,-804.425 369.789,-908.732 322,-977 319.849,-980.072 317.233,-982.923 314.394,-985.531"/>
+<polygon fill="#000000" stroke="#000000" points="312.129,-982.861 306.522,-991.85 316.512,-988.319 312.129,-982.861"/>
+</g>
+<!-- module~moremeshsubs -->
+<g id="module~~parallel~~UsedByGraph_node18" class="node"><title>module~moremeshsubs</title>
+<g id="a_module~~parallel~~UsedByGraph_node18"><a xlink:href=".././module/moremeshsubs.html" xlink:title="moreMeshSubs">
+<polygon fill="#337ab7" stroke="#337ab7" points="193.5,-1016 105.5,-1016 105.5,-992 193.5,-992 193.5,-1016"/>
+<text text-anchor="middle" x="149.5" y="-1001.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">moreMeshSubs</text>
+</a>
+</g>
+</g>
+<!-- proc~dhscf&#45;&gt;module~moremeshsubs -->
+<g id="module~~parallel~~UsedByGraph_edge32" class="edge"><title>proc~dhscf&#45;&gt;module~moremeshsubs</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M383.476,-769.304C381.418,-802.127 371.322,-892.682 322,-943 305.084,-960.257 247.174,-978.665 203.286,-990.691"/>
+<polygon fill="#000000" stroke="#000000" points="202.336,-987.322 193.593,-993.306 204.159,-994.08 202.336,-987.322"/>
+</g>
+<!-- proc~mixers_print_block -->
+<g id="module~~parallel~~UsedByGraph_node4" class="node"><title>proc~mixers_print_block</title>
+<g id="a_module~~parallel~~UsedByGraph_node4"><a xlink:href=".././proc/mixers_print_block.html" xlink:title="mixers_print_block">
+<polygon fill="#d9534f" stroke="#d9534f" points="200.5,-1058 98.5,-1058 98.5,-1034 200.5,-1034 200.5,-1058"/>
+<text text-anchor="middle" x="149.5" y="-1043.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">mixers_print_block</text>
+</a>
+</g>
+</g>
+<!-- proc~mixers_print_block&#45;&gt;module~parallel -->
+<g id="module~~parallel~~UsedByGraph_edge3" class="edge"><title>proc~mixers_print_block&#45;&gt;module~parallel</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M100.189,-1033.89C96.3455,-1031.45 92.8536,-1028.52 90,-1025 35.4631,-957.708 28.8527,-675.94 28.0892,-594.272"/>
+<polygon fill="#000000" stroke="#000000" points="31.5881,-594.094 28.0159,-584.12 24.5882,-594.145 31.5881,-594.094"/>
+</g>
+<!-- proc~delk_wrapper -->
+<g id="module~~parallel~~UsedByGraph_node5" class="node"><title>proc~delk_wrapper</title>
+<g id="a_module~~parallel~~UsedByGraph_node5"><a xlink:href=".././proc/delk_wrapper.html" xlink:title="delk_wrapper">
+<polygon fill="#d9534f" stroke="#d9534f" points="322,-934 245,-934 245,-910 322,-910 322,-934"/>
+<text text-anchor="middle" x="283.5" y="-919.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">delk_wrapper</text>
+</a>
+</g>
+</g>
+<!-- proc~delk_wrapper&#45;&gt;module~parallel -->
+<g id="module~~parallel~~UsedByGraph_edge4" class="edge"><title>proc~delk_wrapper&#45;&gt;module~parallel</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M244.641,-930.324C201.494,-937.394 131.587,-941.126 90,-903 44.373,-861.17 31.8078,-662.078 28.8272,-594.5"/>
+<polygon fill="#000000" stroke="#000000" points="32.3095,-593.996 28.4016,-584.148 25.3154,-594.284 32.3095,-593.996"/>
+</g>
+<!-- proc~delk_wrapper&#45;&gt;module~moremeshsubs -->
+<g id="module~~parallel~~UsedByGraph_edge33" class="edge"><title>proc~delk_wrapper&#45;&gt;module~moremeshsubs</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M264.586,-934.167C258.26,-938.653 251.185,-943.891 245,-949 228.033,-963.016 227.754,-971.483 209,-983 206.241,-984.694 203.326,-986.28 200.328,-987.759"/>
+<polygon fill="#000000" stroke="#000000" points="198.849,-984.586 191.164,-991.878 201.72,-990.971 198.849,-984.586"/>
+</g>
+<!-- proc~setup_hamiltonian -->
+<g id="module~~parallel~~UsedByGraph_node6" class="node"><title>proc~setup_hamiltonian</title>
+<g id="a_module~~parallel~~UsedByGraph_node6"><a xlink:href=".././proc/setup_hamiltonian.html" xlink:title="setup_hamiltonian">
+<polygon fill="#d9534f" stroke="#d9534f" points="199.5,-974 99.5,-974 99.5,-950 199.5,-950 199.5,-974"/>
+<text text-anchor="middle" x="149.5" y="-959.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">setup_hamiltonian</text>
+</a>
+</g>
+</g>
+<!-- proc~setup_hamiltonian&#45;&gt;module~parallel -->
+<g id="module~~parallel~~UsedByGraph_edge6" class="edge"><title>proc~setup_hamiltonian&#45;&gt;module~parallel</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M107.098,-949.865C100.57,-946.326 94.5011,-941.792 90,-936 47.9941,-881.948 32.9243,-664.735 29.083,-594.225"/>
+<polygon fill="#000000" stroke="#000000" points="32.5771,-594.019 28.5605,-584.215 25.5867,-594.384 32.5771,-594.019"/>
+</g>
+<!-- proc~dhscf_init -->
+<g id="module~~parallel~~UsedByGraph_node7" class="node"><title>proc~dhscf_init</title>
+<g id="a_module~~parallel~~UsedByGraph_node7"><a xlink:href=".././proc/dhscf_init.html" xlink:title="dhscf_init">
+<polygon fill="#d9534f" stroke="#d9534f" points="312.5,-852 254.5,-852 254.5,-828 312.5,-828 312.5,-852"/>
+<text text-anchor="middle" x="283.5" y="-837.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">dhscf_init</text>
+</a>
+</g>
+</g>
+<!-- proc~dhscf_init&#45;&gt;module~parallel -->
+<g id="module~~parallel~~UsedByGraph_edge7" class="edge"><title>proc~dhscf_init&#45;&gt;module~parallel</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M254.213,-831.704C201.433,-816.174 92.9757,-784.003 90,-781 38.5204,-729.054 29.4317,-636.45 28.0696,-594.163"/>
+<polygon fill="#000000" stroke="#000000" points="31.5676,-594.024 27.8648,-584.097 24.569,-594.166 31.5676,-594.024"/>
+</g>
+<!-- proc~dhscf_init&#45;&gt;module~moremeshsubs -->
+<g id="module~~parallel~~UsedByGraph_edge31" class="edge"><title>proc~dhscf_init&#45;&gt;module~moremeshsubs</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M274.227,-852.324C266.261,-864.442 254.113,-883.6 245,-901 226.534,-936.259 238.099,-955.844 209,-983 207.067,-984.804 204.969,-986.455 202.753,-987.965"/>
+<polygon fill="#000000" stroke="#000000" points="200.679,-985.12 193.737,-993.124 204.155,-991.196 200.679,-985.12"/>
+</g>
+<!-- proc~mixers_init -->
+<g id="module~~parallel~~UsedByGraph_node8" class="node"><title>proc~mixers_init</title>
+<g id="a_module~~parallel~~UsedByGraph_node8"><a xlink:href=".././proc/mixers_init.html" xlink:title="mixers_init">
+<polygon fill="#d9534f" stroke="#d9534f" points="181.5,-894 117.5,-894 117.5,-870 181.5,-870 181.5,-894"/>
+<text text-anchor="middle" x="149.5" y="-879.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">mixers_init</text>
+</a>
+</g>
+</g>
+<!-- proc~mixers_init&#45;&gt;module~parallel -->
+<g id="module~~parallel~~UsedByGraph_edge8" class="edge"><title>proc~mixers_init&#45;&gt;module~parallel</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M117.416,-877.065C107.376,-874.003 97.034,-869.04 90,-861 54.7726,-820.733 35.7981,-654.321 29.9716,-593.979"/>
+<polygon fill="#000000" stroke="#000000" points="33.4543,-593.63 29.0357,-584.001 26.4849,-594.284 33.4543,-593.63"/>
+</g>
+<!-- proc~bye -->
+<g id="module~~parallel~~UsedByGraph_node9" class="node"><title>proc~bye</title>
+<g id="a_module~~parallel~~UsedByGraph_node9"><a xlink:href=".././proc/bye.html" xlink:title="bye">
+<polygon fill="#d9534f" stroke="#d9534f" points="176.5,-852 122.5,-852 122.5,-828 176.5,-828 176.5,-852"/>
+<text text-anchor="middle" x="149.5" y="-837.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">bye</text>
+</a>
+</g>
+</g>
+<!-- proc~bye&#45;&gt;module~parallel -->
+<g id="module~~parallel~~UsedByGraph_edge9" class="edge"><title>proc~bye&#45;&gt;module~parallel</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M122.318,-833.91C110.894,-830 98.2504,-823.762 90,-814 34.9104,-748.819 27.8791,-640.861 27.5742,-594.398"/>
+<polygon fill="#000000" stroke="#000000" points="31.0748,-594.231 27.6128,-584.217 24.0748,-594.204 31.0748,-594.231"/>
+</g>
+<!-- module~m_iorho&#45;&gt;module~parallel -->
+<g id="module~~parallel~~UsedByGraph_edge5" class="edge"><title>module~m_iorho&#45;&gt;module~parallel</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M256.259,-484.82C217.601,-475.741 144.087,-464.287 90,-491 65.0067,-503.344 47.3087,-531.131 37.3837,-550.704"/>
+<polygon fill="#000000" stroke="#000000" points="34.1868,-549.276 33.0212,-559.807 40.4993,-552.301 34.1868,-549.276"/>
+</g>
+<!-- proc~compute_charge_diff -->
+<g id="module~~parallel~~UsedByGraph_node11" class="node"><title>proc~compute_charge_diff</title>
+<g id="a_module~~parallel~~UsedByGraph_node11"><a xlink:href=".././proc/compute_charge_diff.html" xlink:title="compute_charge_diff">
+<polygon fill="#d9534f" stroke="#d9534f" points="206,-772 93,-772 93,-748 206,-748 206,-772"/>
+<text text-anchor="middle" x="149.5" y="-757.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">compute_charge_diff</text>
+</a>
+</g>
+</g>
+<!-- proc~compute_charge_diff&#45;&gt;module~parallel -->
+<g id="module~~parallel~~UsedByGraph_edge11" class="edge"><title>proc~compute_charge_diff&#45;&gt;module~parallel</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M102.401,-747.995C97.8591,-745.532 93.6056,-742.567 90,-739 49.5274,-698.964 35.2024,-630.158 30.3478,-594.657"/>
+<polygon fill="#000000" stroke="#000000" points="33.7783,-593.878 29.0832,-584.38 26.8307,-594.733 33.7783,-593.878"/>
+</g>
+<!-- proc~mixing_scf_converged -->
+<g id="module~~parallel~~UsedByGraph_node12" class="node"><title>proc~mixing_scf_converged</title>
+<g id="a_module~~parallel~~UsedByGraph_node12"><a xlink:href=".././proc/mixing_scf_converged.html" xlink:title="mixing_scf_converged">
+<polygon fill="#d9534f" stroke="#d9534f" points="209,-730 90,-730 90,-706 209,-706 209,-730"/>
+<text text-anchor="middle" x="149.5" y="-715.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">mixing_scf_converged</text>
+</a>
+</g>
+</g>
+<!-- proc~mixing_scf_converged&#45;&gt;module~parallel -->
+<g id="module~~parallel~~UsedByGraph_edge12" class="edge"><title>proc~mixing_scf_converged&#45;&gt;module~parallel</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M103.355,-705.911C98.5293,-703.456 93.9489,-700.516 90,-697 58.6959,-669.126 41.3845,-621.827 33.4515,-594.095"/>
+<polygon fill="#000000" stroke="#000000" points="36.7601,-592.921 30.7773,-584.177 30.0014,-594.744 36.7601,-592.921"/>
+</g>
+<!-- proc~die -->
+<g id="module~~parallel~~UsedByGraph_node13" class="node"><title>proc~die</title>
+<g id="a_module~~parallel~~UsedByGraph_node13"><a xlink:href=".././proc/die.html" xlink:title="die">
+<polygon fill="#d9534f" stroke="#d9534f" points="176.5,-688 122.5,-688 122.5,-664 176.5,-664 176.5,-688"/>
+<text text-anchor="middle" x="149.5" y="-673.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">die</text>
+</a>
+</g>
+</g>
+<!-- proc~die&#45;&gt;module~parallel -->
+<g id="module~~parallel~~UsedByGraph_edge13" class="edge"><title>proc~die&#45;&gt;module~parallel</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M122.432,-670.188C111.685,-666.929 99.5425,-662.059 90,-655 67.7132,-638.512 49.7883,-611.791 39.0517,-593.136"/>
+<polygon fill="#000000" stroke="#000000" points="42.0156,-591.263 34.1075,-584.212 35.8926,-594.656 42.0156,-591.263"/>
+</g>
+<!-- proc~mixing_step -->
+<g id="module~~parallel~~UsedByGraph_node14" class="node"><title>proc~mixing_step</title>
+<g id="a_module~~parallel~~UsedByGraph_node14"><a xlink:href=".././proc/mixing_step.html" xlink:title="mixing_step">
+<polygon fill="#d9534f" stroke="#d9534f" points="184.5,-646 114.5,-646 114.5,-622 184.5,-622 184.5,-646"/>
+<text text-anchor="middle" x="149.5" y="-631.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">mixing_step</text>
+</a>
+</g>
+</g>
+<!-- proc~mixing_step&#45;&gt;module~parallel -->
+<g id="module~~parallel~~UsedByGraph_edge14" class="edge"><title>proc~mixing_step&#45;&gt;module~parallel</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M114.205,-623.242C106.11,-620.28 97.6217,-616.819 90,-613 76.9815,-606.478 63.3943,-597.74 52.2687,-590.006"/>
+<polygon fill="#000000" stroke="#000000" points="54.1107,-587.022 43.932,-584.081 50.0555,-592.727 54.1107,-587.022"/>
+</g>
+<!-- proc~mixing_finalize -->
+<g id="module~~parallel~~UsedByGraph_node15" class="node"><title>proc~mixing_finalize</title>
+<g id="a_module~~parallel~~UsedByGraph_node15"><a xlink:href=".././proc/mixing_finalize.html" xlink:title="mixing_finalize">
+<polygon fill="#d9534f" stroke="#d9534f" points="190.5,-604 108.5,-604 108.5,-580 190.5,-580 190.5,-604"/>
+<text text-anchor="middle" x="149.5" y="-589.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">mixing_finalize</text>
+</a>
+</g>
+</g>
+<!-- proc~mixing_finalize&#45;&gt;module~parallel -->
+<g id="module~~parallel~~UsedByGraph_edge15" class="edge"><title>proc~mixing_finalize&#45;&gt;module~parallel</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M108.375,-585.34C94.1904,-582.986 78.3241,-580.353 64.46,-578.051"/>
+<polygon fill="#000000" stroke="#000000" points="64.7474,-574.551 54.3093,-576.367 63.6012,-581.457 64.7474,-574.551"/>
+</g>
+<!-- module~m_forhar&#45;&gt;module~parallel -->
+<g id="module~~parallel~~UsedByGraph_edge16" class="edge"><title>module~m_forhar&#45;&gt;module~parallel</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M273.15,-1016.13C260.525,-1031.4 236.427,-1056.85 209,-1067 159.396,-1085.35 129.654,-1102 90,-1067 54.001,-1035.23 33.8474,-687.087 29.0992,-594.503"/>
+<polygon fill="#000000" stroke="#000000" points="32.5837,-594.105 28.5855,-584.293 25.5925,-594.456 32.5837,-594.105"/>
+</g>
+<!-- module~m_forhar&#45;&gt;module~moremeshsubs -->
+<g id="module~~parallel~~UsedByGraph_edge34" class="edge"><title>module~m_forhar&#45;&gt;module~moremeshsubs</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M255.469,-1004C240.589,-1004 221.591,-1004 203.859,-1004"/>
+<polygon fill="#000000" stroke="#000000" points="203.605,-1000.5 193.605,-1004 203.605,-1007.5 203.605,-1000.5"/>
+</g>
+<!-- proc~mixers_print -->
+<g id="module~~parallel~~UsedByGraph_node17" class="node"><title>proc~mixers_print</title>
+<g id="a_module~~parallel~~UsedByGraph_node17"><a xlink:href=".././proc/mixers_print.html" xlink:title="mixers_print">
+<polygon fill="#d9534f" stroke="#d9534f" points="185,-524 114,-524 114,-500 185,-500 185,-524"/>
+<text text-anchor="middle" x="149.5" y="-509.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">mixers_print</text>
+</a>
+</g>
+</g>
+<!-- proc~mixers_print&#45;&gt;module~parallel -->
+<g id="module~~parallel~~UsedByGraph_edge17" class="edge"><title>proc~mixers_print&#45;&gt;module~parallel</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M120.012,-524.092C110.399,-528.323 99.6605,-533.215 90,-538 79.3879,-543.257 67.9696,-549.38 57.8597,-554.969"/>
+<polygon fill="#000000" stroke="#000000" points="56.0293,-551.983 49.0036,-559.913 59.4413,-558.095 56.0293,-551.983"/>
+</g>
+<!-- module~moremeshsubs&#45;&gt;module~parallel -->
+<g id="module~~parallel~~UsedByGraph_edge18" class="edge"><title>module~moremeshsubs&#45;&gt;module~parallel</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M105.363,-994.716C99.5084,-991.813 94.1109,-988.002 90,-983 40.5353,-922.815 30.4055,-671.783 28.446,-594.647"/>
+<polygon fill="#000000" stroke="#000000" points="31.9346,-594.108 28.2046,-584.192 24.9364,-594.27 31.9346,-594.108"/>
+</g>
+<!-- proc~order_rhog -->
+<g id="module~~parallel~~UsedByGraph_node19" class="node"><title>proc~order_rhog</title>
+<g id="a_module~~parallel~~UsedByGraph_node19"><a xlink:href=".././proc/order_rhog.html" xlink:title="order_rhog">
+<polygon fill="#d9534f" stroke="#d9534f" points="182.5,-444 116.5,-444 116.5,-420 182.5,-420 182.5,-444"/>
+<text text-anchor="middle" x="149.5" y="-429.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">order_rhog</text>
+</a>
+</g>
+</g>
+<!-- proc~order_rhog&#45;&gt;module~parallel -->
+<g id="module~~parallel~~UsedByGraph_edge19" class="edge"><title>proc~order_rhog&#45;&gt;module~parallel</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M116.486,-441.801C107.182,-445.756 97.5132,-451.064 90,-458 62.189,-483.673 44.1788,-524.746 35.083,-549.95"/>
+<polygon fill="#000000" stroke="#000000" points="31.676,-549.094 31.728,-559.689 38.2943,-551.374 31.676,-549.094"/>
+</g>
+<!-- proc~message -->
+<g id="module~~parallel~~UsedByGraph_node20" class="node"><title>proc~message</title>
+<g id="a_module~~parallel~~UsedByGraph_node20"><a xlink:href=".././proc/message.html" xlink:title="message">
+<polygon fill="#d9534f" stroke="#d9534f" points="177.5,-402 121.5,-402 121.5,-378 177.5,-378 177.5,-402"/>
+<text text-anchor="middle" x="149.5" y="-387.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">message</text>
+</a>
+</g>
+</g>
+<!-- proc~message&#45;&gt;module~parallel -->
+<g id="module~~parallel~~UsedByGraph_edge20" class="edge"><title>proc~message&#45;&gt;module~parallel</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M121.404,-394.605C110.484,-397.66 98.489,-402.704 90,-411 50.7618,-449.348 35.9329,-515.247 30.6714,-549.636"/>
+<polygon fill="#000000" stroke="#000000" points="27.1939,-549.232 29.2805,-559.62 34.127,-550.198 27.1939,-549.232"/>
+</g>
+<!-- proc~compute_dm -->
+<g id="module~~parallel~~UsedByGraph_node21" class="node"><title>proc~compute_dm</title>
+<g id="a_module~~parallel~~UsedByGraph_node21"><a xlink:href=".././proc/compute_dm.html" xlink:title="compute_dm">
+<polygon fill="#d9534f" stroke="#d9534f" points="187,-360 112,-360 112,-336 187,-336 187,-360"/>
+<text text-anchor="middle" x="149.5" y="-345.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">compute_dm</text>
+</a>
+</g>
+</g>
+<!-- proc~compute_dm&#45;&gt;module~parallel -->
+<g id="module~~parallel~~UsedByGraph_edge21" class="edge"><title>proc~compute_dm&#45;&gt;module~parallel</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M111.708,-355.384C103.703,-358.466 95.8808,-362.829 90,-369 41.3319,-420.074 30.7813,-508.288 28.555,-549.529"/>
+<polygon fill="#000000" stroke="#000000" points="25.0538,-549.485 28.1296,-559.623 32.0476,-549.779 25.0538,-549.485"/>
+</g>
+<!-- proc~delk -->
+<g id="module~~parallel~~UsedByGraph_node22" class="node"><title>proc~delk</title>
+<g id="a_module~~parallel~~UsedByGraph_node22"><a xlink:href=".././proc/delk.html" xlink:title="delk">
+<polygon fill="#d9534f" stroke="#d9534f" points="176.5,-318 122.5,-318 122.5,-294 176.5,-294 176.5,-318"/>
+<text text-anchor="middle" x="149.5" y="-303.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">delk</text>
+</a>
+</g>
+</g>
+<!-- proc~delk&#45;&gt;module~parallel -->
+<g id="module~~parallel~~UsedByGraph_edge22" class="edge"><title>proc~delk&#45;&gt;module~parallel</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M122.399,-309.731C110.992,-312.64 98.34,-317.811 90,-327 31.5801,-391.367 26.4493,-502.841 27.1157,-549.96"/>
+<polygon fill="#000000" stroke="#000000" points="23.6176,-550.084 27.3633,-559.994 30.6155,-549.911 23.6176,-550.084"/>
+</g>
+<!-- proc~compute_energies -->
+<g id="module~~parallel~~UsedByGraph_node23" class="node"><title>proc~compute_energies</title>
+<g id="a_module~~parallel~~UsedByGraph_node23"><a xlink:href=".././proc/compute_energies.html" xlink:title="compute_energies">
+<polygon fill="#d9534f" stroke="#d9534f" points="200,-276 99,-276 99,-252 200,-252 200,-276"/>
+<text text-anchor="middle" x="149.5" y="-261.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">compute_energies</text>
+</a>
+</g>
+</g>
+<!-- proc~compute_energies&#45;&gt;module~parallel -->
+<g id="module~~parallel~~UsedByGraph_edge10" class="edge"><title>proc~compute_energies&#45;&gt;module~parallel</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M101.027,-276.005C96.9102,-278.465 93.1288,-281.429 90,-285 55.0561,-324.886 35.9602,-489.499 30.0327,-549.764"/>
+<polygon fill="#000000" stroke="#000000" points="26.5458,-549.461 29.0783,-559.749 33.5141,-550.127 26.5458,-549.461"/>
+</g>
+<!-- proc~siesta_analysis -->
+<g id="module~~parallel~~UsedByGraph_node24" class="node"><title>proc~siesta_analysis</title>
+<g id="a_module~~parallel~~UsedByGraph_node24"><a xlink:href=".././proc/siesta_analysis.html" xlink:title="siesta_analysis">
+<polygon fill="#d9534f" stroke="#d9534f" points="192,-234 107,-234 107,-210 192,-210 192,-234"/>
+<text text-anchor="middle" x="149.5" y="-219.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">siesta_analysis</text>
+</a>
+</g>
+</g>
+<!-- proc~siesta_analysis&#45;&gt;module~parallel -->
+<g id="module~~parallel~~UsedByGraph_edge24" class="edge"><title>proc~siesta_analysis&#45;&gt;module~parallel</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M106.704,-230.852C100.379,-233.806 94.4817,-237.746 90,-243 50.1538,-289.716 33.8482,-483.412 29.3672,-549.663"/>
+<polygon fill="#000000" stroke="#000000" points="25.8626,-549.622 28.706,-559.828 32.8478,-550.077 25.8626,-549.622"/>
+</g>
+<!-- proc~state_analysis -->
+<g id="module~~parallel~~UsedByGraph_node25" class="node"><title>proc~state_analysis</title>
+<g id="a_module~~parallel~~UsedByGraph_node25"><a xlink:href=".././proc/state_analysis.html" xlink:title="state_analysis">
+<polygon fill="#d9534f" stroke="#d9534f" points="189.5,-192 109.5,-192 109.5,-168 189.5,-168 189.5,-192"/>
+<text text-anchor="middle" x="149.5" y="-177.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">state_analysis</text>
+</a>
+</g>
+</g>
+<!-- proc~state_analysis&#45;&gt;module~parallel -->
+<g id="module~~parallel~~UsedByGraph_edge23" class="edge"><title>proc~state_analysis&#45;&gt;module~parallel</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M109.299,-187.583C101.976,-190.649 95.0497,-194.954 90,-201 45.1969,-254.64 31.9712,-477.95 28.8397,-549.698"/>
+<polygon fill="#000000" stroke="#000000" points="25.3357,-549.727 28.4205,-559.863 32.3297,-550.016 25.3357,-549.727"/>
+</g>
+<!-- proc~siesta_forces -->
+<g id="module~~parallel~~UsedByGraph_node26" class="node"><title>proc~siesta_forces</title>
+<g id="a_module~~parallel~~UsedByGraph_node26"><a xlink:href=".././proc/siesta_forces.html" xlink:title="siesta_forces">
+<polygon fill="#d9534f" stroke="#d9534f" points="187.5,-150 111.5,-150 111.5,-126 187.5,-126 187.5,-150"/>
+<text text-anchor="middle" x="149.5" y="-135.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">siesta_forces</text>
+</a>
+</g>
+</g>
+<!-- proc~siesta_forces&#45;&gt;module~parallel -->
+<g id="module~~parallel~~UsedByGraph_edge25" class="edge"><title>proc~siesta_forces&#45;&gt;module~parallel</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M111.337,-144.67C103.246,-147.776 95.4789,-152.329 90,-159 40.2195,-219.614 30.2977,-472.771 28.4186,-549.719"/>
+<polygon fill="#000000" stroke="#000000" points="24.9188,-549.674 28.1959,-559.749 31.9171,-549.83 24.9188,-549.674"/>
+</g>
+<!-- proc~rhoofd -->
+<g id="module~~parallel~~UsedByGraph_node27" class="node"><title>proc~rhoofd</title>
+<g id="a_module~~parallel~~UsedByGraph_node27"><a xlink:href=".././proc/rhoofd.html" xlink:title="rhoofd">
+<polygon fill="#d9534f" stroke="#d9534f" points="176.5,-108 122.5,-108 122.5,-84 176.5,-84 176.5,-108"/>
+<text text-anchor="middle" x="149.5" y="-93.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">rhoofd</text>
+</a>
+</g>
+</g>
+<!-- proc~rhoofd&#45;&gt;module~parallel -->
+<g id="module~~parallel~~UsedByGraph_edge26" class="edge"><title>proc~rhoofd&#45;&gt;module~parallel</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M122.217,-99.2451C110.628,-102.049 97.8785,-107.273 90,-117 35.2467,-184.599 28.7888,-467.604 28.075,-549.63"/>
+<polygon fill="#000000" stroke="#000000" points="24.5739,-549.804 28.008,-559.827 31.5738,-549.85 24.5739,-549.804"/>
+</g>
+<!-- proc~mixers_scf_print -->
+<g id="module~~parallel~~UsedByGraph_node28" class="node"><title>proc~mixers_scf_print</title>
+<g id="a_module~~parallel~~UsedByGraph_node28"><a xlink:href=".././proc/mixers_scf_print.html" xlink:title="mixers_scf_print">
+<polygon fill="#d9534f" stroke="#d9534f" points="195,-66 104,-66 104,-42 195,-42 195,-66"/>
+<text text-anchor="middle" x="149.5" y="-51.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">mixers_scf_print</text>
+</a>
+</g>
+</g>
+<!-- proc~mixers_scf_print&#45;&gt;module~parallel -->
+<g id="module~~parallel~~UsedByGraph_edge27" class="edge"><title>proc~mixers_scf_print&#45;&gt;module~parallel</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M103.801,-63.9403C98.525,-66.7555 93.7093,-70.367 90,-75 30.257,-149.62 27.4018,-462.656 27.7861,-549.546"/>
+<polygon fill="#000000" stroke="#000000" points="24.2866,-549.652 27.8508,-559.63 31.2865,-549.607 24.2866,-549.652"/>
+</g>
+<!-- proc~mixing_coeff -->
+<g id="module~~parallel~~UsedByGraph_node29" class="node"><title>proc~mixing_coeff</title>
+<g id="a_module~~parallel~~UsedByGraph_node29"><a xlink:href=".././proc/mixing_coeff.html" xlink:title="mixing_coeff">
+<polygon fill="#d9534f" stroke="#d9534f" points="186,-24 113,-24 113,-0 186,-0 186,-24"/>
+<text text-anchor="middle" x="149.5" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">mixing_coeff</text>
+</a>
+</g>
+</g>
+<!-- proc~mixing_coeff&#45;&gt;module~parallel -->
+<g id="module~~parallel~~UsedByGraph_edge28" class="edge"><title>proc~mixing_coeff&#45;&gt;module~parallel</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M112.997,-17.8621C104.259,-20.9719 95.7653,-25.728 90,-33 25.2587,-114.661 26.1152,-457.834 27.5391,-549.441"/>
+<polygon fill="#000000" stroke="#000000" points="24.0415,-549.616 27.7155,-559.554 31.0404,-549.494 24.0415,-549.616"/>
+</g>
+</g>
+</svg>
+</div><div><a type="button" class="graph-help" data-toggle="modal" href="#graph-help-text">Help</a></div><div class="modal fade" id="graph-help-text" tabindex="-1" role="dialog"><div class="modal-dialog modal-lg" role="document"><div class="modal-content"><div class="modal-header"><button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button><h4 class="modal-title" id="-graph-help-label">Graph Key</h4></div><div class="modal-body">
+    <p>Nodes of different colours represent the following: </p>
+    <?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+ "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Generated by graphviz version 2.38.0 (20140413.2041)
+ -->
+<!-- Title: Graph Key Pages: 1 -->
+<svg width="490pt" height="32pt"
+ viewBox="0.00 0.00 489.50 32.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 28)">
+<title>Graph Key</title>
+<polygon fill="white" stroke="none" points="-4,4 -4,-28 485.5,-28 485.5,4 -4,4"/>
+<!-- Module -->
+<g id="node1" class="node"><title>Module</title>
+<polygon fill="#337ab7" stroke="#337ab7" points="54,-24 0,-24 0,-0 54,-0 54,-24"/>
+<text text-anchor="middle" x="27" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Module</text>
+</g>
+<!-- Submodule -->
+<g id="node2" class="node"><title>Submodule</title>
+<polygon fill="#5bc0de" stroke="#5bc0de" points="139.5,-24 72.5,-24 72.5,-0 139.5,-0 139.5,-24"/>
+<text text-anchor="middle" x="106" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Submodule</text>
+</g>
+<!-- Subroutine -->
+<g id="node3" class="node"><title>Subroutine</title>
+<polygon fill="#d9534f" stroke="#d9534f" points="222,-24 158,-24 158,-0 222,-0 222,-24"/>
+<text text-anchor="middle" x="190" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Subroutine</text>
+</g>
+<!-- Function -->
+<g id="node4" class="node"><title>Function</title>
+<polygon fill="#d94e8f" stroke="#d94e8f" points="294,-24 240,-24 240,-0 294,-0 294,-24"/>
+<text text-anchor="middle" x="267" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Function</text>
+</g>
+<!-- Program -->
+<g id="node5" class="node"><title>Program</title>
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="366,-24 312,-24 312,-0 366,-0 366,-24"/>
+<text text-anchor="middle" x="339" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Program</text>
+</g>
+<!-- This Page&#39;s Entity -->
+<g id="node6" class="node"><title>This Page&#39;s Entity</title>
+<polygon fill="none" stroke="black" points="481.5,-24 384.5,-24 384.5,-0 481.5,-0 481.5,-24"/>
+<text text-anchor="middle" x="433" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50">This Page&#39;s Entity</text>
+</g>
+</g>
+</svg>
+
+    
+    <p>Solid arrows point from a submodule to the (sub)module which it is
+    descended from. Dashed arrows point from a module or program unit to 
+    modules which it uses.
+    </p>
+    </div></div></div></div>
+  </li>
+  
+      </ul>
+    </div>
+    
+
+    <br>
+
+    <section class="visible-xs visible-sm hidden-md">
+      
+<h3>Contents</h3>
+ 
+
+
+
+<div class="panel panel-primary">
+  <div class="panel-heading text-left"><h3 class="panel-title"><a data-toggle="collapse" href="#vars-1">Variables</a></h3></div>
+  <div id="vars-1" class="panel-collapse collapse">
+    <div class="list-group">
+      
+      <a class="list-group-item" href="../module/parallel.html#variable-siesta_group">SIESTA_group</a>
+      
+      <a class="list-group-item" href="../module/parallel.html#variable-siesta_comm">SIESTA_comm</a>
+      
+      <a class="list-group-item" href="../module/parallel.html#variable-siesta_worker">SIESTA_worker</a>
+      
+      <a class="list-group-item" href="../module/parallel.html#variable-node%7E2">Node</a>
+      
+      <a class="list-group-item" href="../module/parallel.html#variable-nodes%7E3">Nodes</a>
+      
+      <a class="list-group-item" href="../module/parallel.html#variable-pexsinodes">PEXSINodes</a>
+      
+      <a class="list-group-item" href="../module/parallel.html#variable-blocksize">BlockSize</a>
+      
+      <a class="list-group-item" href="../module/parallel.html#variable-processory">ProcessorY</a>
+      
+      <a class="list-group-item" href="../module/parallel.html#variable-ionode">IOnode</a>
+      
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+<div class="panel panel-primary">
+  <div class="panel-heading text-left"><h3 class="panel-title"><a data-toggle="collapse" href="#inters-1">Interfaces</a></h3></div>
+  <div id="inters-1" class="panel-collapse collapse">
+    <div class="list-group">
+      
+      <a class="list-group-item" href="../module/parallel.html#interface-operator%28.parcount.%29">operator(.PARCOUNT.)</a>
+      
+    </div>
+  </div>
+</div>
+
+
+
+
+
+<div class="panel panel-primary">
+  <div class="panel-heading text-left"><h3 class="panel-title"><a data-toggle="collapse" href="#funcs-1">Functions</a></h3></div>
+  <div id="funcs-1" class="panel-collapse collapse">
+    <div class="list-group">
+      
+      <a class="list-group-item" href="../module/parallel.html#proc-parcount">parcount</a>
+      
+    </div>
+  </div>
+</div>
+
+
+
+<div class="panel panel-primary">
+  <div class="panel-heading text-left"><h3 class="panel-title"><a data-toggle="collapse" href="#subs-1">Subroutines</a></h3></div>
+  <div class="list-group">
+    <div id="subs-1" class="panel-collapse collapse">
+      
+      <a class="list-group-item" href="../module/parallel.html#proc-parallel_init">parallel_init</a>
+      
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+    </section>
+    <br class="visible-xs visible-sm hidden-md">
+
+    
+
+    
+    <section>
+    <h2>Variables</h2>
+    
+<table class="table table-striped varlist">
+<thead><tr><th>Type</th><th>Visibility</th>
+
+<th>Attributes</th><th></th><th>Name</th><th></th><th>Initial</th><th></th></thead>
+
+
+
+<tbody>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" id="variable-siesta_group"></span>integer,</td>
+  
+  <td>public,</td>
+  <td>save</td><td>::</td>
+  <td><strong>SIESTA_group</strong></td><td></td><td></td><td></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" id="variable-siesta_comm"></span>integer,</td>
+  
+  <td>public,</td>
+  <td>save</td><td>::</td>
+  <td><strong>SIESTA_comm</strong></td><td></td><td></td><td></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" id="variable-siesta_worker"></span>logical,</td>
+  
+  <td>public,</td>
+  <td>save</td><td>::</td>
+  <td><strong>SIESTA_worker</strong></td><td> =</td><td>.false.</td><td></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" id="variable-node%7E2"></span>integer,</td>
+  
+  <td>public,</td>
+  <td>save</td><td>::</td>
+  <td><strong>Node</strong></td><td> =</td><td>0</td><td></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" id="variable-nodes%7E3"></span>integer,</td>
+  
+  <td>public,</td>
+  <td>save</td><td>::</td>
+  <td><strong>Nodes</strong></td><td> =</td><td>1</td><td></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" id="variable-pexsinodes"></span>integer,</td>
+  
+  <td>public,</td>
+  <td>save</td><td>::</td>
+  <td><strong>PEXSINodes</strong></td><td> =</td><td>1</td><td></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" id="variable-blocksize"></span>integer,</td>
+  
+  <td>public,</td>
+  <td>save</td><td>::</td>
+  <td><strong>BlockSize</strong></td><td> =</td><td>24</td><td><p>This is the blocking factor used to divide up
+ the arrays over the processes for the Scalapack
+ routines. Setting this value is a compromise
+ between dividing up the orbitals over the processors
+ evenly to achieve load balancing and making the
+ local work efficient. Typically a value of about
+ 10 is good, but optimisation may be worthwhile.
+ A value of 1 is very bad for any number of processors
+ and a large value may also be less than ideal.</p></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" id="variable-processory"></span>integer,</td>
+  
+  <td>public,</td>
+  <td>save</td><td>::</td>
+  <td><strong>ProcessorY</strong></td><td> =</td><td>1</td><td><p>Second dimension of processor grid in mesh point
+ parallelisation - note that the first dimension
+ is determined by the total number of processors
+ in the current job. Also note that this number
+ must be a factor of the total number of processors.
+ Furthermore on many parallel machines (e.g. T3E)
+ this number must also be a power of 2.</p></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" id="variable-ionode"></span>logical,</td>
+  
+  <td>public,</td>
+  <td>save</td><td>::</td>
+  <td><strong>IOnode</strong></td><td> =</td><td>.true.</td><td></td>
+  
+</tr>
+
+</tbody>
+</table>
+
+    </section>
+    <br>
+    
+    
+    
+    
+    
+    <section>
+   <h2>Interfaces</h2>
+   
+     
+<div class="panel panel-default">
+  <div class="panel-heading codesum"><span class="anchor" id="interface-operator%28.parcount.%29"></span><h3>public interface <a href='../interface/operator%28.parcount.%29.html'>operator(.PARCOUNT.)</a>
+    
+  </h3></div>
+  
+  <ul class="list-group">
+  
+  
+  
+    <li class="list-group-item">
+    
+    
+    <h3>
+private elemental function <a href='../proc/parcount.html'>parcount</a>(Nodes, N)
+    
+    
+   
+</h3>
+    
+
+
+
+
+
+
+
+<p>Convert a (positive) counter into a counter divisable by
+ the number of Nodes.</p><a href="../proc/parcount.html" class="pull-right"><emph>Read more&hellip;</emph></a>
+    
+    <h4>Arguments</h4>
+    
+      
+      
+<table class="table table-striped varlist">
+<thead><tr><th>Type</th>
+<th>Intent</th><th>Optional</th>
+<th>Attributes</th><th></th><th>Name</th><th></th></thead>
+
+
+
+<tbody>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" ></span>integer,</td>
+  <td>intent(in)</td>
+  <td></td>
+  
+  <td></td><td>::</td>
+  <td><strong>Nodes</strong></td><td></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" ></span>integer,</td>
+  <td>intent(in)</td>
+  <td></td>
+  
+  <td></td><td>::</td>
+  <td><strong>N</strong></td><td></td>
+  
+</tr>
+
+</tbody>
+</table>
+
+      
+    
+    
+
+  
+  
+  
+  
+     <h4>Return Value <small>integer
+  </small></h4>
+  
+    
+
+    </li>
+  
+  
+  </ul>
+</div>
+
+    
+    </section>
+  <br>
+    
+
+    
+    
+    
+    
+     
+    <section>
+    <h2>Functions</h2>
+    
+    
+  <div class="panel panel-default">
+  <div class="panel-heading codesum"><span class="anchor" id="proc-parcount"></span><h3>
+private elemental function <a href='../proc/parcount.html'>parcount</a>(Nodes, N)
+    
+    
+   
+</h3></div>
+  <div class="panel-body">
+       
+    
+
+
+
+
+
+
+
+<p>Convert a (positive) counter into a counter divisable by
+ the number of Nodes.</p><a href="../proc/parcount.html" class="pull-right"><emph>Read more&hellip;</emph></a>
+    
+    <h4>Arguments</h4>
+    
+      
+      
+<table class="table table-striped varlist">
+<thead><tr><th>Type</th>
+<th>Intent</th><th>Optional</th>
+<th>Attributes</th><th></th><th>Name</th><th></th></thead>
+
+
+
+<tbody>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" ></span>integer,</td>
+  <td>intent(in)</td>
+  <td></td>
+  
+  <td></td><td>::</td>
+  <td><strong>Nodes</strong></td><td></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" ></span>integer,</td>
+  <td>intent(in)</td>
+  <td></td>
+  
+  <td></td><td>::</td>
+  <td><strong>N</strong></td><td></td>
+  
+</tr>
+
+</tbody>
+</table>
+
+      
+    
+    
+
+  
+  
+  
+  
+     <h4>Return Value <small>integer
+  </small></h4>
+  
+    
+
+  </div>
+  </div>
+
+    
+    </section>
+    <br>
+    
+
+    
+    <section>
+    <h2>Subroutines</h2>
+    
+    
+  <div class="panel panel-default">
+  <div class="panel-heading codesum"><span class="anchor" id="proc-parallel_init"></span><h3>
+public subroutine <a href='../proc/parallel_init.html'>parallel_init</a>()
+    
+    
+   
+</h3></div>
+  <div class="panel-body">
+       
+    
+
+
+
+
+
+
+
+<p>Initializes Node, Nodes, and IOnode</p>
+    
+    <h4>Arguments</h4>
+    
+      <em>None</em>
+    
+    
+
+  </div>
+  </div>
+
+    
+    </section>    
+    <br>
+    
+    
+    
+    </div>
+  </div>
+
+  
+    <hr>    
+    </div> <!-- /container -->
+    <footer>
+      <div class="container">
+      <div class="row">
+        <div class="col-xs-6 col-md-4"><p>&copy; 2018 <a rel="license" href="http://www.gnu.org/licenses/old-licenses/fdl-1.2.en.html">GNU Free Documentation License</a>
+                                          </p></div>
+        <div class="col-xs-6 col-md-4 col-md-push-4">
+          <p class="text-right">
+            Documentation generated by 
+            <a href="https://github.com/cmacmackin/ford">FORD</a>
+            
+          </p>
+        </div>
+        <div class="col-xs-12 col-md-4 col-md-pull-4"><p class="text-center"> SIESTA was developed by SIESTA Group</p></div>
+      </div>
+      <br>
+      </div> <!-- /container -->    
+    </footer>
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+<!--
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+-->
+    <script src="../js/bootstrap.min.js"></script>
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script src="../js/ie10-viewport-bug-workaround.js"></script>
+
+    <!-- MathJax JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        TeX: { extensions: ['AMSmath.js','AMSsymbols.js','noErrors.js','noUndefined.js'], equationNumbers: { autoNumber: 'AMS' } },
+        jax: ['input/TeX','input/MathML','output/HTML-CSS'],
+        extensions: ['tex2jax.js','mml2jax.js','MathMenu.js','MathZoom.js']
+      });
+    </script>
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    
+    <script src="../tipuesearch/tipuesearch_content.js"></script>
+    <script src="../tipuesearch/tipuesearch_set.js"></script>
+    <script src="../tipuesearch/tipuesearch.js"></script>
+    
+    
+  </body>
+</html>

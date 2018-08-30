@@ -1,0 +1,665 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+   
+   <meta name="description" content="A first-principles materials simulation code using Density Functional Theory.">
+    
+    <meta name="author" content="SIESTA Group" >
+    <link rel="icon" href="../favicon.png">
+
+    <title>chcore_sub &ndash; SIESTA</title>
+
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
+    <link href="../css/pygments.css" rel="stylesheet">
+    <link href="../css/font-awesome.min.css" rel="stylesheet">
+    <link href="../css/local.css" rel="stylesheet">
+    
+    <link  href="../tipuesearch/tipuesearch.css" rel="stylesheet">
+    
+    
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    
+    <script src="../js/jquery-2.1.3.min.js"></script>
+    <script src="../js/svg-pan-zoom.min.js"></script>
+
+  </head>
+
+  <body>
+
+    <!-- Fixed navbar -->
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="../index.html">SIESTA <small>trunk-700--vdikan-edens-710-ford-681</small></a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+          <ul class="nav navbar-nav">
+        
+            <li><a href='../page/index.html'>Program Overview</a></li>
+      
+            <li class="dropdown hidden-xs visible-sm visible-md hidden-lg">
+              <a href="#" class="dropdown-toggle"
+              data-toggle="dropdown" role="button"
+              aria-haspopup="true"
+     aria-expanded="false">Contents <span class="caret"></span></a>
+        <ul class="dropdown-menu">
+          
+              
+            <li><a href="../lists/files.html">Source Files</a></li>
+        
+        
+        
+            <li><a href="../lists/modules.html">Modules</a></li>
+        
+            
+                                
+            <li><a href="../lists/procedures.html">Procedures</a></li>
+        
+               
+            <li><a href="../lists/types.html">Derived Types</a></li>
+        
+        
+            </ul>
+            </li>
+
+
+<li class="visible-xs hidden-sm visible-lg"><a href="../lists/files.html">Source Files</a></li>
+
+
+
+<li class="visible-xs hidden-sm visible-lg"><a href="../lists/modules.html">Modules</a></li>
+
+
+
+<li class="visible-xs hidden-sm visible-lg"><a href="../lists/procedures.html">Procedures</a></li>
+
+                             
+<li class="visible-xs hidden-sm visible-lg"><a href="../lists/types.html">Derived Types</a></li>
+
+
+          </ul>
+        
+        <form action="../search.html" class="navbar-form navbar-right" role="search">
+        <div class="form-group">
+          <input type="text" class="form-control" placeholder="Search" name="q" id="tipue_search_input" autocomplete="off" required>
+        </div>
+<!--
+        <button type="submit" class="btn btn-default">Submit</button>
+-->
+        </form>
+        
+        </div><!--/.nav-collapse -->
+      </div>
+    </nav>
+
+    <div class="container">
+    
+  
+  <div class="row">
+    <h1>chcore_sub
+      <small>Subroutine</small>
+    
+    </h1>
+    
+<div class="row">
+  <div class="col-lg-12">
+<div class="well well-sm">
+  <ul class="list-inline" style="margin-bottom:0px;display:inline">
+     
+     
+     
+     
+    
+    
+     <li><i class="fa fa-list-ol"></i>
+       <a data-toggle="tooltip"
+    data-placement="bottom" data-html="true"
+    title=" 0.2% of total for procedures.">17 statements</a>
+     </li> 
+     
+     
+     
+    <li><i class="fa fa-code"></i><a href="../src/atmfuncs.f"> Source File</a></li>
+     
+     
+  </ul>
+  <ol class="breadcrumb in-well text-right">
+  
+    
+     <li><a href='../sourcefile/atmfuncs.f.html'>atmfuncs.f</a></li>
+    
+     <li><a href='../module/atmfuncs.html'>atmfuncs</a></li>
+    
+  
+     <li class="active">chcore_sub</li>
+  </ol>
+</div>
+</div>
+</div>
+<script>
+  $(function () {
+  $('[data-toggle="tooltip"]').tooltip()
+  })
+</script>
+
+  </div>
+  
+  <div class="row">
+    <div class="col-md-3 hidden-xs hidden-sm visible-md visible-lg">
+    
+<div id="sidebar">
+  
+<h3>Contents</h3>
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="panel panel-primary">
+  <div class="panel-heading text-left"><h3 class="panel-title">Source Code</h3></div>
+  <div class="list-group">
+    <a class="list-group-item" href="../proc/chcore_sub.html#src">chcore_sub</a>
+  </div>
+</div>
+
+
+
+</div>
+
+    </div>
+    
+    <div class="col-md-9" id='text'>
+    <h2>
+public subroutine chcore_sub(is, r, ch, grch)
+    
+    
+   
+</h2>
+    
+  
+
+
+    
+
+    <h3>Arguments</h3>
+    
+      
+<table class="table table-striped varlist">
+<thead><tr><th>Type</th>
+<th>Intent</th><th>Optional</th>
+<th>Attributes</th><th></th><th>Name</th><th></th></thead>
+
+
+
+<tbody>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" id="variable-is%7E31"></span>integer,</td>
+  <td>intent(in)</td>
+  <td></td>
+  
+  <td></td><td>::</td>
+  <td><strong>is</strong></td><td></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" id="variable-r%7E5"></span>real(kind=dp),</td>
+  <td>intent(in)</td>
+  <td></td>
+  
+  <td></td><td>::</td>
+  <td><strong>r</strong>(3)</td><td></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" id="variable-ch%7E2"></span>real(kind=dp),</td>
+  <td>intent(out)</td>
+  <td></td>
+  
+  <td></td><td>::</td>
+  <td><strong>ch</strong></td><td></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" id="variable-grch%7E2"></span>real(kind=dp),</td>
+  <td>intent(out)</td>
+  <td></td>
+  
+  <td></td><td>::</td>
+  <td><strong>grch</strong>(3)</td><td></td>
+  
+</tr>
+
+</tbody>
+</table>
+
+    
+    
+    
+    <br>
+    
+    
+    <div class="panel panel-default">
+      <div class="panel-heading">
+  <h3 class="panel-title">Calls</h3>
+      </div>
+      <div class="panel-body">
+  <div class="depgraph"><?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+ "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Generated by graphviz version 2.38.0 (20140413.2041)
+ -->
+<!-- Title: proc~~chcore_sub~~CallsGraph Pages: 1 -->
+<svg id="procchcore_subCallsGraph" width="539pt" height="242pt"
+ viewBox="0.00 0.00 539.00 242.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="proc~~chcore_sub~~CallsGraph" class="graph" transform="scale(1 1) rotate(0) translate(4 238)">
+<title>proc~~chcore_sub~~CallsGraph</title>
+<polygon fill="white" stroke="none" points="-4,4 -4,-238 535,-238 535,4 -4,4"/>
+<!-- proc~chcore_sub -->
+<g id="proc~~chcore_sub~~CallsGraph_node1" class="node"><title>proc~chcore_sub</title>
+<polygon fill="none" stroke="black" points="68,-109 0,-109 0,-85 68,-85 68,-109"/>
+<text text-anchor="middle" x="34" y="-94.6" font-family="Helvetica,sans-Serif" font-size="10.50">chcore_sub</text>
+</g>
+<!-- proc~chk -->
+<g id="proc~~chcore_sub~~CallsGraph_node2" class="node"><title>proc~chk</title>
+<g id="a_proc~~chcore_sub~~CallsGraph_node2"><a xlink:href=".././proc/chk.html" xlink:title="chk">
+<polygon fill="#d9534f" stroke="#d9534f" points="338,-129 284,-129 284,-105 338,-105 338,-129"/>
+<text text-anchor="middle" x="311" y="-114.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">chk</text>
+</a>
+</g>
+</g>
+<!-- proc~chcore_sub&#45;&gt;proc~chk -->
+<g id="proc~~chcore_sub~~CallsGraph_edge1" class="edge"><title>proc~chcore_sub&#45;&gt;proc~chk</title>
+<path fill="none" stroke="#000000" d="M67.5364,-109.06C78.906,-112.693 91.8624,-116.194 104,-118 162.901,-126.765 232.328,-123.705 273.671,-120.495"/>
+<polygon fill="#000000" stroke="#000000" points="274.124,-123.969 283.803,-119.661 273.55,-116.993 274.124,-123.969"/>
+</g>
+<!-- proc~floating -->
+<g id="proc~~chcore_sub~~CallsGraph_node3" class="node"><title>proc~floating</title>
+<g id="a_proc~~chcore_sub~~CallsGraph_node3"><a xlink:href=".././proc/floating.html" xlink:title="floating">
+<polygon fill="#d94e8f" stroke="#d94e8f" points="158,-109 104,-109 104,-85 158,-85 158,-109"/>
+<text text-anchor="middle" x="131" y="-94.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">floating</text>
+</a>
+</g>
+</g>
+<!-- proc~chcore_sub&#45;&gt;proc~floating -->
+<g id="proc~~chcore_sub~~CallsGraph_edge2" class="edge"><title>proc~chcore_sub&#45;&gt;proc~floating</title>
+<path fill="none" stroke="#000000" d="M68.2264,-97C76.4279,-97 85.2553,-97 93.5988,-97"/>
+<polygon fill="#000000" stroke="#000000" points="93.8248,-100.5 103.825,-97 93.8247,-93.5001 93.8248,-100.5"/>
+</g>
+<!-- proc~rad_get -->
+<g id="proc~~chcore_sub~~CallsGraph_node4" class="node"><title>proc~rad_get</title>
+<g id="a_proc~~chcore_sub~~CallsGraph_node4"><a xlink:href=".././proc/rad_get.html" xlink:title="rad_get">
+<polygon fill="#d9534f" stroke="#d9534f" points="158,-67 104,-67 104,-43 158,-43 158,-67"/>
+<text text-anchor="middle" x="131" y="-52.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">rad_get</text>
+</a>
+</g>
+</g>
+<!-- proc~chcore_sub&#45;&gt;proc~rad_get -->
+<g id="proc~~chcore_sub~~CallsGraph_edge3" class="edge"><title>proc~chcore_sub&#45;&gt;proc~rad_get</title>
+<path fill="none" stroke="#000000" d="M62.2232,-84.9645C72.214,-80.5475 83.6782,-75.4791 94.3015,-70.7825"/>
+<polygon fill="#000000" stroke="#000000" points="96.0241,-73.8478 103.755,-66.6031 93.1936,-67.4455 96.0241,-73.8478"/>
+</g>
+<!-- proc~die -->
+<g id="proc~~chcore_sub~~CallsGraph_node6" class="node"><title>proc~die</title>
+<g id="a_proc~~chcore_sub~~CallsGraph_node6"><a xlink:href=".././proc/die.html" xlink:title="die">
+<polygon fill="#d9534f" stroke="#d9534f" points="428,-129 374,-129 374,-105 428,-105 428,-129"/>
+<text text-anchor="middle" x="401" y="-114.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">die</text>
+</a>
+</g>
+</g>
+<!-- proc~chk&#45;&gt;proc~die -->
+<g id="proc~~chcore_sub~~CallsGraph_edge4" class="edge"><title>proc~chk&#45;&gt;proc~die</title>
+<path fill="none" stroke="#000000" d="M338.403,-117C346.393,-117 355.311,-117 363.824,-117"/>
+<polygon fill="#000000" stroke="#000000" points="363.919,-120.5 373.919,-117 363.919,-113.5 363.919,-120.5"/>
+</g>
+<!-- proc~izofis -->
+<g id="proc~~chcore_sub~~CallsGraph_node7" class="node"><title>proc~izofis</title>
+<g id="a_proc~~chcore_sub~~CallsGraph_node7"><a xlink:href=".././proc/izofis.html" xlink:title="IZOFIS">
+<polygon fill="#d94e8f" stroke="#d94e8f" points="248,-109 194,-109 194,-85 248,-85 248,-109"/>
+<text text-anchor="middle" x="221" y="-94.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">IZOFIS</text>
+</a>
+</g>
+</g>
+<!-- proc~floating&#45;&gt;proc~izofis -->
+<g id="proc~~chcore_sub~~CallsGraph_edge5" class="edge"><title>proc~floating&#45;&gt;proc~izofis</title>
+<path fill="none" stroke="#000000" d="M158.403,-97C166.393,-97 175.311,-97 183.824,-97"/>
+<polygon fill="#000000" stroke="#000000" points="183.919,-100.5 193.919,-97 183.919,-93.5001 183.919,-100.5"/>
+</g>
+<!-- splint -->
+<g id="proc~~chcore_sub~~CallsGraph_node5" class="node"><title>splint</title>
+<polygon fill="#777777" stroke="#777777" points="248,-67 194,-67 194,-43 248,-43 248,-67"/>
+<text text-anchor="middle" x="221" y="-52.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">splint</text>
+</g>
+<!-- proc~rad_get&#45;&gt;splint -->
+<g id="proc~~chcore_sub~~CallsGraph_edge6" class="edge"><title>proc~rad_get&#45;&gt;splint</title>
+<path fill="none" stroke="#000000" d="M158.403,-55C166.393,-55 175.311,-55 183.824,-55"/>
+<polygon fill="#000000" stroke="#000000" points="183.919,-58.5001 193.919,-55 183.919,-51.5001 183.919,-58.5001"/>
+</g>
+<!-- io_close -->
+<g id="proc~~chcore_sub~~CallsGraph_node8" class="node"><title>io_close</title>
+<polygon fill="#777777" stroke="#777777" points="524.5,-234 470.5,-234 470.5,-210 524.5,-210 524.5,-234"/>
+<text text-anchor="middle" x="497.5" y="-219.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">io_close</text>
+</g>
+<!-- proc~die&#45;&gt;io_close -->
+<g id="proc~~chcore_sub~~CallsGraph_edge7" class="edge"><title>proc~die&#45;&gt;io_close</title>
+<path fill="none" stroke="#000000" d="M409.036,-129.197C419.465,-146.566 440.356,-178.782 464,-201 465.071,-202.006 466.196,-202.994 467.358,-203.959"/>
+<polygon fill="#000000" stroke="#000000" points="465.28,-206.775 475.388,-209.951 469.467,-201.165 465.28,-206.775"/>
+</g>
+<!-- cmlfinishfile -->
+<g id="proc~~chcore_sub~~CallsGraph_node9" class="node"><title>cmlfinishfile</title>
+<polygon fill="#777777" stroke="#777777" points="531,-192 464,-192 464,-168 531,-168 531,-192"/>
+<text text-anchor="middle" x="497.5" y="-177.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">cmlfinishfile</text>
+</g>
+<!-- proc~die&#45;&gt;cmlfinishfile -->
+<g id="proc~~chcore_sub~~CallsGraph_edge8" class="edge"><title>proc~die&#45;&gt;cmlfinishfile</title>
+<path fill="none" stroke="#000000" d="M419.57,-129.051C431.946,-137.503 448.929,-149.028 464,-159 465.639,-160.084 467.327,-161.195 469.033,-162.312"/>
+<polygon fill="#000000" stroke="#000000" points="467.26,-165.334 477.551,-167.854 471.078,-159.467 467.26,-165.334"/>
+</g>
+<!-- io_assign -->
+<g id="proc~~chcore_sub~~CallsGraph_node10" class="node"><title>io_assign</title>
+<polygon fill="#777777" stroke="#777777" points="526.5,-150 468.5,-150 468.5,-126 526.5,-126 526.5,-150"/>
+<text text-anchor="middle" x="497.5" y="-135.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">io_assign</text>
+</g>
+<!-- proc~die&#45;&gt;io_assign -->
+<g id="proc~~chcore_sub~~CallsGraph_edge9" class="edge"><title>proc~die&#45;&gt;io_assign</title>
+<path fill="none" stroke="#000000" d="M428.073,-122.794C437.415,-124.87 448.149,-127.255 458.304,-129.512"/>
+<polygon fill="#000000" stroke="#000000" points="457.672,-132.957 468.193,-131.71 459.19,-126.123 457.672,-132.957"/>
+</g>
+<!-- pxfabort -->
+<g id="proc~~chcore_sub~~CallsGraph_node11" class="node"><title>pxfabort</title>
+<polygon fill="#777777" stroke="#777777" points="524.5,-108 470.5,-108 470.5,-84 524.5,-84 524.5,-108"/>
+<text text-anchor="middle" x="497.5" y="-93.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">pxfabort</text>
+</g>
+<!-- proc~die&#45;&gt;pxfabort -->
+<g id="proc~~chcore_sub~~CallsGraph_edge10" class="edge"><title>proc~die&#45;&gt;pxfabort</title>
+<path fill="none" stroke="#000000" d="M428.073,-111.206C438.009,-108.998 449.52,-106.44 460.234,-104.059"/>
+<polygon fill="#000000" stroke="#000000" points="461.182,-107.434 470.184,-101.848 459.663,-100.601 461.182,-107.434"/>
+</g>
+<!-- mpi_abort -->
+<g id="proc~~chcore_sub~~CallsGraph_node12" class="node"><title>mpi_abort</title>
+<polygon fill="#777777" stroke="#777777" points="528,-66 467,-66 467,-42 528,-42 528,-66"/>
+<text text-anchor="middle" x="497.5" y="-51.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">mpi_abort</text>
+</g>
+<!-- proc~die&#45;&gt;mpi_abort -->
+<g id="proc~~chcore_sub~~CallsGraph_edge11" class="edge"><title>proc~die&#45;&gt;mpi_abort</title>
+<path fill="none" stroke="#000000" d="M419.57,-104.949C431.946,-96.4974 448.929,-84.9722 464,-75 465.639,-73.9157 467.327,-72.8051 469.033,-71.6882"/>
+<polygon fill="#000000" stroke="#000000" points="471.078,-74.5333 477.551,-66.1458 467.26,-68.666 471.078,-74.5333"/>
+</g>
+<!-- pxfflush -->
+<g id="proc~~chcore_sub~~CallsGraph_node13" class="node"><title>pxfflush</title>
+<polygon fill="#777777" stroke="#777777" points="524.5,-24 470.5,-24 470.5,-0 524.5,-0 524.5,-24"/>
+<text text-anchor="middle" x="497.5" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">pxfflush</text>
+</g>
+<!-- proc~die&#45;&gt;pxfflush -->
+<g id="proc~~chcore_sub~~CallsGraph_edge12" class="edge"><title>proc~die&#45;&gt;pxfflush</title>
+<path fill="none" stroke="#000000" d="M409.036,-104.803C419.465,-87.4335 440.356,-55.2177 464,-33 465.071,-31.9937 466.196,-31.006 467.358,-30.0412"/>
+<polygon fill="#000000" stroke="#000000" points="469.467,-32.8346 475.388,-24.0486 465.28,-27.2247 469.467,-32.8346"/>
+</g>
+<!-- proc~izofis&#45;&gt;proc~chk -->
+<g id="proc~~chcore_sub~~CallsGraph_edge13" class="edge"><title>proc~izofis&#45;&gt;proc~chk</title>
+<path fill="none" stroke="#000000" d="M248.403,-103.001C256.481,-104.837 265.507,-106.888 274.105,-108.842"/>
+<polygon fill="#000000" stroke="#000000" points="273.392,-112.269 283.919,-111.072 274.943,-105.443 273.392,-112.269"/>
+</g>
+</g>
+</svg>
+</div><div><a type="button" class="graph-help" data-toggle="modal" href="#graph-help-text">Help</a></div><div class="modal fade" id="graph-help-text" tabindex="-1" role="dialog"><div class="modal-dialog modal-lg" role="document"><div class="modal-content"><div class="modal-header"><button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button><h4 class="modal-title" id="-graph-help-label">Graph Key</h4></div><div class="modal-body">
+    <p>Nodes of different colours represent the following: </p>
+    <?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+ "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Generated by graphviz version 2.38.0 (20140413.2041)
+ -->
+<!-- Title: Graph Key Pages: 1 -->
+<svg width="560pt" height="32pt"
+ viewBox="0.00 0.00 559.50 32.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 28)">
+<title>Graph Key</title>
+<polygon fill="white" stroke="none" points="-4,4 -4,-28 555.5,-28 555.5,4 -4,4"/>
+<!-- Subroutine -->
+<g id="node1" class="node"><title>Subroutine</title>
+<polygon fill="#d9534f" stroke="#d9534f" points="64,-24 0,-24 0,-0 64,-0 64,-24"/>
+<text text-anchor="middle" x="32" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Subroutine</text>
+</g>
+<!-- Function -->
+<g id="node2" class="node"><title>Function</title>
+<polygon fill="#d94e8f" stroke="#d94e8f" points="136,-24 82,-24 82,-0 136,-0 136,-24"/>
+<text text-anchor="middle" x="109" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Function</text>
+</g>
+<!-- Interface -->
+<g id="node3" class="node"><title>Interface</title>
+<polygon fill="#a7506f" stroke="#a7506f" points="209.5,-24 154.5,-24 154.5,-0 209.5,-0 209.5,-24"/>
+<text text-anchor="middle" x="182" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Interface</text>
+</g>
+<!-- Unknown Procedure Type -->
+<g id="node4" class="node"><title>Unknown Procedure Type</title>
+<polygon fill="#777777" stroke="#777777" points="364,-24 228,-24 228,-0 364,-0 364,-24"/>
+<text text-anchor="middle" x="296" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Unknown Procedure Type</text>
+</g>
+<!-- Program -->
+<g id="node5" class="node"><title>Program</title>
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="436,-24 382,-24 382,-0 436,-0 436,-24"/>
+<text text-anchor="middle" x="409" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Program</text>
+</g>
+<!-- This Page&#39;s Entity -->
+<g id="node6" class="node"><title>This Page&#39;s Entity</title>
+<polygon fill="none" stroke="black" points="551.5,-24 454.5,-24 454.5,-0 551.5,-0 551.5,-24"/>
+<text text-anchor="middle" x="503" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50">This Page&#39;s Entity</text>
+</g>
+</g>
+</svg>
+
+    
+    <p>Solid arrows point from a procedure to one which it calls. Dashed 
+    arrows point from an interface to procedures which implement that interface.
+    This could include the module procedures in a generic interface or the
+    implementation in a submodule of an interface in a parent module.
+    </p>
+    </div></div></div></div>
+      </div>
+    </div>
+     
+     
+    <br>
+
+    <section class="visible-xs visible-sm hidden-md">
+      
+<h3>Contents</h3>
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="panel panel-primary">
+  <div class="panel-heading text-left"><h3 class="panel-title">Source Code</h3></div>
+  <div class="list-group">
+    <a class="list-group-item" href="../proc/chcore_sub.html#src">chcore_sub</a>
+  </div>
+</div>
+
+
+
+    </section>
+    <br class="visible-xs visible-sm hidden-md">
+
+    
+
+    
+    
+    
+    
+    
+
+    
+    
+    
+    
+    
+
+
+    
+    
+    
+    <section>
+    <h2><span class="anchor" id="src"></span>Source Code</h2>
+    <div class="highlight"><pre><span></span>      <span class="k">subroutine </span><span class="n">chcore_sub</span><span class="p">(</span><span class="k">is</span><span class="p">,</span><span class="n">r</span><span class="p">,</span><span class="n">ch</span><span class="p">,</span><span class="n">grch</span><span class="p">)</span>
+      <span class="kt">integer</span><span class="p">,</span> <span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">)</span> <span class="kd">::</span> <span class="k">is</span>      <span class="c">! Species index</span>
+      <span class="kt">real</span><span class="p">(</span><span class="n">dp</span><span class="p">),</span> <span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">)</span>  <span class="kd">::</span> <span class="n">r</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>    <span class="c">! Point vector, relative to atom</span>
+      <span class="kt">real</span><span class="p">(</span><span class="n">dp</span><span class="p">),</span> <span class="k">intent</span><span class="p">(</span><span class="n">out</span><span class="p">)</span> <span class="kd">::</span> <span class="n">ch</span>      <span class="c">! Value of pseudo-core charge dens.</span>
+      <span class="kt">real</span><span class="p">(</span><span class="n">dp</span><span class="p">),</span> <span class="k">intent</span><span class="p">(</span><span class="n">out</span><span class="p">)</span> <span class="kd">::</span> <span class="n">grch</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span> <span class="c">! Gradient of pseudo-core ch. dens.</span>
+
+<span class="n">C</span> <span class="n">Returns</span> <span class="n">returns</span> <span class="n">pseudo</span><span class="o">-</span><span class="n">core</span> <span class="n">charge</span> <span class="n">density</span> <span class="n">for</span> <span class="n">non</span><span class="o">-</span><span class="n">linear</span> <span class="n">core</span> <span class="n">correction</span>
+<span class="n">C</span> <span class="n">in</span> <span class="n">the</span> <span class="n">xc</span> <span class="n">potential</span><span class="p">.</span>
+<span class="n">C</span> <span class="n">Distances</span> <span class="n">in</span> <span class="n">Bohr</span><span class="p">,</span> <span class="n">Energies</span> <span class="n">in</span> <span class="n">Rydbergs</span><span class="p">,</span> <span class="n">Density</span> <span class="n">in</span> <span class="n">electrons</span><span class="o">/</span><span class="n">Bohr</span><span class="o">**</span><span class="mi">3</span>
+<span class="n">C</span>  <span class="mi">2</span><span class="p">)</span> <span class="n">Returns</span> <span class="n">exactly</span> <span class="n">zero</span> <span class="n">when</span> <span class="err">|</span><span class="n">R</span><span class="err">|</span> <span class="o">&gt;</span> <span class="n">Rcore</span>
+
+      <span class="kt">real</span><span class="p">(</span><span class="n">dp</span><span class="p">)</span> <span class="n">rmod</span><span class="p">,</span> <span class="n">dchdr</span>
+
+      <span class="k">call </span><span class="n">chk</span><span class="p">(</span><span class="s1">&#39;chcore_sub&#39;</span><span class="p">,</span><span class="k">is</span><span class="p">)</span>
+
+      <span class="n">ch</span><span class="o">=</span><span class="mf">0.0_dp</span>
+      <span class="n">grch</span><span class="p">(</span><span class="mi">1</span><span class="p">:</span><span class="mi">3</span><span class="p">)</span><span class="o">=</span><span class="mf">0.0_dp</span>
+
+      <span class="k">if</span> <span class="p">(</span><span class="n">floating</span><span class="p">(</span><span class="k">is</span><span class="p">))</span> <span class="k">return</span>
+
+<span class="k">      </span><span class="n">func</span> <span class="o">=&gt;</span> <span class="n">species</span><span class="p">(</span><span class="k">is</span><span class="p">)%</span><span class="n">core</span>
+      <span class="n">rmod</span> <span class="o">=</span> <span class="nb">sqrt</span><span class="p">(</span><span class="nb">sum</span><span class="p">(</span><span class="n">r</span><span class="o">*</span><span class="n">r</span><span class="p">))</span>
+      <span class="n">rmod</span><span class="o">=</span><span class="n">rmod</span><span class="o">+</span><span class="n">tiny20</span>                   <span class="c">! Moved here. JMS, Dec.2012</span>
+      <span class="k">if</span> <span class="p">(</span><span class="n">rmod</span> <span class="p">.</span><span class="n">gt</span><span class="p">.</span> <span class="n">func</span><span class="p">%</span><span class="n">cutoff</span><span class="p">)</span> <span class="k">return</span>
+
+<span class="k">      call </span><span class="n">rad_get</span><span class="p">(</span><span class="n">func</span><span class="p">,</span><span class="n">rmod</span><span class="p">,</span><span class="n">ch</span><span class="p">,</span><span class="n">dchdr</span><span class="p">)</span>
+<span class="c">!      rmod=rmod+tiny20                   ! Removed. JMS, Dec.2012</span>
+      <span class="n">grch</span><span class="p">(</span><span class="mi">1</span><span class="p">:</span><span class="mi">3</span><span class="p">)</span> <span class="o">=</span> <span class="n">dchdr</span> <span class="o">*</span> <span class="n">r</span><span class="p">(</span><span class="mi">1</span><span class="p">:</span><span class="mi">3</span><span class="p">)</span><span class="o">/</span><span class="n">rmod</span>
+ 
+      <span class="k">end subroutine </span><span class="n">chcore_sub</span>
+</pre></div>
+
+    </section>
+    <br>
+    
+    
+    </div>
+  </div>
+
+
+    <hr>    
+    </div> <!-- /container -->
+    <footer>
+      <div class="container">
+      <div class="row">
+        <div class="col-xs-6 col-md-4"><p>&copy; 2018 <a rel="license" href="http://www.gnu.org/licenses/old-licenses/fdl-1.2.en.html">GNU Free Documentation License</a>
+                                          </p></div>
+        <div class="col-xs-6 col-md-4 col-md-push-4">
+          <p class="text-right">
+            Documentation generated by 
+            <a href="https://github.com/cmacmackin/ford">FORD</a>
+            
+          </p>
+        </div>
+        <div class="col-xs-12 col-md-4 col-md-pull-4"><p class="text-center"> SIESTA was developed by SIESTA Group</p></div>
+      </div>
+      <br>
+      </div> <!-- /container -->    
+    </footer>
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+<!--
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+-->
+    <script src="../js/bootstrap.min.js"></script>
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script src="../js/ie10-viewport-bug-workaround.js"></script>
+
+    <!-- MathJax JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        TeX: { extensions: ['AMSmath.js','AMSsymbols.js','noErrors.js','noUndefined.js'], equationNumbers: { autoNumber: 'AMS' } },
+        jax: ['input/TeX','input/MathML','output/HTML-CSS'],
+        extensions: ['tex2jax.js','mml2jax.js','MathMenu.js','MathZoom.js']
+      });
+    </script>
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    
+    <script src="../tipuesearch/tipuesearch_content.js"></script>
+    <script src="../tipuesearch/tipuesearch_set.js"></script>
+    <script src="../tipuesearch/tipuesearch.js"></script>
+    
+    
+  </body>
+</html>

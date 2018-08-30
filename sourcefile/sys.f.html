@@ -1,0 +1,845 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+   
+   <meta name="description" content="A first-principles materials simulation code using Density Functional Theory.">
+    
+    <meta name="author" content="SIESTA Group" >
+    <link rel="icon" href="../favicon.png">
+
+    <title>sys.F &ndash; SIESTA</title>
+
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
+    <link href="../css/pygments.css" rel="stylesheet">
+    <link href="../css/font-awesome.min.css" rel="stylesheet">
+    <link href="../css/local.css" rel="stylesheet">
+    
+    <link  href="../tipuesearch/tipuesearch.css" rel="stylesheet">
+    
+    
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    
+    <script src="../js/jquery-2.1.3.min.js"></script>
+    <script src="../js/svg-pan-zoom.min.js"></script>
+
+  </head>
+
+  <body>
+
+    <!-- Fixed navbar -->
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="../index.html">SIESTA <small>trunk-700--vdikan-edens-710-ford-681</small></a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+          <ul class="nav navbar-nav">
+        
+            <li><a href='../page/index.html'>Program Overview</a></li>
+      
+            <li class="dropdown hidden-xs visible-sm visible-md hidden-lg">
+              <a href="#" class="dropdown-toggle"
+              data-toggle="dropdown" role="button"
+              aria-haspopup="true"
+     aria-expanded="false">Contents <span class="caret"></span></a>
+        <ul class="dropdown-menu">
+          
+              
+            <li><a href="../lists/files.html">Source Files</a></li>
+        
+        
+        
+            <li><a href="../lists/modules.html">Modules</a></li>
+        
+            
+                                
+            <li><a href="../lists/procedures.html">Procedures</a></li>
+        
+               
+            <li><a href="../lists/types.html">Derived Types</a></li>
+        
+        
+            </ul>
+            </li>
+
+
+<li class="visible-xs hidden-sm visible-lg"><a href="../lists/files.html">Source Files</a></li>
+
+
+
+<li class="visible-xs hidden-sm visible-lg"><a href="../lists/modules.html">Modules</a></li>
+
+
+
+<li class="visible-xs hidden-sm visible-lg"><a href="../lists/procedures.html">Procedures</a></li>
+
+                             
+<li class="visible-xs hidden-sm visible-lg"><a href="../lists/types.html">Derived Types</a></li>
+
+
+          </ul>
+        
+        <form action="../search.html" class="navbar-form navbar-right" role="search">
+        <div class="form-group">
+          <input type="text" class="form-control" placeholder="Search" name="q" id="tipue_search_input" autocomplete="off" required>
+        </div>
+<!--
+        <button type="submit" class="btn btn-default">Submit</button>
+-->
+        </form>
+        
+        </div><!--/.nav-collapse -->
+      </div>
+    </nav>
+
+    <div class="container">
+    
+  
+  <div class="row">
+    <h1>sys.F
+    <small>Source File</small>
+    
+    </h1>
+    
+<div class="row">
+  <div class="col-lg-12">
+<div class="well well-sm">
+  <ul class="list-inline" style="margin-bottom:0px;display:inline">
+     
+     
+     
+     
+    
+    
+     <li><i class="fa fa-list-ol"></i>
+       <a data-toggle="tooltip"
+    data-placement="bottom" data-html="true"
+    title=" 0.8% of total for source files.">74 statements</a>
+     </li> 
+     
+     
+     
+    <li><i class="fa fa-code"></i><a href="../src/sys.F"> Source File</a></li>
+     
+     
+  </ul>
+  <ol class="breadcrumb in-well text-right">
+  
+    
+  
+     <li class="active">sys.F</li>
+  </ol>
+</div>
+</div>
+</div>
+<script>
+  $(function () {
+  $('[data-toggle="tooltip"]').tooltip()
+  })
+</script>
+
+  </div>
+  <div class="row">
+    <div class="col-md-3 hidden-xs hidden-sm visible-md visible-lg">
+    
+<div id="sidebar">
+  
+<h3>Contents</h3>
+ 
+
+
+
+
+
+
+
+<div class="panel panel-primary">
+  <div class="panel-heading text-left"><h3 class="panel-title"><a data-toggle="collapse" href="#mods-0">Modules</a></h3></div>
+  <div id="mods-0" class="panel-collapse collapse">
+    <div class="list-group">
+      
+      <a class="list-group-item" href="../module/sys.html">sys</a>
+      
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="panel panel-primary">
+  <div class="panel-heading text-left"><h3 class="panel-title">Source Code</h3></div>
+  <div class="list-group">
+    <a class="list-group-item" href="../sourcefile/sys.f.html#src">sys.F</a>
+  </div>
+</div>
+
+
+
+</div>
+
+    </div>
+    <div class="col-md-9" id='text'>
+      
+      <br>
+    
+    <div class="panel panel-default">
+      <div class="panel-heading">
+  <h3 class="panel-title">This file depends on</h3>
+      </div>
+      <div class="panel-body">
+  <div class="depgraph"><?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+ "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Generated by graphviz version 2.38.0 (20140413.2041)
+ -->
+<!-- Title: sourcefile~~sys.f~~EfferentGraph Pages: 1 -->
+<svg id="sourcefilesysfEfferentGraph" width="155pt" height="32pt"
+ viewBox="0.00 0.00 155.00 32.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="sourcefile~~sys.f~~EfferentGraph" class="graph" transform="scale(1 1) rotate(0) translate(4 28)">
+<title>sourcefile~~sys.f~~EfferentGraph</title>
+<polygon fill="white" stroke="none" points="-4,4 -4,-28 151,-28 151,4 -4,4"/>
+<!-- sourcefile~sys.f -->
+<g id="sourcefile~~sys.f~~EfferentGraph_node1" class="node"><title>sourcefile~sys.f</title>
+<polygon fill="none" stroke="black" points="147,-24 93,-24 93,-0 147,-0 147,-24"/>
+<text text-anchor="middle" x="120" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50">sys.F</text>
+</g>
+<!-- sourcefile~parallel.f -->
+<g id="sourcefile~~sys.f~~EfferentGraph_node2" class="node"><title>sourcefile~parallel.f</title>
+<g id="a_sourcefile~~sys.f~~EfferentGraph_node2"><a xlink:href=".././sourcefile/parallel.f.html" xlink:title="parallel.F">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="57,-24 0,-24 0,-0 57,-0 57,-24"/>
+<text text-anchor="middle" x="28.5" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">parallel.F</text>
+</a>
+</g>
+</g>
+<!-- sourcefile~sys.f&#45;&gt;sourcefile~parallel.f -->
+<g id="sourcefile~~sys.f~~EfferentGraph_edge1" class="edge"><title>sourcefile~sys.f&#45;&gt;sourcefile~parallel.f</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M92.6311,-12C84.713,-12 75.8655,-12 67.3585,-12"/>
+<polygon fill="#000000" stroke="#000000" points="67.236,-8.5001 57.236,-12 67.236,-15.5001 67.236,-8.5001"/>
+</g>
+</g>
+</svg>
+</div><div><a type="button" class="graph-help" data-toggle="modal" href="#graph-help-text">Help</a></div><div class="modal fade" id="graph-help-text" tabindex="-1" role="dialog"><div class="modal-dialog modal-lg" role="document"><div class="modal-content"><div class="modal-header"><button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button><h4 class="modal-title" id="-graph-help-label">Graph Key</h4></div><div class="modal-body">
+    <p>Nodes of different colours represent the following: </p>
+    <?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+ "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Generated by graphviz version 2.38.0 (20140413.2041)
+ -->
+<!-- Title: Graph Key Pages: 1 -->
+<svg width="190pt" height="32pt"
+ viewBox="0.00 0.00 190.00 32.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 28)">
+<title>Graph Key</title>
+<polygon fill="white" stroke="none" points="-4,4 -4,-28 186,-28 186,4 -4,4"/>
+<!-- Source File -->
+<g id="node1" class="node"><title>Source File</title>
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="67,-24 0,-24 0,-0 67,-0 67,-24"/>
+<text text-anchor="middle" x="33.5" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Source File</text>
+</g>
+<!-- This Page&#39;s Entity -->
+<g id="node2" class="node"><title>This Page&#39;s Entity</title>
+<polygon fill="none" stroke="black" points="182,-24 85,-24 85,-0 182,-0 182,-24"/>
+<text text-anchor="middle" x="133.5" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50">This Page&#39;s Entity</text>
+</g>
+</g>
+</svg>
+
+    
+    <p>Solid arrows point from a file to a file which it depends on. A file
+    is dependent upon another if the latter must be compiled before the former
+    can be.
+    </p>
+    </div></div></div></div>
+      </div>
+    </div>
+    
+      
+    <div class="panel panel-default">
+      <div class="panel-heading">
+  <h3 class="panel-title">Files dependent on this one</h3>
+      </div>
+      <div class="panel-body">
+  <div class="depgraph"><?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+ "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Generated by graphviz version 2.38.0 (20140413.2041)
+ -->
+<!-- Title: sourcefile~~sys.f~~AfferentGraph Pages: 1 -->
+<svg id="sourcefilesysfAfferentGraph" width="641pt" height="393pt"
+ viewBox="0.00 0.00 641.00 392.97" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="sourcefile~~sys.f~~AfferentGraph" class="graph" transform="scale(0.905367 0.905367) rotate(0) translate(4 430.043)">
+<title>sourcefile~~sys.f~~AfferentGraph</title>
+<polygon fill="white" stroke="none" points="-4,4 -4,-430.043 704,-430.043 704,4 -4,4"/>
+<!-- sourcefile~sys.f -->
+<g id="sourcefile~~sys.f~~AfferentGraph_node1" class="node"><title>sourcefile~sys.f</title>
+<polygon fill="none" stroke="black" points="54,-129.983 0,-129.983 0,-105.983 54,-105.983 54,-129.983"/>
+<text text-anchor="middle" x="27" y="-115.583" font-family="Helvetica,sans-Serif" font-size="10.50">sys.F</text>
+</g>
+<!-- sourcefile~siesta_forces.f90 -->
+<g id="sourcefile~~sys.f~~AfferentGraph_node2" class="node"><title>sourcefile~siesta_forces.f90</title>
+<g id="a_sourcefile~~sys.f~~AfferentGraph_node2"><a xlink:href=".././sourcefile/siesta_forces.f90.html" xlink:title="siesta_forces.F90">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="700,-284.983 603,-284.983 603,-260.983 700,-260.983 700,-284.983"/>
+<text text-anchor="middle" x="651.5" y="-270.583" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">siesta_forces.F90</text>
+</a>
+</g>
+</g>
+<!-- sourcefile~siesta_forces.f90&#45;&gt;sourcefile~sys.f -->
+<g id="sourcefile~~sys.f~~AfferentGraph_edge1" class="edge"><title>sourcefile~siesta_forces.f90&#45;&gt;sourcefile~sys.f</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M504.5,-415.983C395.793,-443.296 362.458,-409.497 255.5,-375.983"/>
+</g>
+<!-- sourcefile~compute_dm.f -->
+<g id="sourcefile~~sys.f~~AfferentGraph_node7" class="node"><title>sourcefile~compute_dm.f</title>
+<g id="a_sourcefile~~sys.f~~AfferentGraph_node7"><a xlink:href=".././sourcefile/compute_dm.f.html" xlink:title="compute_dm.F">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="408,-387.983 323,-387.983 323,-363.983 408,-363.983 408,-387.983"/>
+<text text-anchor="middle" x="365.5" y="-373.583" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">compute_dm.F</text>
+</a>
+</g>
+</g>
+<!-- sourcefile~siesta_forces.f90&#45;&gt;sourcefile~compute_dm.f -->
+<g id="sourcefile~~sys.f~~AfferentGraph_edge19" class="edge"><title>sourcefile~siesta_forces.f90&#45;&gt;sourcefile~compute_dm.f</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M504.5,-415.983C466.028,-425.649 422.102,-407.871 394.344,-393.015"/>
+<polygon fill="#000000" stroke="#000000" points="396.02,-389.943 385.581,-388.133 392.613,-396.058 396.02,-389.943"/>
+</g>
+<!-- sourcefile~state_init.f -->
+<g id="sourcefile~~sys.f~~AfferentGraph_node8" class="node"><title>sourcefile~state_init.f</title>
+<g id="a_sourcefile~~sys.f~~AfferentGraph_node8"><a xlink:href=".././sourcefile/state_init.f.html" xlink:title="state_init.F">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="398,-345.983 333,-345.983 333,-321.983 398,-321.983 398,-345.983"/>
+<text text-anchor="middle" x="365.5" y="-331.583" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">state_init.F</text>
+</a>
+</g>
+</g>
+<!-- sourcefile~siesta_forces.f90&#45;&gt;sourcefile~state_init.f -->
+<g id="sourcefile~~sys.f~~AfferentGraph_edge20" class="edge"><title>sourcefile~siesta_forces.f90&#45;&gt;sourcefile~state_init.f</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M644.222,-285.193C627.24,-316.478 576.892,-398.296 506.5,-415.983"/>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M504.5,-415.983C455.29,-428.347 452.131,-380.021 408,-354.983 405.498,-353.563 402.889,-352.132 400.25,-350.72"/>
+<polygon fill="#000000" stroke="#000000" points="401.767,-347.564 391.282,-346.038 398.527,-353.769 401.767,-347.564"/>
+</g>
+<!-- sourcefile~setup_hamiltonian.f -->
+<g id="sourcefile~~sys.f~~AfferentGraph_node9" class="node"><title>sourcefile~setup_hamiltonian.f</title>
+<g id="a_sourcefile~~sys.f~~AfferentGraph_node9"><a xlink:href=".././sourcefile/setup_hamiltonian.f.html" xlink:title="setup_hamiltonian.F">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="560,-305.983 451,-305.983 451,-281.983 560,-281.983 560,-305.983"/>
+<text text-anchor="middle" x="505.5" y="-291.583" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">setup_hamiltonian.F</text>
+</a>
+</g>
+</g>
+<!-- sourcefile~siesta_forces.f90&#45;&gt;sourcefile~setup_hamiltonian.f -->
+<g id="sourcefile~~sys.f~~AfferentGraph_edge21" class="edge"><title>sourcefile~siesta_forces.f90&#45;&gt;sourcefile~setup_hamiltonian.f</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M602.95,-279.917C592.475,-281.445 581.218,-283.087 570.221,-284.69"/>
+<polygon fill="#000000" stroke="#000000" points="569.615,-281.241 560.225,-286.148 570.625,-288.168 569.615,-281.241"/>
+</g>
+<!-- sourcefile~setup_h0.f -->
+<g id="sourcefile~~sys.f~~AfferentGraph_node11" class="node"><title>sourcefile~setup_h0.f</title>
+<g id="a_sourcefile~~sys.f~~AfferentGraph_node11"><a xlink:href=".././sourcefile/setup_h0.f.html" xlink:title="setup_H0.F">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="539.5,-263.983 471.5,-263.983 471.5,-239.983 539.5,-239.983 539.5,-263.983"/>
+<text text-anchor="middle" x="505.5" y="-249.583" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">setup_H0.F</text>
+</a>
+</g>
+</g>
+<!-- sourcefile~siesta_forces.f90&#45;&gt;sourcefile~setup_h0.f -->
+<g id="sourcefile~~sys.f~~AfferentGraph_edge26" class="edge"><title>sourcefile~siesta_forces.f90&#45;&gt;sourcefile~setup_h0.f</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M602.95,-266.048C585.854,-263.555 566.671,-260.758 549.942,-258.318"/>
+<polygon fill="#000000" stroke="#000000" points="550.285,-254.831 539.884,-256.851 549.275,-261.758 550.285,-254.831"/>
+</g>
+<!-- sourcefile~compute_energies.f90 -->
+<g id="sourcefile~~sys.f~~AfferentGraph_node15" class="node"><title>sourcefile~compute_energies.f90</title>
+<g id="a_sourcefile~~sys.f~~AfferentGraph_node15"><a xlink:href=".././sourcefile/compute_energies.f90.html" xlink:title="compute_energies.F90">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="567,-221.983 444,-221.983 444,-197.983 567,-197.983 567,-221.983"/>
+<text text-anchor="middle" x="505.5" y="-207.583" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">compute_energies.F90</text>
+</a>
+</g>
+</g>
+<!-- sourcefile~siesta_forces.f90&#45;&gt;sourcefile~compute_energies.f90 -->
+<g id="sourcefile~~sys.f~~AfferentGraph_edge29" class="edge"><title>sourcefile~siesta_forces.f90&#45;&gt;sourcefile~compute_energies.f90</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M628.548,-260.94C611.922,-252.067 588.372,-240.021 567,-230.983 562.561,-229.106 557.892,-227.263 553.196,-225.495"/>
+<polygon fill="#000000" stroke="#000000" points="554.181,-222.129 543.587,-221.988 551.781,-228.705 554.181,-222.129"/>
+</g>
+<!-- sourcefile~atmfuncs.f -->
+<g id="sourcefile~~sys.f~~AfferentGraph_node3" class="node"><title>sourcefile~atmfuncs.f</title>
+<g id="a_sourcefile~~sys.f~~AfferentGraph_node3"><a xlink:href=".././sourcefile/atmfuncs.f.html" xlink:title="atmfuncs.f">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="169,-208.983 107,-208.983 107,-184.983 169,-184.983 169,-208.983"/>
+<text text-anchor="middle" x="138" y="-194.583" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">atmfuncs.f</text>
+</a>
+</g>
+</g>
+<!-- sourcefile~atmfuncs.f&#45;&gt;sourcefile~sys.f -->
+<g id="sourcefile~~sys.f~~AfferentGraph_edge2" class="edge"><title>sourcefile~atmfuncs.f&#45;&gt;sourcefile~sys.f</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M119.969,-184.639C102.051,-171.653 73.6608,-151.076 53.1608,-136.219"/>
+<polygon fill="#000000" stroke="#000000" points="55.0626,-133.274 44.9117,-130.24 50.9547,-138.942 55.0626,-133.274"/>
+</g>
+<!-- sourcefile~m_iorho.f -->
+<g id="sourcefile~~sys.f~~AfferentGraph_node4" class="node"><title>sourcefile~m_iorho.f</title>
+<g id="a_sourcefile~~sys.f~~AfferentGraph_node4"><a xlink:href=".././sourcefile/m_iorho.f.html" xlink:title="m_iorho.F">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="168.5,-109.983 107.5,-109.983 107.5,-85.9828 168.5,-85.9828 168.5,-109.983"/>
+<text text-anchor="middle" x="138" y="-95.5828" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">m_iorho.F</text>
+</a>
+</g>
+</g>
+<!-- sourcefile~m_iorho.f&#45;&gt;sourcefile~sys.f -->
+<g id="sourcefile~~sys.f~~AfferentGraph_edge3" class="edge"><title>sourcefile~m_iorho.f&#45;&gt;sourcefile~sys.f</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M107.215,-103.448C93.9547,-105.881 78.2175,-108.769 64.2777,-111.326"/>
+<polygon fill="#000000" stroke="#000000" points="63.2431,-107.958 54.0389,-113.205 64.5064,-114.843 63.2431,-107.958"/>
+</g>
+<!-- sourcefile~rhoofd.f90 -->
+<g id="sourcefile~~sys.f~~AfferentGraph_node5" class="node"><title>sourcefile~rhoofd.f90</title>
+<g id="a_sourcefile~~sys.f~~AfferentGraph_node5"><a xlink:href=".././sourcefile/rhoofd.f90.html" xlink:title="rhoofd.F90">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="287,-147.983 222,-147.983 222,-123.983 287,-123.983 287,-147.983"/>
+<text text-anchor="middle" x="254.5" y="-133.583" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">rhoofd.F90</text>
+</a>
+</g>
+</g>
+<!-- sourcefile~rhoofd.f90&#45;&gt;sourcefile~sys.f -->
+<g id="sourcefile~~sys.f~~AfferentGraph_edge4" class="edge"><title>sourcefile~rhoofd.f90&#45;&gt;sourcefile~sys.f</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M221.67,-133.442C180.172,-130.13 107.763,-124.35 64.2127,-120.873"/>
+<polygon fill="#000000" stroke="#000000" points="64.309,-117.37 54.0622,-120.063 63.7519,-124.348 64.309,-117.37"/>
+</g>
+<!-- sourcefile~rhoofd.f90&#45;&gt;sourcefile~atmfuncs.f -->
+<g id="sourcefile~~sys.f~~AfferentGraph_edge12" class="edge"><title>sourcefile~rhoofd.f90&#45;&gt;sourcefile~atmfuncs.f</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M230.878,-148.034C213.628,-157.225 189.658,-169.995 170.527,-180.187"/>
+<polygon fill="#000000" stroke="#000000" points="168.755,-177.165 161.575,-184.956 172.046,-183.343 168.755,-177.165"/>
+</g>
+<!-- sourcefile~moremeshsubs.f -->
+<g id="sourcefile~~sys.f~~AfferentGraph_node6" class="node"><title>sourcefile~moremeshsubs.f</title>
+<g id="a_sourcefile~~sys.f~~AfferentGraph_node6"><a xlink:href=".././sourcefile/moremeshsubs.f.html" xlink:title="moremeshsubs.F">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="186,-67.9828 90,-67.9828 90,-43.9828 186,-43.9828 186,-67.9828"/>
+<text text-anchor="middle" x="138" y="-53.5828" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">moremeshsubs.F</text>
+</a>
+</g>
+</g>
+<!-- sourcefile~moremeshsubs.f&#45;&gt;sourcefile~sys.f -->
+<g id="sourcefile~~sys.f~~AfferentGraph_edge5" class="edge"><title>sourcefile~moremeshsubs.f&#45;&gt;sourcefile~sys.f</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M107.803,-68.1331C101.825,-70.8689 95.6401,-73.8852 90,-76.9828 77.4157,-83.8942 64.0592,-92.5422 52.9787,-100.112"/>
+<polygon fill="#000000" stroke="#000000" points="50.86,-97.322 44.6385,-105.898 54.85,-103.074 50.86,-97.322"/>
+</g>
+<!-- sourcefile~compute_dm.f&#45;&gt;sourcefile~sys.f -->
+<g id="sourcefile~~sys.f~~AfferentGraph_edge6" class="edge"><title>sourcefile~compute_dm.f&#45;&gt;sourcefile~sys.f</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M322.984,-381.75C302.263,-383.194 277.079,-382.745 255.5,-375.983"/>
+</g>
+<!-- sourcefile~state_init.f&#45;&gt;sourcefile~sys.f -->
+<g id="sourcefile~~sys.f~~AfferentGraph_edge7" class="edge"><title>sourcefile~state_init.f&#45;&gt;sourcefile~sys.f</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M338.385,-346.008C308.826,-359.307 263.7,-378.552 255.5,-375.983"/>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M253.5,-375.983C193.771,-357.267 187.935,-333.012 139,-293.983"/>
+</g>
+<!-- sourcefile~setup_hamiltonian.f&#45;&gt;sourcefile~sys.f -->
+<g id="sourcefile~~sys.f~~AfferentGraph_edge8" class="edge"><title>sourcefile~setup_hamiltonian.f&#45;&gt;sourcefile~sys.f</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M253.5,-293.983C203.989,-282.222 178.785,-325.714 139,-293.983"/>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M137,-293.983C84.3178,-251.965 50.3363,-177.088 35.9216,-140.022"/>
+<polygon fill="#000000" stroke="#000000" points="39.0284,-138.341 32.2257,-130.219 32.4784,-140.81 39.0284,-138.341"/>
+</g>
+<!-- sourcefile~setup_hamiltonian.f&#45;&gt;sourcefile~atmfuncs.f -->
+<g id="sourcefile~~sys.f~~AfferentGraph_edge13" class="edge"><title>sourcefile~setup_hamiltonian.f&#45;&gt;sourcefile~atmfuncs.f</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M450.96,-299.991C400.127,-304.289 321.842,-307.241 255.5,-293.983"/>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M253.5,-293.983C209.512,-283.534 172.546,-242.677 153.295,-217.44"/>
+<polygon fill="#000000" stroke="#000000" points="155.997,-215.207 147.242,-209.24 150.365,-219.364 155.997,-215.207"/>
+</g>
+<!-- sourcefile~dhscf.f -->
+<g id="sourcefile~~sys.f~~AfferentGraph_node10" class="node"><title>sourcefile~dhscf.f</title>
+<g id="a_sourcefile~~sys.f~~AfferentGraph_node10"><a xlink:href=".././sourcefile/dhscf.f.html" xlink:title="dhscf.F">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="392.5,-183.983 338.5,-183.983 338.5,-159.983 392.5,-159.983 392.5,-183.983"/>
+<text text-anchor="middle" x="365.5" y="-169.583" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">dhscf.F</text>
+</a>
+</g>
+</g>
+<!-- sourcefile~setup_hamiltonian.f&#45;&gt;sourcefile~dhscf.f -->
+<g id="sourcefile~~sys.f~~AfferentGraph_edge25" class="edge"><title>sourcefile~setup_hamiltonian.f&#45;&gt;sourcefile~dhscf.f</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M460.033,-281.955C454.375,-279.462 448.868,-276.497 444,-272.983 414.363,-251.591 390.675,-215.689 377.618,-192.951"/>
+<polygon fill="#000000" stroke="#000000" points="380.609,-191.127 372.687,-184.092 374.493,-194.532 380.609,-191.127"/>
+</g>
+<!-- sourcefile~dhscf.f&#45;&gt;sourcefile~sys.f -->
+<g id="sourcefile~~sys.f~~AfferentGraph_edge9" class="edge"><title>sourcefile~dhscf.f&#45;&gt;sourcefile~sys.f</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M360.028,-159.656C350.193,-133.901 324.531,-73.5769 287,-34.9828 275.602,-23.2616 270.615,-22.2165 255.5,-15.9828"/>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M253.5,-15.9828C185.87,11.9097 153.396,1.52268 90,-34.9828 65.4655,-49.1105 47.6621,-77.2441 37.5879,-96.8188"/>
+<polygon fill="#000000" stroke="#000000" points="34.3967,-95.3775 33.1484,-105.899 40.6852,-98.4523 34.3967,-95.3775"/>
+</g>
+<!-- sourcefile~dhscf.f&#45;&gt;sourcefile~atmfuncs.f -->
+<g id="sourcefile~~sys.f~~AfferentGraph_edge14" class="edge"><title>sourcefile~dhscf.f&#45;&gt;sourcefile~atmfuncs.f</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M338.191,-174.9C299.065,-179.237 225.232,-187.423 179.277,-192.518"/>
+<polygon fill="#000000" stroke="#000000" points="178.628,-189.068 169.075,-193.649 179.4,-196.025 178.628,-189.068"/>
+</g>
+<!-- sourcefile~dhscf.f&#45;&gt;sourcefile~m_iorho.f -->
+<g id="sourcefile~~sys.f~~AfferentGraph_edge15" class="edge"><title>sourcefile~dhscf.f&#45;&gt;sourcefile~m_iorho.f</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M352.326,-159.802C338.032,-146.329 312.962,-125.18 287,-114.983 252.222,-101.323 209.564,-97.6667 178.995,-97.0733"/>
+<polygon fill="#000000" stroke="#000000" points="178.751,-93.5711 168.719,-96.9798 178.687,-100.571 178.751,-93.5711"/>
+</g>
+<!-- sourcefile~dhscf.f&#45;&gt;sourcefile~rhoofd.f90 -->
+<g id="sourcefile~~sys.f~~AfferentGraph_edge16" class="edge"><title>sourcefile~dhscf.f&#45;&gt;sourcefile~rhoofd.f90</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M338.392,-163.36C326.026,-159.276 310.954,-154.298 297.07,-149.712"/>
+<polygon fill="#000000" stroke="#000000" points="297.82,-146.274 287.226,-146.461 295.624,-152.921 297.82,-146.274"/>
+</g>
+<!-- sourcefile~dhscf.f&#45;&gt;sourcefile~moremeshsubs.f -->
+<g id="sourcefile~~sys.f~~AfferentGraph_edge18" class="edge"><title>sourcefile~dhscf.f&#45;&gt;sourcefile~moremeshsubs.f</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M253.5,-15.9828C238.372,-9.7436 199.406,-25.8257 171.125,-39.4245"/>
+<polygon fill="#000000" stroke="#000000" points="169.429,-36.3579 161.993,-43.9052 172.513,-42.6421 169.429,-36.3579"/>
+</g>
+<!-- sourcefile~delk.f90 -->
+<g id="sourcefile~~sys.f~~AfferentGraph_node12" class="node"><title>sourcefile~delk.f90</title>
+<g id="a_sourcefile~~sys.f~~AfferentGraph_node12"><a xlink:href=".././sourcefile/delk.f90.html" xlink:title="delk.F90">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="281.5,-227.983 227.5,-227.983 227.5,-203.983 281.5,-203.983 281.5,-227.983"/>
+<text text-anchor="middle" x="254.5" y="-213.583" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">delk.F90</text>
+</a>
+</g>
+</g>
+<!-- sourcefile~dhscf.f&#45;&gt;sourcefile~delk.f90 -->
+<g id="sourcefile~~sys.f~~AfferentGraph_edge27" class="edge"><title>sourcefile~dhscf.f&#45;&gt;sourcefile~delk.f90</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M338.392,-182.522C324.339,-188.195 306.792,-195.278 291.465,-201.465"/>
+<polygon fill="#000000" stroke="#000000" points="289.736,-198.388 281.773,-205.377 292.356,-204.879 289.736,-198.388"/>
+</g>
+<!-- sourcefile~forhar.f -->
+<g id="sourcefile~~sys.f~~AfferentGraph_node13" class="node"><title>sourcefile~forhar.f</title>
+<g id="a_sourcefile~~sys.f~~AfferentGraph_node13"><a xlink:href=".././sourcefile/forhar.f.html" xlink:title="forhar.F">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="281.5,-67.9828 227.5,-67.9828 227.5,-43.9828 281.5,-43.9828 281.5,-67.9828"/>
+<text text-anchor="middle" x="254.5" y="-53.5828" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">forhar.F</text>
+</a>
+</g>
+</g>
+<!-- sourcefile~dhscf.f&#45;&gt;sourcefile~forhar.f -->
+<g id="sourcefile~~sys.f~~AfferentGraph_edge28" class="edge"><title>sourcefile~dhscf.f&#45;&gt;sourcefile~forhar.f</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M355.075,-159.763C341.059,-141.897 313.517,-107.952 287,-81.9828 284.492,-79.5269 281.777,-77.0486 279.027,-74.6485"/>
+<polygon fill="#000000" stroke="#000000" points="281.239,-71.9352 271.334,-68.1746 276.732,-77.2912 281.239,-71.9352"/>
+</g>
+<!-- sourcefile~setup_h0.f&#45;&gt;sourcefile~atmfuncs.f -->
+<g id="sourcefile~~sys.f~~AfferentGraph_edge10" class="edge"><title>sourcefile~setup_h0.f&#45;&gt;sourcefile~atmfuncs.f</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M471.24,-254.394C417.765,-257.349 309.775,-259.495 222,-236.983 202.881,-232.079 182.911,-222.61 167.351,-214.115"/>
+<polygon fill="#000000" stroke="#000000" points="168.709,-210.864 158.279,-209.002 165.272,-216.961 168.709,-210.864"/>
+</g>
+<!-- sourcefile~setup_h0.f&#45;&gt;sourcefile~dhscf.f -->
+<g id="sourcefile~~sys.f~~AfferentGraph_edge22" class="edge"><title>sourcefile~setup_h0.f&#45;&gt;sourcefile~dhscf.f</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M471.357,-242.589C462.241,-239.446 452.524,-235.556 444,-230.983 423.255,-219.854 402.153,-203.38 387.217,-190.667"/>
+<polygon fill="#000000" stroke="#000000" points="389.441,-187.962 379.596,-184.048 384.851,-193.247 389.441,-187.962"/>
+</g>
+<!-- sourcefile~delk.f90&#45;&gt;sourcefile~atmfuncs.f -->
+<g id="sourcefile~~sys.f~~AfferentGraph_edge11" class="edge"><title>sourcefile~delk.f90&#45;&gt;sourcefile~atmfuncs.f</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M227.231,-211.624C213.041,-209.269 195.218,-206.311 179.311,-203.672"/>
+<polygon fill="#000000" stroke="#000000" points="179.63,-200.177 169.192,-201.993 178.484,-207.083 179.63,-200.177"/>
+</g>
+<!-- sourcefile~forhar.f&#45;&gt;sourcefile~moremeshsubs.f -->
+<g id="sourcefile~~sys.f~~AfferentGraph_edge17" class="edge"><title>sourcefile~forhar.f&#45;&gt;sourcefile~moremeshsubs.f</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M227.231,-55.9828C218.025,-55.9828 207.289,-55.9828 196.54,-55.9828"/>
+<polygon fill="#000000" stroke="#000000" points="196.279,-52.4829 186.279,-55.9828 196.279,-59.4829 196.279,-52.4829"/>
+</g>
+<!-- sourcefile~siesta_analysis.f -->
+<g id="sourcefile~~sys.f~~AfferentGraph_node14" class="node"><title>sourcefile~siesta_analysis.f</title>
+<g id="a_sourcefile~~sys.f~~AfferentGraph_node14"><a xlink:href=".././sourcefile/siesta_analysis.f.html" xlink:title="siesta_analysis.F">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="552.5,-179.983 458.5,-179.983 458.5,-155.983 552.5,-155.983 552.5,-179.983"/>
+<text text-anchor="middle" x="505.5" y="-165.583" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">siesta_analysis.F</text>
+</a>
+</g>
+</g>
+<!-- sourcefile~siesta_analysis.f&#45;&gt;sourcefile~dhscf.f -->
+<g id="sourcefile~~sys.f~~AfferentGraph_edge24" class="edge"><title>sourcefile~siesta_analysis.f&#45;&gt;sourcefile~dhscf.f</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M458.164,-169.326C440.138,-169.848 419.789,-170.438 402.852,-170.929"/>
+<polygon fill="#000000" stroke="#000000" points="402.692,-167.432 392.798,-171.221 402.895,-174.429 402.692,-167.432"/>
+</g>
+<!-- sourcefile~compute_energies.f90&#45;&gt;sourcefile~dhscf.f -->
+<g id="sourcefile~~sys.f~~AfferentGraph_edge23" class="edge"><title>sourcefile~compute_energies.f90&#45;&gt;sourcefile~dhscf.f</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M460.836,-197.959C442.002,-192.773 420.243,-186.782 402.372,-181.861"/>
+<polygon fill="#000000" stroke="#000000" points="403.189,-178.455 392.619,-179.175 401.331,-185.204 403.189,-178.455"/>
+</g>
+</g>
+</svg>
+</div><script>var pansourcefilesysfAfferentGraph = svgPanZoom('#sourcefilesysfAfferentGraph', {zoomEnabled: true,controlIconsEnabled: true, fit: true, center: true,}); </script><div><a type="button" class="graph-help" data-toggle="modal" href="#graph-help-text">Help</a></div><div class="modal fade" id="graph-help-text" tabindex="-1" role="dialog"><div class="modal-dialog modal-lg" role="document"><div class="modal-content"><div class="modal-header"><button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button><h4 class="modal-title" id="-graph-help-label">Graph Key</h4></div><div class="modal-body">
+    <p>Nodes of different colours represent the following: </p>
+    <?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+ "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Generated by graphviz version 2.38.0 (20140413.2041)
+ -->
+<!-- Title: Graph Key Pages: 1 -->
+<svg width="190pt" height="32pt"
+ viewBox="0.00 0.00 190.00 32.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 28)">
+<title>Graph Key</title>
+<polygon fill="white" stroke="none" points="-4,4 -4,-28 186,-28 186,4 -4,4"/>
+<!-- Source File -->
+<g id="node1" class="node"><title>Source File</title>
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="67,-24 0,-24 0,-0 67,-0 67,-24"/>
+<text text-anchor="middle" x="33.5" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Source File</text>
+</g>
+<!-- This Page&#39;s Entity -->
+<g id="node2" class="node"><title>This Page&#39;s Entity</title>
+<polygon fill="none" stroke="black" points="182,-24 85,-24 85,-0 182,-0 182,-24"/>
+<text text-anchor="middle" x="133.5" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50">This Page&#39;s Entity</text>
+</g>
+</g>
+</svg>
+
+    
+    <p>Solid arrows point from a file to a file which it depends on. A file
+    is dependent upon another if the latter must be compiled before the former
+    can be.
+    </p>
+    </div></div></div></div>
+      </div>
+    </div>
+      
+      <br>
+
+    <section class="visible-xs visible-sm hidden-md">
+      
+<h3>Contents</h3>
+ 
+
+
+
+
+
+
+
+<div class="panel panel-primary">
+  <div class="panel-heading text-left"><h3 class="panel-title"><a data-toggle="collapse" href="#mods-1">Modules</a></h3></div>
+  <div id="mods-1" class="panel-collapse collapse">
+    <div class="list-group">
+      
+      <a class="list-group-item" href="../module/sys.html">sys</a>
+      
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="panel panel-primary">
+  <div class="panel-heading text-left"><h3 class="panel-title">Source Code</h3></div>
+  <div class="list-group">
+    <a class="list-group-item" href="../sourcefile/sys.f.html#src">sys.F</a>
+  </div>
+</div>
+
+
+
+    </section>
+    <br class="visible-xs visible-sm hidden-md">
+
+    <section>
+      <h2><span class="anchor" id="src"></span>Source Code</h2>
+    <div class="hl"><pre><span></span><a name="ln-1"></a><span class="c">! ---</span>
+<a name="ln-2"></a><span class="c">! Copyright (C) 1996-2016	The SIESTA group</span>
+<a name="ln-3"></a><span class="c">!  This file is distributed under the terms of the</span>
+<a name="ln-4"></a><span class="c">!  GNU General Public License: see COPYING in the top directory</span>
+<a name="ln-5"></a><span class="c">!  or http://www.gnu.org/copyleft/gpl.txt .</span>
+<a name="ln-6"></a><span class="c">! See Docs/Contributors.txt for a list of contributors.</span>
+<a name="ln-7"></a><span class="c">! ---</span>
+<a name="ln-8"></a><span class="nl">     </span> <span class="k">module </span><span class="n">sys</span>
+<a name="ln-9"></a><span class="c">!! Termination and messaging routines, MPI aware</span>
+<a name="ln-10"></a>
+<a name="ln-11"></a><span class="nl">     </span> <span class="k">implicit none</span>
+<a name="ln-12"></a>
+<a name="ln-13"></a><span class="nl">     </span> <span class="k">public</span> <span class="kd">::</span> <span class="n">die</span>      <span class="c">! Prints an error message and calls MPI_Abort</span>
+<a name="ln-14"></a><span class="nl">     </span> <span class="k">public</span> <span class="kd">::</span> <span class="n">bye</span>      <span class="c">! Prints an error message and calls MPI_Finalize</span>
+<a name="ln-15"></a><span class="nl">     </span> <span class="k">public</span> <span class="kd">::</span> <span class="n">message</span>  <span class="c">! Prints a message string if node==0</span>
+<a name="ln-16"></a>
+<a name="ln-17"></a><span class="nl">     </span> <span class="k">private</span>
+<a name="ln-18"></a>
+<a name="ln-19"></a><span class="nl">     </span> <span class="k">CONTAINS</span>
+<a name="ln-20"></a>
+<a name="ln-21"></a>
+<a name="ln-22"></a><span class="nl">     </span> <span class="k">subroutine </span><span class="n">message</span><span class="p">(</span><span class="n">level</span><span class="p">,</span><span class="n">str</span><span class="p">)</span>
+<a name="ln-23"></a><span class="nl">     </span>   <span class="c">!! Prints a message string if `node==0`</span>
+<a name="ln-24"></a>
+<a name="ln-25"></a><span class="nl">     </span> <span class="k">use </span><span class="n">parallel</span><span class="p">,</span> <span class="n">only</span> <span class="p">:</span> <span class="n">Node</span>
+<a name="ln-26"></a>
+<a name="ln-27"></a><span class="nl">     </span> <span class="kt">character</span><span class="p">(</span><span class="nb">len</span><span class="o">=*</span><span class="p">),</span> <span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">)</span>  <span class="kd">::</span> <span class="n">level</span>
+<a name="ln-28"></a><span class="nl">     </span>   <span class="c">!! One of INFO, WARNING, FATAL</span>
+<a name="ln-29"></a><span class="nl">     </span> <span class="kt">character</span><span class="p">(</span><span class="nb">len</span><span class="o">=*</span><span class="p">),</span> <span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">)</span>  <span class="kd">::</span> <span class="n">str</span>
+<a name="ln-30"></a>
+<a name="ln-31"></a><span class="nl">     </span> <span class="k">external</span> <span class="kd">::</span>  <span class="n">io_assign</span><span class="p">,</span> <span class="n">io_close</span>
+<a name="ln-32"></a><span class="nl">     </span> <span class="kt">integer</span>  <span class="kd">::</span>  <span class="n">lun</span>
+<a name="ln-33"></a>
+<a name="ln-34"></a><span class="nl">     </span> <span class="k">if</span> <span class="p">(</span><span class="n">Node</span> <span class="p">.</span><span class="n">eq</span><span class="p">.</span> <span class="mi">0</span><span class="p">)</span> <span class="k">then</span>
+<a name="ln-35"></a><span class="nl">     </span>    <span class="k">write</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span><span class="s1">&#39;(a)&#39;</span><span class="p">)</span> <span class="nb">trim</span><span class="p">(</span><span class="n">str</span><span class="p">)</span>
+<a name="ln-36"></a><span class="nl">     </span>    <span class="k">write</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="s1">&#39;(a)&#39;</span><span class="p">)</span> <span class="nb">trim</span><span class="p">(</span><span class="n">str</span><span class="p">)</span>
+<a name="ln-37"></a><span class="nl">     </span>    <span class="k">call </span><span class="n">io_assign</span><span class="p">(</span><span class="n">lun</span><span class="p">)</span>
+<a name="ln-38"></a><span class="nl">     </span>    <span class="k">open</span><span class="p">(</span><span class="n">lun</span><span class="p">,</span><span class="k">file</span><span class="o">=</span><span class="s2">&quot;MESSAGES&quot;</span><span class="p">,</span><span class="n">status</span><span class="o">=</span><span class="s2">&quot;unknown&quot;</span><span class="p">,</span>
+<a name="ln-39"></a><span class="nl">     </span><span class="gs">$</span>        <span class="n">position</span><span class="o">=</span><span class="s2">&quot;append&quot;</span><span class="p">,</span><span class="n">action</span><span class="o">=</span><span class="s2">&quot;write&quot;</span><span class="p">)</span>
+<a name="ln-40"></a><span class="nl">     </span>    <span class="k">write</span><span class="p">(</span><span class="n">lun</span><span class="p">,</span><span class="s2">&quot;(a)&quot;</span><span class="p">)</span> <span class="nb">trim</span><span class="p">(</span><span class="n">level</span><span class="p">)</span> <span class="o">//</span> <span class="s2">&quot;: &quot;</span> <span class="o">//</span> <span class="nb">trim</span><span class="p">(</span><span class="n">str</span><span class="p">)</span>
+<a name="ln-41"></a><span class="nl">     </span>    <span class="k">call </span><span class="n">io_close</span><span class="p">(</span><span class="n">lun</span><span class="p">)</span>
+<a name="ln-42"></a><span class="nl">     </span>    <span class="k">call </span><span class="n">pxfflush</span><span class="p">(</span><span class="mi">6</span><span class="p">)</span>
+<a name="ln-43"></a><span class="nl">     </span>    <span class="k">call </span><span class="n">pxfflush</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+<a name="ln-44"></a><span class="nl">     </span> <span class="n">endif</span>
+<a name="ln-45"></a>
+<a name="ln-46"></a><span class="nl">     </span> <span class="k">end subroutine </span><span class="n">message</span>
+<a name="ln-47"></a>
+<a name="ln-48"></a>
+<a name="ln-49"></a><span class="nl">     </span> <span class="k">subroutine </span><span class="n">die</span><span class="p">(</span><span class="n">str</span><span class="p">)</span>
+<a name="ln-50"></a><span class="nl">     </span>   <span class="c">!! Prints an error message and calls MPI_Abort</span>
+<a name="ln-51"></a>
+<a name="ln-52"></a><span class="nl">     </span> <span class="k">use </span><span class="n">parallel</span><span class="p">,</span> <span class="n">only</span> <span class="p">:</span> <span class="n">Node</span>
+<a name="ln-53"></a><span class="nl">     </span> <span class="k">use </span><span class="n">siesta_cml</span>
+<a name="ln-54"></a><span class="cp">#ifdef MPI</span>
+<a name="ln-55"></a><span class="nl">     </span> <span class="k">use </span><span class="n">mpi_siesta</span>
+<a name="ln-56"></a><span class="cp">#endif</span>
+<a name="ln-57"></a>
+<a name="ln-58"></a><span class="nl">     </span> <span class="kt">character</span><span class="p">(</span><span class="nb">len</span><span class="o">=*</span><span class="p">),</span> <span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">),</span> <span class="k">optional</span>   <span class="kd">::</span> <span class="n">str</span>
+<a name="ln-59"></a>
+<a name="ln-60"></a><span class="nl">     </span> <span class="k">external</span> <span class="kd">::</span>  <span class="n">io_assign</span><span class="p">,</span> <span class="n">io_close</span>
+<a name="ln-61"></a><span class="nl">     </span> <span class="kt">integer</span>  <span class="kd">::</span>  <span class="n">lun</span>
+<a name="ln-62"></a><span class="cp">#ifdef MPI</span>
+<a name="ln-63"></a><span class="nl">     </span> <span class="kt">integer </span><span class="n">MPIerror</span>
+<a name="ln-64"></a><span class="cp">#endif</span>
+<a name="ln-65"></a>
+<a name="ln-66"></a><span class="c">! Even though formally (in MPI 1.X), only the master node</span>
+<a name="ln-67"></a><span class="c">! can do I/O, in those systems that allow it having each</span>
+<a name="ln-68"></a><span class="c">! node state its complaint can be useful.</span>
+<a name="ln-69"></a>
+<a name="ln-70"></a><span class="c">!                                        if (Node.eq.0) then</span>
+<a name="ln-71"></a><span class="nl">     </span> <span class="k">if</span> <span class="p">(</span><span class="nb">present</span><span class="p">(</span><span class="n">str</span><span class="p">))</span> <span class="k">then</span>
+<a name="ln-72"></a><span class="nl">     </span>    <span class="k">write</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span><span class="s1">&#39;(a)&#39;</span><span class="p">)</span> <span class="nb">trim</span><span class="p">(</span><span class="n">str</span><span class="p">)</span>
+<a name="ln-73"></a><span class="nl">     </span>    <span class="k">write</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="s1">&#39;(a)&#39;</span><span class="p">)</span> <span class="nb">trim</span><span class="p">(</span><span class="n">str</span><span class="p">)</span>
+<a name="ln-74"></a><span class="nl">     </span> <span class="n">endif</span>
+<a name="ln-75"></a><span class="nl">     </span> <span class="k">write</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span><span class="s1">&#39;(a,i4)&#39;</span><span class="p">)</span> <span class="s1">&#39;Stopping Program from Node: &#39;</span><span class="p">,</span> <span class="n">Node</span>
+<a name="ln-76"></a><span class="nl">     </span> <span class="k">write</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="s1">&#39;(a,i4)&#39;</span><span class="p">)</span> <span class="s1">&#39;Stopping Program from Node: &#39;</span><span class="p">,</span> <span class="n">Node</span>
+<a name="ln-77"></a><span class="c">!                                        endif</span>
+<a name="ln-78"></a><span class="nl">     </span> <span class="k">if</span> <span class="p">(</span><span class="n">Node</span> <span class="p">.</span><span class="n">eq</span><span class="p">.</span> <span class="mi">0</span><span class="p">)</span> <span class="k">then</span>
+<a name="ln-79"></a><span class="nl">     </span>    <span class="k">call </span><span class="n">io_assign</span><span class="p">(</span> <span class="n">lun</span> <span class="p">)</span>
+<a name="ln-80"></a><span class="nl">     </span>    <span class="k">open</span><span class="p">(</span><span class="n">lun</span><span class="p">,</span><span class="k">file</span><span class="o">=</span><span class="s2">&quot;MESSAGES&quot;</span><span class="p">,</span><span class="n">status</span><span class="o">=</span><span class="s2">&quot;unknown&quot;</span><span class="p">,</span>
+<a name="ln-81"></a><span class="nl">     </span><span class="gs">$</span>        <span class="n">position</span><span class="o">=</span><span class="s2">&quot;append&quot;</span><span class="p">,</span><span class="n">action</span><span class="o">=</span><span class="s2">&quot;write&quot;</span><span class="p">)</span>
+<a name="ln-82"></a><span class="nl">     </span>    <span class="k">write</span><span class="p">(</span><span class="n">lun</span><span class="p">,</span><span class="s2">&quot;(a)&quot;</span><span class="p">)</span> <span class="s1">&#39;FATAL: &#39;</span> <span class="o">//</span> <span class="nb">trim</span><span class="p">(</span><span class="n">str</span><span class="p">)</span>
+<a name="ln-83"></a><span class="nl">     </span>    <span class="k">call </span><span class="n">io_close</span><span class="p">(</span><span class="n">lun</span><span class="p">)</span>
+<a name="ln-84"></a><span class="nl">     </span>    <span class="k">call </span><span class="n">pxfflush</span><span class="p">(</span><span class="mi">6</span><span class="p">)</span>
+<a name="ln-85"></a><span class="nl">     </span>    <span class="k">call </span><span class="n">pxfflush</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+<a name="ln-86"></a><span class="nl">     </span>    <span class="k">If</span> <span class="p">(</span><span class="n">cml_p</span><span class="p">)</span> <span class="k">Then</span>
+<a name="ln-87"></a><span class="nl">     </span>       <span class="k">Call </span><span class="n">cmlFinishFile</span><span class="p">(</span><span class="n">mainXML</span><span class="p">)</span>
+<a name="ln-88"></a><span class="nl">     </span>    <span class="n">Endif</span>                  <span class="c">!cml_p</span>
+<a name="ln-89"></a><span class="nl">     </span> <span class="n">endif</span>
+<a name="ln-90"></a>
+<a name="ln-91"></a><span class="cp">#ifdef MPI</span>
+<a name="ln-92"></a><span class="nl">     </span> <span class="k">call </span><span class="n">MPI_Abort</span><span class="p">(</span><span class="n">MPI_Comm_World</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="n">MPIerror</span><span class="p">)</span>
+<a name="ln-93"></a><span class="nl">     </span> <span class="k">stop</span>
+<a name="ln-94"></a><span class="cp">#else</span>
+<a name="ln-95"></a><span class="nl">     </span> <span class="k">call </span><span class="n">pxfabort</span><span class="p">()</span>
+<a name="ln-96"></a><span class="cp">#endif</span>
+<a name="ln-97"></a><span class="nl">     </span> <span class="k">end subroutine </span><span class="n">die</span>
+<a name="ln-98"></a>
+<a name="ln-99"></a>
+<a name="ln-100"></a><span class="nl">     </span> <span class="k">subroutine </span><span class="n">bye</span><span class="p">(</span><span class="n">str</span><span class="p">)</span>
+<a name="ln-101"></a><span class="nl">     </span>   <span class="c">!! Prints an error message and calls MPI_Finalize</span>
+<a name="ln-102"></a>
+<a name="ln-103"></a><span class="nl">     </span> <span class="k">use </span><span class="n">parallel</span><span class="p">,</span> <span class="n">only</span> <span class="p">:</span> <span class="n">Node</span>
+<a name="ln-104"></a><span class="nl">     </span> <span class="k">use </span><span class="n">siesta_cml</span>
+<a name="ln-105"></a><span class="cp">#ifdef MPI</span>
+<a name="ln-106"></a><span class="nl">     </span> <span class="k">use </span><span class="n">mpi_siesta</span>
+<a name="ln-107"></a><span class="cp">#endif</span>
+<a name="ln-108"></a>
+<a name="ln-109"></a><span class="nl">     </span> <span class="kt">character</span><span class="p">(</span><span class="nb">len</span><span class="o">=*</span><span class="p">),</span> <span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">),</span> <span class="k">optional</span>   <span class="kd">::</span> <span class="n">str</span>
+<a name="ln-110"></a>
+<a name="ln-111"></a><span class="cp">#ifdef MPI</span>
+<a name="ln-112"></a><span class="nl">     </span> <span class="kt">integer </span><span class="n">rc</span>
+<a name="ln-113"></a><span class="cp">#endif</span>
+<a name="ln-114"></a>
+<a name="ln-115"></a><span class="nl">     </span> <span class="k">if</span> <span class="p">(</span><span class="n">Node</span><span class="p">.</span><span class="n">eq</span><span class="p">.</span><span class="mi">0</span><span class="p">)</span> <span class="k">then</span>
+<a name="ln-116"></a><span class="nl">     </span>    <span class="k">if</span> <span class="p">(</span><span class="nb">present</span><span class="p">(</span><span class="n">str</span><span class="p">))</span> <span class="k">then</span>
+<a name="ln-117"></a><span class="nl">     </span>       <span class="k">write</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span><span class="s1">&#39;(a)&#39;</span><span class="p">)</span> <span class="nb">trim</span><span class="p">(</span><span class="n">str</span><span class="p">)</span>
+<a name="ln-118"></a><span class="nl">     </span>    <span class="n">endif</span>
+<a name="ln-119"></a><span class="nl">     </span>    <span class="k">write</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span><span class="s1">&#39;(a)&#39;</span><span class="p">)</span> <span class="s1">&#39;Requested End of Run. Bye!!&#39;</span>
+<a name="ln-120"></a><span class="nl">     </span>    <span class="k">call </span><span class="n">pxfflush</span><span class="p">(</span><span class="mi">6</span><span class="p">)</span>
+<a name="ln-121"></a><span class="nl">     </span>    <span class="k">If</span> <span class="p">(</span><span class="n">cml_p</span><span class="p">)</span> <span class="k">Then</span>
+<a name="ln-122"></a><span class="nl">     </span>       <span class="k">Call </span><span class="n">cmlFinishFile</span><span class="p">(</span><span class="n">mainXML</span><span class="p">)</span>
+<a name="ln-123"></a><span class="nl">     </span>    <span class="n">Endif</span>                  <span class="c">!cml_p</span>
+<a name="ln-124"></a><span class="nl">     </span> <span class="n">endif</span>
+<a name="ln-125"></a>
+<a name="ln-126"></a><span class="cp">#ifdef MPI</span>
+<a name="ln-127"></a><span class="nl">     </span> <span class="k">call </span><span class="n">MPI_Finalize</span><span class="p">(</span><span class="n">rc</span><span class="p">)</span>
+<a name="ln-128"></a><span class="nl">     </span> <span class="k">stop</span>
+<a name="ln-129"></a><span class="cp">#else</span>
+<a name="ln-130"></a><span class="nl">     </span> <span class="k">stop</span>
+<a name="ln-131"></a><span class="cp">#endif</span>
+<a name="ln-132"></a><span class="nl">     </span> <span class="k">end subroutine </span><span class="n">bye</span>
+<a name="ln-133"></a>
+<a name="ln-134"></a><span class="nl">     </span> <span class="k">end module </span><span class="n">sys</span>
+</pre></div>
+
+    </section>
+    </div>
+  </div>
+
+  
+    <hr>    
+    </div> <!-- /container -->
+    <footer>
+      <div class="container">
+      <div class="row">
+        <div class="col-xs-6 col-md-4"><p>&copy; 2018 <a rel="license" href="http://www.gnu.org/licenses/old-licenses/fdl-1.2.en.html">GNU Free Documentation License</a>
+                                          </p></div>
+        <div class="col-xs-6 col-md-4 col-md-push-4">
+          <p class="text-right">
+            Documentation generated by 
+            <a href="https://github.com/cmacmackin/ford">FORD</a>
+            
+          </p>
+        </div>
+        <div class="col-xs-12 col-md-4 col-md-pull-4"><p class="text-center"> SIESTA was developed by SIESTA Group</p></div>
+      </div>
+      <br>
+      </div> <!-- /container -->    
+    </footer>
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+<!--
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+-->
+    <script src="../js/bootstrap.min.js"></script>
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script src="../js/ie10-viewport-bug-workaround.js"></script>
+
+    <!-- MathJax JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        TeX: { extensions: ['AMSmath.js','AMSsymbols.js','noErrors.js','noUndefined.js'], equationNumbers: { autoNumber: 'AMS' } },
+        jax: ['input/TeX','input/MathML','output/HTML-CSS'],
+        extensions: ['tex2jax.js','mml2jax.js','MathMenu.js','MathZoom.js']
+      });
+    </script>
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    
+    <script src="../tipuesearch/tipuesearch_content.js"></script>
+    <script src="../tipuesearch/tipuesearch_set.js"></script>
+    <script src="../tipuesearch/tipuesearch.js"></script>
+    
+    
+  </body>
+</html>

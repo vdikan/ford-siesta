@@ -1,0 +1,3973 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+   
+   <meta name="description" content="A first-principles materials simulation code using Density Functional Theory.">
+    
+    <meta name="author" content="SIESTA Group" >
+    <link rel="icon" href="../favicon.png">
+
+    <title>siesta_options &ndash; SIESTA</title>
+
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
+    <link href="../css/pygments.css" rel="stylesheet">
+    <link href="../css/font-awesome.min.css" rel="stylesheet">
+    <link href="../css/local.css" rel="stylesheet">
+    
+    <link  href="../tipuesearch/tipuesearch.css" rel="stylesheet">
+    
+    
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    
+    <script src="../js/jquery-2.1.3.min.js"></script>
+    <script src="../js/svg-pan-zoom.min.js"></script>
+
+  </head>
+
+  <body>
+
+    <!-- Fixed navbar -->
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="../index.html">SIESTA <small>trunk-700--vdikan-edens-710-ford-681</small></a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+          <ul class="nav navbar-nav">
+        
+            <li><a href='../page/index.html'>Program Overview</a></li>
+      
+            <li class="dropdown hidden-xs visible-sm visible-md hidden-lg">
+              <a href="#" class="dropdown-toggle"
+              data-toggle="dropdown" role="button"
+              aria-haspopup="true"
+     aria-expanded="false">Contents <span class="caret"></span></a>
+        <ul class="dropdown-menu">
+          
+              
+            <li><a href="../lists/files.html">Source Files</a></li>
+        
+        
+        
+            <li><a href="../lists/modules.html">Modules</a></li>
+        
+            
+                                
+            <li><a href="../lists/procedures.html">Procedures</a></li>
+        
+               
+            <li><a href="../lists/types.html">Derived Types</a></li>
+        
+        
+            </ul>
+            </li>
+
+
+<li class="visible-xs hidden-sm visible-lg"><a href="../lists/files.html">Source Files</a></li>
+
+
+
+<li class="visible-xs hidden-sm visible-lg"><a href="../lists/modules.html">Modules</a></li>
+
+
+
+<li class="visible-xs hidden-sm visible-lg"><a href="../lists/procedures.html">Procedures</a></li>
+
+                             
+<li class="visible-xs hidden-sm visible-lg"><a href="../lists/types.html">Derived Types</a></li>
+
+
+          </ul>
+        
+        <form action="../search.html" class="navbar-form navbar-right" role="search">
+        <div class="form-group">
+          <input type="text" class="form-control" placeholder="Search" name="q" id="tipue_search_input" autocomplete="off" required>
+        </div>
+<!--
+        <button type="submit" class="btn btn-default">Submit</button>
+-->
+        </form>
+        
+        </div><!--/.nav-collapse -->
+      </div>
+    </nav>
+
+    <div class="container">
+    
+  
+  <div class="row">
+    <h1>siesta_options 
+    <small>Module</small>
+    
+    </h1>
+    
+<div class="row">
+  <div class="col-lg-12">
+<div class="well well-sm">
+  <ul class="list-inline" style="margin-bottom:0px;display:inline">
+     
+     
+     
+     
+    
+    
+     <li><i class="fa fa-list-ol"></i>
+       <a data-toggle="tooltip"
+    data-placement="bottom" data-html="true"
+    title=" 2.1% of total for modules and submodules.">193 statements</a>
+     </li> 
+     
+     
+     
+    <li><i class="fa fa-code"></i><a href="../src/siesta_options.F90"> Source File</a></li>
+     
+     
+  </ul>
+  <ol class="breadcrumb in-well text-right">
+  
+    
+     <li><a href='../sourcefile/siesta_options.f90.html'>siesta_options.F90</a></li>
+    
+  
+     <li class="active">siesta_options</li>
+  </ol>
+</div>
+</div>
+</div>
+<script>
+  $(function () {
+  $('[data-toggle="tooltip"]').tooltip()
+  })
+</script>
+
+  </div>
+  
+  <div class="row">
+    <div class="col-md-3 hidden-xs hidden-sm visible-md visible-lg">
+    
+<div id="sidebar">
+  
+<h3>Contents</h3>
+ 
+
+
+
+<div class="panel panel-primary">
+  <div class="panel-heading text-left"><h3 class="panel-title"><a data-toggle="collapse" href="#vars-0">Variables</a></h3></div>
+  <div id="vars-0" class="panel-collapse collapse">
+    <div class="list-group">
+      
+      <a class="list-group-item" href="../module/siesta_options.html#variable-dp%7E2">dp</a>
+      
+      <a class="list-group-item" href="../module/siesta_options.html#variable-compat_pre_v4_dm_h">compat_pre_v4_DM_H</a>
+      
+      <a class="list-group-item" href="../module/siesta_options.html#variable-mix_after_convergence">mix_after_convergence</a>
+      
+      <a class="list-group-item" href="../module/siesta_options.html#variable-recompute_h_after_scf">recompute_H_after_scf</a>
+      
+      <a class="list-group-item" href="../module/siesta_options.html#variable-compat_pre_v4_dynamics">compat_pre_v4_dynamics</a>
+      
+      <a class="list-group-item" href="../module/siesta_options.html#variable-mix_scf_first">mix_scf_first</a>
+      
+      <a class="list-group-item" href="../module/siesta_options.html#variable-mix_charge">mix_charge</a>
+      
+      <a class="list-group-item" href="../module/siesta_options.html#variable-mixh">mixH</a>
+      
+      <a class="list-group-item" href="../module/siesta_options.html#variable-h_setup_only">h_setup_only</a>
+      
+      <a class="list-group-item" href="../module/siesta_options.html#variable-chebef">chebef</a>
+      
+      <a class="list-group-item" href="../module/siesta_options.html#variable-dumpcharge">dumpcharge</a>
+      
+      <a class="list-group-item" href="../module/siesta_options.html#variable-fire_mix">fire_mix</a>
+      
+      <a class="list-group-item" href="../module/siesta_options.html#variable-fixspin">fixspin</a>
+      
+      <a class="list-group-item" href="../module/siesta_options.html#variable-init_anti_ferro">init_anti_ferro</a>
+      
+      <a class="list-group-item" href="../module/siesta_options.html#variable-initdmaux">initdmaux</a>
+      
+      <a class="list-group-item" href="../module/siesta_options.html#variable-allow_dm_reuse">allow_dm_reuse</a>
+      
+      <a class="list-group-item" href="../module/siesta_options.html#variable-allow_dm_extrapolation">allow_dm_extrapolation</a>
+      
+      <a class="list-group-item" href="../module/siesta_options.html#variable-change_kgrid_in_md">change_kgrid_in_md</a>
+      
+      <a class="list-group-item" href="../module/siesta_options.html#variable-negl">negl</a>
+      
+      <a class="list-group-item" href="../module/siesta_options.html#variable-noeta">noeta</a>
+      
+      <a class="list-group-item" href="../module/siesta_options.html#variable-new_diagk">new_diagk</a>
+      
+      <a class="list-group-item" href="../module/siesta_options.html#variable-outlng">outlng</a>
+      
+      <a class="list-group-item" href="../module/siesta_options.html#variable-pulfile">pulfile</a>
+      
+      <a class="list-group-item" href="../module/siesta_options.html#variable-relaxcellonly">RelaxCellOnly</a>
+      
+      <a class="list-group-item" href="../module/siesta_options.html#variable-removeintramolecularpressure">RemoveIntraMolecularPressure</a>
+      
+      <a class="list-group-item" href="../module/siesta_options.html#variable-savehs">savehs</a>
+      
+      <a class="list-group-item" href="../module/siesta_options.html#variable-savevh">savevh</a>
+      
+      <a class="list-group-item" href="../module/siesta_options.html#variable-savevna">savevna</a>
+      
+      <a class="list-group-item" href="../module/siesta_options.html#variable-savevt">savevt</a>
+      
+      <a class="list-group-item" href="../module/siesta_options.html#variable-savedrho">savedrho</a>
+      
+      <a class="list-group-item" href="../module/siesta_options.html#variable-saverho">saverho</a>
+      
+      <a class="list-group-item" href="../module/siesta_options.html#variable-saverhoxc">saverhoxc</a>
+      
+      <a class="list-group-item" href="../module/siesta_options.html#variable-save_ebs_dens">save_ebs_dens</a>
+      
+      <a class="list-group-item" href="../module/siesta_options.html#variable-savepsch">savepsch</a>
+      
+      <a class="list-group-item" href="../module/siesta_options.html#variable-savetoch">savetoch</a>
+      
+      <a class="list-group-item" href="../module/siesta_options.html#variable-savebader">savebader</a>
+      
+      <a class="list-group-item" href="../module/siesta_options.html#variable-usesaveddata">usesaveddata</a>
+      
+      <a class="list-group-item" href="../module/siesta_options.html#variable-usesavecg">usesavecg</a>
+      
+      <a class="list-group-item" href="../module/siesta_options.html#variable-usesavelwf">usesavelwf</a>
+      
+      <a class="list-group-item" href="../module/siesta_options.html#variable-usesavedm">usesavedm</a>
+      
+      <a class="list-group-item" href="../module/siesta_options.html#variable-usesavedmloc">usesavedmloc</a>
+      
+      <a class="list-group-item" href="../module/siesta_options.html#variable-usesavexv">usesavexv</a>
+      
+      <a class="list-group-item" href="../module/siesta_options.html#variable-usesavezm">usesavezm</a>
+      
+      <a class="list-group-item" href="../module/siesta_options.html#variable-writeig">writeig</a>
+      
+      <a class="list-group-item" href="../module/siesta_options.html#variable-writbk">writbk</a>
+      
+      <a class="list-group-item" href="../module/siesta_options.html#variable-writmd">writmd</a>
+      
+      <a class="list-group-item" href="../module/siesta_options.html#variable-writpx">writpx</a>
+      
+      <a class="list-group-item" href="../module/siesta_options.html#variable-writb">writb</a>
+      
+      <a class="list-group-item" href="../module/siesta_options.html#variable-writec">writec</a>
+      
+      <a class="list-group-item" href="../module/siesta_options.html#variable-write_coop">write_coop</a>
+      
+      <a class="list-group-item" href="../module/siesta_options.html#variable-write_graphviz">write_GRAPHVIZ</a>
+      
+      <a class="list-group-item" href="../module/siesta_options.html#variable-w90_processing">w90_processing</a>
+      
+      <a class="list-group-item" href="../module/siesta_options.html#variable-w90_write_mmn">w90_write_mmn</a>
+      
+      <a class="list-group-item" href="../module/siesta_options.html#variable-w90_write_amn">w90_write_amn</a>
+      
+      <a class="list-group-item" href="../module/siesta_options.html#variable-w90_write_eig">w90_write_eig</a>
+      
+      <a class="list-group-item" href="../module/siesta_options.html#variable-w90_write_unk">w90_write_unk</a>
+      
+      <a class="list-group-item" href="../module/siesta_options.html#variable-hasnobup">hasnobup</a>
+      
+      <a class="list-group-item" href="../module/siesta_options.html#variable-hasnobdown">hasnobdown</a>
+      
+      <a class="list-group-item" href="../module/siesta_options.html#variable-hasnob">hasnob</a>
+      
+      <a class="list-group-item" href="../module/siesta_options.html#variable-nobup">nobup</a>
+      
+      <a class="list-group-item" href="../module/siesta_options.html#variable-nobdown">nobdown</a>
+      
+      <a class="list-group-item" href="../module/siesta_options.html#variable-nob">nob</a>
+      
+      <a class="list-group-item" href="../module/siesta_options.html#variable-writef">writef</a>
+      
+      <a class="list-group-item" href="../module/siesta_options.html#variable-writek">writek</a>
+      
+      <a class="list-group-item" href="../module/siesta_options.html#variable-writic">writic</a>
+      
+      <a class="list-group-item" href="../module/siesta_options.html#variable-varcel">varcel</a>
+      
+      <a class="list-group-item" href="../module/siesta_options.html#variable-do_pdos">do_pdos</a>
+      
+      <a class="list-group-item" href="../module/siesta_options.html#variable-write_tshs_history">write_tshs_history</a>
+      
+      <a class="list-group-item" href="../module/siesta_options.html#variable-write_hs_history">write_hs_history</a>
+      
+      <a class="list-group-item" href="../module/siesta_options.html#variable-writedm">writedm</a>
+      
+      <a class="list-group-item" href="../module/siesta_options.html#variable-write_dm_at_end_of_cycle">write_dm_at_end_of_cycle</a>
+      
+      <a class="list-group-item" href="../module/siesta_options.html#variable-writeh">writeH</a>
+      
+      <a class="list-group-item" href="../module/siesta_options.html#variable-write_h_at_end_of_cycle">write_H_at_end_of_cycle</a>
+      
+      <a class="list-group-item" href="../module/siesta_options.html#variable-writedm_cdf">writedm_cdf</a>
+      
+      <a class="list-group-item" href="../module/siesta_options.html#variable-writedm_cdf_history">writedm_cdf_history</a>
+      
+      <a class="list-group-item" href="../module/siesta_options.html#variable-writedmhs_cdf">writedmhs_cdf</a>
+      
+      <a class="list-group-item" href="../module/siesta_options.html#variable-writedmhs_cdf_history">writedmhs_cdf_history</a>
+      
+      <a class="list-group-item" href="../module/siesta_options.html#variable-read_charge_cdf">read_charge_cdf</a>
+      
+      <a class="list-group-item" href="../module/siesta_options.html#variable-read_deformation_charge_cdf">read_deformation_charge_cdf</a>
+      
+      <a class="list-group-item" href="../module/siesta_options.html#variable-save_initial_charge_density">save_initial_charge_density</a>
+      
+      <a class="list-group-item" href="../module/siesta_options.html#variable-analyze_charge_density_only">analyze_charge_density_only</a>
+      
+      <a class="list-group-item" href="../module/siesta_options.html#variable-atmonly">atmonly</a>
+      
+      <a class="list-group-item" href="../module/siesta_options.html#variable-harrisfun">harrisfun</a>
+      
+      <a class="list-group-item" href="../module/siesta_options.html#variable-muldeb">muldeb</a>
+      
+      <a class="list-group-item" href="../module/siesta_options.html#variable-spndeb">spndeb</a>
+      
+      <a class="list-group-item" href="../module/siesta_options.html#variable-orbmoms">orbmoms</a>
+      
+      <a class="list-group-item" href="../module/siesta_options.html#variable-split_sr_so">split_sr_so</a>
+      
+      <a class="list-group-item" href="../module/siesta_options.html#variable-converge_freee">converge_FreeE</a>
+      
+      <a class="list-group-item" href="../module/siesta_options.html#variable-tolerance_freee">tolerance_FreeE</a>
+      
+      <a class="list-group-item" href="../module/siesta_options.html#variable-converge_eharr">converge_Eharr</a>
+      
+      <a class="list-group-item" href="../module/siesta_options.html#variable-tolerance_eharr">tolerance_Eharr</a>
+      
+      <a class="list-group-item" href="../module/siesta_options.html#variable-converge_edm">converge_EDM</a>
+      
+      <a class="list-group-item" href="../module/siesta_options.html#variable-tolerance_edm">tolerance_EDM</a>
+      
+      <a class="list-group-item" href="../module/siesta_options.html#variable-converge_dm">converge_DM</a>
+      
+      <a class="list-group-item" href="../module/siesta_options.html#variable-ddtol">dDtol</a>
+      
+      <a class="list-group-item" href="../module/siesta_options.html#variable-converge_h">converge_H</a>
+      
+      <a class="list-group-item" href="../module/siesta_options.html#variable-dhtol">dHtol</a>
+      
+      <a class="list-group-item" href="../module/siesta_options.html#variable-broyden_optim">broyden_optim</a>
+      
+      <a class="list-group-item" href="../module/siesta_options.html#variable-fire_optim">fire_optim</a>
+      
+      <a class="list-group-item" href="../module/siesta_options.html#variable-struct_only">struct_only</a>
+      
+      <a class="list-group-item" href="../module/siesta_options.html#variable-use_struct_file">use_struct_file</a>
+      
+      <a class="list-group-item" href="../module/siesta_options.html#variable-bornz">bornz</a>
+      
+      <a class="list-group-item" href="../module/siesta_options.html#variable-scfmustconverge">SCFMustConverge</a>
+      
+      <a class="list-group-item" href="../module/siesta_options.html#variable-geometrymustconverge">GeometryMustConverge</a>
+      
+      <a class="list-group-item" href="../module/siesta_options.html#variable-want_domain_decomposition">want_domain_decomposition</a>
+      
+      <a class="list-group-item" href="../module/siesta_options.html#variable-want_spatial_decomposition">want_spatial_decomposition</a>
+      
+      <a class="list-group-item" href="../module/siesta_options.html#variable-hirshpop">hirshpop</a>
+      
+      <a class="list-group-item" href="../module/siesta_options.html#variable-voropop">voropop</a>
+      
+      <a class="list-group-item" href="../module/siesta_options.html#variable-partial_charges_at_every_geometry">partial_charges_at_every_geometry</a>
+      
+      <a class="list-group-item" href="../module/siesta_options.html#variable-partial_charges_at_every_scf_step">partial_charges_at_every_scf_step</a>
+      
+      <a class="list-group-item" href="../module/siesta_options.html#variable-monitor_forces_in_scf">monitor_forces_in_scf</a>
+      
+      <a class="list-group-item" href="../module/siesta_options.html#variable-minim_calc_eigenvalues">minim_calc_eigenvalues</a>
+      
+      <a class="list-group-item" href="../module/siesta_options.html#variable-writetdwf">writetdwf</a>
+      
+      <a class="list-group-item" href="../module/siesta_options.html#variable-extrapol_h_tdks">extrapol_H_tdks</a>
+      
+      <a class="list-group-item" href="../module/siesta_options.html#variable-td_elec_dyn">td_elec_dyn</a>
+      
+      <a class="list-group-item" href="../module/siesta_options.html#variable-etot_time">etot_time</a>
+      
+      <a class="list-group-item" href="../module/siesta_options.html#variable-eigen_time">eigen_time</a>
+      
+      <a class="list-group-item" href="../module/siesta_options.html#variable-dip_time">dip_time</a>
+      
+      <a class="list-group-item" href="../module/siesta_options.html#variable-tdsavewf">tdsavewf</a>
+      
+      <a class="list-group-item" href="../module/siesta_options.html#variable-tdsaverho">tdsaverho</a>
+      
+      <a class="list-group-item" href="../module/siesta_options.html#variable-td_inverse_linear">td_inverse_linear</a>
+      
+      <a class="list-group-item" href="../module/siesta_options.html#variable-ntdsaverho">ntdsaverho</a>
+      
+      <a class="list-group-item" href="../module/siesta_options.html#variable-itded">itded</a>
+      
+      <a class="list-group-item" href="../module/siesta_options.html#variable-ntded">ntded</a>
+      
+      <a class="list-group-item" href="../module/siesta_options.html#variable-ntded_sub">ntded_sub</a>
+      
+      <a class="list-group-item" href="../module/siesta_options.html#variable-td_dt">td_dt</a>
+      
+      <a class="list-group-item" href="../module/siesta_options.html#variable-rstart_time">rstart_time</a>
+      
+      <a class="list-group-item" href="../module/siesta_options.html#variable-totime">totime</a>
+      
+      <a class="list-group-item" href="../module/siesta_options.html#variable-ia1">ia1</a>
+      
+      <a class="list-group-item" href="../module/siesta_options.html#variable-ia2">ia2</a>
+      
+      <a class="list-group-item" href="../module/siesta_options.html#variable-ianneal">ianneal</a>
+      
+      <a class="list-group-item" href="../module/siesta_options.html#variable-idyn">idyn</a>
+      
+      <a class="list-group-item" href="../module/siesta_options.html#variable-ifinal">ifinal</a>
+      
+      <a class="list-group-item" href="../module/siesta_options.html#variable-ioptlwf">ioptlwf</a>
+      
+      <a class="list-group-item" href="../module/siesta_options.html#variable-iquench">iquench</a>
+      
+      <a class="list-group-item" href="../module/siesta_options.html#variable-isolve">isolve</a>
+      
+      <a class="list-group-item" href="../module/siesta_options.html#variable-istart">istart</a>
+      
+      <a class="list-group-item" href="../module/siesta_options.html#variable-dm_history_depth">DM_history_depth</a>
+      
+      <a class="list-group-item" href="../module/siesta_options.html#variable-maxsav">maxsav</a>
+      
+      <a class="list-group-item" href="../module/siesta_options.html#variable-broyden_maxit">broyden_maxit</a>
+      
+      <a class="list-group-item" href="../module/siesta_options.html#variable-mullipop">mullipop</a>
+      
+      <a class="list-group-item" href="../module/siesta_options.html#variable-ncgmax">ncgmax</a>
+      
+      <a class="list-group-item" href="../module/siesta_options.html#variable-nkick">nkick</a>
+      
+      <a class="list-group-item" href="../module/siesta_options.html#variable-nmove">nmove</a>
+      
+      <a class="list-group-item" href="../module/siesta_options.html#variable-nscf">nscf</a>
+      
+      <a class="list-group-item" href="../module/siesta_options.html#variable-min_nscf">min_nscf</a>
+      
+      <a class="list-group-item" href="../module/siesta_options.html#variable-pmax">pmax</a>
+      
+      <a class="list-group-item" href="../module/siesta_options.html#variable-neigwanted">neigwanted</a>
+      
+      <a class="list-group-item" href="../module/siesta_options.html#variable-level%7E2">level</a>
+      
+      <a class="list-group-item" href="../module/siesta_options.html#variable-call_diagon_default">call_diagon_default</a>
+      
+      <a class="list-group-item" href="../module/siesta_options.html#variable-call_diagon_first_step">call_diagon_first_step</a>
+      
+      <a class="list-group-item" href="../module/siesta_options.html#variable-beta">beta</a>
+      
+      <a class="list-group-item" href="../module/siesta_options.html#variable-bulkm">bulkm</a>
+      
+      <a class="list-group-item" href="../module/siesta_options.html#variable-charnet">charnet</a>
+      
+      <a class="list-group-item" href="../module/siesta_options.html#variable-rijmin">rijmin</a>
+      
+      <a class="list-group-item" href="../module/siesta_options.html#variable-dm_normalization_tol">dm_normalization_tol</a>
+      
+      <a class="list-group-item" href="../module/siesta_options.html#variable-normalize_dm_during_scf">normalize_dm_during_scf</a>
+      
+      <a class="list-group-item" href="../module/siesta_options.html#variable-dt">dt</a>
+      
+      <a class="list-group-item" href="../module/siesta_options.html#variable-dx">dx</a>
+      
+      <a class="list-group-item" href="../module/siesta_options.html#variable-dxmax">dxmax</a>
+      
+      <a class="list-group-item" href="../module/siesta_options.html#variable-eta">eta</a>
+      
+      <a class="list-group-item" href="../module/siesta_options.html#variable-etol">etol</a>
+      
+      <a class="list-group-item" href="../module/siesta_options.html#variable-ftol">ftol</a>
+      
+      <a class="list-group-item" href="../module/siesta_options.html#variable-g2cut">g2cut</a>
+      
+      <a class="list-group-item" href="../module/siesta_options.html#variable-mn">mn</a>
+      
+      <a class="list-group-item" href="../module/siesta_options.html#variable-mpr">mpr</a>
+      
+      <a class="list-group-item" href="../module/siesta_options.html#variable-occtol">occtol</a>
+      
+      <a class="list-group-item" href="../module/siesta_options.html#variable-rcoor">rcoor</a>
+      
+      <a class="list-group-item" href="../module/siesta_options.html#variable-rcoorcp">rcoorcp</a>
+      
+      <a class="list-group-item" href="../module/siesta_options.html#variable-rmax_bonds">rmax_bonds</a>
+      
+      <a class="list-group-item" href="../module/siesta_options.html#variable-strtol">strtol</a>
+      
+      <a class="list-group-item" href="../module/siesta_options.html#variable-taurelax">taurelax</a>
+      
+      <a class="list-group-item" href="../module/siesta_options.html#variable-temp">temp</a>
+      
+      <a class="list-group-item" href="../module/siesta_options.html#variable-tempinit">tempinit</a>
+      
+      <a class="list-group-item" href="../module/siesta_options.html#variable-threshold">threshold</a>
+      
+      <a class="list-group-item" href="../module/siesta_options.html#variable-tp">tp</a>
+      
+      <a class="list-group-item" href="../module/siesta_options.html#variable-total_spin">total_spin</a>
+      
+      <a class="list-group-item" href="../module/siesta_options.html#variable-tt">tt</a>
+      
+      <a class="list-group-item" href="../module/siesta_options.html#variable-wmix">wmix</a>
+      
+      <a class="list-group-item" href="../module/siesta_options.html#variable-wmixkick">wmixkick</a>
+      
+      <a class="list-group-item" href="../module/siesta_options.html#variable-sname">sname</a>
+      
+      <a class="list-group-item" href="../module/siesta_options.html#variable-solve_diagon">SOLVE_DIAGON</a>
+      
+      <a class="list-group-item" href="../module/siesta_options.html#variable-solve_ordern">SOLVE_ORDERN</a>
+      
+      <a class="list-group-item" href="../module/siesta_options.html#variable-solve_transi">SOLVE_TRANSI</a>
+      
+      <a class="list-group-item" href="../module/siesta_options.html#variable-solve_minim">SOLVE_MINIM</a>
+      
+      <a class="list-group-item" href="../module/siesta_options.html#variable-solve_pexsi">SOLVE_PEXSI</a>
+      
+      <a class="list-group-item" href="../module/siesta_options.html#variable-matrix_write">MATRIX_WRITE</a>
+      
+      <a class="list-group-item" href="../module/siesta_options.html#variable-solve_chess">SOLVE_CHESS</a>
+      
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+
+    </div>
+    
+    <div class="col-md-9" id='text'>
+    
+      <br>
+    
+  
+
+    
+    
+    <div class="panel panel-default">
+      <div class="panel-heading">
+  <h3 class="panel-title">Used by</h3>
+      </div>
+      <ul class="list-group">
+  
+  
+  <li class="list-group-item">
+    <div class="depgraph"><?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+ "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Generated by graphviz version 2.38.0 (20140413.2041)
+ -->
+<!-- Title: module~~siesta_options~~UsedByGraph Pages: 1 -->
+<svg id="modulesiesta_optionsUsedByGraph" width="226pt" height="494pt"
+ viewBox="0.00 0.00 226.00 494.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="module~~siesta_options~~UsedByGraph" class="graph" transform="scale(1 1) rotate(0) translate(4 490)">
+<title>module~~siesta_options~~UsedByGraph</title>
+<polygon fill="white" stroke="none" points="-4,4 -4,-490 222,-490 222,4 -4,4"/>
+<!-- module~siesta_options -->
+<g id="module~~siesta_options~~UsedByGraph_node1" class="node"><title>module~siesta_options</title>
+<polygon fill="none" stroke="black" points="81,-255 0,-255 0,-231 81,-231 81,-255"/>
+<text text-anchor="middle" x="40.5" y="-240.6" font-family="Helvetica,sans-Serif" font-size="10.50">siesta_options</text>
+</g>
+<!-- proc~dhscf_init -->
+<g id="module~~siesta_options~~UsedByGraph_node2" class="node"><title>proc~dhscf_init</title>
+<g id="a_module~~siesta_options~~UsedByGraph_node2"><a xlink:href=".././proc/dhscf_init.html" xlink:title="dhscf_init">
+<polygon fill="#d9534f" stroke="#d9534f" points="196.5,-486 138.5,-486 138.5,-462 196.5,-462 196.5,-486"/>
+<text text-anchor="middle" x="167.5" y="-471.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">dhscf_init</text>
+</a>
+</g>
+</g>
+<!-- proc~dhscf_init&#45;&gt;module~siesta_options -->
+<g id="module~~siesta_options~~UsedByGraph_edge1" class="edge"><title>proc~dhscf_init&#45;&gt;module~siesta_options</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M138.333,-466.663C130.603,-463.513 122.772,-459.105 117,-453 65.6907,-398.729 48.8438,-307.114 43.6519,-265.17"/>
+<polygon fill="#000000" stroke="#000000" points="47.1236,-264.722 42.523,-255.178 40.1679,-265.508 47.1236,-264.722"/>
+</g>
+<!-- proc~state_init -->
+<g id="module~~siesta_options~~UsedByGraph_node3" class="node"><title>proc~state_init</title>
+<g id="a_module~~siesta_options~~UsedByGraph_node3"><a xlink:href=".././proc/state_init.html" xlink:title="state_init">
+<polygon fill="#d9534f" stroke="#d9534f" points="195,-444 140,-444 140,-420 195,-420 195,-444"/>
+<text text-anchor="middle" x="167.5" y="-429.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">state_init</text>
+</a>
+</g>
+</g>
+<!-- proc~state_init&#45;&gt;module~siesta_options -->
+<g id="module~~siesta_options~~UsedByGraph_edge2" class="edge"><title>proc~state_init&#45;&gt;module~siesta_options</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M139.91,-424.891C131.787,-421.696 123.337,-417.204 117,-411 74.7588,-369.642 54.1528,-300.402 45.9635,-265.121"/>
+<polygon fill="#000000" stroke="#000000" points="49.3765,-264.345 43.8104,-255.33 42.5399,-265.848 49.3765,-264.345"/>
+</g>
+<!-- proc~setup_h0 -->
+<g id="module~~siesta_options~~UsedByGraph_node4" class="node"><title>proc~setup_h0</title>
+<g id="a_module~~siesta_options~~UsedByGraph_node4"><a xlink:href=".././proc/setup_h0.html" xlink:title="setup_H0">
+<polygon fill="#d9534f" stroke="#d9534f" points="196.5,-402 138.5,-402 138.5,-378 196.5,-378 196.5,-402"/>
+<text text-anchor="middle" x="167.5" y="-387.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">setup_H0</text>
+</a>
+</g>
+</g>
+<!-- proc~setup_h0&#45;&gt;module~siesta_options -->
+<g id="module~~siesta_options~~UsedByGraph_edge3" class="edge"><title>proc~setup_h0&#45;&gt;module~siesta_options</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M138.275,-381.598C130.806,-378.464 123.127,-374.331 117,-369 83.5655,-339.906 60.7302,-292.242 49.5126,-264.632"/>
+<polygon fill="#000000" stroke="#000000" points="52.6901,-263.148 45.7842,-255.113 46.1721,-265.7 52.6901,-263.148"/>
+</g>
+<!-- proc~mix_rhog -->
+<g id="module~~siesta_options~~UsedByGraph_node5" class="node"><title>proc~mix_rhog</title>
+<g id="a_module~~siesta_options~~UsedByGraph_node5"><a xlink:href=".././proc/mix_rhog.html" xlink:title="mix_rhog">
+<polygon fill="#d9534f" stroke="#d9534f" points="196,-360 139,-360 139,-336 196,-336 196,-360"/>
+<text text-anchor="middle" x="167.5" y="-345.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">mix_rhog</text>
+</a>
+</g>
+</g>
+<!-- proc~mix_rhog&#45;&gt;module~siesta_options -->
+<g id="module~~siesta_options~~UsedByGraph_edge4" class="edge"><title>proc~mix_rhog&#45;&gt;module~siesta_options</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M138.907,-338.797C131.445,-335.655 123.61,-331.718 117,-327 92.0627,-309.199 69.4398,-281.835 55.5964,-263.213"/>
+<polygon fill="#000000" stroke="#000000" points="58.4119,-261.133 49.7056,-255.095 52.7466,-265.245 58.4119,-261.133"/>
+</g>
+<!-- proc~compute_energies -->
+<g id="module~~siesta_options~~UsedByGraph_node6" class="node"><title>proc~compute_energies</title>
+<g id="a_module~~siesta_options~~UsedByGraph_node6"><a xlink:href=".././proc/compute_energies.html" xlink:title="compute_energies">
+<polygon fill="#d9534f" stroke="#d9534f" points="218,-318 117,-318 117,-294 218,-294 218,-318"/>
+<text text-anchor="middle" x="167.5" y="-303.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">compute_energies</text>
+</a>
+</g>
+</g>
+<!-- proc~compute_energies&#45;&gt;module~siesta_options -->
+<g id="module~~siesta_options~~UsedByGraph_edge12" class="edge"><title>proc~compute_energies&#45;&gt;module~siesta_options</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M136.691,-293.96C130.144,-291.148 123.291,-288.073 117,-285 101.451,-277.404 84.5821,-268.123 70.7413,-260.22"/>
+<polygon fill="#000000" stroke="#000000" points="72.108,-256.968 61.6964,-255.006 68.6121,-263.033 72.108,-256.968"/>
+</g>
+<!-- proc~dhscf -->
+<g id="module~~siesta_options~~UsedByGraph_node7" class="node"><title>proc~dhscf</title>
+<g id="a_module~~siesta_options~~UsedByGraph_node7"><a xlink:href=".././proc/dhscf.html" xlink:title="dhscf">
+<polygon fill="#d9534f" stroke="#d9534f" points="194.5,-276 140.5,-276 140.5,-252 194.5,-252 194.5,-276"/>
+<text text-anchor="middle" x="167.5" y="-261.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">dhscf</text>
+</a>
+</g>
+</g>
+<!-- proc~dhscf&#45;&gt;module~siesta_options -->
+<g id="module~~siesta_options~~UsedByGraph_edge6" class="edge"><title>proc~dhscf&#45;&gt;module~siesta_options</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M140.296,-259.598C126.186,-257.227 108.299,-254.222 91.6341,-251.423"/>
+<polygon fill="#000000" stroke="#000000" points="91.902,-247.919 81.4603,-249.713 90.7422,-254.822 91.902,-247.919"/>
+</g>
+<!-- proc~siesta_analysis -->
+<g id="module~~siesta_options~~UsedByGraph_node8" class="node"><title>proc~siesta_analysis</title>
+<g id="a_module~~siesta_options~~UsedByGraph_node8"><a xlink:href=".././proc/siesta_analysis.html" xlink:title="siesta_analysis">
+<polygon fill="#d9534f" stroke="#d9534f" points="210,-234 125,-234 125,-210 210,-210 210,-234"/>
+<text text-anchor="middle" x="167.5" y="-219.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">siesta_analysis</text>
+</a>
+</g>
+</g>
+<!-- proc~siesta_analysis&#45;&gt;module~siesta_options -->
+<g id="module~~siesta_options~~UsedByGraph_edge7" class="edge"><title>proc~siesta_analysis&#45;&gt;module~siesta_options</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M124.877,-228.993C114.111,-230.801 102.41,-232.767 91.2734,-234.638"/>
+<polygon fill="#000000" stroke="#000000" points="90.5286,-231.214 81.2467,-236.323 91.6884,-238.117 90.5286,-231.214"/>
+</g>
+<!-- proc~siesta_forces -->
+<g id="module~~siesta_options~~UsedByGraph_node9" class="node"><title>proc~siesta_forces</title>
+<g id="a_module~~siesta_options~~UsedByGraph_node9"><a xlink:href=".././proc/siesta_forces.html" xlink:title="siesta_forces">
+<polygon fill="#d9534f" stroke="#d9534f" points="205.5,-192 129.5,-192 129.5,-168 205.5,-168 205.5,-192"/>
+<text text-anchor="middle" x="167.5" y="-177.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">siesta_forces</text>
+</a>
+</g>
+</g>
+<!-- proc~siesta_forces&#45;&gt;module~siesta_options -->
+<g id="module~~siesta_options~~UsedByGraph_edge8" class="edge"><title>proc~siesta_forces&#45;&gt;module~siesta_options</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M136.691,-192.04C130.144,-194.852 123.291,-197.927 117,-201 101.451,-208.596 84.5821,-217.877 70.7413,-225.78"/>
+<polygon fill="#000000" stroke="#000000" points="68.6121,-222.967 61.6964,-230.994 72.108,-229.032 68.6121,-222.967"/>
+</g>
+<!-- proc~compute_dm -->
+<g id="module~~siesta_options~~UsedByGraph_node10" class="node"><title>proc~compute_dm</title>
+<g id="a_module~~siesta_options~~UsedByGraph_node10"><a xlink:href=".././proc/compute_dm.html" xlink:title="compute_dm">
+<polygon fill="#d9534f" stroke="#d9534f" points="205,-150 130,-150 130,-126 205,-126 205,-150"/>
+<text text-anchor="middle" x="167.5" y="-135.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">compute_dm</text>
+</a>
+</g>
+</g>
+<!-- proc~compute_dm&#45;&gt;module~siesta_options -->
+<g id="module~~siesta_options~~UsedByGraph_edge9" class="edge"><title>proc~compute_dm&#45;&gt;module~siesta_options</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M132.42,-150.108C127.043,-152.672 121.711,-155.637 117,-159 92.0627,-176.801 69.4398,-204.165 55.5964,-222.787"/>
+<polygon fill="#000000" stroke="#000000" points="52.7466,-220.755 49.7056,-230.905 58.4119,-224.867 52.7466,-220.755"/>
+</g>
+<!-- proc~setup_hamiltonian -->
+<g id="module~~siesta_options~~UsedByGraph_node11" class="node"><title>proc~setup_hamiltonian</title>
+<g id="a_module~~siesta_options~~UsedByGraph_node11"><a xlink:href=".././proc/setup_hamiltonian.html" xlink:title="setup_hamiltonian">
+<polygon fill="#d9534f" stroke="#d9534f" points="217.5,-108 117.5,-108 117.5,-84 217.5,-84 217.5,-108"/>
+<text text-anchor="middle" x="167.5" y="-93.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">setup_hamiltonian</text>
+</a>
+</g>
+</g>
+<!-- proc~setup_hamiltonian&#45;&gt;module~siesta_options -->
+<g id="module~~siesta_options~~UsedByGraph_edge10" class="edge"><title>proc~setup_hamiltonian&#45;&gt;module~siesta_options</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M130.546,-108.008C125.695,-110.528 121.014,-113.507 117,-117 83.5655,-146.094 60.7302,-193.758 49.5126,-221.368"/>
+<polygon fill="#000000" stroke="#000000" points="46.1721,-220.3 45.7842,-230.887 52.6901,-222.852 46.1721,-220.3"/>
+</g>
+<!-- proc~check_cohp -->
+<g id="module~~siesta_options~~UsedByGraph_node12" class="node"><title>proc~check_cohp</title>
+<g id="a_module~~siesta_options~~UsedByGraph_node12"><a xlink:href=".././proc/check_cohp.html" xlink:title="check_cohp">
+<polygon fill="#d9534f" stroke="#d9534f" points="202.5,-66 132.5,-66 132.5,-42 202.5,-42 202.5,-66"/>
+<text text-anchor="middle" x="167.5" y="-51.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">check_cohp</text>
+</a>
+</g>
+</g>
+<!-- proc~check_cohp&#45;&gt;module~siesta_options -->
+<g id="module~~siesta_options~~UsedByGraph_edge11" class="edge"><title>proc~check_cohp&#45;&gt;module~siesta_options</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M132.449,-64.4093C126.825,-67.206 121.402,-70.6897 117,-75 74.7588,-116.358 54.1528,-185.598 45.9635,-220.879"/>
+<polygon fill="#000000" stroke="#000000" points="42.5399,-220.152 43.8104,-230.67 49.3765,-221.655 42.5399,-220.152"/>
+</g>
+<!-- proc~state_analysis -->
+<g id="module~~siesta_options~~UsedByGraph_node13" class="node"><title>proc~state_analysis</title>
+<g id="a_module~~siesta_options~~UsedByGraph_node13"><a xlink:href=".././proc/state_analysis.html" xlink:title="state_analysis">
+<polygon fill="#d9534f" stroke="#d9534f" points="207.5,-24 127.5,-24 127.5,-0 207.5,-0 207.5,-24"/>
+<text text-anchor="middle" x="167.5" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">state_analysis</text>
+</a>
+</g>
+</g>
+<!-- proc~state_analysis&#45;&gt;module~siesta_options -->
+<g id="module~~siesta_options~~UsedByGraph_edge5" class="edge"><title>proc~state_analysis&#45;&gt;module~siesta_options</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M128.65,-24.0328C124.357,-26.5118 120.335,-29.4726 117,-33 65.6907,-87.2714 48.8438,-178.886 43.6519,-220.83"/>
+<polygon fill="#000000" stroke="#000000" points="40.1679,-220.492 42.523,-230.822 47.1236,-221.278 40.1679,-220.492"/>
+</g>
+</g>
+</svg>
+</div><div><a type="button" class="graph-help" data-toggle="modal" href="#graph-help-text">Help</a></div><div class="modal fade" id="graph-help-text" tabindex="-1" role="dialog"><div class="modal-dialog modal-lg" role="document"><div class="modal-content"><div class="modal-header"><button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button><h4 class="modal-title" id="-graph-help-label">Graph Key</h4></div><div class="modal-body">
+    <p>Nodes of different colours represent the following: </p>
+    <?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+ "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Generated by graphviz version 2.38.0 (20140413.2041)
+ -->
+<!-- Title: Graph Key Pages: 1 -->
+<svg width="490pt" height="32pt"
+ viewBox="0.00 0.00 489.50 32.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 28)">
+<title>Graph Key</title>
+<polygon fill="white" stroke="none" points="-4,4 -4,-28 485.5,-28 485.5,4 -4,4"/>
+<!-- Module -->
+<g id="node1" class="node"><title>Module</title>
+<polygon fill="#337ab7" stroke="#337ab7" points="54,-24 0,-24 0,-0 54,-0 54,-24"/>
+<text text-anchor="middle" x="27" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Module</text>
+</g>
+<!-- Submodule -->
+<g id="node2" class="node"><title>Submodule</title>
+<polygon fill="#5bc0de" stroke="#5bc0de" points="139.5,-24 72.5,-24 72.5,-0 139.5,-0 139.5,-24"/>
+<text text-anchor="middle" x="106" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Submodule</text>
+</g>
+<!-- Subroutine -->
+<g id="node3" class="node"><title>Subroutine</title>
+<polygon fill="#d9534f" stroke="#d9534f" points="222,-24 158,-24 158,-0 222,-0 222,-24"/>
+<text text-anchor="middle" x="190" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Subroutine</text>
+</g>
+<!-- Function -->
+<g id="node4" class="node"><title>Function</title>
+<polygon fill="#d94e8f" stroke="#d94e8f" points="294,-24 240,-24 240,-0 294,-0 294,-24"/>
+<text text-anchor="middle" x="267" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Function</text>
+</g>
+<!-- Program -->
+<g id="node5" class="node"><title>Program</title>
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="366,-24 312,-24 312,-0 366,-0 366,-24"/>
+<text text-anchor="middle" x="339" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Program</text>
+</g>
+<!-- This Page&#39;s Entity -->
+<g id="node6" class="node"><title>This Page&#39;s Entity</title>
+<polygon fill="none" stroke="black" points="481.5,-24 384.5,-24 384.5,-0 481.5,-0 481.5,-24"/>
+<text text-anchor="middle" x="433" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50">This Page&#39;s Entity</text>
+</g>
+</g>
+</svg>
+
+    
+    <p>Solid arrows point from a submodule to the (sub)module which it is
+    descended from. Dashed arrows point from a module or program unit to 
+    modules which it uses.
+    </p>
+    </div></div></div></div>
+  </li>
+  
+      </ul>
+    </div>
+    
+
+    <br>
+
+    <section class="visible-xs visible-sm hidden-md">
+      
+<h3>Contents</h3>
+ 
+
+
+
+<div class="panel panel-primary">
+  <div class="panel-heading text-left"><h3 class="panel-title"><a data-toggle="collapse" href="#vars-1">Variables</a></h3></div>
+  <div id="vars-1" class="panel-collapse collapse">
+    <div class="list-group">
+      
+      <a class="list-group-item" href="../module/siesta_options.html#variable-dp%7E2">dp</a>
+      
+      <a class="list-group-item" href="../module/siesta_options.html#variable-compat_pre_v4_dm_h">compat_pre_v4_DM_H</a>
+      
+      <a class="list-group-item" href="../module/siesta_options.html#variable-mix_after_convergence">mix_after_convergence</a>
+      
+      <a class="list-group-item" href="../module/siesta_options.html#variable-recompute_h_after_scf">recompute_H_after_scf</a>
+      
+      <a class="list-group-item" href="../module/siesta_options.html#variable-compat_pre_v4_dynamics">compat_pre_v4_dynamics</a>
+      
+      <a class="list-group-item" href="../module/siesta_options.html#variable-mix_scf_first">mix_scf_first</a>
+      
+      <a class="list-group-item" href="../module/siesta_options.html#variable-mix_charge">mix_charge</a>
+      
+      <a class="list-group-item" href="../module/siesta_options.html#variable-mixh">mixH</a>
+      
+      <a class="list-group-item" href="../module/siesta_options.html#variable-h_setup_only">h_setup_only</a>
+      
+      <a class="list-group-item" href="../module/siesta_options.html#variable-chebef">chebef</a>
+      
+      <a class="list-group-item" href="../module/siesta_options.html#variable-dumpcharge">dumpcharge</a>
+      
+      <a class="list-group-item" href="../module/siesta_options.html#variable-fire_mix">fire_mix</a>
+      
+      <a class="list-group-item" href="../module/siesta_options.html#variable-fixspin">fixspin</a>
+      
+      <a class="list-group-item" href="../module/siesta_options.html#variable-init_anti_ferro">init_anti_ferro</a>
+      
+      <a class="list-group-item" href="../module/siesta_options.html#variable-initdmaux">initdmaux</a>
+      
+      <a class="list-group-item" href="../module/siesta_options.html#variable-allow_dm_reuse">allow_dm_reuse</a>
+      
+      <a class="list-group-item" href="../module/siesta_options.html#variable-allow_dm_extrapolation">allow_dm_extrapolation</a>
+      
+      <a class="list-group-item" href="../module/siesta_options.html#variable-change_kgrid_in_md">change_kgrid_in_md</a>
+      
+      <a class="list-group-item" href="../module/siesta_options.html#variable-negl">negl</a>
+      
+      <a class="list-group-item" href="../module/siesta_options.html#variable-noeta">noeta</a>
+      
+      <a class="list-group-item" href="../module/siesta_options.html#variable-new_diagk">new_diagk</a>
+      
+      <a class="list-group-item" href="../module/siesta_options.html#variable-outlng">outlng</a>
+      
+      <a class="list-group-item" href="../module/siesta_options.html#variable-pulfile">pulfile</a>
+      
+      <a class="list-group-item" href="../module/siesta_options.html#variable-relaxcellonly">RelaxCellOnly</a>
+      
+      <a class="list-group-item" href="../module/siesta_options.html#variable-removeintramolecularpressure">RemoveIntraMolecularPressure</a>
+      
+      <a class="list-group-item" href="../module/siesta_options.html#variable-savehs">savehs</a>
+      
+      <a class="list-group-item" href="../module/siesta_options.html#variable-savevh">savevh</a>
+      
+      <a class="list-group-item" href="../module/siesta_options.html#variable-savevna">savevna</a>
+      
+      <a class="list-group-item" href="../module/siesta_options.html#variable-savevt">savevt</a>
+      
+      <a class="list-group-item" href="../module/siesta_options.html#variable-savedrho">savedrho</a>
+      
+      <a class="list-group-item" href="../module/siesta_options.html#variable-saverho">saverho</a>
+      
+      <a class="list-group-item" href="../module/siesta_options.html#variable-saverhoxc">saverhoxc</a>
+      
+      <a class="list-group-item" href="../module/siesta_options.html#variable-save_ebs_dens">save_ebs_dens</a>
+      
+      <a class="list-group-item" href="../module/siesta_options.html#variable-savepsch">savepsch</a>
+      
+      <a class="list-group-item" href="../module/siesta_options.html#variable-savetoch">savetoch</a>
+      
+      <a class="list-group-item" href="../module/siesta_options.html#variable-savebader">savebader</a>
+      
+      <a class="list-group-item" href="../module/siesta_options.html#variable-usesaveddata">usesaveddata</a>
+      
+      <a class="list-group-item" href="../module/siesta_options.html#variable-usesavecg">usesavecg</a>
+      
+      <a class="list-group-item" href="../module/siesta_options.html#variable-usesavelwf">usesavelwf</a>
+      
+      <a class="list-group-item" href="../module/siesta_options.html#variable-usesavedm">usesavedm</a>
+      
+      <a class="list-group-item" href="../module/siesta_options.html#variable-usesavedmloc">usesavedmloc</a>
+      
+      <a class="list-group-item" href="../module/siesta_options.html#variable-usesavexv">usesavexv</a>
+      
+      <a class="list-group-item" href="../module/siesta_options.html#variable-usesavezm">usesavezm</a>
+      
+      <a class="list-group-item" href="../module/siesta_options.html#variable-writeig">writeig</a>
+      
+      <a class="list-group-item" href="../module/siesta_options.html#variable-writbk">writbk</a>
+      
+      <a class="list-group-item" href="../module/siesta_options.html#variable-writmd">writmd</a>
+      
+      <a class="list-group-item" href="../module/siesta_options.html#variable-writpx">writpx</a>
+      
+      <a class="list-group-item" href="../module/siesta_options.html#variable-writb">writb</a>
+      
+      <a class="list-group-item" href="../module/siesta_options.html#variable-writec">writec</a>
+      
+      <a class="list-group-item" href="../module/siesta_options.html#variable-write_coop">write_coop</a>
+      
+      <a class="list-group-item" href="../module/siesta_options.html#variable-write_graphviz">write_GRAPHVIZ</a>
+      
+      <a class="list-group-item" href="../module/siesta_options.html#variable-w90_processing">w90_processing</a>
+      
+      <a class="list-group-item" href="../module/siesta_options.html#variable-w90_write_mmn">w90_write_mmn</a>
+      
+      <a class="list-group-item" href="../module/siesta_options.html#variable-w90_write_amn">w90_write_amn</a>
+      
+      <a class="list-group-item" href="../module/siesta_options.html#variable-w90_write_eig">w90_write_eig</a>
+      
+      <a class="list-group-item" href="../module/siesta_options.html#variable-w90_write_unk">w90_write_unk</a>
+      
+      <a class="list-group-item" href="../module/siesta_options.html#variable-hasnobup">hasnobup</a>
+      
+      <a class="list-group-item" href="../module/siesta_options.html#variable-hasnobdown">hasnobdown</a>
+      
+      <a class="list-group-item" href="../module/siesta_options.html#variable-hasnob">hasnob</a>
+      
+      <a class="list-group-item" href="../module/siesta_options.html#variable-nobup">nobup</a>
+      
+      <a class="list-group-item" href="../module/siesta_options.html#variable-nobdown">nobdown</a>
+      
+      <a class="list-group-item" href="../module/siesta_options.html#variable-nob">nob</a>
+      
+      <a class="list-group-item" href="../module/siesta_options.html#variable-writef">writef</a>
+      
+      <a class="list-group-item" href="../module/siesta_options.html#variable-writek">writek</a>
+      
+      <a class="list-group-item" href="../module/siesta_options.html#variable-writic">writic</a>
+      
+      <a class="list-group-item" href="../module/siesta_options.html#variable-varcel">varcel</a>
+      
+      <a class="list-group-item" href="../module/siesta_options.html#variable-do_pdos">do_pdos</a>
+      
+      <a class="list-group-item" href="../module/siesta_options.html#variable-write_tshs_history">write_tshs_history</a>
+      
+      <a class="list-group-item" href="../module/siesta_options.html#variable-write_hs_history">write_hs_history</a>
+      
+      <a class="list-group-item" href="../module/siesta_options.html#variable-writedm">writedm</a>
+      
+      <a class="list-group-item" href="../module/siesta_options.html#variable-write_dm_at_end_of_cycle">write_dm_at_end_of_cycle</a>
+      
+      <a class="list-group-item" href="../module/siesta_options.html#variable-writeh">writeH</a>
+      
+      <a class="list-group-item" href="../module/siesta_options.html#variable-write_h_at_end_of_cycle">write_H_at_end_of_cycle</a>
+      
+      <a class="list-group-item" href="../module/siesta_options.html#variable-writedm_cdf">writedm_cdf</a>
+      
+      <a class="list-group-item" href="../module/siesta_options.html#variable-writedm_cdf_history">writedm_cdf_history</a>
+      
+      <a class="list-group-item" href="../module/siesta_options.html#variable-writedmhs_cdf">writedmhs_cdf</a>
+      
+      <a class="list-group-item" href="../module/siesta_options.html#variable-writedmhs_cdf_history">writedmhs_cdf_history</a>
+      
+      <a class="list-group-item" href="../module/siesta_options.html#variable-read_charge_cdf">read_charge_cdf</a>
+      
+      <a class="list-group-item" href="../module/siesta_options.html#variable-read_deformation_charge_cdf">read_deformation_charge_cdf</a>
+      
+      <a class="list-group-item" href="../module/siesta_options.html#variable-save_initial_charge_density">save_initial_charge_density</a>
+      
+      <a class="list-group-item" href="../module/siesta_options.html#variable-analyze_charge_density_only">analyze_charge_density_only</a>
+      
+      <a class="list-group-item" href="../module/siesta_options.html#variable-atmonly">atmonly</a>
+      
+      <a class="list-group-item" href="../module/siesta_options.html#variable-harrisfun">harrisfun</a>
+      
+      <a class="list-group-item" href="../module/siesta_options.html#variable-muldeb">muldeb</a>
+      
+      <a class="list-group-item" href="../module/siesta_options.html#variable-spndeb">spndeb</a>
+      
+      <a class="list-group-item" href="../module/siesta_options.html#variable-orbmoms">orbmoms</a>
+      
+      <a class="list-group-item" href="../module/siesta_options.html#variable-split_sr_so">split_sr_so</a>
+      
+      <a class="list-group-item" href="../module/siesta_options.html#variable-converge_freee">converge_FreeE</a>
+      
+      <a class="list-group-item" href="../module/siesta_options.html#variable-tolerance_freee">tolerance_FreeE</a>
+      
+      <a class="list-group-item" href="../module/siesta_options.html#variable-converge_eharr">converge_Eharr</a>
+      
+      <a class="list-group-item" href="../module/siesta_options.html#variable-tolerance_eharr">tolerance_Eharr</a>
+      
+      <a class="list-group-item" href="../module/siesta_options.html#variable-converge_edm">converge_EDM</a>
+      
+      <a class="list-group-item" href="../module/siesta_options.html#variable-tolerance_edm">tolerance_EDM</a>
+      
+      <a class="list-group-item" href="../module/siesta_options.html#variable-converge_dm">converge_DM</a>
+      
+      <a class="list-group-item" href="../module/siesta_options.html#variable-ddtol">dDtol</a>
+      
+      <a class="list-group-item" href="../module/siesta_options.html#variable-converge_h">converge_H</a>
+      
+      <a class="list-group-item" href="../module/siesta_options.html#variable-dhtol">dHtol</a>
+      
+      <a class="list-group-item" href="../module/siesta_options.html#variable-broyden_optim">broyden_optim</a>
+      
+      <a class="list-group-item" href="../module/siesta_options.html#variable-fire_optim">fire_optim</a>
+      
+      <a class="list-group-item" href="../module/siesta_options.html#variable-struct_only">struct_only</a>
+      
+      <a class="list-group-item" href="../module/siesta_options.html#variable-use_struct_file">use_struct_file</a>
+      
+      <a class="list-group-item" href="../module/siesta_options.html#variable-bornz">bornz</a>
+      
+      <a class="list-group-item" href="../module/siesta_options.html#variable-scfmustconverge">SCFMustConverge</a>
+      
+      <a class="list-group-item" href="../module/siesta_options.html#variable-geometrymustconverge">GeometryMustConverge</a>
+      
+      <a class="list-group-item" href="../module/siesta_options.html#variable-want_domain_decomposition">want_domain_decomposition</a>
+      
+      <a class="list-group-item" href="../module/siesta_options.html#variable-want_spatial_decomposition">want_spatial_decomposition</a>
+      
+      <a class="list-group-item" href="../module/siesta_options.html#variable-hirshpop">hirshpop</a>
+      
+      <a class="list-group-item" href="../module/siesta_options.html#variable-voropop">voropop</a>
+      
+      <a class="list-group-item" href="../module/siesta_options.html#variable-partial_charges_at_every_geometry">partial_charges_at_every_geometry</a>
+      
+      <a class="list-group-item" href="../module/siesta_options.html#variable-partial_charges_at_every_scf_step">partial_charges_at_every_scf_step</a>
+      
+      <a class="list-group-item" href="../module/siesta_options.html#variable-monitor_forces_in_scf">monitor_forces_in_scf</a>
+      
+      <a class="list-group-item" href="../module/siesta_options.html#variable-minim_calc_eigenvalues">minim_calc_eigenvalues</a>
+      
+      <a class="list-group-item" href="../module/siesta_options.html#variable-writetdwf">writetdwf</a>
+      
+      <a class="list-group-item" href="../module/siesta_options.html#variable-extrapol_h_tdks">extrapol_H_tdks</a>
+      
+      <a class="list-group-item" href="../module/siesta_options.html#variable-td_elec_dyn">td_elec_dyn</a>
+      
+      <a class="list-group-item" href="../module/siesta_options.html#variable-etot_time">etot_time</a>
+      
+      <a class="list-group-item" href="../module/siesta_options.html#variable-eigen_time">eigen_time</a>
+      
+      <a class="list-group-item" href="../module/siesta_options.html#variable-dip_time">dip_time</a>
+      
+      <a class="list-group-item" href="../module/siesta_options.html#variable-tdsavewf">tdsavewf</a>
+      
+      <a class="list-group-item" href="../module/siesta_options.html#variable-tdsaverho">tdsaverho</a>
+      
+      <a class="list-group-item" href="../module/siesta_options.html#variable-td_inverse_linear">td_inverse_linear</a>
+      
+      <a class="list-group-item" href="../module/siesta_options.html#variable-ntdsaverho">ntdsaverho</a>
+      
+      <a class="list-group-item" href="../module/siesta_options.html#variable-itded">itded</a>
+      
+      <a class="list-group-item" href="../module/siesta_options.html#variable-ntded">ntded</a>
+      
+      <a class="list-group-item" href="../module/siesta_options.html#variable-ntded_sub">ntded_sub</a>
+      
+      <a class="list-group-item" href="../module/siesta_options.html#variable-td_dt">td_dt</a>
+      
+      <a class="list-group-item" href="../module/siesta_options.html#variable-rstart_time">rstart_time</a>
+      
+      <a class="list-group-item" href="../module/siesta_options.html#variable-totime">totime</a>
+      
+      <a class="list-group-item" href="../module/siesta_options.html#variable-ia1">ia1</a>
+      
+      <a class="list-group-item" href="../module/siesta_options.html#variable-ia2">ia2</a>
+      
+      <a class="list-group-item" href="../module/siesta_options.html#variable-ianneal">ianneal</a>
+      
+      <a class="list-group-item" href="../module/siesta_options.html#variable-idyn">idyn</a>
+      
+      <a class="list-group-item" href="../module/siesta_options.html#variable-ifinal">ifinal</a>
+      
+      <a class="list-group-item" href="../module/siesta_options.html#variable-ioptlwf">ioptlwf</a>
+      
+      <a class="list-group-item" href="../module/siesta_options.html#variable-iquench">iquench</a>
+      
+      <a class="list-group-item" href="../module/siesta_options.html#variable-isolve">isolve</a>
+      
+      <a class="list-group-item" href="../module/siesta_options.html#variable-istart">istart</a>
+      
+      <a class="list-group-item" href="../module/siesta_options.html#variable-dm_history_depth">DM_history_depth</a>
+      
+      <a class="list-group-item" href="../module/siesta_options.html#variable-maxsav">maxsav</a>
+      
+      <a class="list-group-item" href="../module/siesta_options.html#variable-broyden_maxit">broyden_maxit</a>
+      
+      <a class="list-group-item" href="../module/siesta_options.html#variable-mullipop">mullipop</a>
+      
+      <a class="list-group-item" href="../module/siesta_options.html#variable-ncgmax">ncgmax</a>
+      
+      <a class="list-group-item" href="../module/siesta_options.html#variable-nkick">nkick</a>
+      
+      <a class="list-group-item" href="../module/siesta_options.html#variable-nmove">nmove</a>
+      
+      <a class="list-group-item" href="../module/siesta_options.html#variable-nscf">nscf</a>
+      
+      <a class="list-group-item" href="../module/siesta_options.html#variable-min_nscf">min_nscf</a>
+      
+      <a class="list-group-item" href="../module/siesta_options.html#variable-pmax">pmax</a>
+      
+      <a class="list-group-item" href="../module/siesta_options.html#variable-neigwanted">neigwanted</a>
+      
+      <a class="list-group-item" href="../module/siesta_options.html#variable-level%7E2">level</a>
+      
+      <a class="list-group-item" href="../module/siesta_options.html#variable-call_diagon_default">call_diagon_default</a>
+      
+      <a class="list-group-item" href="../module/siesta_options.html#variable-call_diagon_first_step">call_diagon_first_step</a>
+      
+      <a class="list-group-item" href="../module/siesta_options.html#variable-beta">beta</a>
+      
+      <a class="list-group-item" href="../module/siesta_options.html#variable-bulkm">bulkm</a>
+      
+      <a class="list-group-item" href="../module/siesta_options.html#variable-charnet">charnet</a>
+      
+      <a class="list-group-item" href="../module/siesta_options.html#variable-rijmin">rijmin</a>
+      
+      <a class="list-group-item" href="../module/siesta_options.html#variable-dm_normalization_tol">dm_normalization_tol</a>
+      
+      <a class="list-group-item" href="../module/siesta_options.html#variable-normalize_dm_during_scf">normalize_dm_during_scf</a>
+      
+      <a class="list-group-item" href="../module/siesta_options.html#variable-dt">dt</a>
+      
+      <a class="list-group-item" href="../module/siesta_options.html#variable-dx">dx</a>
+      
+      <a class="list-group-item" href="../module/siesta_options.html#variable-dxmax">dxmax</a>
+      
+      <a class="list-group-item" href="../module/siesta_options.html#variable-eta">eta</a>
+      
+      <a class="list-group-item" href="../module/siesta_options.html#variable-etol">etol</a>
+      
+      <a class="list-group-item" href="../module/siesta_options.html#variable-ftol">ftol</a>
+      
+      <a class="list-group-item" href="../module/siesta_options.html#variable-g2cut">g2cut</a>
+      
+      <a class="list-group-item" href="../module/siesta_options.html#variable-mn">mn</a>
+      
+      <a class="list-group-item" href="../module/siesta_options.html#variable-mpr">mpr</a>
+      
+      <a class="list-group-item" href="../module/siesta_options.html#variable-occtol">occtol</a>
+      
+      <a class="list-group-item" href="../module/siesta_options.html#variable-rcoor">rcoor</a>
+      
+      <a class="list-group-item" href="../module/siesta_options.html#variable-rcoorcp">rcoorcp</a>
+      
+      <a class="list-group-item" href="../module/siesta_options.html#variable-rmax_bonds">rmax_bonds</a>
+      
+      <a class="list-group-item" href="../module/siesta_options.html#variable-strtol">strtol</a>
+      
+      <a class="list-group-item" href="../module/siesta_options.html#variable-taurelax">taurelax</a>
+      
+      <a class="list-group-item" href="../module/siesta_options.html#variable-temp">temp</a>
+      
+      <a class="list-group-item" href="../module/siesta_options.html#variable-tempinit">tempinit</a>
+      
+      <a class="list-group-item" href="../module/siesta_options.html#variable-threshold">threshold</a>
+      
+      <a class="list-group-item" href="../module/siesta_options.html#variable-tp">tp</a>
+      
+      <a class="list-group-item" href="../module/siesta_options.html#variable-total_spin">total_spin</a>
+      
+      <a class="list-group-item" href="../module/siesta_options.html#variable-tt">tt</a>
+      
+      <a class="list-group-item" href="../module/siesta_options.html#variable-wmix">wmix</a>
+      
+      <a class="list-group-item" href="../module/siesta_options.html#variable-wmixkick">wmixkick</a>
+      
+      <a class="list-group-item" href="../module/siesta_options.html#variable-sname">sname</a>
+      
+      <a class="list-group-item" href="../module/siesta_options.html#variable-solve_diagon">SOLVE_DIAGON</a>
+      
+      <a class="list-group-item" href="../module/siesta_options.html#variable-solve_ordern">SOLVE_ORDERN</a>
+      
+      <a class="list-group-item" href="../module/siesta_options.html#variable-solve_transi">SOLVE_TRANSI</a>
+      
+      <a class="list-group-item" href="../module/siesta_options.html#variable-solve_minim">SOLVE_MINIM</a>
+      
+      <a class="list-group-item" href="../module/siesta_options.html#variable-solve_pexsi">SOLVE_PEXSI</a>
+      
+      <a class="list-group-item" href="../module/siesta_options.html#variable-matrix_write">MATRIX_WRITE</a>
+      
+      <a class="list-group-item" href="../module/siesta_options.html#variable-solve_chess">SOLVE_CHESS</a>
+      
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </section>
+    <br class="visible-xs visible-sm hidden-md">
+
+    
+
+    
+    <section>
+    <h2>Variables</h2>
+    
+<table class="table table-striped varlist">
+<thead><tr><th>Type</th><th>Visibility</th>
+
+<th>Attributes</th><th></th><th>Name</th><th></th><th>Initial</th><th></th></thead>
+
+
+
+<tbody>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" id="variable-dp%7E2"></span>integer,</td>
+  
+  <td>private,</td>
+  <td>parameter</td><td>::</td>
+  <td><strong>dp</strong></td><td> =</td><td>selected_real_kind(10, 100)</td><td></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" id="variable-compat_pre_v4_dm_h"></span>logical,</td>
+  
+  <td>public</td>
+  <td></td><td>::</td>
+  <td><strong>compat_pre_v4_DM_H</strong></td><td></td><td></td><td><p>General switch</p></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" id="variable-mix_after_convergence"></span>logical,</td>
+  
+  <td>public</td>
+  <td></td><td>::</td>
+  <td><strong>mix_after_convergence</strong></td><td></td><td></td><td><p>Mix DM or H even after convergence</p></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" id="variable-recompute_h_after_scf"></span>logical,</td>
+  
+  <td>public</td>
+  <td></td><td>::</td>
+  <td><strong>recompute_H_after_scf</strong></td><td></td><td></td><td><p>Update H while computing forces</p></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" id="variable-compat_pre_v4_dynamics"></span>logical,</td>
+  
+  <td>public</td>
+  <td></td><td>::</td>
+  <td><strong>compat_pre_v4_dynamics</strong></td><td></td><td></td><td></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" id="variable-mix_scf_first"></span>logical,</td>
+  
+  <td>public</td>
+  <td></td><td>::</td>
+  <td><strong>mix_scf_first</strong></td><td></td><td></td><td><p>Mix first SCF step?</p></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" id="variable-mix_charge"></span>logical,</td>
+  
+  <td>public</td>
+  <td></td><td>::</td>
+  <td><strong>mix_charge</strong></td><td></td><td></td><td><p>New: mix fourier components of rho</p></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" id="variable-mixh"></span>logical,</td>
+  
+  <td>public</td>
+  <td></td><td>::</td>
+  <td><strong>mixH</strong></td><td></td><td></td><td><p>Mix H instead of DM</p></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" id="variable-h_setup_only"></span>logical,</td>
+  
+  <td>public</td>
+  <td></td><td>::</td>
+  <td><strong>h_setup_only</strong></td><td></td><td></td><td><p>H Setup only</p></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" id="variable-chebef"></span>logical,</td>
+  
+  <td>public</td>
+  <td></td><td>::</td>
+  <td><strong>chebef</strong></td><td></td><td></td><td><p>Compute the chemical potential in ordern?</p></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" id="variable-dumpcharge"></span>logical,</td>
+  
+  <td>public</td>
+  <td></td><td>::</td>
+  <td><strong>dumpcharge</strong></td><td></td><td></td><td><p>Write electron density?</p></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" id="variable-fire_mix"></span>logical,</td>
+  
+  <td>public</td>
+  <td></td><td>::</td>
+  <td><strong>fire_mix</strong></td><td></td><td></td><td><p>SCF mixing with FIRE method</p></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" id="variable-fixspin"></span>logical,</td>
+  
+  <td>public</td>
+  <td></td><td>::</td>
+  <td><strong>fixspin</strong></td><td></td><td></td><td><p>Keep the total spin fixed?</p></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" id="variable-init_anti_ferro"></span>logical,</td>
+  
+  <td>public</td>
+  <td></td><td>::</td>
+  <td><strong>init_anti_ferro</strong></td><td></td><td></td><td><p>Antiferro spin ordering in initdm?</p></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" id="variable-initdmaux"></span>logical,</td>
+  
+  <td>public</td>
+  <td></td><td>::</td>
+  <td><strong>initdmaux</strong></td><td></td><td></td><td><p>Re-initialize DM when auxiliary supercell changes?</p></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" id="variable-allow_dm_reuse"></span>logical,</td>
+  
+  <td>public</td>
+  <td></td><td>::</td>
+  <td><strong>allow_dm_reuse</strong></td><td></td><td></td><td><p>Allow re-use of the previous geometry DM ? (with possible extrapolation)</p></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" id="variable-allow_dm_extrapolation"></span>logical,</td>
+  
+  <td>public</td>
+  <td></td><td>::</td>
+  <td><strong>allow_dm_extrapolation</strong></td><td></td><td></td><td><p>Allow the extrapolation of previous geometries' DM ?</p></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" id="variable-change_kgrid_in_md"></span>logical,</td>
+  
+  <td>public</td>
+  <td></td><td>::</td>
+  <td><strong>change_kgrid_in_md</strong></td><td></td><td></td><td><p>Allow k-point grid to change in MD calculations</p></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" id="variable-negl"></span>logical,</td>
+  
+  <td>public</td>
+  <td></td><td>::</td>
+  <td><strong>negl</strong></td><td></td><td></td><td><p>Neglect hamiltonian matrix elements without overlap?</p></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" id="variable-noeta"></span>logical,</td>
+  
+  <td>public</td>
+  <td></td><td>::</td>
+  <td><strong>noeta</strong></td><td></td><td></td><td><p>Use computed chemical potential instead of eta in ordern?</p></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" id="variable-new_diagk"></span>logical,</td>
+  
+  <td>public</td>
+  <td></td><td>::</td>
+  <td><strong>new_diagk</strong></td><td></td><td></td><td><p>Use new diagk routine with file storage of eigenvectors?</p></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" id="variable-outlng"></span>logical,</td>
+  
+  <td>public</td>
+  <td></td><td>::</td>
+  <td><strong>outlng</strong></td><td></td><td></td><td><p>Long output in the output file?</p></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" id="variable-pulfile"></span>logical,</td>
+  
+  <td>public</td>
+  <td></td><td>::</td>
+  <td><strong>pulfile</strong></td><td></td><td></td><td><p>Use file to store Pulay info in pulayx? (Obsolete)</p></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" id="variable-relaxcellonly"></span>logical,</td>
+  
+  <td>public</td>
+  <td></td><td>::</td>
+  <td><strong>RelaxCellOnly</strong></td><td></td><td></td><td><p>Relax only lattice vectors, not atomic coordinates</p></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" id="variable-removeintramolecularpressure"></span>logical,</td>
+  
+  <td>public</td>
+  <td></td><td>::</td>
+  <td><strong>RemoveIntraMolecularPressure</strong></td><td></td><td></td><td><p>Remove molecular virial contribution to p</p></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" id="variable-savehs"></span>logical,</td>
+  
+  <td>public</td>
+  <td></td><td>::</td>
+  <td><strong>savehs</strong></td><td></td><td></td><td><p>Write file with Hamiltonian electrostatic potential?</p></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" id="variable-savevh"></span>logical,</td>
+  
+  <td>public</td>
+  <td></td><td>::</td>
+  <td><strong>savevh</strong></td><td></td><td></td><td><p>Write file with Hartree electrostatic potential?</p></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" id="variable-savevna"></span>logical,</td>
+  
+  <td>public</td>
+  <td></td><td>::</td>
+  <td><strong>savevna</strong></td><td></td><td></td><td><p>Write file with neutral-atom potential?</p></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" id="variable-savevt"></span>logical,</td>
+  
+  <td>public</td>
+  <td></td><td>::</td>
+  <td><strong>savevt</strong></td><td></td><td></td><td><p>Write file with total effective potential?</p></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" id="variable-savedrho"></span>logical,</td>
+  
+  <td>public</td>
+  <td></td><td>::</td>
+  <td><strong>savedrho</strong></td><td></td><td></td><td><p>Write file with diff. between SCF and atomic density?</p></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" id="variable-saverho"></span>logical,</td>
+  
+  <td>public</td>
+  <td></td><td>::</td>
+  <td><strong>saverho</strong></td><td></td><td></td><td><p>Write file with electron density?</p></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" id="variable-saverhoxc"></span>logical,</td>
+  
+  <td>public</td>
+  <td></td><td>::</td>
+  <td><strong>saverhoxc</strong></td><td></td><td></td><td><p>Write file with electron density including nonlinear core correction?</p></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" id="variable-save_ebs_dens"></span>logical,</td>
+  
+  <td>public</td>
+  <td></td><td>::</td>
+  <td><strong>save_ebs_dens</strong></td><td></td><td></td><td><p>Write file with band structure energy density?</p></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" id="variable-savepsch"></span>logical,</td>
+  
+  <td>public</td>
+  <td></td><td>::</td>
+  <td><strong>savepsch</strong></td><td></td><td></td><td><p>Write file with ionic (local pseudopotential) charge?</p></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" id="variable-savetoch"></span>logical,</td>
+  
+  <td>public</td>
+  <td></td><td>::</td>
+  <td><strong>savetoch</strong></td><td></td><td></td><td><p>Write file with total charge?</p></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" id="variable-savebader"></span>logical,</td>
+  
+  <td>public</td>
+  <td></td><td>::</td>
+  <td><strong>savebader</strong></td><td></td><td></td><td><p>Write file with charge for Bader analysis?</p></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" id="variable-usesaveddata"></span>logical,</td>
+  
+  <td>public</td>
+  <td></td><td>::</td>
+  <td><strong>usesaveddata</strong></td><td></td><td></td><td><p>Default for UseSavedData flag</p></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" id="variable-usesavecg"></span>logical,</td>
+  
+  <td>public</td>
+  <td></td><td>::</td>
+  <td><strong>usesavecg</strong></td><td></td><td></td><td><p>Use continuation file for CG geometry relaxation?</p></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" id="variable-usesavelwf"></span>logical,</td>
+  
+  <td>public</td>
+  <td></td><td>::</td>
+  <td><strong>usesavelwf</strong></td><td></td><td></td><td><p>Use continuation file for Wannier functions?</p></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" id="variable-usesavedm"></span>logical,</td>
+  
+  <td>public</td>
+  <td></td><td>::</td>
+  <td><strong>usesavedm</strong></td><td></td><td></td><td><p>Use cont. file for density matrix?</p></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" id="variable-usesavedmloc"></span>logical,</td>
+  
+  <td>public</td>
+  <td></td><td>::</td>
+  <td><strong>usesavedmloc</strong></td><td></td><td></td><td><p>Temporary to keep usesavedm value</p></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" id="variable-usesavexv"></span>logical,</td>
+  
+  <td>public</td>
+  <td></td><td>::</td>
+  <td><strong>usesavexv</strong></td><td></td><td></td><td><p>Use cont. file for atomic positions and velocities?</p></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" id="variable-usesavezm"></span>logical,</td>
+  
+  <td>public</td>
+  <td></td><td>::</td>
+  <td><strong>usesavezm</strong></td><td></td><td></td><td><p>Use cont. file for Z-matrix?</p></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" id="variable-writeig"></span>logical,</td>
+  
+  <td>public</td>
+  <td></td><td>::</td>
+  <td><strong>writeig</strong></td><td></td><td></td><td><p>Write eigenvalues?</p></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" id="variable-writbk"></span>logical,</td>
+  
+  <td>public</td>
+  <td></td><td>::</td>
+  <td><strong>writbk</strong></td><td></td><td></td><td><p>Write k vectors of bands?</p></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" id="variable-writmd"></span>logical,</td>
+  
+  <td>public</td>
+  <td></td><td>::</td>
+  <td><strong>writmd</strong></td><td></td><td></td><td></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" id="variable-writpx"></span>logical,</td>
+  
+  <td>public</td>
+  <td></td><td>::</td>
+  <td><strong>writpx</strong></td><td></td><td></td><td><p>Write atomic coordinates at every geometry step?</p></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" id="variable-writb"></span>logical,</td>
+  
+  <td>public</td>
+  <td></td><td>::</td>
+  <td><strong>writb</strong></td><td></td><td></td><td><p>Write band eigenvalues?</p></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" id="variable-writec"></span>logical,</td>
+  
+  <td>public</td>
+  <td></td><td>::</td>
+  <td><strong>writec</strong></td><td></td><td></td><td><p>Write atomic coordinates at every geometry step?</p></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" id="variable-write_coop"></span>logical,</td>
+  
+  <td>public</td>
+  <td></td><td>::</td>
+  <td><strong>write_coop</strong></td><td></td><td></td><td><p>Write information for COOP/COHP analysis ?</p></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" id="variable-write_graphviz"></span>integer,</td>
+  
+  <td>public</td>
+  <td></td><td>::</td>
+  <td><strong>write_GRAPHVIZ</strong></td><td></td><td></td><td></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" id="variable-w90_processing"></span>logical,</td>
+  
+  <td>public</td>
+  <td></td><td>::</td>
+  <td><strong>w90_processing</strong></td><td></td><td></td><td><p>Will we call the interface with Wannier90</p></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" id="variable-w90_write_mmn"></span>logical,</td>
+  
+  <td>public</td>
+  <td></td><td>::</td>
+  <td><strong>w90_write_mmn</strong></td><td></td><td></td><td><p>Write the Mmn matrix for the interface with Wannier</p></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" id="variable-w90_write_amn"></span>logical,</td>
+  
+  <td>public</td>
+  <td></td><td>::</td>
+  <td><strong>w90_write_amn</strong></td><td></td><td></td><td><p>Write the Amn matrix for the interface with Wannier</p></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" id="variable-w90_write_eig"></span>logical,</td>
+  
+  <td>public</td>
+  <td></td><td>::</td>
+  <td><strong>w90_write_eig</strong></td><td></td><td></td><td><p>Write the eigenvalues or the interface with Wannier</p></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" id="variable-w90_write_unk"></span>logical,</td>
+  
+  <td>public</td>
+  <td></td><td>::</td>
+  <td><strong>w90_write_unk</strong></td><td></td><td></td><td><p>Write the unks for the interface with Wannier</p></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" id="variable-hasnobup"></span>logical,</td>
+  
+  <td>public</td>
+  <td></td><td>::</td>
+  <td><strong>hasnobup</strong></td><td></td><td></td><td><p>Is the number of bands with spin up for 
+   wannierization defined?</p></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" id="variable-hasnobdown"></span>logical,</td>
+  
+  <td>public</td>
+  <td></td><td>::</td>
+  <td><strong>hasnobdown</strong></td><td></td><td></td><td><p>Is the number of bands with spin down for 
+   wannierization defined?</p></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" id="variable-hasnob"></span>logical,</td>
+  
+  <td>public</td>
+  <td></td><td>::</td>
+  <td><strong>hasnob</strong></td><td></td><td></td><td><p>Is the number of bands for wannierization defined?
+   (for non spin-polarized calculations).</p></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" id="variable-nobup"></span>integer,</td>
+  
+  <td>public</td>
+  <td></td><td>::</td>
+  <td><strong>nobup</strong></td><td></td><td></td><td><p>Number of bands with spin up for wannierization</p></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" id="variable-nobdown"></span>integer,</td>
+  
+  <td>public</td>
+  <td></td><td>::</td>
+  <td><strong>nobdown</strong></td><td></td><td></td><td><p>Number of bands with spin down for wannierization</p></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" id="variable-nob"></span>integer,</td>
+  
+  <td>public</td>
+  <td></td><td>::</td>
+  <td><strong>nob</strong></td><td></td><td></td><td><p>Number of bands for wannierization
+   (for non spin-polarized calculations).</p></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" id="variable-writef"></span>logical,</td>
+  
+  <td>public</td>
+  <td></td><td>::</td>
+  <td><strong>writef</strong></td><td></td><td></td><td><p>Write atomic forces at every geometry step?</p></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" id="variable-writek"></span>logical,</td>
+  
+  <td>public</td>
+  <td></td><td>::</td>
+  <td><strong>writek</strong></td><td></td><td></td><td><p>Write the k vectors of the BZ integration mesh?</p></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" id="variable-writic"></span>logical,</td>
+  
+  <td>public</td>
+  <td></td><td>::</td>
+  <td><strong>writic</strong></td><td></td><td></td><td><p>Write the initial atomic ccordinates?</p></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" id="variable-varcel"></span>logical,</td>
+  
+  <td>public</td>
+  <td></td><td>::</td>
+  <td><strong>varcel</strong></td><td></td><td></td><td><p>Change unit cell during relaxation or dynamics?</p></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" id="variable-do_pdos"></span>logical,</td>
+  
+  <td>public</td>
+  <td></td><td>::</td>
+  <td><strong>do_pdos</strong></td><td></td><td></td><td><p>Compute the projected density of states?</p></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" id="variable-write_tshs_history"></span>logical,</td>
+  
+  <td>public</td>
+  <td></td><td>::</td>
+  <td><strong>write_tshs_history</strong></td><td></td><td></td><td><p>Write the MD track of Hamiltonian and overlap matrices in transiesta format</p></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" id="variable-write_hs_history"></span>logical,</td>
+  
+  <td>public</td>
+  <td></td><td>::</td>
+  <td><strong>write_hs_history</strong></td><td></td><td></td><td><p>Write the MD track of Hamiltonian and overlap matrices</p></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" id="variable-writedm"></span>logical,</td>
+  
+  <td>public</td>
+  <td></td><td>::</td>
+  <td><strong>writedm</strong></td><td></td><td></td><td><p>Write file with density matrix?</p></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" id="variable-write_dm_at_end_of_cycle"></span>logical,</td>
+  
+  <td>public</td>
+  <td></td><td>::</td>
+  <td><strong>write_dm_at_end_of_cycle</strong></td><td></td><td></td><td><p>Write DM at end of SCF cycle? (converged or not)</p></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" id="variable-writeh"></span>logical,</td>
+  
+  <td>public</td>
+  <td></td><td>::</td>
+  <td><strong>writeH</strong></td><td></td><td></td><td><p>Write file with Hamiltonian? (in "DM" format)</p></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" id="variable-write_h_at_end_of_cycle"></span>logical,</td>
+  
+  <td>public</td>
+  <td></td><td>::</td>
+  <td><strong>write_H_at_end_of_cycle</strong></td><td></td><td></td><td></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" id="variable-writedm_cdf"></span>logical,</td>
+  
+  <td>public</td>
+  <td></td><td>::</td>
+  <td><strong>writedm_cdf</strong></td><td></td><td></td><td><p>Write file with density matrix in netCDF form?</p></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" id="variable-writedm_cdf_history"></span>logical,</td>
+  
+  <td>public</td>
+  <td></td><td>::</td>
+  <td><strong>writedm_cdf_history</strong></td><td></td><td></td><td><p>Write file with SCF history of DM in netCDF form?</p></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" id="variable-writedmhs_cdf"></span>logical,</td>
+  
+  <td>public</td>
+  <td></td><td>::</td>
+  <td><strong>writedmhs_cdf</strong></td><td></td><td></td><td><p>Write file with DM_in, H, DM_out, and S in netCDF form?</p></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" id="variable-writedmhs_cdf_history"></span>logical,</td>
+  
+  <td>public</td>
+  <td></td><td>::</td>
+  <td><strong>writedmhs_cdf_history</strong></td><td></td><td></td><td><p>Write file with SCF history in netCDF form?</p></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" id="variable-read_charge_cdf"></span>logical,</td>
+  
+  <td>public</td>
+  <td></td><td>::</td>
+  <td><strong>read_charge_cdf</strong></td><td></td><td></td><td><p>Read charge density from file in netCDF form?</p></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" id="variable-read_deformation_charge_cdf"></span>logical,</td>
+  
+  <td>public</td>
+  <td></td><td>::</td>
+  <td><strong>read_deformation_charge_cdf</strong></td><td></td><td></td><td><p>Read deformation charge density from file in netCDF form?</p></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" id="variable-save_initial_charge_density"></span>logical,</td>
+  
+  <td>public</td>
+  <td></td><td>::</td>
+  <td><strong>save_initial_charge_density</strong></td><td></td><td></td><td><p>Just save the initial charge density used</p></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" id="variable-analyze_charge_density_only"></span>logical,</td>
+  
+  <td>public</td>
+  <td></td><td>::</td>
+  <td><strong>analyze_charge_density_only</strong></td><td></td><td></td><td><p>Exit dhscf after processing charge</p></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" id="variable-atmonly"></span>logical,</td>
+  
+  <td>public</td>
+  <td></td><td>::</td>
+  <td><strong>atmonly</strong></td><td></td><td></td><td><p>Set up pseudoatom information only?</p></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" id="variable-harrisfun"></span>logical,</td>
+  
+  <td>public</td>
+  <td></td><td>::</td>
+  <td><strong>harrisfun</strong></td><td></td><td></td><td><p>Use Harris functional?</p></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" id="variable-muldeb"></span>logical,</td>
+  
+  <td>public</td>
+  <td></td><td>::</td>
+  <td><strong>muldeb</strong></td><td></td><td></td><td><p>Write Mulliken populations at every SCF step?</p></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" id="variable-spndeb"></span>logical,</td>
+  
+  <td>public</td>
+  <td></td><td>::</td>
+  <td><strong>spndeb</strong></td><td></td><td></td><td><p>Write spin-polarization information at every SCF step?</p></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" id="variable-orbmoms"></span>logical,</td>
+  
+  <td>public</td>
+  <td></td><td>::</td>
+  <td><strong>orbmoms</strong></td><td></td><td></td><td><p>Write orbital moments?</p></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" id="variable-split_sr_so"></span>logical,</td>
+  
+  <td>public</td>
+  <td></td><td>::</td>
+  <td><strong>split_sr_so</strong></td><td></td><td></td><td></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" id="variable-converge_freee"></span>logical,</td>
+  
+  <td>public</td>
+  <td></td><td>::</td>
+  <td><strong>converge_FreeE</strong></td><td></td><td></td><td><p>free Energy conv. to finish SCF iteration?</p></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" id="variable-tolerance_freee"></span>real(kind=dp),</td>
+  
+  <td>public</td>
+  <td></td><td>::</td>
+  <td><strong>tolerance_FreeE</strong></td><td></td><td></td><td><p>Free-energy tolerance</p></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" id="variable-converge_eharr"></span>logical,</td>
+  
+  <td>public</td>
+  <td></td><td>::</td>
+  <td><strong>converge_Eharr</strong></td><td></td><td></td><td><p>to finish SCF iteration?</p></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" id="variable-tolerance_eharr"></span>real(kind=dp),</td>
+  
+  <td>public</td>
+  <td></td><td>::</td>
+  <td><strong>tolerance_Eharr</strong></td><td></td><td></td><td><p>Harris tolerance</p></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" id="variable-converge_edm"></span>logical,</td>
+  
+  <td>public</td>
+  <td></td><td>::</td>
+  <td><strong>converge_EDM</strong></td><td></td><td></td><td><p>to finish SCF iteration?</p></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" id="variable-tolerance_edm"></span>real(kind=dp),</td>
+  
+  <td>public</td>
+  <td></td><td>::</td>
+  <td><strong>tolerance_EDM</strong></td><td></td><td></td><td><p>Tolerance in change of EDM elements to finish SCF iteration</p></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" id="variable-converge_dm"></span>logical,</td>
+  
+  <td>public</td>
+  <td></td><td>::</td>
+  <td><strong>converge_DM</strong></td><td></td><td></td><td><p>to finish SCF iteration?</p></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" id="variable-ddtol"></span>real(kind=dp),</td>
+  
+  <td>public</td>
+  <td></td><td>::</td>
+  <td><strong>dDtol</strong></td><td></td><td></td><td><p>Tolerance in change of DM elements to finish SCF iteration</p></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" id="variable-converge_h"></span>logical,</td>
+  
+  <td>public</td>
+  <td></td><td>::</td>
+  <td><strong>converge_H</strong></td><td></td><td></td><td><p>to finish SCF iteration?</p></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" id="variable-dhtol"></span>real(kind=dp),</td>
+  
+  <td>public</td>
+  <td></td><td>::</td>
+  <td><strong>dHtol</strong></td><td></td><td></td><td><p>Tolerance in change of H elements to finish SCF iteration</p></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" id="variable-broyden_optim"></span>logical,</td>
+  
+  <td>public</td>
+  <td></td><td>::</td>
+  <td><strong>broyden_optim</strong></td><td></td><td></td><td><p>Use Broyden method to optimize geometry?</p></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" id="variable-fire_optim"></span>logical,</td>
+  
+  <td>public</td>
+  <td></td><td>::</td>
+  <td><strong>fire_optim</strong></td><td></td><td></td><td><p>Use FIRE method to optimize geometry?</p></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" id="variable-struct_only"></span>logical,</td>
+  
+  <td>public</td>
+  <td></td><td>::</td>
+  <td><strong>struct_only</strong></td><td></td><td></td><td><p>Output initial structure only?</p></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" id="variable-use_struct_file"></span>logical,</td>
+  
+  <td>public</td>
+  <td></td><td>::</td>
+  <td><strong>use_struct_file</strong></td><td></td><td></td><td><p>Read structural information from a special file?</p></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" id="variable-bornz"></span>logical,</td>
+  
+  <td>public</td>
+  <td></td><td>::</td>
+  <td><strong>bornz</strong></td><td></td><td></td><td><p>Calculate Born polarization charges?</p></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" id="variable-scfmustconverge"></span>logical,</td>
+  
+  <td>public</td>
+  <td></td><td>::</td>
+  <td><strong>SCFMustConverge</strong></td><td></td><td></td><td><p>Do we have to converge for each SCF calculation?</p></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" id="variable-geometrymustconverge"></span>logical,</td>
+  
+  <td>public</td>
+  <td></td><td>::</td>
+  <td><strong>GeometryMustConverge</strong></td><td></td><td></td><td><p>Do we <em>have to</em> converge the relaxation?</p></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" id="variable-want_domain_decomposition"></span>logical,</td>
+  
+  <td>public</td>
+  <td></td><td>::</td>
+  <td><strong>want_domain_decomposition</strong></td><td></td><td></td><td><p>Use domain decomposition for orbitals </p></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" id="variable-want_spatial_decomposition"></span>logical,</td>
+  
+  <td>public</td>
+  <td></td><td>::</td>
+  <td><strong>want_spatial_decomposition</strong></td><td></td><td></td><td><p>Use spatial decomposition for orbitals</p></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" id="variable-hirshpop"></span>logical,</td>
+  
+  <td>public</td>
+  <td></td><td>::</td>
+  <td><strong>hirshpop</strong></td><td></td><td></td><td><p>Perform Hirshfeld population analysis?</p></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" id="variable-voropop"></span>logical,</td>
+  
+  <td>public</td>
+  <td></td><td>::</td>
+  <td><strong>voropop</strong></td><td></td><td></td><td><p>Perform Voronoi population analysis?</p></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" id="variable-partial_charges_at_every_geometry"></span>logical,</td>
+  
+  <td>public</td>
+  <td></td><td>::</td>
+  <td><strong>partial_charges_at_every_geometry</strong></td><td></td><td></td><td></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" id="variable-partial_charges_at_every_scf_step"></span>logical,</td>
+  
+  <td>public</td>
+  <td></td><td>::</td>
+  <td><strong>partial_charges_at_every_scf_step</strong></td><td></td><td></td><td></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" id="variable-monitor_forces_in_scf"></span>logical,</td>
+  
+  <td>public</td>
+  <td></td><td>::</td>
+  <td><strong>monitor_forces_in_scf</strong></td><td></td><td></td><td><p>Compute forces and stresses at every step</p></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" id="variable-minim_calc_eigenvalues"></span>logical,</td>
+  
+  <td>public</td>
+  <td></td><td>::</td>
+  <td><strong>minim_calc_eigenvalues</strong></td><td></td><td></td><td><p>Use diagonalization at the end of each MD step to find eigenvalues for OMM</p></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" id="variable-writetdwf"></span>logical,</td>
+  
+  <td>public</td>
+  <td></td><td>::</td>
+  <td><strong>writetdwf</strong></td><td></td><td></td><td><p>To write the wavefuctions at the end of SCF. These
+ would serve as the initial states for time evolution
+ of KS states in TD-DFT.</p></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" id="variable-extrapol_h_tdks"></span>logical,</td>
+  
+  <td>public</td>
+  <td></td><td>::</td>
+  <td><strong>extrapol_H_tdks</strong></td><td></td><td></td><td><p>Extrapolate Hamiltonian within Crank-Nicolson integration?</p></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" id="variable-td_elec_dyn"></span>logical,</td>
+  
+  <td>public</td>
+  <td></td><td>::</td>
+  <td><strong>td_elec_dyn</strong></td><td></td><td></td><td><p>To do TDDFT calculation on second run</p></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" id="variable-etot_time"></span>logical,</td>
+  
+  <td>public</td>
+  <td></td><td>::</td>
+  <td><strong>etot_time</strong></td><td></td><td></td><td><p>Write Etot vs time during TDDFT</p></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" id="variable-eigen_time"></span>logical,</td>
+  
+  <td>public</td>
+  <td></td><td>::</td>
+  <td><strong>eigen_time</strong></td><td></td><td></td><td><p>Write instataneous energy of the electronic states in TDDFT</p></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" id="variable-dip_time"></span>logical,</td>
+  
+  <td>public</td>
+  <td></td><td>::</td>
+  <td><strong>dip_time</strong></td><td></td><td></td><td><p>Write dipol moment againstan time in TDDFT</p></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" id="variable-tdsavewf"></span>logical,</td>
+  
+  <td>public</td>
+  <td></td><td>::</td>
+  <td><strong>tdsavewf</strong></td><td></td><td></td><td><p>To save the wavefunctions at the end of a calculation for restart./</p></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" id="variable-tdsaverho"></span>logical,</td>
+  
+  <td>public</td>
+  <td></td><td>::</td>
+  <td><strong>tdsaverho</strong></td><td></td><td></td><td><p>To save TD-Rho after a given number of time steps</p></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" id="variable-td_inverse_linear"></span>logical,</td>
+  
+  <td>public</td>
+  <td></td><td>::</td>
+  <td><strong>td_inverse_linear</strong></td><td></td><td></td><td><p>Matrix inversion option?</p></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" id="variable-ntdsaverho"></span>integer,</td>
+  
+  <td>public</td>
+  <td></td><td>::</td>
+  <td><strong>ntdsaverho</strong></td><td></td><td></td><td><p>Each number of steps TD-Rho is saved.</p></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" id="variable-itded"></span>integer,</td>
+  
+  <td>public</td>
+  <td></td><td>::</td>
+  <td><strong>itded</strong></td><td></td><td></td><td><p>a TDDFT counterpart of iscf</p></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" id="variable-ntded"></span>integer,</td>
+  
+  <td>public</td>
+  <td></td><td>::</td>
+  <td><strong>ntded</strong></td><td></td><td></td><td><p>Number of TDED steps in each MD iteration. 
+ Or total number of TDED steps in an only electron calcuation
+ (MD.FinalTimeStep = 1)</p></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" id="variable-ntded_sub"></span>integer,</td>
+  
+  <td>public</td>
+  <td></td><td>::</td>
+  <td><strong>ntded_sub</strong></td><td></td><td></td><td><p>Number of TDED sub-steps extrapolate H is applied to TDKS states.</p></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" id="variable-td_dt"></span>real(kind=dp),</td>
+  
+  <td>public</td>
+  <td></td><td>::</td>
+  <td><strong>td_dt</strong></td><td></td><td></td><td><p>Time step in electron dynamics. In case of doing electron dyanmics 
+ with MD, the dt in MD would be dt = td_dt x ntded</p></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" id="variable-rstart_time"></span>real(kind=dp),</td>
+  
+  <td>public</td>
+  <td></td><td>::</td>
+  <td><strong>rstart_time</strong></td><td></td><td></td><td><p>Restart time</p></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" id="variable-totime"></span>real(kind=dp),</td>
+  
+  <td>public</td>
+  <td></td><td>::</td>
+  <td><strong>totime</strong></td><td></td><td></td><td><p>Total time including the restart time mainly for plotting </p></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" id="variable-ia1"></span>integer,</td>
+  
+  <td>public</td>
+  <td></td><td>::</td>
+  <td><strong>ia1</strong></td><td></td><td></td><td><p>Atom index</p></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" id="variable-ia2"></span>integer,</td>
+  
+  <td>public</td>
+  <td></td><td>::</td>
+  <td><strong>ia2</strong></td><td></td><td></td><td><p>Atom index</p></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" id="variable-ianneal"></span>integer,</td>
+  
+  <td>public</td>
+  <td></td><td>::</td>
+  <td><strong>ianneal</strong></td><td></td><td></td><td><p>Annealing option read in redata and passed to anneal</p></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" id="variable-idyn"></span>integer,</td>
+  
+  <td>public</td>
+  <td></td><td>::</td>
+  <td><strong>idyn</strong></td><td></td><td></td><td><p>Geommetry relaxation/dynamics option</p></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" id="variable-ifinal"></span>integer,</td>
+  
+  <td>public</td>
+  <td></td><td>::</td>
+  <td><strong>ifinal</strong></td><td></td><td></td><td><p>Last geommetry iteration step for some types of dynamics</p></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" id="variable-ioptlwf"></span>integer,</td>
+  
+  <td>public</td>
+  <td></td><td>::</td>
+  <td><strong>ioptlwf</strong></td><td></td><td></td><td><p>Order-N functional option read in redata used in ordern</p></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" id="variable-iquench"></span>integer,</td>
+  
+  <td>public</td>
+  <td></td><td>::</td>
+  <td><strong>iquench</strong></td><td></td><td></td><td><p>Quenching option, read in redata, used in dynamics routines</p></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" id="variable-isolve"></span>integer,</td>
+  
+  <td>public</td>
+  <td></td><td>::</td>
+  <td><strong>isolve</strong></td><td></td><td></td><td><p>Option to find density matrix: 0=&gt;diag, 1=&gt;order-N</p></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" id="variable-istart"></span>integer,</td>
+  
+  <td>public</td>
+  <td></td><td>::</td>
+  <td><strong>istart</strong></td><td></td><td></td><td><p>First geommetry iteration step for certain types of dynamics</p></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" id="variable-dm_history_depth"></span>integer,</td>
+  
+  <td>public</td>
+  <td></td><td>::</td>
+  <td><strong>DM_history_depth</strong></td><td></td><td></td><td><p>Number of previous density matrices used in extrapolation and reuse</p></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" id="variable-maxsav"></span>integer,</td>
+  
+  <td>public</td>
+  <td></td><td>::</td>
+  <td><strong>maxsav</strong></td><td></td><td></td><td><p>Number of previous density matrices used in Pulay mixing</p></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" id="variable-broyden_maxit"></span>integer,</td>
+  
+  <td>public</td>
+  <td></td><td>::</td>
+  <td><strong>broyden_maxit</strong></td><td></td><td></td><td><p>Max. iterations in Broyden geometry relaxation</p></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" id="variable-mullipop"></span>integer,</td>
+  
+  <td>public</td>
+  <td></td><td>::</td>
+  <td><strong>mullipop</strong></td><td></td><td></td><td><p>Option for Mulliken population level of detail</p></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" id="variable-ncgmax"></span>integer,</td>
+  
+  <td>public</td>
+  <td></td><td>::</td>
+  <td><strong>ncgmax</strong></td><td></td><td></td><td><p>Max. number of conjugate gradient steps in order-N minim.</p></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" id="variable-nkick"></span>integer,</td>
+  
+  <td>public</td>
+  <td></td><td>::</td>
+  <td><strong>nkick</strong></td><td></td><td></td><td><p>Period between 'kick' steps in SCF iteration</p></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" id="variable-nmove"></span>integer,</td>
+  
+  <td>public</td>
+  <td></td><td>::</td>
+  <td><strong>nmove</strong></td><td></td><td></td><td><p>Number of geometry iterations</p></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" id="variable-nscf"></span>integer,</td>
+  
+  <td>public</td>
+  <td></td><td>::</td>
+  <td><strong>nscf</strong></td><td></td><td></td><td><p>Number of SCF iteration steps</p></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" id="variable-min_nscf"></span>integer,</td>
+  
+  <td>public</td>
+  <td></td><td>::</td>
+  <td><strong>min_nscf</strong></td><td></td><td></td><td><p>Minimum number of SCF iteration steps</p></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" id="variable-pmax"></span>integer,</td>
+  
+  <td>public</td>
+  <td></td><td>::</td>
+  <td><strong>pmax</strong></td><td></td><td></td><td></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" id="variable-neigwanted"></span>integer,</td>
+  
+  <td>public</td>
+  <td></td><td>::</td>
+  <td><strong>neigwanted</strong></td><td></td><td></td><td><p>Wanted number of eigenstates (per k point)</p></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" id="variable-level%7E2"></span>integer,</td>
+  
+  <td>public</td>
+  <td></td><td>::</td>
+  <td><strong>level</strong></td><td></td><td></td><td><p>Option for allocation report level of detail</p></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" id="variable-call_diagon_default"></span>integer,</td>
+  
+  <td>public</td>
+  <td></td><td>::</td>
+  <td><strong>call_diagon_default</strong></td><td></td><td></td><td><p>Default number of SCF steps for which to use diagonalization before OMM</p></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" id="variable-call_diagon_first_step"></span>integer,</td>
+  
+  <td>public</td>
+  <td></td><td>::</td>
+  <td><strong>call_diagon_first_step</strong></td><td></td><td></td><td><p>Number of SCF steps for which to use diagonalization before OMM (first MD step)</p></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" id="variable-beta"></span>real(kind=dp),</td>
+  
+  <td>public</td>
+  <td></td><td>::</td>
+  <td><strong>beta</strong></td><td></td><td></td><td><p>Inverse temperature for Chebishev expansion.</p></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" id="variable-bulkm"></span>real(kind=dp),</td>
+  
+  <td>public</td>
+  <td></td><td>::</td>
+  <td><strong>bulkm</strong></td><td></td><td></td><td><p>Bulk modulus</p></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" id="variable-charnet"></span>real(kind=dp),</td>
+  
+  <td>public</td>
+  <td></td><td>::</td>
+  <td><strong>charnet</strong></td><td></td><td></td><td><p>Net electric charge</p></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" id="variable-rijmin"></span>real(kind=dp),</td>
+  
+  <td>public</td>
+  <td></td><td>::</td>
+  <td><strong>rijmin</strong></td><td></td><td></td><td><p>Min. permited interatomic distance without warning</p></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" id="variable-dm_normalization_tol"></span>real(kind=dp),</td>
+  
+  <td>public</td>
+  <td></td><td>::</td>
+  <td><strong>dm_normalization_tol</strong></td><td></td><td></td><td><p>Threshold for DM normalization mismatch error</p></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" id="variable-normalize_dm_during_scf"></span>logical,</td>
+  
+  <td>public</td>
+  <td></td><td>::</td>
+  <td><strong>normalize_dm_during_scf</strong></td><td></td><td></td><td><p>Whether we normalize the DM </p></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" id="variable-dt"></span>real(kind=dp),</td>
+  
+  <td>public</td>
+  <td></td><td>::</td>
+  <td><strong>dt</strong></td><td></td><td></td><td><p>Time step in dynamics</p></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" id="variable-dx"></span>real(kind=dp),</td>
+  
+  <td>public</td>
+  <td></td><td>::</td>
+  <td><strong>dx</strong></td><td></td><td></td><td><p>Atomic displacement used to calculate Hessian matrix</p></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" id="variable-dxmax"></span>real(kind=dp),</td>
+  
+  <td>public</td>
+  <td></td><td>::</td>
+  <td><strong>dxmax</strong></td><td></td><td></td><td><p>Max. atomic displacement allowed during geom. relaxation</p></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" id="variable-eta"></span>real(kind=dp),</td>
+  
+  <td>public</td>
+  <td></td><td>::</td>
+  <td><strong>eta</strong>(2)</td><td></td><td></td><td><p>Chemical-potential param. Read by redata used in ordern</p></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" id="variable-etol"></span>real(kind=dp),</td>
+  
+  <td>public</td>
+  <td></td><td>::</td>
+  <td><strong>etol</strong></td><td></td><td></td><td><p>Relative tol. in CG minim, read by redata, used in ordern</p></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" id="variable-ftol"></span>real(kind=dp),</td>
+  
+  <td>public</td>
+  <td></td><td>::</td>
+  <td><strong>ftol</strong></td><td></td><td></td><td><p>Force tolerance to stop geometry relaxation</p></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" id="variable-g2cut"></span>real(kind=dp),</td>
+  
+  <td>public</td>
+  <td></td><td>::</td>
+  <td><strong>g2cut</strong></td><td></td><td></td><td><p>Required planewave cutoff of real-space integration mesh</p></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" id="variable-mn"></span>real(kind=dp),</td>
+  
+  <td>public</td>
+  <td></td><td>::</td>
+  <td><strong>mn</strong></td><td></td><td></td><td><p>Mass of Nose thermostat</p></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" id="variable-mpr"></span>real(kind=dp),</td>
+  
+  <td>public</td>
+  <td></td><td>::</td>
+  <td><strong>mpr</strong></td><td></td><td></td><td><p>Mass of Parrinello-Rahman variables</p></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" id="variable-occtol"></span>real(kind=dp),</td>
+  
+  <td>public</td>
+  <td></td><td>::</td>
+  <td><strong>occtol</strong></td><td></td><td></td><td><p>Occupancy threshold to build DM</p></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" id="variable-rcoor"></span>real(kind=dp),</td>
+  
+  <td>public</td>
+  <td></td><td>::</td>
+  <td><strong>rcoor</strong></td><td></td><td></td><td><p>Cutoff radius of Localized Wave Functions in ordern</p></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" id="variable-rcoorcp"></span>real(kind=dp),</td>
+  
+  <td>public</td>
+  <td></td><td>::</td>
+  <td><strong>rcoorcp</strong></td><td></td><td></td><td><p>Cutoff radius to find Fermi level by projection in ordern</p></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" id="variable-rmax_bonds"></span>real(kind=dp),</td>
+  
+  <td>public</td>
+  <td></td><td>::</td>
+  <td><strong>rmax_bonds</strong></td><td></td><td></td><td><p>Cutoff length for bond definition</p></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" id="variable-strtol"></span>real(kind=dp),</td>
+  
+  <td>public</td>
+  <td></td><td>::</td>
+  <td><strong>strtol</strong></td><td></td><td></td><td><p>Stress tolerance in relaxing the unit cell</p></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" id="variable-taurelax"></span>real(kind=dp),</td>
+  
+  <td>public</td>
+  <td></td><td>::</td>
+  <td><strong>taurelax</strong></td><td></td><td></td><td><p>Relaxation time to reach desired T and P in anneal</p></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" id="variable-temp"></span>real(kind=dp),</td>
+  
+  <td>public</td>
+  <td></td><td>::</td>
+  <td><strong>temp</strong></td><td></td><td></td><td></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" id="variable-tempinit"></span>real(kind=dp),</td>
+  
+  <td>public</td>
+  <td></td><td>::</td>
+  <td><strong>tempinit</strong></td><td></td><td></td><td><p>Initial ionic temperature read in redata</p></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" id="variable-threshold"></span>real(kind=dp),</td>
+  
+  <td>public</td>
+  <td></td><td>::</td>
+  <td><strong>threshold</strong></td><td></td><td></td><td><p>Min. size of arrays printed by alloc_report</p></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" id="variable-tp"></span>real(kind=dp),</td>
+  
+  <td>public</td>
+  <td></td><td>::</td>
+  <td><strong>tp</strong></td><td></td><td></td><td><p>Target pressure. Read in redata. Used in dynamics routines</p></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" id="variable-total_spin"></span>real(kind=dp),</td>
+  
+  <td>public</td>
+  <td></td><td>::</td>
+  <td><strong>total_spin</strong></td><td></td><td></td><td><p>Total spin used in spin-polarized calculations</p></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" id="variable-tt"></span>real(kind=dp),</td>
+  
+  <td>public</td>
+  <td></td><td>::</td>
+  <td><strong>tt</strong></td><td></td><td></td><td><p>Target temperature. Read in redata. Used in dynamics rout.</p></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" id="variable-wmix"></span>real(kind=dp),</td>
+  
+  <td>public</td>
+  <td></td><td>::</td>
+  <td><strong>wmix</strong></td><td></td><td></td><td><p>Mixing weight for DM in SCF iteration</p></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" id="variable-wmixkick"></span>real(kind=dp),</td>
+  
+  <td>public</td>
+  <td></td><td>::</td>
+  <td><strong>wmixkick</strong></td><td></td><td></td><td><p>Mixing weight for DM in special 'kick' SCF steps</p></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" id="variable-sname"></span>character(len=164),</td>
+  
+  <td>public</td>
+  <td></td><td>::</td>
+  <td><strong>sname</strong></td><td></td><td></td><td><p>System name, used to initialise read</p></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" id="variable-solve_diagon"></span>integer,</td>
+  
+  <td>public,</td>
+  <td>parameter</td><td>::</td>
+  <td><strong>SOLVE_DIAGON</strong></td><td> =</td><td>0</td><td></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" id="variable-solve_ordern"></span>integer,</td>
+  
+  <td>public,</td>
+  <td>parameter</td><td>::</td>
+  <td><strong>SOLVE_ORDERN</strong></td><td> =</td><td>1</td><td></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" id="variable-solve_transi"></span>integer,</td>
+  
+  <td>public,</td>
+  <td>parameter</td><td>::</td>
+  <td><strong>SOLVE_TRANSI</strong></td><td> =</td><td>2</td><td></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" id="variable-solve_minim"></span>integer,</td>
+  
+  <td>public,</td>
+  <td>parameter</td><td>::</td>
+  <td><strong>SOLVE_MINIM</strong></td><td> =</td><td>3</td><td></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" id="variable-solve_pexsi"></span>integer,</td>
+  
+  <td>public,</td>
+  <td>parameter</td><td>::</td>
+  <td><strong>SOLVE_PEXSI</strong></td><td> =</td><td>4</td><td></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" id="variable-matrix_write"></span>integer,</td>
+  
+  <td>public,</td>
+  <td>parameter</td><td>::</td>
+  <td><strong>MATRIX_WRITE</strong></td><td> =</td><td>5</td><td></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" id="variable-solve_chess"></span>integer,</td>
+  
+  <td>public,</td>
+  <td>parameter</td><td>::</td>
+  <td><strong>SOLVE_CHESS</strong></td><td> =</td><td>6</td><td></td>
+  
+</tr>
+
+</tbody>
+</table>
+
+    </section>
+    <br>
+    
+    
+    
+    
+    
+
+    
+    
+    
+    
+    
+
+    
+    
+    
+    </div>
+  </div>
+
+  
+    <hr>    
+    </div> <!-- /container -->
+    <footer>
+      <div class="container">
+      <div class="row">
+        <div class="col-xs-6 col-md-4"><p>&copy; 2018 <a rel="license" href="http://www.gnu.org/licenses/old-licenses/fdl-1.2.en.html">GNU Free Documentation License</a>
+                                          </p></div>
+        <div class="col-xs-6 col-md-4 col-md-push-4">
+          <p class="text-right">
+            Documentation generated by 
+            <a href="https://github.com/cmacmackin/ford">FORD</a>
+            
+          </p>
+        </div>
+        <div class="col-xs-12 col-md-4 col-md-pull-4"><p class="text-center"> SIESTA was developed by SIESTA Group</p></div>
+      </div>
+      <br>
+      </div> <!-- /container -->    
+    </footer>
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+<!--
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+-->
+    <script src="../js/bootstrap.min.js"></script>
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script src="../js/ie10-viewport-bug-workaround.js"></script>
+
+    <!-- MathJax JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        TeX: { extensions: ['AMSmath.js','AMSsymbols.js','noErrors.js','noUndefined.js'], equationNumbers: { autoNumber: 'AMS' } },
+        jax: ['input/TeX','input/MathML','output/HTML-CSS'],
+        extensions: ['tex2jax.js','mml2jax.js','MathMenu.js','MathZoom.js']
+      });
+    </script>
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    
+    <script src="../tipuesearch/tipuesearch_content.js"></script>
+    <script src="../tipuesearch/tipuesearch_set.js"></script>
+    <script src="../tipuesearch/tipuesearch.js"></script>
+    
+    
+  </body>
+</html>

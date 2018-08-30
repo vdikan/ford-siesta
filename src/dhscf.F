@@ -521,23 +521,23 @@
 !! Distances in Bohr.
 !!
 !!### Routines called internally
-!! * cellxc(...)    : Finds total exch-corr energy and potential
+!! * [[cellxc(proc)]]    : Finds total exch-corr energy and potential
 !! * [[cross(proc)]]   : Finds the cross product of two vectors
-!! * dfscf(...)     : Finds SCF contribution to atomic forces
-!! * dipole(...)    : Finds electric dipole moment
-!! * doping(...)    : Adds a background charge for doped systems
-!! * write_rho(...)     : Saves electron density on a file
-!! * poison(...)    : Solves Poisson equation
-!! * reord(...)     : Reorders electron density and potential arrays
-!! * rhooda(...)    : Finds Harris electron density in the mesh
-!! * rhoofd(...)    : Finds SCF electron density in the mesh
-!! * rhoofdsp(...)  : Finds SCF electron density in the mesh for
-!! *                  spiral arrangement of spins
-!! * timer(...)     : Finds CPU times
-!! * vmat(...)      : Finds matrix elements of SCF potential
-!! * vmatsp(...)    : Finds matrix elements of SCF potential for
+!! * [[dfscf(proc)]]     : Finds SCF contribution to atomic forces
+!! * [[dipole(proc)]]    : Finds electric dipole moment
+!! * [[doping(proc)]]    : Adds a background charge for doped systems
+!! * [[write_rho(proc)]]     : Saves electron density on a file
+!! * [[poison(proc)]]    : Solves Poisson equation
+!! * [[reord(proc)]]     : Reorders electron density and potential arrays
+!! * [[rhooda(proc)]]    : Finds Harris electron density in the mesh
+!! * [[rhoofd(proc)]]    : Finds SCF electron density in the mesh
+!! * [[rhoofdsp(proc)]]  : Finds SCF electron density in the mesh for
 !!                    spiral arrangement of spins
-!! * delk(...)      : Finds matrix elements of \( exp(i \vec{k} \cdot \vec{r}) \)
+!! * [[timer(proc)]]     : Finds CPU times
+!! * [[vmat(proc)]]      : Finds matrix elements of SCF potential
+!! * [[vmatsp(proc)]]    : Finds matrix elements of SCF potential for
+!!                         spiral arrangement of spins
+!! * [[delk(proc)]] : Finds matrix elements of \( exp(i \vec{k} \cdot \vec{r}) \)
 !! * real*8 volcel( cell ) : Returns volume of unit cell
 !!
 !!### Internal variables and arrays
@@ -1966,8 +1966,8 @@
       subroutine delk_wrapper(isigneikr, norb, maxnd,
      &                        numd, listdptr, listd,
      &                        nuo,  nuotot, iaorb, iphorb, isa )
-!! This is a wrapper to call delk, using some of the module
-!! variables of m_dhscf, but from outside dhscf itself.
+!! This is a wrapper to call [[delk(proc)]], using some of the module
+!! variables of `m_dhscf`, but from outside `dhscf` itself.
 !!
 !! The dhscf module variables used are:
 !!
@@ -1982,7 +1982,7 @@
 !! of the kitchen-sink functionality of dhscf to be made more modular.
 !! For example, this wrapper might live independently if enough mesh
 !! information is made available to it.
-     
+
       use m_delk,  only  : delk  ! The real workhorse, similar to vmat
 
       use moreMeshSubs,   only : setMeshDistr
