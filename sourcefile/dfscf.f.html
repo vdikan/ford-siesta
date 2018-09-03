@@ -1,0 +1,1098 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+   
+   <meta name="description" content="A first-principles materials simulation code using Density Functional Theory.">
+    
+    <meta name="author" content="SIESTA Group" >
+    <link rel="icon" href="../favicon.png">
+
+    <title>dfscf.f &ndash; SIESTA</title>
+
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
+    <link href="../css/pygments.css" rel="stylesheet">
+    <link href="../css/font-awesome.min.css" rel="stylesheet">
+    <link href="../css/local.css" rel="stylesheet">
+    
+    <link  href="../tipuesearch/tipuesearch.css" rel="stylesheet">
+    
+    
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    
+    <script src="../js/jquery-2.1.3.min.js"></script>
+    <script src="../js/svg-pan-zoom.min.js"></script>
+
+  </head>
+
+  <body>
+
+    <!-- Fixed navbar -->
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="../index.html">SIESTA <small>trunk-700--vdikan-edens-711-ford-681</small></a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+          <ul class="nav navbar-nav">
+        
+            <li><a href='../page/index.html'>Program Overview</a></li>
+      
+            <li class="dropdown hidden-xs visible-sm visible-md hidden-lg">
+              <a href="#" class="dropdown-toggle"
+              data-toggle="dropdown" role="button"
+              aria-haspopup="true"
+     aria-expanded="false">Contents <span class="caret"></span></a>
+        <ul class="dropdown-menu">
+          
+              
+            <li><a href="../lists/files.html">Source Files</a></li>
+        
+        
+        
+            <li><a href="../lists/modules.html">Modules</a></li>
+        
+            
+                                
+            <li><a href="../lists/procedures.html">Procedures</a></li>
+        
+               
+            <li><a href="../lists/types.html">Derived Types</a></li>
+        
+        
+            </ul>
+            </li>
+
+
+<li class="visible-xs hidden-sm visible-lg"><a href="../lists/files.html">Source Files</a></li>
+
+
+
+<li class="visible-xs hidden-sm visible-lg"><a href="../lists/modules.html">Modules</a></li>
+
+
+
+<li class="visible-xs hidden-sm visible-lg"><a href="../lists/procedures.html">Procedures</a></li>
+
+                             
+<li class="visible-xs hidden-sm visible-lg"><a href="../lists/types.html">Derived Types</a></li>
+
+
+          </ul>
+        
+        <form action="../search.html" class="navbar-form navbar-right" role="search">
+        <div class="form-group">
+          <input type="text" class="form-control" placeholder="Search" name="q" id="tipue_search_input" autocomplete="off" required>
+        </div>
+<!--
+        <button type="submit" class="btn btn-default">Submit</button>
+-->
+        </form>
+        
+        </div><!--/.nav-collapse -->
+      </div>
+    </nav>
+
+    <div class="container">
+    
+  
+  <div class="row">
+    <h1>dfscf.f
+    <small>Source File</small>
+    
+    </h1>
+    
+<div class="row">
+  <div class="col-lg-12">
+<div class="well well-sm">
+  <ul class="list-inline" style="margin-bottom:0px;display:inline">
+     
+     
+     
+     
+    
+    
+     <li><i class="fa fa-list-ol"></i>
+       <a data-toggle="tooltip"
+    data-placement="bottom" data-html="true"
+    title=" 2.7% of total for source files.">266 statements</a>
+     </li> 
+     
+     
+     
+    <li><i class="fa fa-code"></i><a href="../src/dfscf.f"> Source File</a></li>
+     
+     
+  </ul>
+  <ol class="breadcrumb in-well text-right">
+  
+    
+  
+     <li class="active">dfscf.f</li>
+  </ol>
+</div>
+</div>
+</div>
+<script>
+  $(function () {
+  $('[data-toggle="tooltip"]').tooltip()
+  })
+</script>
+
+  </div>
+  <div class="row">
+    <div class="col-md-3 hidden-xs hidden-sm visible-md visible-lg">
+    
+<div id="sidebar">
+  
+<h3>Contents</h3>
+ 
+
+
+
+
+
+
+
+<div class="panel panel-primary">
+  <div class="panel-heading text-left"><h3 class="panel-title"><a data-toggle="collapse" href="#mods-0">Modules</a></h3></div>
+  <div id="mods-0" class="panel-collapse collapse">
+    <div class="list-group">
+      
+      <a class="list-group-item" href="../module/m_dfscf.html">m_dfscf</a>
+      
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="panel panel-primary">
+  <div class="panel-heading text-left"><h3 class="panel-title">Source Code</h3></div>
+  <div class="list-group">
+    <a class="list-group-item" href="../sourcefile/dfscf.f.html#src">dfscf.f</a>
+  </div>
+</div>
+
+
+
+</div>
+
+    </div>
+    <div class="col-md-9" id='text'>
+      
+      <br>
+    
+    <div class="panel panel-default">
+      <div class="panel-heading">
+  <h3 class="panel-title">This file depends on</h3>
+      </div>
+      <div class="panel-body">
+  <div class="depgraph"><?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+ "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Generated by graphviz version 2.38.0 (20140413.2041)
+ -->
+<!-- Title: sourcefile~~dfscf.f~~EfferentGraph Pages: 1 -->
+<svg id="sourcefiledfscffEfferentGraph" width="458pt" height="178pt"
+ viewBox="0.00 0.00 458.00 177.97" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="sourcefile~~dfscf.f~~EfferentGraph" class="graph" transform="scale(1 1) rotate(0) translate(4 173.967)">
+<title>sourcefile~~dfscf.f~~EfferentGraph</title>
+<polygon fill="white" stroke="none" points="-4,4 -4,-173.967 454,-173.967 454,4 -4,4"/>
+<!-- sourcefile~dfscf.f -->
+<g id="sourcefile~~dfscf.f~~EfferentGraph_node1" class="node"><title>sourcefile~dfscf.f</title>
+<polygon fill="none" stroke="black" points="450,-98.8526 396,-98.8526 396,-74.8526 450,-74.8526 450,-98.8526"/>
+<text text-anchor="middle" x="423" y="-84.4526" font-family="Helvetica,sans-Serif" font-size="10.50">dfscf.f</text>
+</g>
+<!-- sourcefile~atm_types.f -->
+<g id="sourcefile~~dfscf.f~~EfferentGraph_node2" class="node"><title>sourcefile~atm_types.f</title>
+<g id="a_sourcefile~~dfscf.f~~EfferentGraph_node2"><a xlink:href=".././sourcefile/atm_types.f.html" xlink:title="atm_types.f">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="262,-138.853 194,-138.853 194,-114.853 262,-114.853 262,-138.853"/>
+<text text-anchor="middle" x="228" y="-124.453" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">atm_types.f</text>
+</a>
+</g>
+</g>
+<!-- sourcefile~dfscf.f&#45;&gt;sourcefile~atm_types.f -->
+<g id="sourcefile~~dfscf.f~~EfferentGraph_edge1" class="edge"><title>sourcefile~dfscf.f&#45;&gt;sourcefile~atm_types.f</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M395.668,-89.7755C370.425,-92.8385 331.341,-98.2658 298,-105.853 289.488,-107.79 280.494,-110.229 271.913,-112.754"/>
+<polygon fill="#000000" stroke="#000000" points="270.638,-109.483 262.082,-115.732 272.668,-116.182 270.638,-109.483"/>
+</g>
+<!-- sourcefile~precision.f -->
+<g id="sourcefile~~dfscf.f~~EfferentGraph_node3" class="node"><title>sourcefile~precision.f</title>
+<g id="a_sourcefile~~dfscf.f~~EfferentGraph_node3"><a xlink:href=".././sourcefile/precision.f.html" xlink:title="precision.F">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="65,-138.853 0,-138.853 0,-114.853 65,-114.853 65,-138.853"/>
+<text text-anchor="middle" x="32.5" y="-124.453" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">precision.F</text>
+</a>
+</g>
+</g>
+<!-- sourcefile~dfscf.f&#45;&gt;sourcefile~precision.f -->
+<g id="sourcefile~~dfscf.f~~EfferentGraph_edge2" class="edge"><title>sourcefile~dfscf.f&#45;&gt;sourcefile~precision.f</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M413.495,-99.0162C402.79,-113.286 382.995,-136.441 360,-147.853 307.301,-174.005 287.551,-161.111 229,-166.853"/>
+</g>
+<!-- sourcefile~sys.f -->
+<g id="sourcefile~~dfscf.f~~EfferentGraph_node4" class="node"><title>sourcefile~sys.f</title>
+<g id="a_sourcefile~~dfscf.f~~EfferentGraph_node4"><a xlink:href=".././sourcefile/sys.f.html" xlink:title="sys.F">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="255,-58.8526 201,-58.8526 201,-34.8526 255,-34.8526 255,-58.8526"/>
+<text text-anchor="middle" x="228" y="-44.4526" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">sys.F</text>
+</a>
+</g>
+</g>
+<!-- sourcefile~dfscf.f&#45;&gt;sourcefile~sys.f -->
+<g id="sourcefile~~dfscf.f~~EfferentGraph_edge3" class="edge"><title>sourcefile~dfscf.f&#45;&gt;sourcefile~sys.f</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M328,-6.85259C300.932,0.197888 271.379,-14.9594 251.674,-28.5947"/>
+<polygon fill="#000000" stroke="#000000" points="249.37,-25.9434 243.358,-34.6672 253.498,-31.5967 249.37,-25.9434"/>
+</g>
+<!-- sourcefile~mesh.f -->
+<g id="sourcefile~~dfscf.f~~EfferentGraph_node5" class="node"><title>sourcefile~mesh.f</title>
+<g id="a_sourcefile~~dfscf.f~~EfferentGraph_node5"><a xlink:href=".././sourcefile/mesh.f.html" xlink:title="mesh.F">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="356,-138.853 302,-138.853 302,-114.853 356,-114.853 356,-138.853"/>
+<text text-anchor="middle" x="329" y="-124.453" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">mesh.F</text>
+</a>
+</g>
+</g>
+<!-- sourcefile~dfscf.f&#45;&gt;sourcefile~mesh.f -->
+<g id="sourcefile~~dfscf.f~~EfferentGraph_edge4" class="edge"><title>sourcefile~dfscf.f&#45;&gt;sourcefile~mesh.f</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M395.883,-98.208C386.462,-102.304 375.664,-106.998 365.573,-111.386"/>
+<polygon fill="#000000" stroke="#000000" points="363.958,-108.272 356.183,-115.469 366.749,-114.691 363.958,-108.272"/>
+</g>
+<!-- sourcefile~atmfuncs.f -->
+<g id="sourcefile~~dfscf.f~~EfferentGraph_node6" class="node"><title>sourcefile~atmfuncs.f</title>
+<g id="a_sourcefile~~dfscf.f~~EfferentGraph_node6"><a xlink:href=".././sourcefile/atmfuncs.f.html" xlink:title="atmfuncs.f">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="360,-58.8526 298,-58.8526 298,-34.8526 360,-34.8526 360,-58.8526"/>
+<text text-anchor="middle" x="329" y="-44.4526" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">atmfuncs.f</text>
+</a>
+</g>
+</g>
+<!-- sourcefile~dfscf.f&#45;&gt;sourcefile~atmfuncs.f -->
+<g id="sourcefile~~dfscf.f~~EfferentGraph_edge5" class="edge"><title>sourcefile~dfscf.f&#45;&gt;sourcefile~atmfuncs.f</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M395.883,-75.4972C386.958,-71.6169 376.797,-67.1989 367.171,-63.014"/>
+<polygon fill="#000000" stroke="#000000" points="368.356,-59.7129 357.79,-58.9353 365.565,-66.1324 368.356,-59.7129"/>
+</g>
+<!-- sourcefile~parallel.f -->
+<g id="sourcefile~~dfscf.f~~EfferentGraph_node7" class="node"><title>sourcefile~parallel.f</title>
+<g id="a_sourcefile~~dfscf.f~~EfferentGraph_node7"><a xlink:href=".././sourcefile/parallel.f.html" xlink:title="parallel.F">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="158,-38.8526 101,-38.8526 101,-14.8526 158,-14.8526 158,-38.8526"/>
+<text text-anchor="middle" x="129.5" y="-24.4526" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">parallel.F</text>
+</a>
+</g>
+</g>
+<!-- sourcefile~dfscf.f&#45;&gt;sourcefile~parallel.f -->
+<g id="sourcefile~~dfscf.f~~EfferentGraph_edge6" class="edge"><title>sourcefile~dfscf.f&#45;&gt;sourcefile~parallel.f</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M413.9,-74.7246C399.737,-54.9175 368.303,-16.8294 330,-6.85259"/>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M328,-6.85259C273.543,7.33199 208.205,-4.71502 168.022,-15.3015"/>
+<polygon fill="#000000" stroke="#000000" points="166.843,-11.9955 158.124,-18.0146 168.694,-18.7465 166.843,-11.9955"/>
+</g>
+<!-- sourcefile~atm_types.f&#45;&gt;sourcefile~precision.f -->
+<g id="sourcefile~~dfscf.f~~EfferentGraph_edge8" class="edge"><title>sourcefile~atm_types.f&#45;&gt;sourcefile~precision.f</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M211.051,-139.041C192.529,-151.836 160.649,-169.738 130.5,-166.853"/>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M128.5,-166.853C104.683,-164.574 79.8326,-153.765 61.5236,-143.958"/>
+<polygon fill="#000000" stroke="#000000" points="63.0237,-140.787 52.5856,-138.971 59.6131,-146.9 63.0237,-140.787"/>
+</g>
+<!-- sourcefile~radial.f -->
+<g id="sourcefile~~dfscf.f~~EfferentGraph_node8" class="node"><title>sourcefile~radial.f</title>
+<g id="a_sourcefile~~dfscf.f~~EfferentGraph_node8"><a xlink:href=".././sourcefile/radial.f.html" xlink:title="radial.f">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="156.5,-138.853 102.5,-138.853 102.5,-114.853 156.5,-114.853 156.5,-138.853"/>
+<text text-anchor="middle" x="129.5" y="-124.453" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">radial.f</text>
+</a>
+</g>
+</g>
+<!-- sourcefile~atm_types.f&#45;&gt;sourcefile~radial.f -->
+<g id="sourcefile~~dfscf.f~~EfferentGraph_edge7" class="edge"><title>sourcefile~atm_types.f&#45;&gt;sourcefile~radial.f</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M193.79,-126.853C185.091,-126.853 175.667,-126.853 166.815,-126.853"/>
+<polygon fill="#000000" stroke="#000000" points="166.764,-123.353 156.763,-126.853 166.763,-130.353 166.764,-123.353"/>
+</g>
+<!-- sourcefile~sys.f&#45;&gt;sourcefile~parallel.f -->
+<g id="sourcefile~~dfscf.f~~EfferentGraph_edge9" class="edge"><title>sourcefile~sys.f&#45;&gt;sourcefile~parallel.f</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M200.886,-41.4403C190.903,-39.3713 179.306,-36.9679 168.441,-34.716"/>
+<polygon fill="#000000" stroke="#000000" points="168.827,-31.2217 158.325,-32.6194 167.406,-38.076 168.827,-31.2217"/>
+</g>
+<!-- sourcefile~mesh.f&#45;&gt;sourcefile~precision.f -->
+<g id="sourcefile~~dfscf.f~~EfferentGraph_edge10" class="edge"><title>sourcefile~mesh.f&#45;&gt;sourcefile~precision.f</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M308.03,-138.898C288.638,-149.611 257.965,-164.012 229,-166.853"/>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M227,-166.853C184.316,-171.038 173.194,-170.938 130.5,-166.853"/>
+</g>
+<!-- sourcefile~atmfuncs.f&#45;&gt;sourcefile~atm_types.f -->
+<g id="sourcefile~~dfscf.f~~EfferentGraph_edge13" class="edge"><title>sourcefile~atmfuncs.f&#45;&gt;sourcefile~atm_types.f</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M313.383,-58.9409C300.051,-69.9363 279.778,-86.5782 262,-100.853 258.89,-103.35 255.602,-105.967 252.356,-108.538"/>
+<polygon fill="#000000" stroke="#000000" points="250.175,-105.8 244.492,-114.742 254.511,-111.296 250.175,-105.8"/>
+</g>
+<!-- sourcefile~atmfuncs.f&#45;&gt;sourcefile~precision.f -->
+<g id="sourcefile~~dfscf.f~~EfferentGraph_edge14" class="edge"><title>sourcefile~atmfuncs.f&#45;&gt;sourcefile~precision.f</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M302.015,-58.9415C282.324,-67.7087 254.411,-79.3053 229,-86.8526"/>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M227,-86.8526C172.711,-102.977 156.197,-93.1819 101,-105.853 92.4885,-107.806 83.4937,-110.297 74.9418,-112.874"/>
+<polygon fill="#000000" stroke="#000000" points="73.6728,-109.603 65.1616,-115.913 75.7498,-116.288 73.6728,-109.603"/>
+</g>
+<!-- sourcefile~atmfuncs.f&#45;&gt;sourcefile~sys.f -->
+<g id="sourcefile~~dfscf.f~~EfferentGraph_edge11" class="edge"><title>sourcefile~atmfuncs.f&#45;&gt;sourcefile~sys.f</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M297.759,-46.8526C287.523,-46.8526 275.986,-46.8526 265.328,-46.8526"/>
+<polygon fill="#000000" stroke="#000000" points="265.043,-43.3527 255.043,-46.8526 265.043,-50.3527 265.043,-43.3527"/>
+</g>
+<!-- sourcefile~atmfuncs.f&#45;&gt;sourcefile~radial.f -->
+<g id="sourcefile~~dfscf.f~~EfferentGraph_edge12" class="edge"><title>sourcefile~atmfuncs.f&#45;&gt;sourcefile~radial.f</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M227,-86.8526C205.779,-93.1552 182.856,-102.541 164.678,-110.638"/>
+<polygon fill="#000000" stroke="#000000" points="163.039,-107.538 155.375,-114.853 165.928,-113.914 163.039,-107.538"/>
+</g>
+<!-- sourcefile~radial.f&#45;&gt;sourcefile~precision.f -->
+<g id="sourcefile~~dfscf.f~~EfferentGraph_edge15" class="edge"><title>sourcefile~radial.f&#45;&gt;sourcefile~precision.f</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M102.289,-126.853C93.9096,-126.853 84.4154,-126.853 75.215,-126.853"/>
+<polygon fill="#000000" stroke="#000000" points="75.0275,-123.353 65.0274,-126.853 75.0274,-130.353 75.0275,-123.353"/>
+</g>
+</g>
+</svg>
+</div><div><a type="button" class="graph-help" data-toggle="modal" href="#graph-help-text">Help</a></div><div class="modal fade" id="graph-help-text" tabindex="-1" role="dialog"><div class="modal-dialog modal-lg" role="document"><div class="modal-content"><div class="modal-header"><button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button><h4 class="modal-title" id="-graph-help-label">Graph Key</h4></div><div class="modal-body">
+    <p>Nodes of different colours represent the following: </p>
+    <?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+ "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Generated by graphviz version 2.38.0 (20140413.2041)
+ -->
+<!-- Title: Graph Key Pages: 1 -->
+<svg width="190pt" height="32pt"
+ viewBox="0.00 0.00 190.00 32.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 28)">
+<title>Graph Key</title>
+<polygon fill="white" stroke="none" points="-4,4 -4,-28 186,-28 186,4 -4,4"/>
+<!-- Source File -->
+<g id="node1" class="node"><title>Source File</title>
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="67,-24 0,-24 0,-0 67,-0 67,-24"/>
+<text text-anchor="middle" x="33.5" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Source File</text>
+</g>
+<!-- This Page&#39;s Entity -->
+<g id="node2" class="node"><title>This Page&#39;s Entity</title>
+<polygon fill="none" stroke="black" points="182,-24 85,-24 85,-0 182,-0 182,-24"/>
+<text text-anchor="middle" x="133.5" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50">This Page&#39;s Entity</text>
+</g>
+</g>
+</svg>
+
+    
+    <p>Solid arrows point from a file to a file which it depends on. A file
+    is dependent upon another if the latter must be compiled before the former
+    can be.
+    </p>
+    </div></div></div></div>
+      </div>
+    </div>
+    
+      
+    <div class="panel panel-default">
+      <div class="panel-heading">
+  <h3 class="panel-title">Files dependent on this one</h3>
+      </div>
+      <div class="panel-body">
+  <div class="depgraph"><?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+ "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Generated by graphviz version 2.38.0 (20140413.2041)
+ -->
+<!-- Title: sourcefile~~dfscf.f~~AfferentGraph Pages: 1 -->
+<svg id="sourcefiledfscffAfferentGraph" width="444pt" height="158pt"
+ viewBox="0.00 0.00 444.00 158.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="sourcefile~~dfscf.f~~AfferentGraph" class="graph" transform="scale(1 1) rotate(0) translate(4 154)">
+<title>sourcefile~~dfscf.f~~AfferentGraph</title>
+<polygon fill="white" stroke="none" points="-4,4 -4,-154 440,-154 440,4 -4,4"/>
+<!-- sourcefile~dfscf.f -->
+<g id="sourcefile~~dfscf.f~~AfferentGraph_node1" class="node"><title>sourcefile~dfscf.f</title>
+<polygon fill="none" stroke="black" points="54,-87 0,-87 0,-63 54,-63 54,-87"/>
+<text text-anchor="middle" x="27" y="-72.6" font-family="Helvetica,sans-Serif" font-size="10.50">dfscf.f</text>
+</g>
+<!-- sourcefile~dhscf.f -->
+<g id="sourcefile~~dfscf.f~~AfferentGraph_node2" class="node"><title>sourcefile~dhscf.f</title>
+<g id="a_sourcefile~~dfscf.f~~AfferentGraph_node2"><a xlink:href=".././sourcefile/dhscf.f.html" xlink:title="dhscf.F">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="144,-87 90,-87 90,-63 144,-63 144,-87"/>
+<text text-anchor="middle" x="117" y="-72.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">dhscf.F</text>
+</a>
+</g>
+</g>
+<!-- sourcefile~dhscf.f&#45;&gt;sourcefile~dfscf.f -->
+<g id="sourcefile~~dfscf.f~~AfferentGraph_edge1" class="edge"><title>sourcefile~dhscf.f&#45;&gt;sourcefile~dfscf.f</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M89.5971,-75C81.6068,-75 72.6894,-75 64.1759,-75"/>
+<polygon fill="#000000" stroke="#000000" points="64.081,-71.5001 54.081,-75 64.081,-78.5001 64.081,-71.5001"/>
+</g>
+<!-- sourcefile~setup_h0.f -->
+<g id="sourcefile~~dfscf.f~~AfferentGraph_node3" class="node"><title>sourcefile~setup_h0.f</title>
+<g id="a_sourcefile~~dfscf.f~~AfferentGraph_node3"><a xlink:href=".././sourcefile/setup_h0.f.html" xlink:title="setup_H0.F">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="275.5,-150 207.5,-150 207.5,-126 275.5,-126 275.5,-150"/>
+<text text-anchor="middle" x="241.5" y="-135.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">setup_H0.F</text>
+</a>
+</g>
+</g>
+<!-- sourcefile~setup_h0.f&#45;&gt;sourcefile~dhscf.f -->
+<g id="sourcefile~~dfscf.f~~AfferentGraph_edge2" class="edge"><title>sourcefile~setup_h0.f&#45;&gt;sourcefile~dhscf.f</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M207.203,-128.187C198.18,-125.062 188.547,-121.286 180,-117 166.794,-110.379 153.097,-101.361 141.946,-93.3789"/>
+<polygon fill="#000000" stroke="#000000" points="143.742,-90.3553 133.608,-87.2647 139.603,-96.0004 143.742,-90.3553"/>
+</g>
+<!-- sourcefile~setup_hamiltonian.f -->
+<g id="sourcefile~~dfscf.f~~AfferentGraph_node4" class="node"><title>sourcefile~setup_hamiltonian.f</title>
+<g id="a_sourcefile~~dfscf.f~~AfferentGraph_node4"><a xlink:href=".././sourcefile/setup_hamiltonian.f.html" xlink:title="setup_hamiltonian.F">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="296,-108 187,-108 187,-84 296,-84 296,-108"/>
+<text text-anchor="middle" x="241.5" y="-93.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">setup_hamiltonian.F</text>
+</a>
+</g>
+</g>
+<!-- sourcefile~setup_hamiltonian.f&#45;&gt;sourcefile~dhscf.f -->
+<g id="sourcefile~~dfscf.f~~AfferentGraph_edge5" class="edge"><title>sourcefile~setup_hamiltonian.f&#45;&gt;sourcefile~dhscf.f</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M186.77,-86.7891C175.796,-84.9079 164.495,-82.9706 154.305,-81.2238"/>
+<polygon fill="#000000" stroke="#000000" points="154.597,-77.7227 144.149,-79.4827 153.414,-84.6221 154.597,-77.7227"/>
+</g>
+<!-- sourcefile~siesta_analysis.f -->
+<g id="sourcefile~~dfscf.f~~AfferentGraph_node5" class="node"><title>sourcefile~siesta_analysis.f</title>
+<g id="a_sourcefile~~dfscf.f~~AfferentGraph_node5"><a xlink:href=".././sourcefile/siesta_analysis.f.html" xlink:title="siesta_analysis.F">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="288.5,-24 194.5,-24 194.5,-0 288.5,-0 288.5,-24"/>
+<text text-anchor="middle" x="241.5" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">siesta_analysis.F</text>
+</a>
+</g>
+</g>
+<!-- sourcefile~siesta_analysis.f&#45;&gt;sourcefile~dhscf.f -->
+<g id="sourcefile~~dfscf.f~~AfferentGraph_edge4" class="edge"><title>sourcefile~siesta_analysis.f&#45;&gt;sourcefile~dhscf.f</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M200.83,-24.0973C193.758,-26.7222 186.56,-29.7111 180,-33 166.794,-39.6211 153.097,-48.6387 141.946,-56.6211"/>
+<polygon fill="#000000" stroke="#000000" points="139.603,-53.9996 133.608,-62.7353 143.742,-59.6447 139.603,-53.9996"/>
+</g>
+<!-- sourcefile~compute_energies.f90 -->
+<g id="sourcefile~~dfscf.f~~AfferentGraph_node6" class="node"><title>sourcefile~compute_energies.f90</title>
+<g id="a_sourcefile~~dfscf.f~~AfferentGraph_node6"><a xlink:href=".././sourcefile/compute_energies.f90.html" xlink:title="compute_energies.F90">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="303,-66 180,-66 180,-42 303,-42 303,-66"/>
+<text text-anchor="middle" x="241.5" y="-51.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">compute_energies.F90</text>
+</a>
+</g>
+</g>
+<!-- sourcefile~compute_energies.f90&#45;&gt;sourcefile~dhscf.f -->
+<g id="sourcefile~~dfscf.f~~AfferentGraph_edge3" class="edge"><title>sourcefile~compute_energies.f90&#45;&gt;sourcefile~dhscf.f</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M179.968,-64.377C171.067,-65.9027 162.147,-67.432 153.958,-68.8358"/>
+<polygon fill="#000000" stroke="#000000" points="153.298,-65.3978 144.033,-70.5372 154.481,-72.2972 153.298,-65.3978"/>
+</g>
+<!-- sourcefile~siesta_forces.f90 -->
+<g id="sourcefile~~dfscf.f~~AfferentGraph_node7" class="node"><title>sourcefile~siesta_forces.f90</title>
+<g id="a_sourcefile~~dfscf.f~~AfferentGraph_node7"><a xlink:href=".././sourcefile/siesta_forces.f90.html" xlink:title="siesta_forces.F90">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="436,-108 339,-108 339,-84 436,-84 436,-108"/>
+<text text-anchor="middle" x="387.5" y="-93.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">siesta_forces.F90</text>
+</a>
+</g>
+</g>
+<!-- sourcefile~siesta_forces.f90&#45;&gt;sourcefile~setup_h0.f -->
+<g id="sourcefile~~dfscf.f~~AfferentGraph_edge6" class="edge"><title>sourcefile~siesta_forces.f90&#45;&gt;sourcefile~setup_h0.f</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M345.235,-108.036C326.496,-113.501 304.338,-119.964 285.406,-125.486"/>
+<polygon fill="#000000" stroke="#000000" points="284.169,-122.201 275.549,-128.361 286.129,-128.921 284.169,-122.201"/>
+</g>
+<!-- sourcefile~siesta_forces.f90&#45;&gt;sourcefile~setup_hamiltonian.f -->
+<g id="sourcefile~~dfscf.f~~AfferentGraph_edge7" class="edge"><title>sourcefile~siesta_forces.f90&#45;&gt;sourcefile~setup_hamiltonian.f</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M338.95,-96C328.582,-96 317.447,-96 306.557,-96"/>
+<polygon fill="#000000" stroke="#000000" points="306.225,-92.5001 296.225,-96 306.225,-99.5001 306.225,-92.5001"/>
+</g>
+<!-- sourcefile~siesta_forces.f90&#45;&gt;sourcefile~compute_energies.f90 -->
+<g id="sourcefile~~dfscf.f~~AfferentGraph_edge8" class="edge"><title>sourcefile~siesta_forces.f90&#45;&gt;sourcefile~compute_energies.f90</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M345.235,-83.9645C329.117,-79.2634 310.47,-73.8245 293.521,-68.8812"/>
+<polygon fill="#000000" stroke="#000000" points="294.351,-65.4773 283.771,-66.0373 292.391,-72.1973 294.351,-65.4773"/>
+</g>
+</g>
+</svg>
+</div><div><a type="button" class="graph-help" data-toggle="modal" href="#graph-help-text">Help</a></div><div class="modal fade" id="graph-help-text" tabindex="-1" role="dialog"><div class="modal-dialog modal-lg" role="document"><div class="modal-content"><div class="modal-header"><button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button><h4 class="modal-title" id="-graph-help-label">Graph Key</h4></div><div class="modal-body">
+    <p>Nodes of different colours represent the following: </p>
+    <?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+ "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Generated by graphviz version 2.38.0 (20140413.2041)
+ -->
+<!-- Title: Graph Key Pages: 1 -->
+<svg width="190pt" height="32pt"
+ viewBox="0.00 0.00 190.00 32.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 28)">
+<title>Graph Key</title>
+<polygon fill="white" stroke="none" points="-4,4 -4,-28 186,-28 186,4 -4,4"/>
+<!-- Source File -->
+<g id="node1" class="node"><title>Source File</title>
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="67,-24 0,-24 0,-0 67,-0 67,-24"/>
+<text text-anchor="middle" x="33.5" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Source File</text>
+</g>
+<!-- This Page&#39;s Entity -->
+<g id="node2" class="node"><title>This Page&#39;s Entity</title>
+<polygon fill="none" stroke="black" points="182,-24 85,-24 85,-0 182,-0 182,-24"/>
+<text text-anchor="middle" x="133.5" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50">This Page&#39;s Entity</text>
+</g>
+</g>
+</svg>
+
+    
+    <p>Solid arrows point from a file to a file which it depends on. A file
+    is dependent upon another if the latter must be compiled before the former
+    can be.
+    </p>
+    </div></div></div></div>
+      </div>
+    </div>
+      
+      <br>
+
+    <section class="visible-xs visible-sm hidden-md">
+      
+<h3>Contents</h3>
+ 
+
+
+
+
+
+
+
+<div class="panel panel-primary">
+  <div class="panel-heading text-left"><h3 class="panel-title"><a data-toggle="collapse" href="#mods-1">Modules</a></h3></div>
+  <div id="mods-1" class="panel-collapse collapse">
+    <div class="list-group">
+      
+      <a class="list-group-item" href="../module/m_dfscf.html">m_dfscf</a>
+      
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="panel panel-primary">
+  <div class="panel-heading text-left"><h3 class="panel-title">Source Code</h3></div>
+  <div class="list-group">
+    <a class="list-group-item" href="../sourcefile/dfscf.f.html#src">dfscf.f</a>
+  </div>
+</div>
+
+
+
+    </section>
+    <br class="visible-xs visible-sm hidden-md">
+
+    <section>
+      <h2><span class="anchor" id="src"></span>Source Code</h2>
+    <div class="hl"><pre><span></span><a name="ln-1"></a><span class="c">! </span>
+<a name="ln-2"></a><span class="c">! Copyright (C) 1996-2016	The SIESTA group</span>
+<a name="ln-3"></a><span class="c">!  This file is distributed under the terms of the</span>
+<a name="ln-4"></a><span class="c">!  GNU General Public License: see COPYING in the top directory</span>
+<a name="ln-5"></a><span class="c">!  or http://www.gnu.org/copyleft/gpl.txt.</span>
+<a name="ln-6"></a><span class="c">! See Docs/Contributors.txt for a list of contributors.</span>
+<a name="ln-7"></a><span class="c">!</span>
+<a name="ln-8"></a><span class="nl">     </span> <span class="k">module </span><span class="n">m_dfscf</span>
+<a name="ln-9"></a>
+<a name="ln-10"></a><span class="nl">     </span> <span class="k">public</span> <span class="kd">::</span> <span class="n">dfscf</span>
+<a name="ln-11"></a>
+<a name="ln-12"></a><span class="nl">     </span> <span class="k">contains</span>
+<a name="ln-13"></a>
+<a name="ln-14"></a><span class="nl">     </span> <span class="k">subroutine </span><span class="n">dfscf</span><span class="p">(</span> <span class="n">ifa</span><span class="p">,</span> <span class="n">istr</span><span class="p">,</span> <span class="n">na</span><span class="p">,</span> <span class="n">no</span><span class="p">,</span> <span class="n">nuo</span><span class="p">,</span> <span class="n">nuotot</span><span class="p">,</span> <span class="n">np</span><span class="p">,</span> <span class="n">nspin</span><span class="p">,</span>
+<a name="ln-15"></a><span class="nl">     </span><span class="gs">.</span>                  <span class="n">indxua</span><span class="p">,</span> <span class="n">isa</span><span class="p">,</span> <span class="n">iaorb</span><span class="p">,</span> <span class="n">iphorb</span><span class="p">,</span>
+<a name="ln-16"></a><span class="nl">     </span><span class="gs">.</span>                  <span class="n">maxnd</span><span class="p">,</span> <span class="n">numd</span><span class="p">,</span> <span class="n">listdptr</span><span class="p">,</span> <span class="n">listd</span><span class="p">,</span> <span class="n">Dscf</span><span class="p">,</span> <span class="n">Datm</span><span class="p">,</span>
+<a name="ln-17"></a><span class="nl">     </span><span class="gs">.</span>                  <span class="n">Vscf</span><span class="p">,</span> <span class="n">Vatm</span><span class="p">,</span> <span class="n">dvol</span><span class="p">,</span> <span class="n">VolCel</span><span class="p">,</span> <span class="n">Fal</span><span class="p">,</span> <span class="n">Stressl</span> <span class="p">)</span>
+<a name="ln-18"></a><span class="c">!! author: P.Ordejon, J.M.Soler, and J.Gale</span>
+<a name="ln-19"></a><span class="c">!!</span>
+<a name="ln-20"></a><span class="c">!! Adds the SCF contribution to atomic forces and stress.</span>
+<a name="ln-21"></a><span class="c">!!</span>
+<a name="ln-22"></a><span class="c">!! Written by P.Ordejon, J.M.Soler, and J.Gale.  </span>
+<a name="ln-23"></a><span class="c">!! Last modification by J.M.Soler, October 2000.  </span>
+<a name="ln-24"></a><span class="c">!! Modifed for Off-Site Spin-orbit coupling by R. Cuadrado, Feb. 2018</span>
+<a name="ln-25"></a>
+<a name="ln-26"></a><span class="c">!  Modules</span>
+<a name="ln-27"></a><span class="nl">     </span> <span class="k">use </span><span class="nb">precision</span><span class="p">,</span>     <span class="n">only</span><span class="p">:</span> <span class="n">dp</span><span class="p">,</span> <span class="n">grid_p</span>
+<a name="ln-28"></a><span class="nl">     </span> <span class="k">use </span><span class="n">atmfuncs</span><span class="p">,</span>      <span class="n">only</span><span class="p">:</span> <span class="n">rcut</span><span class="p">,</span> <span class="n">all_phi</span>
+<a name="ln-29"></a><span class="nl">     </span> <span class="k">use </span><span class="n">atm_types</span><span class="p">,</span>     <span class="n">only</span><span class="p">:</span> <span class="n">nsmax</span><span class="o">=&gt;</span><span class="n">nspecies</span>
+<a name="ln-30"></a><span class="nl">     </span> <span class="k">use </span><span class="n">atomlist</span><span class="p">,</span>      <span class="n">only</span><span class="p">:</span> <span class="n">indxuo</span>
+<a name="ln-31"></a><span class="nl">     </span> <span class="k">use </span><span class="n">listsc_module</span><span class="p">,</span> <span class="n">only</span><span class="p">:</span> <span class="n">listsc</span>
+<a name="ln-32"></a><span class="nl">     </span> <span class="k">use </span><span class="n">mesh</span><span class="p">,</span>          <span class="n">only</span><span class="p">:</span> <span class="n">dxa</span><span class="p">,</span> <span class="n">nsp</span><span class="p">,</span> <span class="n">xdop</span><span class="p">,</span> <span class="n">xdsp</span>
+<a name="ln-33"></a><span class="nl">     </span> <span class="k">use </span><span class="n">meshphi</span><span class="p">,</span>       <span class="n">only</span><span class="p">:</span> <span class="n">endpht</span><span class="p">,</span> <span class="n">lstpht</span><span class="p">,</span> <span class="n">listp2</span>
+<a name="ln-34"></a><span class="nl">     </span> <span class="k">use </span><span class="n">meshdscf</span><span class="p">,</span>      <span class="n">only</span><span class="p">:</span> <span class="n">matrixOtoM</span>
+<a name="ln-35"></a><span class="nl">     </span> <span class="k">use </span><span class="n">meshdscf</span><span class="p">,</span>      <span class="n">only</span><span class="p">:</span> <span class="n">DscfL</span><span class="p">,</span> <span class="n">nrowsDscfL</span><span class="p">,</span> <span class="n">needDscfL</span>
+<a name="ln-36"></a><span class="nl">     </span> <span class="k">use </span><span class="n">meshdscf</span><span class="p">,</span>      <span class="n">only</span><span class="p">:</span> <span class="n">listDl</span><span class="p">,</span> <span class="n">listDlPtr</span><span class="p">,</span> <span class="n">numdL</span>
+<a name="ln-37"></a><span class="nl">     </span> <span class="k">use </span><span class="n">alloc</span><span class="p">,</span>         <span class="n">only</span><span class="p">:</span> <span class="n">re_alloc</span><span class="p">,</span> <span class="n">de_alloc</span><span class="p">,</span> <span class="n">alloc_default</span><span class="p">,</span>
+<a name="ln-38"></a><span class="nl">     </span><span class="gs">$</span>                         <span class="n">allocDefaults</span>
+<a name="ln-39"></a><span class="nl">     </span> <span class="k">use </span><span class="n">parallel</span><span class="p">,</span>      <span class="n">only</span><span class="p">:</span> <span class="n">Nodes</span><span class="p">,</span> <span class="n">Node</span>
+<a name="ln-40"></a><span class="nl">     </span> <span class="k">use </span><span class="n">sys</span><span class="p">,</span>           <span class="n">only</span><span class="p">:</span> <span class="n">die</span>
+<a name="ln-41"></a><span class="nl">     </span> <span class="k">use </span><span class="n">parallelsubs</span><span class="p">,</span>  <span class="n">only</span><span class="p">:</span> <span class="n">GlobalToLocalOrb</span>
+<a name="ln-42"></a>
+<a name="ln-43"></a><span class="nl">     </span> <span class="k">implicit none</span>
+<a name="ln-44"></a>
+<a name="ln-45"></a><span class="c">!  Passed arguments</span>
+<a name="ln-46"></a>
+<a name="ln-47"></a><span class="nl">     </span> <span class="kt">integer</span><span class="p">,</span> <span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">)</span> <span class="kd">::</span> <span class="n">ifa</span>
+<a name="ln-48"></a><span class="nl">     </span>   <span class="c">!! Are forces required? (`1`=yes,`0`=no)</span>
+<a name="ln-49"></a><span class="nl">     </span> <span class="kt">integer</span><span class="p">,</span> <span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">)</span> <span class="kd">::</span> <span class="n">istr</span>
+<a name="ln-50"></a><span class="nl">     </span>   <span class="c">!! Is stress required? (`1`=yes, `0`=no)</span>
+<a name="ln-51"></a><span class="nl">     </span> <span class="kt">integer</span><span class="p">,</span> <span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">)</span> <span class="kd">::</span> <span class="n">na</span>
+<a name="ln-52"></a><span class="nl">     </span>   <span class="c">!! Number of atoms</span>
+<a name="ln-53"></a><span class="nl">     </span> <span class="kt">integer</span><span class="p">,</span> <span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">)</span> <span class="kd">::</span> <span class="n">no</span>
+<a name="ln-54"></a><span class="nl">     </span>   <span class="c">!! Number of basis orbitals</span>
+<a name="ln-55"></a><span class="nl">     </span> <span class="kt">integer</span><span class="p">,</span> <span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">)</span> <span class="kd">::</span> <span class="n">nuo</span>
+<a name="ln-56"></a><span class="nl">     </span>   <span class="c">!! Number of orbitals in unit cell (local)</span>
+<a name="ln-57"></a><span class="nl">     </span> <span class="kt">integer</span><span class="p">,</span> <span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">)</span> <span class="kd">::</span> <span class="n">nuotot</span>
+<a name="ln-58"></a><span class="nl">     </span>   <span class="c">!! Number of orbitals in unit cell (global)</span>
+<a name="ln-59"></a><span class="nl">     </span> <span class="kt">integer</span><span class="p">,</span> <span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">)</span> <span class="kd">::</span> <span class="n">np</span>
+<a name="ln-60"></a><span class="nl">     </span>   <span class="c">!! Number of mesh points (total is nsp*np)</span>
+<a name="ln-61"></a><span class="nl">     </span> <span class="kt">integer</span><span class="p">,</span> <span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">)</span> <span class="kd">::</span> <span class="n">nspin</span>
+<a name="ln-62"></a><span class="nl">     </span>   <span class="c">!! spin%Grid (i.e., `min(nspin,4)`)  </span>
+<a name="ln-63"></a><span class="nl">     </span>   <span class="c">!! `nspin=1` =&gt; Unpolarized,  </span>
+<a name="ln-64"></a><span class="nl">     </span>   <span class="c">!! `nspin=2` =&gt; polarized  </span>
+<a name="ln-65"></a><span class="nl">     </span>   <span class="c">!! `nspin=4` =&gt; Noncollinear spin/SOC</span>
+<a name="ln-66"></a><span class="nl">     </span> <span class="kt">integer</span><span class="p">,</span> <span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">)</span> <span class="kd">::</span> <span class="n">indxua</span><span class="p">(</span><span class="n">na</span><span class="p">)</span>
+<a name="ln-67"></a><span class="nl">     </span>   <span class="c">!! Index of equivalent atom in unit cell</span>
+<a name="ln-68"></a><span class="nl">     </span> <span class="kt">integer</span><span class="p">,</span> <span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">)</span> <span class="kd">::</span> <span class="n">isa</span><span class="p">(</span><span class="n">na</span><span class="p">)</span>
+<a name="ln-69"></a><span class="nl">     </span>   <span class="c">!! Species index of each atom</span>
+<a name="ln-70"></a><span class="nl">     </span> <span class="kt">integer</span><span class="p">,</span> <span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">)</span> <span class="kd">::</span> <span class="n">iaorb</span><span class="p">(</span><span class="n">no</span><span class="p">)</span>
+<a name="ln-71"></a><span class="nl">     </span>   <span class="c">!! Atom to which orbitals belong</span>
+<a name="ln-72"></a><span class="nl">     </span> <span class="kt">integer</span><span class="p">,</span> <span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">)</span> <span class="kd">::</span> <span class="n">iphorb</span><span class="p">(</span><span class="n">no</span><span class="p">)</span>
+<a name="ln-73"></a><span class="nl">     </span>   <span class="c">!! Index of orbital within its atom</span>
+<a name="ln-74"></a><span class="nl">     </span> <span class="kt">integer</span><span class="p">,</span> <span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">)</span> <span class="kd">::</span> <span class="n">maxnd</span>
+<a name="ln-75"></a><span class="nl">     </span>   <span class="c">!! First dimension of Dscf</span>
+<a name="ln-76"></a><span class="nl">     </span> <span class="kt">integer</span><span class="p">,</span> <span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">)</span> <span class="kd">::</span> <span class="n">numd</span><span class="p">(</span><span class="n">nuo</span><span class="p">)</span>
+<a name="ln-77"></a><span class="nl">     </span>   <span class="c">!! Number of nonzero elemts in each row of Dscf</span>
+<a name="ln-78"></a><span class="nl">     </span> <span class="kt">integer</span><span class="p">,</span> <span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">)</span> <span class="kd">::</span> <span class="n">listdptr</span><span class="p">(</span><span class="n">nuo</span><span class="p">)</span>
+<a name="ln-79"></a><span class="nl">     </span>   <span class="c">!! Pointer to start of row in listd</span>
+<a name="ln-80"></a><span class="nl">     </span> <span class="kt">integer</span><span class="p">,</span> <span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">)</span> <span class="kd">::</span> <span class="n">listd</span><span class="p">(</span><span class="n">maxnd</span><span class="p">)</span>
+<a name="ln-81"></a><span class="nl">     </span>   <span class="c">!! List of nonzero elements of Dscf</span>
+<a name="ln-82"></a>
+<a name="ln-83"></a><span class="nl">     </span> <span class="kt">real</span><span class="p">(</span><span class="n">grid_p</span><span class="p">),</span> <span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">)</span> <span class="kd">::</span> <span class="n">Vscf</span><span class="p">(</span><span class="n">nsp</span><span class="p">,</span><span class="n">np</span><span class="p">,</span><span class="n">nspin</span><span class="p">)</span>
+<a name="ln-84"></a><span class="nl">     </span>   <span class="c">!! Value of SCF potential at the mesh points</span>
+<a name="ln-85"></a><span class="nl">     </span> <span class="kt">real</span><span class="p">(</span><span class="n">grid_p</span><span class="p">),</span> <span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">)</span> <span class="kd">::</span> <span class="n">Vatm</span><span class="p">(</span><span class="n">nsp</span><span class="p">,</span><span class="n">np</span><span class="p">)</span>
+<a name="ln-86"></a><span class="nl">     </span>   <span class="c">!! Value of Harris potential (Hartree potential</span>
+<a name="ln-87"></a><span class="nl">     </span>   <span class="c">!! of sum of atomic desities) at mesh points.  </span>
+<a name="ln-88"></a><span class="nl">     </span>   <span class="c">!! Notice single precision of Vscf and Vatm.</span>
+<a name="ln-89"></a>
+<a name="ln-90"></a><span class="nl">     </span> <span class="kt">real</span><span class="p">(</span><span class="n">dp</span><span class="p">),</span> <span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">)</span> <span class="kd">::</span>  <span class="n">dvol</span>
+<a name="ln-91"></a><span class="nl">     </span>   <span class="c">!! Volume per mesh point</span>
+<a name="ln-92"></a><span class="nl">     </span> <span class="kt">real</span><span class="p">(</span><span class="n">dp</span><span class="p">),</span> <span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">)</span> <span class="kd">::</span>  <span class="n">VolCel</span>
+<a name="ln-93"></a><span class="nl">     </span>   <span class="c">!! Unit cell volume</span>
+<a name="ln-94"></a><span class="nl">     </span> <span class="kt">real</span><span class="p">(</span><span class="n">dp</span><span class="p">),</span> <span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">)</span> <span class="kd">::</span>  <span class="n">Datm</span><span class="p">(</span><span class="n">nuotot</span><span class="p">)</span>
+<a name="ln-95"></a><span class="nl">     </span> <span class="kt">real</span><span class="p">(</span><span class="n">dp</span><span class="p">),</span> <span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">),</span> <span class="k">target</span> <span class="kd">::</span> <span class="n">Dscf</span><span class="p">(:,:)</span>
+<a name="ln-96"></a><span class="nl">     </span>   <span class="c">!! `Dscf(maxnd,*)`: Value of nonzero elemens of density matrix.</span>
+<a name="ln-97"></a><span class="nl">     </span>   <span class="c">!! It is used in &quot;hermitified&quot; here.</span>
+<a name="ln-98"></a>
+<a name="ln-99"></a><span class="nl">     </span> <span class="kt">real</span><span class="p">(</span><span class="n">dp</span><span class="p">),</span> <span class="k">intent</span><span class="p">(</span><span class="n">inout</span><span class="p">)</span> <span class="kd">::</span> <span class="n">Fal</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="o">*</span><span class="p">)</span>
+<a name="ln-100"></a><span class="nl">     </span>   <span class="c">!! Atomic forces (contribution added on output)</span>
+<a name="ln-101"></a><span class="nl">     </span> <span class="kt">real</span><span class="p">(</span><span class="n">dp</span><span class="p">),</span> <span class="k">intent</span><span class="p">(</span><span class="n">inout</span><span class="p">)</span> <span class="kd">::</span> <span class="n">Stressl</span><span class="p">(</span><span class="mi">9</span><span class="p">)</span>
+<a name="ln-102"></a><span class="nl">     </span>   <span class="c">!! Stress tensor</span>
+<a name="ln-103"></a>
+<a name="ln-104"></a><span class="c">! Internal variables</span>
+<a name="ln-105"></a><span class="nl">     </span> <span class="kt">integer</span><span class="p">,</span> <span class="k">parameter</span> <span class="kd">::</span>
+<a name="ln-106"></a><span class="nl">     </span><span class="gs">.</span>   <span class="n">minb</span>  <span class="o">=</span> <span class="mi">100</span><span class="p">,</span>  <span class="c">! Min buffer size for local copy of Dscf</span>
+<a name="ln-107"></a><span class="nl">     </span><span class="gs">.</span>   <span class="n">maxoa</span> <span class="o">=</span> <span class="mi">100</span>   <span class="c">! Max # of orbitals per atom</span>
+<a name="ln-108"></a><span class="nl">     </span> <span class="kt">integer</span>
+<a name="ln-109"></a><span class="nl">     </span><span class="gs">.</span>   <span class="n">i</span><span class="p">,</span> <span class="n">ia</span><span class="p">,</span> <span class="n">ib</span><span class="p">,</span> <span class="n">ibuff</span><span class="p">(</span><span class="n">no</span><span class="p">),</span> <span class="n">ic</span><span class="p">,</span> <span class="n">ii</span><span class="p">,</span> <span class="n">imp</span><span class="p">,</span> <span class="n">ind</span><span class="p">,</span> <span class="n">iop</span><span class="p">,</span> <span class="n">ip</span><span class="p">,</span> <span class="n">iphi</span><span class="p">,</span> <span class="n">io</span><span class="p">,</span>
+<a name="ln-110"></a><span class="nl">     </span><span class="gs">.</span>   <span class="k">is</span><span class="p">,</span> <span class="n">isp</span><span class="p">,</span> <span class="n">ispin</span><span class="p">,</span> <span class="n">iu</span><span class="p">,</span> <span class="n">iua</span><span class="p">,</span> <span class="n">iul</span><span class="p">,</span> <span class="n">ix</span><span class="p">,</span> <span class="n">ix1</span><span class="p">,</span> <span class="n">ix2</span><span class="p">,</span> <span class="n">iy</span><span class="p">,</span>
+<a name="ln-111"></a><span class="nl">     </span><span class="gs">.</span>   <span class="n">j</span><span class="p">,</span> <span class="n">jb</span><span class="p">,</span> <span class="n">jc</span><span class="p">,</span> <span class="n">last</span><span class="p">,</span> <span class="n">lasta</span><span class="p">,</span> <span class="n">lastop</span><span class="p">,</span> <span class="n">maxb</span><span class="p">,</span> <span class="n">maxc</span><span class="p">,</span> <span class="n">maxndl</span><span class="p">,</span>
+<a name="ln-112"></a><span class="nl">     </span><span class="gs">.</span>   <span class="n">nc</span><span class="p">,</span> <span class="n">nphiloc</span>
+<a name="ln-113"></a><span class="nl">     </span> <span class="kt">real</span><span class="p">(</span><span class="n">dp</span><span class="p">)</span>
+<a name="ln-114"></a><span class="nl">     </span><span class="gs">.</span>   <span class="n">CD</span><span class="p">(</span><span class="n">nsp</span><span class="p">),</span> <span class="n">CDV</span><span class="p">(</span><span class="n">nsp</span><span class="p">),</span> <span class="n">DF</span><span class="p">(</span><span class="mi">12</span><span class="p">),</span> <span class="n">Dji</span><span class="p">,</span> <span class="n">dxsp</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="n">nsp</span><span class="p">),</span>  
+<a name="ln-115"></a><span class="nl">     </span><span class="gs">.</span>   <span class="n">gCi</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span><span class="n">nsp</span><span class="p">),</span> <span class="n">grada</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="n">maxoa</span><span class="p">,</span><span class="n">nsp</span><span class="p">),</span>
+<a name="ln-116"></a><span class="nl">     </span><span class="gs">.</span>     <span class="n">phia</span><span class="p">(</span><span class="n">maxoa</span><span class="p">,</span><span class="n">nsp</span><span class="p">),</span> <span class="n">rvol</span><span class="p">,</span> <span class="n">r2sp</span><span class="p">,</span> <span class="n">r2cut</span><span class="p">(</span><span class="n">nsmax</span><span class="p">)</span>
+<a name="ln-117"></a>
+<a name="ln-118"></a><span class="nl">     </span> <span class="c">! Allocate</span>
+<a name="ln-119"></a><span class="nl">     </span> <span class="kt">real</span><span class="p">(</span><span class="n">dp</span><span class="p">),</span> <span class="k">pointer</span> <span class="kd">::</span> <span class="n">V</span><span class="p">(:,:)</span> <span class="o">=&gt;</span> <span class="nb">null</span><span class="p">()</span>
+<a name="ln-120"></a><span class="nl">     </span> <span class="kt">real</span><span class="p">(</span><span class="n">dp</span><span class="p">),</span> <span class="k">pointer</span> <span class="kd">::</span> <span class="n">DM_spbherm</span><span class="p">(:,:)</span> <span class="o">=&gt;</span> <span class="nb">null</span><span class="p">()</span>
+<a name="ln-121"></a><span class="c">!</span>
+<a name="ln-122"></a><span class="nl">     </span> <span class="kt">integer</span><span class="p">,</span> <span class="k">pointer</span><span class="p">,</span> <span class="k">save</span> <span class="kd">::</span>  <span class="n">ibc</span><span class="p">(:),</span> <span class="n">iob</span><span class="p">(:)</span>
+<a name="ln-123"></a><span class="nl">     </span> <span class="kt">real</span><span class="p">(</span><span class="n">dp</span><span class="p">),</span> <span class="k">pointer</span><span class="p">,</span> <span class="k">save</span> <span class="kd">::</span> <span class="n">C</span><span class="p">(:,:),</span> <span class="n">D</span><span class="p">(:,:,:),</span>
+<a name="ln-124"></a><span class="nl">     </span><span class="gs">.</span>                           <span class="n">gC</span><span class="p">(:,:,:),</span> <span class="n">xgC</span><span class="p">(:,:,:)</span>
+<a name="ln-125"></a><span class="nl">     </span> <span class="kt">logical</span> <span class="kd">::</span>           <span class="n">Parallel_Run</span><span class="p">,</span> <span class="n">nullified</span><span class="o">=</span><span class="p">.</span><span class="n">false</span><span class="p">.</span>
+<a name="ln-126"></a><span class="nl">     </span> <span class="k">type</span><span class="p">(</span><span class="n">allocDefaults</span><span class="p">)</span> <span class="n">oldDefaults</span>
+<a name="ln-127"></a>
+<a name="ln-128"></a>
+<a name="ln-129"></a><span class="c">!  Start time counter</span>
+<a name="ln-130"></a><span class="nl">     </span> <span class="k">call </span><span class="n">timer</span><span class="p">(</span><span class="s1">&#39;dfscf&#39;</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+<a name="ln-131"></a>
+<a name="ln-132"></a><span class="c">!  Nullify pointers</span>
+<a name="ln-133"></a><span class="nl">     </span> <span class="k">if</span> <span class="p">(.</span><span class="nb">not</span><span class="p">.</span><span class="n">nullified</span><span class="p">)</span> <span class="k">then</span>
+<a name="ln-134"></a><span class="nl">     </span>   <span class="k">nullify</span><span class="p">(</span> <span class="n">C</span><span class="p">,</span> <span class="n">D</span><span class="p">,</span> <span class="n">gC</span><span class="p">,</span> <span class="n">ibc</span><span class="p">,</span> <span class="n">iob</span><span class="p">,</span> <span class="n">xgC</span> <span class="p">)</span>
+<a name="ln-135"></a><span class="nl">     </span>   <span class="n">nullified</span> <span class="o">=</span> <span class="p">.</span><span class="n">true</span><span class="p">.</span>
+<a name="ln-136"></a><span class="nl">     </span> <span class="k">end if</span>
+<a name="ln-137"></a>
+<a name="ln-138"></a><span class="c">!  Get old allocation defaults and set new ones</span>
+<a name="ln-139"></a><span class="nl">     </span> <span class="k">call </span><span class="n">alloc_default</span><span class="p">(</span> <span class="n">old</span><span class="o">=</span><span class="n">oldDefaults</span><span class="p">,</span>
+<a name="ln-140"></a><span class="nl">     </span><span class="gs">.</span>                    <span class="n">copy</span><span class="o">=</span><span class="p">.</span><span class="n">false</span><span class="p">.,</span> <span class="n">shrink</span><span class="o">=</span><span class="p">.</span><span class="n">false</span><span class="p">.,</span>
+<a name="ln-141"></a><span class="nl">     </span><span class="gs">.</span>                    <span class="n">imin</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">routine</span><span class="o">=</span><span class="s1">&#39;dfscf&#39;</span> <span class="p">)</span>
+<a name="ln-142"></a>
+<a name="ln-143"></a><span class="nl">     </span> <span class="k">if</span> <span class="p">(</span> <span class="n">size</span><span class="p">(</span><span class="n">Dscf</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span> <span class="o">==</span> <span class="mi">8</span> <span class="p">)</span> <span class="k">then</span>
+<a name="ln-144"></a><span class="nl">     </span>    <span class="k">if</span> <span class="p">(</span><span class="n">nspin</span> <span class="o">/=</span> <span class="mi">4</span><span class="p">)</span> <span class="k">call </span><span class="n">die</span><span class="p">(</span><span class="s2">&quot;Spin size inconsistency in dfscf&quot;</span><span class="p">)</span>
+<a name="ln-145"></a><span class="nl">     </span>    <span class="c">!     Prepare &quot;spin-box hermitian&quot; form of DM for work below</span>
+<a name="ln-146"></a><span class="nl">     </span>    <span class="c">!     We could re-use similar work in rhoofd</span>
+<a name="ln-147"></a><span class="nl">     </span>    <span class="c">!     This is the relevant part of the DM in view of the structure</span>
+<a name="ln-148"></a><span class="nl">     </span>    <span class="c">!     of the potential Vscf.</span>
+<a name="ln-149"></a><span class="nl">     </span>    <span class="k">call </span><span class="n">re_alloc</span><span class="p">(</span><span class="n">DM_spbherm</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="n">size</span><span class="p">(</span><span class="n">Dscf</span><span class="p">,</span><span class="mi">1</span><span class="p">),</span><span class="mi">1</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="s2">&quot;DM_spbherm&quot;</span><span class="p">)</span>   
+<a name="ln-150"></a><span class="nl">     </span>    <span class="n">DM_spbherm</span><span class="p">(:,</span><span class="mi">1</span><span class="p">)</span> <span class="o">=</span> <span class="n">Dscf</span><span class="p">(:,</span><span class="mi">1</span><span class="p">)</span>
+<a name="ln-151"></a><span class="nl">     </span>    <span class="n">DM_spbherm</span><span class="p">(:,</span><span class="mi">2</span><span class="p">)</span> <span class="o">=</span> <span class="n">Dscf</span><span class="p">(:,</span><span class="mi">2</span><span class="p">)</span>
+<a name="ln-152"></a><span class="nl">     </span>    <span class="n">DM_spbherm</span><span class="p">(:,</span><span class="mi">3</span><span class="p">)</span> <span class="o">=</span> <span class="mf">0.5_dp</span> <span class="o">*</span> <span class="p">(</span><span class="n">Dscf</span><span class="p">(:,</span><span class="mi">3</span><span class="p">)</span><span class="o">+</span><span class="n">Dscf</span><span class="p">(:,</span><span class="mi">7</span><span class="p">))</span>
+<a name="ln-153"></a><span class="nl">     </span>    <span class="n">DM_spbherm</span><span class="p">(:,</span><span class="mi">4</span><span class="p">)</span> <span class="o">=</span> <span class="mf">0.5_dp</span> <span class="o">*</span> <span class="p">(</span><span class="n">Dscf</span><span class="p">(:,</span><span class="mi">4</span><span class="p">)</span><span class="o">+</span><span class="n">Dscf</span><span class="p">(:,</span><span class="mi">8</span><span class="p">))</span>
+<a name="ln-154"></a><span class="nl">     </span> <span class="k">else</span>
+<a name="ln-155"></a><span class="nl">     </span>    <span class="n">DM_spbherm</span> <span class="o">=&gt;</span> <span class="n">Dscf</span>    <span class="c">! Just use passed Dscf</span>
+<a name="ln-156"></a><span class="nl">     </span> <span class="k">end if</span>
+<a name="ln-157"></a>
+<a name="ln-158"></a><span class="c">!  Allocate buffers to store partial copies of Dscf and C</span>
+<a name="ln-159"></a><span class="nl">     </span> <span class="n">maxc</span> <span class="o">=</span> <span class="nb">maxval</span><span class="p">(</span><span class="n">endpht</span><span class="p">(</span><span class="mi">1</span><span class="p">:</span><span class="n">np</span><span class="p">)</span><span class="o">-</span><span class="n">endpht</span><span class="p">(</span><span class="mi">0</span><span class="p">:</span><span class="n">np</span><span class="o">-</span><span class="mi">1</span><span class="p">))</span>
+<a name="ln-160"></a><span class="nl">     </span> <span class="n">maxb</span> <span class="o">=</span> <span class="n">maxc</span> <span class="o">+</span> <span class="n">minb</span>
+<a name="ln-161"></a><span class="nl">     </span> <span class="n">maxb</span> <span class="o">=</span> <span class="nb">min</span><span class="p">(</span> <span class="n">maxb</span><span class="p">,</span> <span class="n">no</span> <span class="p">)</span>
+<a name="ln-162"></a><span class="nl">     </span> <span class="k">call </span><span class="n">re_alloc</span><span class="p">(</span> <span class="n">C</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">nsp</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">maxc</span><span class="p">,</span> <span class="s1">&#39;C&#39;</span><span class="p">,</span> <span class="s1">&#39;dfscf&#39;</span> <span class="p">)</span>
+<a name="ln-163"></a><span class="nl">     </span> <span class="k">call </span><span class="n">re_alloc</span><span class="p">(</span> <span class="n">D</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">maxb</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">maxb</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">nspin</span><span class="p">,</span> <span class="s1">&#39;D&#39;</span><span class="p">,</span> <span class="s1">&#39;dfscf&#39;</span> <span class="p">)</span>
+<a name="ln-164"></a><span class="nl">     </span> <span class="k">call </span><span class="n">re_alloc</span><span class="p">(</span> <span class="n">gC</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">nsp</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">maxc</span><span class="p">,</span> <span class="s1">&#39;gC&#39;</span><span class="p">,</span> <span class="s1">&#39;dfscf&#39;</span> <span class="p">)</span>
+<a name="ln-165"></a><span class="nl">     </span> <span class="k">call </span><span class="n">re_alloc</span><span class="p">(</span> <span class="n">ibc</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">maxc</span><span class="p">,</span> <span class="s1">&#39;ibc&#39;</span><span class="p">,</span> <span class="s1">&#39;dfscf&#39;</span> <span class="p">)</span>
+<a name="ln-166"></a><span class="nl">     </span> <span class="k">call </span><span class="n">re_alloc</span><span class="p">(</span> <span class="n">iob</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">maxb</span><span class="p">,</span> <span class="s1">&#39;iob&#39;</span><span class="p">,</span> <span class="s1">&#39;dfscf&#39;</span> <span class="p">)</span>
+<a name="ln-167"></a><span class="nl">     </span> <span class="k">call </span><span class="n">re_alloc</span><span class="p">(</span> <span class="n">xgC</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">nsp</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">maxc</span><span class="p">,</span> <span class="s1">&#39;xgC&#39;</span><span class="p">,</span> <span class="s1">&#39;dfscf&#39;</span> <span class="p">)</span>
+<a name="ln-168"></a><span class="nl">     </span> <span class="k">call </span><span class="n">re_alloc</span><span class="p">(</span> <span class="n">V</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">nsp</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">nspin</span><span class="p">,</span> <span class="s1">&#39;V&#39;</span><span class="p">,</span> <span class="s1">&#39;dfscf&#39;</span> <span class="p">)</span>
+<a name="ln-169"></a><span class="nl">     </span> <span class="n">V</span> <span class="o">=</span> <span class="mf">0._dp</span>
+<a name="ln-170"></a>
+<a name="ln-171"></a><span class="c">!  Set logical that determines whether we need to use parallel or serial mode</span>
+<a name="ln-172"></a><span class="nl">     </span> <span class="n">Parallel_Run</span> <span class="o">=</span> <span class="p">(</span><span class="n">Nodes</span><span class="p">.</span><span class="n">gt</span><span class="p">.</span><span class="mi">1</span><span class="p">)</span>
+<a name="ln-173"></a>
+<a name="ln-174"></a><span class="c">!  If parallel, allocate temporary storage for Local Dscf</span>
+<a name="ln-175"></a><span class="nl">     </span> <span class="k">if</span> <span class="p">(</span><span class="n">Parallel_Run</span><span class="p">)</span> <span class="k">then</span>
+<a name="ln-176"></a><span class="nl">     </span>   <span class="k">if</span> <span class="p">(</span><span class="n">nrowsDscfL</span><span class="p">.</span><span class="n">gt</span><span class="p">.</span><span class="mi">0</span><span class="p">)</span> <span class="k">then</span>
+<a name="ln-177"></a><span class="nl">     </span>     <span class="n">maxndl</span> <span class="o">=</span> <span class="n">listdlptr</span><span class="p">(</span><span class="n">nrowsDscfL</span><span class="p">)</span> <span class="o">+</span> <span class="n">numdl</span><span class="p">(</span><span class="n">nrowsDscfL</span><span class="p">)</span>
+<a name="ln-178"></a><span class="nl">     </span>   <span class="k">else</span>
+<a name="ln-179"></a><span class="nl">     </span>     <span class="n">maxndl</span> <span class="o">=</span> <span class="mi">1</span>
+<a name="ln-180"></a><span class="nl">     </span>   <span class="n">endif</span>
+<a name="ln-181"></a><span class="nl">     </span>   <span class="k">call </span><span class="n">re_alloc</span><span class="p">(</span> <span class="n">DscfL</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">maxndl</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">nspin</span><span class="p">,</span>
+<a name="ln-182"></a><span class="nl">     </span><span class="gs">.</span>                 <span class="s1">&#39;DscfL&#39;</span><span class="p">,</span> <span class="s1">&#39;dfscf&#39;</span> <span class="p">)</span>
+<a name="ln-183"></a><span class="c">! Redistribute Dscf to DscfL form</span>
+<a name="ln-184"></a><span class="nl">     </span>   <span class="k">call </span><span class="n">matrixOtoM</span><span class="p">(</span> <span class="n">maxnd</span><span class="p">,</span> <span class="n">numd</span><span class="p">,</span> <span class="n">listdptr</span><span class="p">,</span> <span class="n">maxndl</span><span class="p">,</span> <span class="n">nuo</span><span class="p">,</span>
+<a name="ln-185"></a><span class="nl">     </span><span class="gs">.</span>                   <span class="n">nspin</span><span class="p">,</span> <span class="n">DM_spbherm</span><span class="p">,</span> <span class="n">DscfL</span> <span class="p">)</span>
+<a name="ln-186"></a>
+<a name="ln-187"></a><span class="nl">     </span> <span class="n">endif</span>
+<a name="ln-188"></a>
+<a name="ln-189"></a><span class="c">!     Note: Since this routine is only called to get forces AND stresses,</span>
+<a name="ln-190"></a><span class="c">!     ifa = 1 and istr = 1 always. We could get rid of ix1 and ix2 and</span>
+<a name="ln-191"></a><span class="c">!     unroll the relevant loops below for more efficiency.</span>
+<a name="ln-192"></a><span class="c">!     Also, it might be worth unrolling some of the nsp loops below</span>
+<a name="ln-193"></a><span class="c">!     if nsp is always 8.</span>
+<a name="ln-194"></a>
+<a name="ln-195"></a><span class="c">!  Find range of a single array to hold force and stress derivatives</span>
+<a name="ln-196"></a><span class="c">!  Range 1-3 for forces</span>
+<a name="ln-197"></a><span class="nl">     </span> <span class="k">if</span> <span class="p">(</span><span class="n">ifa</span><span class="p">.</span><span class="n">eq</span><span class="p">.</span><span class="mi">1</span><span class="p">)</span> <span class="k">then</span>
+<a name="ln-198"></a><span class="nl">     </span>   <span class="n">ix1</span> <span class="o">=</span> <span class="mi">1</span>
+<a name="ln-199"></a><span class="nl">     </span> <span class="k">else</span>
+<a name="ln-200"></a><span class="nl">     </span>   <span class="n">ix1</span> <span class="o">=</span> <span class="mi">4</span>
+<a name="ln-201"></a><span class="nl">     </span> <span class="k">end if</span>
+<a name="ln-202"></a><span class="c">!  Range 4-12 for stress</span>
+<a name="ln-203"></a><span class="nl">     </span> <span class="k">if</span> <span class="p">(</span><span class="n">istr</span><span class="p">.</span><span class="n">eq</span><span class="p">.</span><span class="mi">1</span><span class="p">)</span> <span class="k">then</span>
+<a name="ln-204"></a><span class="nl">     </span>   <span class="n">ix2</span> <span class="o">=</span> <span class="mi">12</span>
+<a name="ln-205"></a><span class="nl">     </span> <span class="k">else</span>
+<a name="ln-206"></a><span class="nl">     </span>   <span class="n">ix2</span> <span class="o">=</span> <span class="mi">3</span>
+<a name="ln-207"></a><span class="nl">     </span> <span class="k">end if</span>
+<a name="ln-208"></a>
+<a name="ln-209"></a><span class="c">!  Initialise variables</span>
+<a name="ln-210"></a><span class="nl">     </span> <span class="n">D</span><span class="p">(:,:,:)</span> <span class="o">=</span> <span class="mf">0.0_dp</span>
+<a name="ln-211"></a><span class="nl">     </span> <span class="n">ibuff</span><span class="p">(:)</span> <span class="o">=</span> <span class="mi">0</span>
+<a name="ln-212"></a><span class="nl">     </span> <span class="n">iob</span><span class="p">(:)</span> <span class="o">=</span> <span class="mi">0</span>
+<a name="ln-213"></a><span class="nl">     </span> <span class="n">last</span> <span class="o">=</span> <span class="mi">0</span>
+<a name="ln-214"></a>
+<a name="ln-215"></a><span class="c">!  Find atomic cutoff radii</span>
+<a name="ln-216"></a><span class="nl">     </span> <span class="n">r2cut</span><span class="p">(:)</span> <span class="o">=</span> <span class="mf">0.0_dp</span>
+<a name="ln-217"></a><span class="nl">     </span> <span class="k">do </span><span class="n">i</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span><span class="n">nuotot</span>
+<a name="ln-218"></a><span class="nl">     </span>   <span class="n">ia</span> <span class="o">=</span> <span class="n">iaorb</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+<a name="ln-219"></a><span class="nl">     </span>   <span class="k">is</span> <span class="o">=</span> <span class="n">isa</span><span class="p">(</span><span class="n">ia</span><span class="p">)</span>
+<a name="ln-220"></a><span class="nl">     </span>   <span class="n">io</span> <span class="o">=</span> <span class="n">iphorb</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+<a name="ln-221"></a><span class="nl">     </span>   <span class="n">r2cut</span><span class="p">(</span><span class="k">is</span><span class="p">)</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span> <span class="n">r2cut</span><span class="p">(</span><span class="k">is</span><span class="p">),</span> <span class="n">rcut</span><span class="p">(</span><span class="k">is</span><span class="p">,</span><span class="n">io</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span> <span class="p">)</span>
+<a name="ln-222"></a><span class="nl">     </span> <span class="n">enddo</span>
+<a name="ln-223"></a>
+<a name="ln-224"></a><span class="c">!  Evaluate constants</span>
+<a name="ln-225"></a><span class="nl">     </span> <span class="n">rvol</span> <span class="o">=</span> <span class="mf">1.0_dp</span> <span class="o">/</span> <span class="n">VolCel</span>
+<a name="ln-226"></a>
+<a name="ln-227"></a><span class="c">!  Loop over grid points</span>
+<a name="ln-228"></a><span class="nl">     </span> <span class="k">do </span><span class="n">ip</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span><span class="n">np</span>
+<a name="ln-229"></a>
+<a name="ln-230"></a><span class="c">!  Find number of nonzero orbitals at this point</span>
+<a name="ln-231"></a><span class="nl">     </span>   <span class="n">nc</span> <span class="o">=</span> <span class="n">endpht</span><span class="p">(</span><span class="n">ip</span><span class="p">)</span> <span class="o">-</span> <span class="n">endpht</span><span class="p">(</span><span class="n">ip</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+<a name="ln-232"></a>
+<a name="ln-233"></a><span class="c">!  iob(ib)&gt;0 means that row ib of D must not be overwritten</span>
+<a name="ln-234"></a><span class="c">!  iob(ib)=0 means that row ib of D is empty</span>
+<a name="ln-235"></a><span class="c">!  iob(ib)&lt;0 means that row ib of D contains a valid row of </span>
+<a name="ln-236"></a><span class="c">!             Dscf, but which is not required at this point</span>
+<a name="ln-237"></a><span class="nl">     </span>   <span class="k">do </span><span class="n">imp</span> <span class="o">=</span> <span class="mi">1</span><span class="o">+</span><span class="n">endpht</span><span class="p">(</span><span class="n">ip</span><span class="o">-</span><span class="mi">1</span><span class="p">),</span> <span class="n">endpht</span><span class="p">(</span><span class="n">ip</span><span class="p">)</span>
+<a name="ln-238"></a><span class="nl">     </span>     <span class="n">i</span> <span class="o">=</span> <span class="n">lstpht</span><span class="p">(</span><span class="n">imp</span><span class="p">)</span>
+<a name="ln-239"></a><span class="nl">     </span>     <span class="n">ib</span> <span class="o">=</span> <span class="n">ibuff</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+<a name="ln-240"></a><span class="nl">     </span>     <span class="k">if</span> <span class="p">(</span><span class="n">ib</span><span class="p">.</span><span class="n">gt</span><span class="p">.</span><span class="mi">0</span><span class="p">)</span> <span class="n">iob</span><span class="p">(</span><span class="n">ib</span><span class="p">)</span> <span class="o">=</span> <span class="n">i</span>
+<a name="ln-241"></a><span class="nl">     </span>   <span class="n">enddo</span>
+<a name="ln-242"></a>
+<a name="ln-243"></a><span class="c">!  Look for required rows of Dscf not yet stored in D</span>
+<a name="ln-244"></a><span class="nl">     </span>   <span class="k">do </span><span class="n">ic</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span><span class="n">nc</span>
+<a name="ln-245"></a><span class="nl">     </span>     <span class="n">imp</span> <span class="o">=</span> <span class="n">endpht</span><span class="p">(</span><span class="n">ip</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="n">ic</span>
+<a name="ln-246"></a><span class="nl">     </span>     <span class="n">i</span> <span class="o">=</span> <span class="n">lstpht</span><span class="p">(</span><span class="n">imp</span><span class="p">)</span>
+<a name="ln-247"></a><span class="nl">     </span>     <span class="k">if</span> <span class="p">(</span><span class="n">ibuff</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="p">.</span><span class="n">eq</span><span class="p">.</span> <span class="mi">0</span><span class="p">)</span> <span class="k">then</span>
+<a name="ln-248"></a>
+<a name="ln-249"></a><span class="c">!  Look for an available row in D</span>
+<a name="ln-250"></a><span class="nl">     </span>       <span class="k">do </span><span class="n">ib</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span><span class="n">maxb</span>
+<a name="ln-251"></a><span class="c">!  last runs circularly over rows of D</span>
+<a name="ln-252"></a><span class="nl">     </span>         <span class="n">last</span> <span class="o">=</span> <span class="n">last</span> <span class="o">+</span> <span class="mi">1</span>
+<a name="ln-253"></a><span class="nl">     </span>         <span class="k">if</span> <span class="p">(</span><span class="n">last</span> <span class="p">.</span><span class="n">gt</span><span class="p">.</span> <span class="n">maxb</span><span class="p">)</span> <span class="n">last</span> <span class="o">=</span> <span class="mi">1</span>
+<a name="ln-254"></a><span class="nl">     </span>         <span class="k">if</span> <span class="p">(</span><span class="n">iob</span><span class="p">(</span><span class="n">last</span><span class="p">)</span> <span class="p">.</span><span class="n">le</span><span class="p">.</span> <span class="mi">0</span><span class="p">)</span> <span class="k">goto </span><span class="mi">10</span>
+<a name="ln-255"></a><span class="nl">     </span>       <span class="n">enddo</span>
+<a name="ln-256"></a><span class="nl">     </span>       <span class="k">call </span><span class="n">die</span><span class="p">(</span><span class="s1">&#39;dfscf: no slot available in D&#39;</span><span class="p">)</span>
+<a name="ln-257"></a><span class="nl">   10</span>       <span class="k">continue</span>
+<a name="ln-258"></a>
+<a name="ln-259"></a><span class="c">!  Copy row i of Dscf into row last of D</span>
+<a name="ln-260"></a><span class="nl">     </span>       <span class="n">j</span> <span class="o">=</span> <span class="nb">abs</span><span class="p">(</span><span class="n">iob</span><span class="p">(</span><span class="n">last</span><span class="p">))</span>
+<a name="ln-261"></a><span class="nl">     </span>       <span class="k">if</span> <span class="p">(</span><span class="n">j</span><span class="p">.</span><span class="n">ne</span><span class="p">.</span><span class="mi">0</span><span class="p">)</span> <span class="n">ibuff</span><span class="p">(</span><span class="n">j</span><span class="p">)</span> <span class="o">=</span> <span class="mi">0</span>
+<a name="ln-262"></a><span class="nl">     </span>       <span class="n">ibuff</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="o">=</span> <span class="n">last</span>
+<a name="ln-263"></a><span class="nl">     </span>       <span class="n">iob</span><span class="p">(</span><span class="n">last</span><span class="p">)</span> <span class="o">=</span> <span class="n">i</span>
+<a name="ln-264"></a><span class="nl">     </span>       <span class="n">ib</span> <span class="o">=</span> <span class="n">last</span>
+<a name="ln-265"></a><span class="nl">     </span>       <span class="n">iu</span> <span class="o">=</span> <span class="n">indxuo</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+<a name="ln-266"></a><span class="nl">     </span>       <span class="k">if</span> <span class="p">(</span><span class="n">Parallel_Run</span><span class="p">)</span> <span class="k">then</span>
+<a name="ln-267"></a><span class="nl">     </span>         <span class="n">iul</span> <span class="o">=</span> <span class="n">NeedDscfL</span><span class="p">(</span><span class="n">iu</span><span class="p">)</span>
+<a name="ln-268"></a><span class="nl">     </span>         <span class="k">do </span><span class="n">ii</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="n">numdl</span><span class="p">(</span><span class="n">iul</span><span class="p">)</span>
+<a name="ln-269"></a><span class="nl">     </span>           <span class="n">ind</span> <span class="o">=</span> <span class="n">listdlptr</span><span class="p">(</span><span class="n">iul</span><span class="p">)</span><span class="o">+</span><span class="n">ii</span>
+<a name="ln-270"></a><span class="nl">     </span>           <span class="n">j</span> <span class="o">=</span> <span class="n">listdl</span><span class="p">(</span><span class="n">ind</span><span class="p">)</span>
+<a name="ln-271"></a><span class="nl">     </span>           <span class="k">if</span> <span class="p">(</span><span class="n">i</span><span class="p">.</span><span class="n">ne</span><span class="p">.</span><span class="n">iu</span><span class="p">)</span> <span class="n">j</span> <span class="o">=</span> <span class="n">listsc</span><span class="p">(</span> <span class="n">i</span><span class="p">,</span> <span class="n">iu</span><span class="p">,</span> <span class="n">j</span> <span class="p">)</span>
+<a name="ln-272"></a><span class="nl">     </span>           <span class="n">jb</span> <span class="o">=</span> <span class="n">ibuff</span><span class="p">(</span><span class="n">j</span><span class="p">)</span>
+<a name="ln-273"></a><span class="nl">     </span>           <span class="c">! i-j symmetry due to the spin-box hermiticity</span>
+<a name="ln-274"></a><span class="nl">     </span>           <span class="n">D</span><span class="p">(</span><span class="n">ib</span><span class="p">,</span><span class="n">jb</span><span class="p">,:)</span> <span class="o">=</span> <span class="n">DscfL</span><span class="p">(</span><span class="n">ind</span><span class="p">,:)</span>
+<a name="ln-275"></a><span class="nl">     </span>           <span class="n">D</span><span class="p">(</span><span class="n">jb</span><span class="p">,</span><span class="n">ib</span><span class="p">,:)</span> <span class="o">=</span> <span class="n">DscfL</span><span class="p">(</span><span class="n">ind</span><span class="p">,:)</span>
+<a name="ln-276"></a><span class="nl">     </span>         <span class="n">enddo</span>
+<a name="ln-277"></a><span class="nl">     </span>       <span class="k">else</span>
+<a name="ln-278"></a><span class="nl">     </span>         <span class="k">call </span><span class="n">GlobalToLocalOrb</span><span class="p">(</span> <span class="n">iu</span><span class="p">,</span> <span class="n">Node</span><span class="p">,</span> <span class="n">Nodes</span><span class="p">,</span> <span class="n">iul</span> <span class="p">)</span>
+<a name="ln-279"></a><span class="nl">     </span>         <span class="k">do </span><span class="n">ii</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="n">numd</span><span class="p">(</span><span class="n">iul</span><span class="p">)</span>
+<a name="ln-280"></a><span class="nl">     </span>           <span class="n">ind</span> <span class="o">=</span> <span class="n">listdptr</span><span class="p">(</span><span class="n">iul</span><span class="p">)</span><span class="o">+</span><span class="n">ii</span>
+<a name="ln-281"></a><span class="nl">     </span>           <span class="n">j</span> <span class="o">=</span> <span class="n">listd</span><span class="p">(</span><span class="n">ind</span><span class="p">)</span>
+<a name="ln-282"></a><span class="nl">     </span>           <span class="k">if</span> <span class="p">(</span><span class="n">i</span><span class="p">.</span><span class="n">ne</span><span class="p">.</span><span class="n">iu</span><span class="p">)</span> <span class="n">j</span> <span class="o">=</span> <span class="n">listsc</span><span class="p">(</span> <span class="n">i</span><span class="p">,</span> <span class="n">iu</span><span class="p">,</span> <span class="n">j</span> <span class="p">)</span>
+<a name="ln-283"></a><span class="nl">     </span>           <span class="n">jb</span> <span class="o">=</span> <span class="n">ibuff</span><span class="p">(</span><span class="n">j</span><span class="p">)</span>
+<a name="ln-284"></a><span class="nl">     </span>           <span class="n">D</span><span class="p">(</span><span class="n">ib</span><span class="p">,</span><span class="n">jb</span><span class="p">,:)</span> <span class="o">=</span> <span class="n">DM_spbherm</span><span class="p">(</span><span class="n">ind</span><span class="p">,:)</span>
+<a name="ln-285"></a><span class="nl">     </span>           <span class="n">D</span><span class="p">(</span><span class="n">jb</span><span class="p">,</span><span class="n">ib</span><span class="p">,:)</span> <span class="o">=</span> <span class="n">DM_spbherm</span><span class="p">(</span><span class="n">ind</span><span class="p">,:)</span>
+<a name="ln-286"></a><span class="nl">     </span>         <span class="n">enddo</span>
+<a name="ln-287"></a><span class="nl">     </span>       <span class="n">endif</span>
+<a name="ln-288"></a><span class="nl">     </span>     <span class="n">endif</span>
+<a name="ln-289"></a><span class="nl">     </span>     <span class="n">ibc</span><span class="p">(</span><span class="n">ic</span><span class="p">)</span> <span class="o">=</span> <span class="n">ibuff</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+<a name="ln-290"></a><span class="nl">     </span>   <span class="n">enddo</span>
+<a name="ln-291"></a>
+<a name="ln-292"></a><span class="c">!  Restore iob for next point</span>
+<a name="ln-293"></a><span class="nl">     </span>   <span class="k">do </span><span class="n">imp</span> <span class="o">=</span> <span class="mi">1</span><span class="o">+</span><span class="n">endpht</span><span class="p">(</span><span class="n">ip</span><span class="o">-</span><span class="mi">1</span><span class="p">),</span> <span class="n">endpht</span><span class="p">(</span><span class="n">ip</span><span class="p">)</span>
+<a name="ln-294"></a><span class="nl">     </span>     <span class="n">i</span> <span class="o">=</span> <span class="n">lstpht</span><span class="p">(</span><span class="n">imp</span><span class="p">)</span>
+<a name="ln-295"></a><span class="nl">     </span>     <span class="n">ib</span> <span class="o">=</span> <span class="n">ibuff</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+<a name="ln-296"></a><span class="nl">     </span>     <span class="n">iob</span><span class="p">(</span><span class="n">ib</span><span class="p">)</span> <span class="o">=</span> <span class="o">-</span><span class="n">i</span>
+<a name="ln-297"></a><span class="nl">     </span>   <span class="n">enddo</span>
+<a name="ln-298"></a>
+<a name="ln-299"></a><span class="c">!  Calculate all phi values and derivatives at all subpoints</span>
+<a name="ln-300"></a><span class="nl">     </span>   <span class="n">lasta</span> <span class="o">=</span> <span class="mi">0</span>
+<a name="ln-301"></a><span class="nl">     </span>   <span class="n">lastop</span> <span class="o">=</span> <span class="mi">0</span>
+<a name="ln-302"></a><span class="nl">     </span>   <span class="k">do </span><span class="n">ic</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span><span class="n">nc</span>
+<a name="ln-303"></a>
+<a name="ln-304"></a><span class="nl">     </span>     <span class="n">imp</span> <span class="o">=</span> <span class="n">endpht</span><span class="p">(</span><span class="n">ip</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="n">ic</span>
+<a name="ln-305"></a><span class="nl">     </span>     <span class="n">i</span> <span class="o">=</span> <span class="n">lstpht</span><span class="p">(</span><span class="n">imp</span><span class="p">)</span>
+<a name="ln-306"></a><span class="nl">     </span>     <span class="n">iu</span> <span class="o">=</span> <span class="n">indxuo</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+<a name="ln-307"></a><span class="nl">     </span>     <span class="n">ia</span> <span class="o">=</span> <span class="n">iaorb</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+<a name="ln-308"></a><span class="nl">     </span>     <span class="n">iphi</span> <span class="o">=</span> <span class="n">iphorb</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+<a name="ln-309"></a><span class="nl">     </span>     <span class="k">is</span> <span class="o">=</span> <span class="n">isa</span><span class="p">(</span><span class="n">ia</span><span class="p">)</span>
+<a name="ln-310"></a><span class="nl">     </span>     <span class="n">iua</span> <span class="o">=</span> <span class="n">indxua</span><span class="p">(</span><span class="n">ia</span><span class="p">)</span>
+<a name="ln-311"></a><span class="nl">     </span>     <span class="n">iop</span> <span class="o">=</span> <span class="n">listp2</span><span class="p">(</span><span class="n">imp</span><span class="p">)</span>
+<a name="ln-312"></a><span class="nl">     </span>     <span class="k">if</span> <span class="p">(</span><span class="n">ia</span><span class="p">.</span><span class="n">ne</span><span class="p">.</span><span class="n">lasta</span> <span class="p">.</span><span class="nb">or</span><span class="p">.</span> <span class="n">iop</span><span class="p">.</span><span class="n">ne</span><span class="p">.</span><span class="n">lastop</span><span class="p">)</span> <span class="k">then</span>
+<a name="ln-313"></a><span class="nl">     </span>       <span class="n">lasta</span> <span class="o">=</span> <span class="n">ia</span>
+<a name="ln-314"></a><span class="nl">     </span>       <span class="n">lastop</span> <span class="o">=</span> <span class="n">iop</span>
+<a name="ln-315"></a><span class="nl">     </span>       <span class="k">do </span><span class="n">isp</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span><span class="n">nsp</span>
+<a name="ln-316"></a><span class="nl">     </span>         <span class="n">dxsp</span><span class="p">(</span><span class="mi">1</span><span class="p">:</span><span class="mi">3</span><span class="p">,</span><span class="n">isp</span><span class="p">)</span> <span class="o">=</span> <span class="n">xdop</span><span class="p">(</span><span class="mi">1</span><span class="p">:</span><span class="mi">3</span><span class="p">,</span><span class="n">iop</span><span class="p">)</span><span class="o">+</span><span class="n">xdsp</span><span class="p">(</span><span class="mi">1</span><span class="p">:</span><span class="mi">3</span><span class="p">,</span><span class="n">isp</span><span class="p">)</span><span class="o">-</span><span class="n">dxa</span><span class="p">(</span><span class="mi">1</span><span class="p">:</span><span class="mi">3</span><span class="p">,</span><span class="n">ia</span><span class="p">)</span>
+<a name="ln-317"></a><span class="nl">     </span>         <span class="n">r2sp</span> <span class="o">=</span> <span class="n">dxsp</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">isp</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="n">dxsp</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="n">isp</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="n">dxsp</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="n">isp</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span>
+<a name="ln-318"></a><span class="nl">     </span>         <span class="k">if</span> <span class="p">(</span><span class="n">r2sp</span><span class="p">.</span><span class="n">lt</span><span class="p">.</span><span class="n">r2cut</span><span class="p">(</span><span class="k">is</span><span class="p">))</span> <span class="k">then</span>
+<a name="ln-319"></a><span class="nl">     </span>           <span class="k">call </span><span class="n">all_phi</span><span class="p">(</span> <span class="k">is</span><span class="p">,</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="n">dxsp</span><span class="p">(:,</span><span class="n">isp</span><span class="p">),</span> <span class="n">nphiloc</span><span class="p">,</span>
+<a name="ln-320"></a><span class="nl">     </span><span class="gs">.</span>                        <span class="n">phia</span><span class="p">(:,</span><span class="n">isp</span><span class="p">),</span> <span class="n">grada</span><span class="p">(:,:,</span><span class="n">isp</span><span class="p">))</span>
+<a name="ln-321"></a><span class="nl">     </span>         <span class="k">else</span>
+<a name="ln-322"></a><span class="nl">     </span>           <span class="n">phia</span><span class="p">(:,</span><span class="n">isp</span><span class="p">)</span> <span class="o">=</span> <span class="mf">0.0_dp</span>
+<a name="ln-323"></a><span class="nl">     </span>           <span class="n">grada</span><span class="p">(</span><span class="mi">1</span><span class="p">:</span><span class="mi">3</span><span class="p">,:,</span><span class="n">isp</span><span class="p">)</span> <span class="o">=</span> <span class="mf">0.0_dp</span>
+<a name="ln-324"></a><span class="nl">     </span>         <span class="n">endif</span>
+<a name="ln-325"></a><span class="nl">     </span>       <span class="n">enddo</span>
+<a name="ln-326"></a><span class="nl">     </span>     <span class="n">endif</span>
+<a name="ln-327"></a><span class="nl">     </span>     <span class="n">C</span><span class="p">(</span><span class="mi">1</span><span class="p">:</span><span class="n">nsp</span><span class="p">,</span><span class="n">ic</span><span class="p">)</span> <span class="o">=</span> <span class="n">phia</span><span class="p">(</span><span class="n">iphi</span><span class="p">,</span><span class="mi">1</span><span class="p">:</span><span class="n">nsp</span><span class="p">)</span>
+<a name="ln-328"></a><span class="nl">     </span>     <span class="n">gC</span><span class="p">(</span><span class="mi">1</span><span class="p">:</span><span class="mi">3</span><span class="p">,</span><span class="mi">1</span><span class="p">:</span><span class="n">nsp</span><span class="p">,</span><span class="n">ic</span><span class="p">)</span> <span class="o">=</span> <span class="n">grada</span><span class="p">(</span><span class="mi">1</span><span class="p">:</span><span class="mi">3</span><span class="p">,</span><span class="n">iphi</span><span class="p">,</span><span class="mi">1</span><span class="p">:</span><span class="n">nsp</span><span class="p">)</span>
+<a name="ln-329"></a>
+<a name="ln-330"></a><span class="c">!  If stress required. Generate stress derivatives</span>
+<a name="ln-331"></a><span class="nl">     </span>     <span class="k">if</span> <span class="p">(</span><span class="n">istr</span><span class="p">.</span><span class="n">eq</span><span class="p">.</span><span class="mi">1</span><span class="p">)</span> <span class="k">then</span>
+<a name="ln-332"></a><span class="nl">     </span>       <span class="k">do </span><span class="n">isp</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span><span class="n">nsp</span>
+<a name="ln-333"></a><span class="nl">     </span>         <span class="n">ii</span> <span class="o">=</span> <span class="mi">0</span>
+<a name="ln-334"></a><span class="nl">     </span>         <span class="k">do </span><span class="n">ix</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span><span class="mi">3</span>
+<a name="ln-335"></a><span class="nl">     </span>           <span class="k">do </span><span class="n">iy</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span><span class="mi">3</span>
+<a name="ln-336"></a><span class="nl">     </span>             <span class="n">ii</span> <span class="o">=</span> <span class="n">ii</span> <span class="o">+</span> <span class="mi">1</span>
+<a name="ln-337"></a><span class="nl">     </span>             <span class="n">xgC</span><span class="p">(</span><span class="n">ii</span><span class="p">,</span><span class="n">isp</span><span class="p">,</span><span class="n">ic</span><span class="p">)</span> <span class="o">=</span> <span class="n">dxsp</span><span class="p">(</span><span class="n">iy</span><span class="p">,</span><span class="n">isp</span><span class="p">)</span> <span class="o">*</span> <span class="n">gC</span><span class="p">(</span><span class="n">ix</span><span class="p">,</span><span class="n">isp</span><span class="p">,</span><span class="n">ic</span><span class="p">)</span> <span class="o">*</span> <span class="n">rvol</span>
+<a name="ln-338"></a><span class="nl">     </span>           <span class="n">enddo</span>
+<a name="ln-339"></a><span class="nl">     </span>         <span class="n">enddo</span>
+<a name="ln-340"></a><span class="nl">     </span>       <span class="n">enddo</span>
+<a name="ln-341"></a><span class="nl">     </span>     <span class="n">endif</span>
+<a name="ln-342"></a><span class="nl">     </span>   <span class="n">enddo</span>
+<a name="ln-343"></a>
+<a name="ln-344"></a><span class="c">!     Copy potential to a double precision array</span>
+<a name="ln-345"></a>
+<a name="ln-346"></a><span class="nl">     </span>   <span class="n">V</span><span class="p">(</span><span class="mi">1</span><span class="p">:</span><span class="n">nsp</span><span class="p">,</span><span class="mi">1</span><span class="p">:</span><span class="n">nspin</span><span class="p">)</span> <span class="o">=</span> <span class="n">Vscf</span><span class="p">(</span><span class="mi">1</span><span class="p">:</span><span class="n">nsp</span><span class="p">,</span><span class="n">ip</span><span class="p">,</span><span class="mi">1</span><span class="p">:</span><span class="n">nspin</span><span class="p">)</span>
+<a name="ln-347"></a>
+<a name="ln-348"></a><span class="c">!     Factor two for nondiagonal elements for non-collinear spin (and SO)</span>
+<a name="ln-349"></a><span class="nl">     </span>   <span class="k">if</span> <span class="p">(</span> <span class="n">nspin</span> <span class="o">==</span> <span class="mi">4</span> <span class="p">)</span> <span class="k">then</span>
+<a name="ln-350"></a><span class="nl">     </span>    <span class="n">V</span><span class="p">(</span><span class="mi">1</span><span class="p">:</span><span class="n">nsp</span><span class="p">,</span><span class="mi">3</span><span class="p">:</span><span class="mi">4</span><span class="p">)</span> <span class="o">=</span> <span class="mf">2.0_dp</span> <span class="o">*</span> <span class="n">V</span><span class="p">(</span><span class="mi">1</span><span class="p">:</span><span class="n">nsp</span><span class="p">,</span><span class="mi">3</span><span class="p">:</span><span class="mi">4</span><span class="p">)</span>
+<a name="ln-351"></a><span class="nl">     </span>   <span class="k">end if</span>
+<a name="ln-352"></a>
+<a name="ln-353"></a><span class="c">!     Loop on first orbital of mesh point</span>
+<a name="ln-354"></a><span class="nl">     </span>   <span class="k">do </span><span class="n">ic</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span><span class="n">nc</span>
+<a name="ln-355"></a>
+<a name="ln-356"></a><span class="nl">     </span>     <span class="n">imp</span> <span class="o">=</span> <span class="n">endpht</span><span class="p">(</span><span class="n">ip</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="n">ic</span>
+<a name="ln-357"></a><span class="nl">     </span>     <span class="n">i</span> <span class="o">=</span> <span class="n">lstpht</span><span class="p">(</span><span class="n">imp</span><span class="p">)</span>
+<a name="ln-358"></a><span class="nl">     </span>     <span class="n">iu</span> <span class="o">=</span> <span class="n">indxuo</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+<a name="ln-359"></a><span class="nl">     </span>     <span class="n">ia</span> <span class="o">=</span> <span class="n">iaorb</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+<a name="ln-360"></a><span class="nl">     </span>     <span class="n">iua</span> <span class="o">=</span> <span class="n">indxua</span><span class="p">(</span><span class="n">ia</span><span class="p">)</span>
+<a name="ln-361"></a><span class="nl">     </span>     <span class="n">ib</span> <span class="o">=</span> <span class="n">ibc</span><span class="p">(</span><span class="n">ic</span><span class="p">)</span>
+<a name="ln-362"></a>
+<a name="ln-363"></a><span class="c">!  Copy force and stress gradients to a single array</span>
+<a name="ln-364"></a><span class="nl">     </span>     <span class="n">gCi</span><span class="p">(</span><span class="mi">1</span><span class="p">:</span><span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">:</span><span class="n">nsp</span><span class="p">)</span> <span class="o">=</span>  <span class="n">gC</span><span class="p">(</span><span class="mi">1</span><span class="p">:</span><span class="mi">3</span><span class="p">,</span><span class="mi">1</span><span class="p">:</span><span class="n">nsp</span><span class="p">,</span><span class="n">ic</span><span class="p">)</span>
+<a name="ln-365"></a><span class="nl">     </span>     <span class="n">gCi</span><span class="p">(</span><span class="mi">4</span><span class="p">:</span><span class="mi">12</span><span class="p">,</span><span class="mi">1</span><span class="p">:</span><span class="n">nsp</span><span class="p">)</span> <span class="o">=</span> <span class="n">xgC</span><span class="p">(</span><span class="mi">1</span><span class="p">:</span><span class="mi">9</span><span class="p">,</span><span class="mi">1</span><span class="p">:</span><span class="n">nsp</span><span class="p">,</span><span class="n">ic</span><span class="p">)</span>
+<a name="ln-366"></a>
+<a name="ln-367"></a><span class="c">!  Find Sum_{j,spin}(Vscf*Dij*Cj) for every subpoint</span>
+<a name="ln-368"></a><span class="c">!  Some loops are not done using f90 form as this</span>
+<a name="ln-369"></a><span class="c">!  leads to much slower execution on machines with stupid f90</span>
+<a name="ln-370"></a><span class="c">!  compilers at the moment</span>
+<a name="ln-371"></a><span class="nl">     </span>     <span class="n">CDV</span><span class="p">(</span><span class="mi">1</span><span class="p">:</span><span class="n">nsp</span><span class="p">)</span> <span class="o">=</span> <span class="mf">0.0_dp</span>
+<a name="ln-372"></a><span class="nl">     </span>     <span class="k">do </span><span class="n">ispin</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span><span class="n">nspin</span>
+<a name="ln-373"></a>
+<a name="ln-374"></a><span class="c">!  Loop on second orbital of mesh point</span>
+<a name="ln-375"></a><span class="nl">     </span>       <span class="n">CD</span><span class="p">(</span><span class="mi">1</span><span class="p">:</span><span class="n">nsp</span><span class="p">)</span> <span class="o">=</span> <span class="mf">0.0_dp</span>
+<a name="ln-376"></a><span class="nl">     </span>       <span class="k">do </span><span class="n">jc</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span><span class="n">nc</span>
+<a name="ln-377"></a><span class="nl">     </span>         <span class="n">jb</span> <span class="o">=</span> <span class="n">ibc</span><span class="p">(</span><span class="n">jc</span><span class="p">)</span>
+<a name="ln-378"></a><span class="nl">     </span>         <span class="n">Dji</span> <span class="o">=</span> <span class="n">D</span><span class="p">(</span><span class="n">jb</span><span class="p">,</span><span class="n">ib</span><span class="p">,</span><span class="n">ispin</span><span class="p">)</span>
+<a name="ln-379"></a><span class="nl">     </span>         <span class="k">do </span><span class="n">isp</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span><span class="n">nsp</span>
+<a name="ln-380"></a><span class="nl">     </span>           <span class="n">CD</span><span class="p">(</span><span class="n">isp</span><span class="p">)</span> <span class="o">=</span> <span class="n">CD</span><span class="p">(</span><span class="n">isp</span><span class="p">)</span> <span class="o">+</span> <span class="n">C</span><span class="p">(</span><span class="n">isp</span><span class="p">,</span><span class="n">jc</span><span class="p">)</span> <span class="o">*</span> <span class="n">Dji</span>
+<a name="ln-381"></a><span class="nl">     </span>         <span class="k">end do</span>
+<a name="ln-382"></a><span class="nl">     </span>       <span class="k">end do</span>
+<a name="ln-383"></a>
+<a name="ln-384"></a><span class="nl">     </span>       <span class="k">do </span><span class="n">isp</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span><span class="n">nsp</span>
+<a name="ln-385"></a><span class="nl">     </span>         <span class="n">CDV</span><span class="p">(</span><span class="n">isp</span><span class="p">)</span> <span class="o">=</span> <span class="n">CDV</span><span class="p">(</span><span class="n">isp</span><span class="p">)</span> <span class="o">+</span> <span class="n">CD</span><span class="p">(</span><span class="n">isp</span><span class="p">)</span> <span class="o">*</span> <span class="n">V</span><span class="p">(</span><span class="n">isp</span><span class="p">,</span><span class="n">ispin</span><span class="p">)</span>
+<a name="ln-386"></a><span class="nl">     </span>       <span class="k">end do</span>
+<a name="ln-387"></a><span class="nl">     </span>     <span class="n">enddo</span>
+<a name="ln-388"></a><span class="nl">     </span>     <span class="k">do </span><span class="n">isp</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span><span class="n">nsp</span>
+<a name="ln-389"></a><span class="nl">     </span>       <span class="n">CDV</span><span class="p">(</span><span class="n">isp</span><span class="p">)</span> <span class="o">=</span> <span class="n">CDV</span><span class="p">(</span><span class="n">isp</span><span class="p">)</span> <span class="o">-</span> 
+<a name="ln-390"></a><span class="nl">     </span><span class="gs">.</span>                 <span class="n">C</span><span class="p">(</span><span class="n">isp</span><span class="p">,</span><span class="n">ic</span><span class="p">)</span> <span class="o">*</span> <span class="n">Datm</span><span class="p">(</span><span class="n">iu</span><span class="p">)</span> <span class="o">*</span> <span class="n">Vatm</span><span class="p">(</span><span class="n">isp</span><span class="p">,</span><span class="n">ip</span><span class="p">)</span>
+<a name="ln-391"></a><span class="nl">     </span>       <span class="n">CDV</span><span class="p">(</span><span class="n">isp</span><span class="p">)</span> <span class="o">=</span> <span class="mf">2.0_dp</span> <span class="o">*</span> <span class="n">dVol</span> <span class="o">*</span> <span class="n">CDV</span><span class="p">(</span><span class="n">isp</span><span class="p">)</span>
+<a name="ln-392"></a><span class="nl">     </span>     <span class="k">end do</span>
+<a name="ln-393"></a>
+<a name="ln-394"></a><span class="c">!  Add 2*Dscf_ij*&lt;Cj|Vscf|gCi&gt; to forces</span>
+<a name="ln-395"></a><span class="nl">     </span>     <span class="k">do </span><span class="n">ix</span> <span class="o">=</span> <span class="n">ix1</span><span class="p">,</span><span class="n">ix2</span>
+<a name="ln-396"></a><span class="nl">     </span>       <span class="n">DF</span><span class="p">(</span><span class="n">ix</span><span class="p">)</span> <span class="o">=</span> <span class="mf">0.0_dp</span>
+<a name="ln-397"></a><span class="nl">     </span>       <span class="k">do </span><span class="n">isp</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="n">nsp</span>
+<a name="ln-398"></a><span class="nl">     </span>         <span class="n">DF</span><span class="p">(</span><span class="n">ix</span><span class="p">)</span> <span class="o">=</span> <span class="n">DF</span><span class="p">(</span><span class="n">ix</span><span class="p">)</span> <span class="o">+</span> <span class="n">gCi</span><span class="p">(</span><span class="n">ix</span><span class="p">,</span><span class="n">isp</span><span class="p">)</span> <span class="o">*</span> <span class="n">CDV</span><span class="p">(</span><span class="n">isp</span><span class="p">)</span>
+<a name="ln-399"></a><span class="nl">     </span>       <span class="n">enddo</span>
+<a name="ln-400"></a><span class="nl">     </span>     <span class="n">enddo</span>
+<a name="ln-401"></a>
+<a name="ln-402"></a><span class="c">!  Add force and stress to output arrays</span>
+<a name="ln-403"></a><span class="nl">     </span>     <span class="k">if</span> <span class="p">(</span><span class="n">ifa</span><span class="p">.</span><span class="n">eq</span><span class="p">.</span><span class="mi">1</span><span class="p">)</span> <span class="k">then</span>
+<a name="ln-404"></a><span class="nl">     </span>       <span class="n">Fal</span><span class="p">(</span><span class="mi">1</span><span class="p">:</span><span class="mi">3</span><span class="p">,</span><span class="n">iua</span><span class="p">)</span> <span class="o">=</span> <span class="n">Fal</span><span class="p">(</span><span class="mi">1</span><span class="p">:</span><span class="mi">3</span><span class="p">,</span><span class="n">iua</span><span class="p">)</span> <span class="o">+</span> <span class="n">DF</span><span class="p">(</span><span class="mi">1</span><span class="p">:</span><span class="mi">3</span><span class="p">)</span>
+<a name="ln-405"></a><span class="nl">     </span>     <span class="n">endif</span>
+<a name="ln-406"></a><span class="nl">     </span>     <span class="k">if</span> <span class="p">(</span><span class="n">istr</span><span class="p">.</span><span class="n">eq</span><span class="p">.</span><span class="mi">1</span><span class="p">)</span> <span class="k">then</span>
+<a name="ln-407"></a><span class="nl">     </span>       <span class="n">Stressl</span><span class="p">(</span><span class="mi">1</span><span class="p">:</span><span class="mi">9</span><span class="p">)</span> <span class="o">=</span> <span class="n">Stressl</span><span class="p">(</span><span class="mi">1</span><span class="p">:</span><span class="mi">9</span><span class="p">)</span> <span class="o">+</span> <span class="n">DF</span><span class="p">(</span><span class="mi">4</span><span class="p">:</span><span class="mi">12</span><span class="p">)</span>
+<a name="ln-408"></a><span class="nl">     </span>     <span class="n">endif</span>
+<a name="ln-409"></a>
+<a name="ln-410"></a><span class="c">!  End of first orbital loop</span>
+<a name="ln-411"></a><span class="nl">     </span>   <span class="n">enddo</span>
+<a name="ln-412"></a>
+<a name="ln-413"></a><span class="c">!  End of mesh point loop</span>
+<a name="ln-414"></a><span class="nl">     </span> <span class="n">enddo</span>
+<a name="ln-415"></a>  
+<a name="ln-416"></a><span class="c">!  Deallocate local memory</span>
+<a name="ln-417"></a><span class="nl">     </span> <span class="k">call </span><span class="n">de_alloc</span><span class="p">(</span> <span class="n">xgC</span><span class="p">,</span> <span class="s1">&#39;xgC&#39;</span><span class="p">,</span> <span class="s1">&#39;dfscf&#39;</span> <span class="p">)</span>
+<a name="ln-418"></a><span class="nl">     </span> <span class="k">call </span><span class="n">de_alloc</span><span class="p">(</span> <span class="n">iob</span><span class="p">,</span> <span class="s1">&#39;iob&#39;</span><span class="p">,</span> <span class="s1">&#39;dfscf&#39;</span> <span class="p">)</span>
+<a name="ln-419"></a><span class="nl">     </span> <span class="k">call </span><span class="n">de_alloc</span><span class="p">(</span> <span class="n">ibc</span><span class="p">,</span> <span class="s1">&#39;ibc&#39;</span><span class="p">,</span> <span class="s1">&#39;dfscf&#39;</span> <span class="p">)</span>
+<a name="ln-420"></a><span class="nl">     </span> <span class="k">call </span><span class="n">de_alloc</span><span class="p">(</span> <span class="n">gC</span><span class="p">,</span> <span class="s1">&#39;gC&#39;</span><span class="p">,</span> <span class="s1">&#39;dfscf&#39;</span> <span class="p">)</span>
+<a name="ln-421"></a><span class="nl">     </span> <span class="k">call </span><span class="n">de_alloc</span><span class="p">(</span> <span class="n">D</span><span class="p">,</span> <span class="s1">&#39;D&#39;</span><span class="p">,</span> <span class="s1">&#39;dfscf&#39;</span> <span class="p">)</span>
+<a name="ln-422"></a><span class="nl">     </span> <span class="k">call </span><span class="n">de_alloc</span><span class="p">(</span> <span class="n">C</span><span class="p">,</span> <span class="s1">&#39;C&#39;</span><span class="p">,</span> <span class="s1">&#39;dfscf&#39;</span> <span class="p">)</span>
+<a name="ln-423"></a><span class="nl">     </span> <span class="k">call </span><span class="n">de_alloc</span><span class="p">(</span> <span class="n">V</span><span class="p">,</span> <span class="s1">&#39;V&#39;</span><span class="p">,</span> <span class="s1">&#39;dfscf&#39;</span> <span class="p">)</span>
+<a name="ln-424"></a><span class="nl">     </span> <span class="k">if</span> <span class="p">(</span><span class="n">Parallel_Run</span><span class="p">)</span> <span class="k">then</span>
+<a name="ln-425"></a><span class="nl">     </span>   <span class="k">call </span><span class="n">de_alloc</span><span class="p">(</span> <span class="n">DscfL</span><span class="p">,</span> <span class="s1">&#39;DscfL&#39;</span><span class="p">,</span> <span class="s1">&#39;dfscf&#39;</span> <span class="p">)</span>
+<a name="ln-426"></a><span class="nl">     </span> <span class="n">endif</span>
+<a name="ln-427"></a><span class="nl">     </span> <span class="k">if</span> <span class="p">(</span><span class="n">size</span><span class="p">(</span><span class="n">Dscf</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span> <span class="o">==</span> <span class="mi">8</span><span class="p">)</span> <span class="k">then</span>
+<a name="ln-428"></a><span class="nl">     </span>    <span class="k">call </span><span class="n">de_alloc</span><span class="p">(</span> <span class="n">DM_spbherm</span><span class="p">,</span> <span class="s1">&#39;DM_spbherm&#39;</span><span class="p">,</span> <span class="s1">&#39;dfscf&#39;</span> <span class="p">)</span>
+<a name="ln-429"></a><span class="nl">     </span> <span class="n">endif</span>
+<a name="ln-430"></a>
+<a name="ln-431"></a><span class="c">!  Restore old allocation defaults</span>
+<a name="ln-432"></a><span class="nl">     </span> <span class="k">call </span><span class="n">alloc_default</span><span class="p">(</span> <span class="n">restore</span><span class="o">=</span><span class="n">oldDefaults</span> <span class="p">)</span>
+<a name="ln-433"></a>
+<a name="ln-434"></a><span class="nl">     </span> <span class="k">call </span><span class="n">timer</span><span class="p">(</span><span class="s1">&#39;dfscf&#39;</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
+<a name="ln-435"></a> 
+<a name="ln-436"></a><span class="nl">     </span> <span class="k">end subroutine </span><span class="n">dfscf</span>
+<a name="ln-437"></a>
+<a name="ln-438"></a><span class="nl">     </span> <span class="k">end module </span><span class="n">m_dfscf</span>
+</pre></div>
+
+    </section>
+    </div>
+  </div>
+
+  
+    <hr>    
+    </div> <!-- /container -->
+    <footer>
+      <div class="container">
+      <div class="row">
+        <div class="col-xs-6 col-md-4"><p>&copy; 2018 <a rel="license" href="http://www.gnu.org/licenses/old-licenses/fdl-1.2.en.html">GNU Free Documentation License</a>
+                                          </p></div>
+        <div class="col-xs-6 col-md-4 col-md-push-4">
+          <p class="text-right">
+            Documentation generated by 
+            <a href="https://github.com/cmacmackin/ford">FORD</a>
+            
+          </p>
+        </div>
+        <div class="col-xs-12 col-md-4 col-md-pull-4"><p class="text-center"> SIESTA was developed by SIESTA Group</p></div>
+      </div>
+      <br>
+      </div> <!-- /container -->    
+    </footer>
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+<!--
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+-->
+    <script src="../js/bootstrap.min.js"></script>
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script src="../js/ie10-viewport-bug-workaround.js"></script>
+
+    <!-- MathJax JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        TeX: { extensions: ['AMSmath.js','AMSsymbols.js','noErrors.js','noUndefined.js'], equationNumbers: { autoNumber: 'AMS' } },
+        jax: ['input/TeX','input/MathML','output/HTML-CSS'],
+        extensions: ['tex2jax.js','mml2jax.js','MathMenu.js','MathZoom.js']
+      });
+    </script>
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    
+    <script src="../tipuesearch/tipuesearch_content.js"></script>
+    <script src="../tipuesearch/tipuesearch_set.js"></script>
+    <script src="../tipuesearch/tipuesearch.js"></script>
+    
+    
+  </body>
+</html>

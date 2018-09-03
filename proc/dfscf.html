@@ -1,0 +1,1962 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+   
+   <meta name="description" content="A first-principles materials simulation code using Density Functional Theory.">
+    
+    <meta name="author" content="SIESTA Group" >
+    <link rel="icon" href="../favicon.png">
+
+    <title>dfscf &ndash; SIESTA</title>
+
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
+    <link href="../css/pygments.css" rel="stylesheet">
+    <link href="../css/font-awesome.min.css" rel="stylesheet">
+    <link href="../css/local.css" rel="stylesheet">
+    
+    <link  href="../tipuesearch/tipuesearch.css" rel="stylesheet">
+    
+    
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    
+    <script src="../js/jquery-2.1.3.min.js"></script>
+    <script src="../js/svg-pan-zoom.min.js"></script>
+
+  </head>
+
+  <body>
+
+    <!-- Fixed navbar -->
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="../index.html">SIESTA <small>trunk-700--vdikan-edens-711-ford-681</small></a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+          <ul class="nav navbar-nav">
+        
+            <li><a href='../page/index.html'>Program Overview</a></li>
+      
+            <li class="dropdown hidden-xs visible-sm visible-md hidden-lg">
+              <a href="#" class="dropdown-toggle"
+              data-toggle="dropdown" role="button"
+              aria-haspopup="true"
+     aria-expanded="false">Contents <span class="caret"></span></a>
+        <ul class="dropdown-menu">
+          
+              
+            <li><a href="../lists/files.html">Source Files</a></li>
+        
+        
+        
+            <li><a href="../lists/modules.html">Modules</a></li>
+        
+            
+                                
+            <li><a href="../lists/procedures.html">Procedures</a></li>
+        
+               
+            <li><a href="../lists/types.html">Derived Types</a></li>
+        
+        
+            </ul>
+            </li>
+
+
+<li class="visible-xs hidden-sm visible-lg"><a href="../lists/files.html">Source Files</a></li>
+
+
+
+<li class="visible-xs hidden-sm visible-lg"><a href="../lists/modules.html">Modules</a></li>
+
+
+
+<li class="visible-xs hidden-sm visible-lg"><a href="../lists/procedures.html">Procedures</a></li>
+
+                             
+<li class="visible-xs hidden-sm visible-lg"><a href="../lists/types.html">Derived Types</a></li>
+
+
+          </ul>
+        
+        <form action="../search.html" class="navbar-form navbar-right" role="search">
+        <div class="form-group">
+          <input type="text" class="form-control" placeholder="Search" name="q" id="tipue_search_input" autocomplete="off" required>
+        </div>
+<!--
+        <button type="submit" class="btn btn-default">Submit</button>
+-->
+        </form>
+        
+        </div><!--/.nav-collapse -->
+      </div>
+    </nav>
+
+    <div class="container">
+    
+  
+  <div class="row">
+    <h1>dfscf
+      <small>Subroutine</small>
+    
+    </h1>
+    
+<div class="row">
+  <div class="col-lg-12">
+<div class="well well-sm">
+  <ul class="list-inline" style="margin-bottom:0px;display:inline">
+     
+     <li><i class="fa fa-pencil"></i> P.Ordejon, J.M.Soler, and J.Gale</li>
+     
+     
+     
+     
+    
+    
+     <li><i class="fa fa-list-ol"></i>
+       <a data-toggle="tooltip"
+    data-placement="bottom" data-html="true"
+    title=" 2.8% of total for procedures.">262 statements</a>
+     </li> 
+     
+     
+     
+    <li><i class="fa fa-code"></i><a href="../src/dfscf.f"> Source File</a></li>
+     
+     
+  </ul>
+  <ol class="breadcrumb in-well text-right">
+  
+    
+     <li><a href='../sourcefile/dfscf.f.html'>dfscf.f</a></li>
+    
+     <li><a href='../module/m_dfscf.html'>m_dfscf</a></li>
+    
+  
+     <li class="active">dfscf</li>
+  </ol>
+</div>
+</div>
+</div>
+<script>
+  $(function () {
+  $('[data-toggle="tooltip"]').tooltip()
+  })
+</script>
+
+  </div>
+  
+  <div class="row">
+    <div class="col-md-3 hidden-xs hidden-sm visible-md visible-lg">
+    
+<div id="sidebar">
+  
+<h3>Contents</h3>
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="panel panel-primary">
+  <div class="panel-heading text-left"><h3 class="panel-title">Source Code</h3></div>
+  <div class="list-group">
+    <a class="list-group-item" href="../proc/dfscf.html#src">dfscf</a>
+  </div>
+</div>
+
+
+
+</div>
+
+    </div>
+    
+    <div class="col-md-9" id='text'>
+    <h2>
+public subroutine dfscf(ifa, istr, na, no, nuo, nuotot, np, nspin, indxua, isa, iaorb, iphorb, maxnd, numd, listdptr, listd, Dscf, Datm, Vscf, Vatm, dvol, VolCel, Fal, Stressl)
+    
+    
+   
+</h2>
+    
+  
+    <div class="panel panel-default">
+      <div class="panel-heading">
+  <h3 class="panel-title">Uses</h3>
+      </div>
+      <ul class="list-group">
+      
+      <li class="list-group-item">
+  <ul class="list-inline">
+    
+    <li><a href='../module/precision.html'>precision</a></li>
+    
+    <li><a href='../module/atmfuncs.html'>atmfuncs</a></li>
+    
+    <li><a href='../module/atm_types.html'>atm_types</a></li>
+    
+    <li>atomlist</li>
+    
+    <li>listsc_module</li>
+    
+    <li><a href='../module/mesh.html'>mesh</a></li>
+    
+    <li>meshphi</li>
+    
+    <li>meshdscf</li>
+    
+    <li>meshdscf</li>
+    
+    <li>meshdscf</li>
+    
+    <li>alloc</li>
+    
+    <li><a href='../module/parallel.html'>parallel</a></li>
+    
+    <li><a href='../module/sys.html'>sys</a></li>
+    
+    <li>parallelsubs</li>
+    
+  </ul>
+      </li>
+      
+      
+      
+      <li class="list-group-item">
+  <div class="depgraph"><?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+ "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Generated by graphviz version 2.38.0 (20140413.2041)
+ -->
+<!-- Title: proc~~dfscf~~UsesGraph Pages: 1 -->
+<svg id="procdfscfUsesGraph" width="478pt" height="462pt"
+ viewBox="0.00 0.00 478.00 462.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="proc~~dfscf~~UsesGraph" class="graph" transform="scale(1 1) rotate(0) translate(4 458)">
+<title>proc~~dfscf~~UsesGraph</title>
+<polygon fill="white" stroke="none" points="-4,4 -4,-458 474,-458 474,4 -4,4"/>
+<!-- proc~dfscf -->
+<g id="proc~~dfscf~~UsesGraph_node1" class="node"><title>proc~dfscf</title>
+<polygon fill="none" stroke="black" points="470,-213 416,-213 416,-189 470,-189 470,-213"/>
+<text text-anchor="middle" x="443" y="-198.6" font-family="Helvetica,sans-Serif" font-size="10.50">dfscf</text>
+</g>
+<!-- listsc_module -->
+<g id="proc~~dfscf~~UsesGraph_node2" class="node"><title>listsc_module</title>
+<polygon fill="#337ab7" stroke="#337ab7" points="380,-454 303,-454 303,-430 380,-430 380,-454"/>
+<text text-anchor="middle" x="341.5" y="-439.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">listsc_module</text>
+</g>
+<!-- proc~dfscf&#45;&gt;listsc_module -->
+<g id="proc~~dfscf~~UsesGraph_edge8" class="edge"><title>proc~dfscf&#45;&gt;listsc_module</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M441.286,-213.411C438.711,-248.481 427.35,-350.046 380,-416 378.06,-418.703 375.746,-421.219 373.235,-423.536"/>
+<polygon fill="#000000" stroke="#000000" points="370.916,-420.909 365.281,-429.882 375.281,-426.381 370.916,-420.909"/>
+</g>
+<!-- module~precision -->
+<g id="proc~~dfscf~~UsesGraph_node3" class="node"><title>module~precision</title>
+<g id="a_proc~~dfscf~~UsesGraph_node3"><a xlink:href=".././module/precision.html" xlink:title="precision">
+<polygon fill="#337ab7" stroke="#337ab7" points="63,-365 8,-365 8,-341 63,-341 63,-365"/>
+<text text-anchor="middle" x="35.5" y="-350.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">precision</text>
+</a>
+</g>
+</g>
+<!-- proc~dfscf&#45;&gt;module~precision -->
+<g id="proc~~dfscf~~UsesGraph_edge2" class="edge"><title>proc~dfscf&#45;&gt;module~precision</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M231,-402C175.528,-396.397 160.626,-398.257 107,-383 94.6059,-379.474 81.4965,-374.32 69.9879,-369.276"/>
+<polygon fill="#000000" stroke="#000000" points="71.3024,-366.029 60.7482,-365.103 68.421,-372.409 71.3024,-366.029"/>
+</g>
+<!-- module~atmfuncs -->
+<g id="proc~~dfscf~~UsesGraph_node4" class="node"><title>module~atmfuncs</title>
+<g id="a_proc~~dfscf~~UsesGraph_node4"><a xlink:href=".././module/atmfuncs.html" xlink:title="atmfuncs">
+<polygon fill="#337ab7" stroke="#337ab7" points="369.5,-314 313.5,-314 313.5,-290 369.5,-290 369.5,-314"/>
+<text text-anchor="middle" x="341.5" y="-299.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">atmfuncs</text>
+</a>
+</g>
+</g>
+<!-- proc~dfscf&#45;&gt;module~atmfuncs -->
+<g id="proc~~dfscf~~UsesGraph_edge3" class="edge"><title>proc~dfscf&#45;&gt;module~atmfuncs</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M433.654,-213.034C422.509,-228.611 401.646,-256.111 380,-276 377.001,-278.755 373.695,-281.453 370.325,-284.004"/>
+<polygon fill="#000000" stroke="#000000" points="368.05,-281.328 361.957,-289.995 372.126,-287.019 368.05,-281.328"/>
+</g>
+<!-- meshphi -->
+<g id="proc~~dfscf~~UsesGraph_node5" class="node"><title>meshphi</title>
+<polygon fill="#337ab7" stroke="#337ab7" points="368.5,-234 314.5,-234 314.5,-210 368.5,-210 368.5,-234"/>
+<text text-anchor="middle" x="341.5" y="-219.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">meshphi</text>
+</g>
+<!-- proc~dfscf&#45;&gt;meshphi -->
+<g id="proc~~dfscf~~UsesGraph_edge4" class="edge"><title>proc~dfscf&#45;&gt;meshphi</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M415.858,-206.518C404.522,-208.91 391.057,-211.752 378.777,-214.343"/>
+<polygon fill="#000000" stroke="#000000" points="377.875,-210.957 368.813,-216.446 379.321,-217.806 377.875,-210.957"/>
+</g>
+<!-- parallelsubs -->
+<g id="proc~~dfscf~~UsesGraph_node6" class="node"><title>parallelsubs</title>
+<polygon fill="#337ab7" stroke="#337ab7" points="376.5,-192 306.5,-192 306.5,-168 376.5,-168 376.5,-192"/>
+<text text-anchor="middle" x="341.5" y="-177.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">parallelsubs</text>
+</g>
+<!-- proc~dfscf&#45;&gt;parallelsubs -->
+<g id="proc~~dfscf~~UsesGraph_edge5" class="edge"><title>proc~dfscf&#45;&gt;parallelsubs</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M415.858,-195.482C406.875,-193.587 396.557,-191.409 386.549,-189.297"/>
+<polygon fill="#000000" stroke="#000000" points="387.215,-185.86 376.707,-187.22 385.769,-192.709 387.215,-185.86"/>
+</g>
+<!-- alloc -->
+<g id="proc~~dfscf~~UsesGraph_node7" class="node"><title>alloc</title>
+<polygon fill="#337ab7" stroke="#337ab7" points="368.5,-150 314.5,-150 314.5,-126 368.5,-126 368.5,-150"/>
+<text text-anchor="middle" x="341.5" y="-135.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">alloc</text>
+</g>
+<!-- proc~dfscf&#45;&gt;alloc -->
+<g id="proc~~dfscf~~UsesGraph_edge6" class="edge"><title>proc~dfscf&#45;&gt;alloc</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M424.887,-188.833C412.58,-180.224 395.489,-168.559 380,-159 378.04,-157.79 376.006,-156.566 373.947,-155.35"/>
+<polygon fill="#000000" stroke="#000000" points="375.301,-152.091 364.89,-150.129 371.805,-158.156 375.301,-152.091"/>
+</g>
+<!-- atomlist -->
+<g id="proc~~dfscf~~UsesGraph_node8" class="node"><title>atomlist</title>
+<polygon fill="#337ab7" stroke="#337ab7" points="368.5,-108 314.5,-108 314.5,-84 368.5,-84 368.5,-108"/>
+<text text-anchor="middle" x="341.5" y="-93.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">atomlist</text>
+</g>
+<!-- proc~dfscf&#45;&gt;atomlist -->
+<g id="proc~~dfscf~~UsesGraph_edge7" class="edge"><title>proc~dfscf&#45;&gt;atomlist</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M435.321,-188.892C425.181,-171.341 404.47,-138.58 380,-117 378.73,-115.88 377.391,-114.794 376.005,-113.744"/>
+<polygon fill="#000000" stroke="#000000" points="377.952,-110.836 367.704,-108.149 374.04,-116.641 377.952,-110.836"/>
+</g>
+<!-- module~parallel -->
+<g id="proc~~dfscf~~UsesGraph_node9" class="node"><title>module~parallel</title>
+<g id="a_proc~~dfscf~~UsesGraph_node9"><a xlink:href=".././module/parallel.html" xlink:title="parallel">
+<polygon fill="#337ab7" stroke="#337ab7" points="368.5,-66 314.5,-66 314.5,-42 368.5,-42 368.5,-66"/>
+<text text-anchor="middle" x="341.5" y="-51.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">parallel</text>
+</a>
+</g>
+</g>
+<!-- proc~dfscf&#45;&gt;module~parallel -->
+<g id="proc~~dfscf~~UsesGraph_edge1" class="edge"><title>proc~dfscf&#45;&gt;module~parallel</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M438.689,-188.824C431.562,-164.548 412.71,-109.499 380,-75 378.973,-73.9171 377.878,-72.8751 376.731,-71.8745"/>
+<polygon fill="#000000" stroke="#000000" points="378.72,-68.9926 368.596,-65.8708 374.564,-74.6249 378.72,-68.9926"/>
+</g>
+<!-- module~mesh -->
+<g id="proc~~dfscf~~UsesGraph_node10" class="node"><title>module~mesh</title>
+<g id="a_proc~~dfscf~~UsesGraph_node10"><a xlink:href=".././module/mesh.html" xlink:title="mesh">
+<polygon fill="#337ab7" stroke="#337ab7" points="161,-374 107,-374 107,-350 161,-350 161,-374"/>
+<text text-anchor="middle" x="134" y="-359.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">mesh</text>
+</a>
+</g>
+</g>
+<!-- proc~dfscf&#45;&gt;module~mesh -->
+<g id="proc~~dfscf~~UsesGraph_edge10" class="edge"><title>proc~dfscf&#45;&gt;module~mesh</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M340.5,-402C297.715,-423.265 280.536,-406.801 233,-402"/>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M231,-402C206.873,-399.563 181.638,-388.673 163.098,-378.871"/>
+<polygon fill="#000000" stroke="#000000" points="164.762,-375.791 154.313,-374.041 161.39,-381.926 164.762,-375.791"/>
+</g>
+<!-- meshdscf -->
+<g id="proc~~dfscf~~UsesGraph_node11" class="node"><title>meshdscf</title>
+<polygon fill="#337ab7" stroke="#337ab7" points="370.5,-24 312.5,-24 312.5,-0 370.5,-0 370.5,-24"/>
+<text text-anchor="middle" x="341.5" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">meshdscf</text>
+</g>
+<!-- proc~dfscf&#45;&gt;meshdscf -->
+<g id="proc~~dfscf~~UsesGraph_edge11" class="edge"><title>proc~dfscf&#45;&gt;meshdscf</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M440.464,-188.99C436.105,-159.273 421.193,-81.2241 380,-33 379.273,-32.149 378.503,-31.3255 377.696,-30.5295"/>
+<polygon fill="#000000" stroke="#000000" points="379.663,-27.6203 369.672,-24.0936 375.283,-33.0808 379.663,-27.6203"/>
+</g>
+<!-- module~sys -->
+<g id="proc~~dfscf~~UsesGraph_node12" class="node"><title>module~sys</title>
+<g id="a_proc~~dfscf~~UsesGraph_node12"><a xlink:href=".././module/sys.html" xlink:title="sys">
+<polygon fill="#337ab7" stroke="#337ab7" points="259,-214 205,-214 205,-190 259,-190 259,-214"/>
+<text text-anchor="middle" x="232" y="-199.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">sys</text>
+</a>
+</g>
+</g>
+<!-- proc~dfscf&#45;&gt;module~sys -->
+<g id="proc~~dfscf~~UsesGraph_edge9" class="edge"><title>proc~dfscf&#45;&gt;module~sys</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M428.971,-213.293C417.208,-223.484 398.892,-237.203 380,-243 347.283,-253.038 336.028,-251.961 303,-243 286.213,-238.446 269.332,-228.744 256.354,-219.921"/>
+<polygon fill="#000000" stroke="#000000" points="258.224,-216.956 248.042,-214.027 254.175,-222.666 258.224,-216.956"/>
+</g>
+<!-- module~atm_types -->
+<g id="proc~~dfscf~~UsesGraph_node13" class="node"><title>module~atm_types</title>
+<g id="a_proc~~dfscf~~UsesGraph_node13"><a xlink:href=".././module/atm_types.html" xlink:title="atm_types">
+<polygon fill="#337ab7" stroke="#337ab7" points="263,-374 201,-374 201,-350 263,-350 263,-374"/>
+<text text-anchor="middle" x="232" y="-359.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">atm_types</text>
+</a>
+</g>
+</g>
+<!-- proc~dfscf&#45;&gt;module~atm_types -->
+<g id="proc~~dfscf~~UsesGraph_edge12" class="edge"><title>proc~dfscf&#45;&gt;module~atm_types</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M440.776,-213.248C436.239,-250.99 416.595,-365.173 342.5,-402"/>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M340.5,-402C326.622,-408.898 289.881,-392.621 263.208,-378.8"/>
+<polygon fill="#000000" stroke="#000000" points="264.723,-375.642 254.248,-374.056 261.448,-381.829 264.723,-375.642"/>
+</g>
+<!-- module~atmfuncs&#45;&gt;module~precision -->
+<g id="proc~~dfscf~~UsesGraph_edge14" class="edge"><title>module~atmfuncs&#45;&gt;module~precision</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M313.301,-305.438C274.017,-310.224 199.078,-318.678 135,-322"/>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M133,-322C112.119,-323.496 89.8049,-330.297 71.8994,-337.148"/>
+<polygon fill="#000000" stroke="#000000" points="70.4302,-333.966 62.4425,-340.927 73.0273,-340.467 70.4302,-333.966"/>
+</g>
+<!-- module~atmfuncs&#45;&gt;module~sys -->
+<g id="proc~~dfscf~~UsesGraph_edge17" class="edge"><title>module~atmfuncs&#45;&gt;module~sys</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M320.511,-289.886C314.568,-285.837 308.249,-281.057 303,-276 283.796,-257.498 285.768,-246.944 267,-228 264.465,-225.441 261.671,-222.92 258.808,-220.512"/>
+<polygon fill="#000000" stroke="#000000" points="260.72,-217.562 250.708,-214.097 256.374,-223.049 260.72,-217.562"/>
+</g>
+<!-- module~atmfuncs&#45;&gt;module~atm_types -->
+<g id="proc~~dfscf~~UsesGraph_edge13" class="edge"><title>module~atmfuncs&#45;&gt;module~atm_types</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M318.746,-314.142C302.863,-323.006 281.121,-335.142 263.505,-344.974"/>
+<polygon fill="#000000" stroke="#000000" points="261.748,-341.946 254.722,-349.876 265.16,-348.059 261.748,-341.946"/>
+</g>
+<!-- spher_harm -->
+<g id="proc~~dfscf~~UsesGraph_node14" class="node"><title>spher_harm</title>
+<polygon fill="#337ab7" stroke="#337ab7" points="267,-294 197,-294 197,-270 267,-270 267,-294"/>
+<text text-anchor="middle" x="232" y="-279.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">spher_harm</text>
+</g>
+<!-- module~atmfuncs&#45;&gt;spher_harm -->
+<g id="proc~~dfscf~~UsesGraph_edge15" class="edge"><title>module~atmfuncs&#45;&gt;spher_harm</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M313.373,-296.953C302.391,-294.91 289.425,-292.498 277.15,-290.214"/>
+<polygon fill="#000000" stroke="#000000" points="277.531,-286.725 267.06,-288.337 276.251,-293.607 277.531,-286.725"/>
+</g>
+<!-- module~radial -->
+<g id="proc~~dfscf~~UsesGraph_node15" class="node"><title>module~radial</title>
+<g id="a_proc~~dfscf~~UsesGraph_node15"><a xlink:href=".././module/radial.html" xlink:title="radial">
+<polygon fill="#337ab7" stroke="#337ab7" points="161,-294 107,-294 107,-270 161,-270 161,-294"/>
+<text text-anchor="middle" x="134" y="-279.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">radial</text>
+</a>
+</g>
+</g>
+<!-- module~atmfuncs&#45;&gt;module~radial -->
+<g id="proc~~dfscf~~UsesGraph_edge16" class="edge"><title>module~atmfuncs&#45;&gt;module~radial</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M324.607,-289.966C310.376,-279.996 288.495,-266.59 267,-261 236.89,-253.17 227.697,-255.942 197,-261 188.296,-262.434 179.169,-264.929 170.678,-267.71"/>
+<polygon fill="#000000" stroke="#000000" points="169.355,-264.465 161.064,-271.06 171.658,-271.075 169.355,-264.465"/>
+</g>
+<!-- module~mesh&#45;&gt;module~precision -->
+<g id="proc~~dfscf~~UsesGraph_edge18" class="edge"><title>module~mesh&#45;&gt;module~precision</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M106.886,-359.564C96.5437,-358.6 84.4693,-357.474 73.2708,-356.429"/>
+<polygon fill="#000000" stroke="#000000" points="73.5894,-352.944 63.3075,-355.5 72.9393,-359.914 73.5894,-352.944"/>
+</g>
+<!-- module~atm_types&#45;&gt;module~precision -->
+<g id="proc~~dfscf~~UsesGraph_edge19" class="edge"><title>module~atm_types&#45;&gt;module~precision</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M214.511,-349.846C196.032,-337.52 164.752,-320.458 135,-322"/>
+</g>
+<!-- module~atm_types&#45;&gt;module~radial -->
+<g id="proc~~dfscf~~UsesGraph_edge20" class="edge"><title>module~atm_types&#45;&gt;module~radial</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M216.42,-349.85C200.681,-336.735 175.427,-315.689 157.216,-300.513"/>
+<polygon fill="#000000" stroke="#000000" points="159.326,-297.716 149.403,-294.002 154.845,-303.093 159.326,-297.716"/>
+</g>
+<!-- module~radial&#45;&gt;module~precision -->
+<g id="proc~~dfscf~~UsesGraph_edge22" class="edge"><title>module~radial&#45;&gt;module~precision</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M116.63,-294.044C101.38,-305.264 78.4403,-322.142 61.0078,-334.968"/>
+<polygon fill="#000000" stroke="#000000" points="58.9308,-332.151 52.9502,-340.897 63.0792,-337.79 58.9308,-332.151"/>
+</g>
+<!-- xml -->
+<g id="proc~~dfscf~~UsesGraph_node16" class="node"><title>xml</title>
+<polygon fill="#337ab7" stroke="#337ab7" points="62.5,-262 8.5,-262 8.5,-238 62.5,-238 62.5,-262"/>
+<text text-anchor="middle" x="35.5" y="-247.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">xml</text>
+</g>
+<!-- module~radial&#45;&gt;xml -->
+<g id="proc~~dfscf~~UsesGraph_edge21" class="edge"><title>module~radial&#45;&gt;xml</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M106.886,-273.34C96.2654,-269.819 83.8184,-265.691 72.369,-261.894"/>
+<polygon fill="#000000" stroke="#000000" points="73.2286,-258.492 62.6352,-258.667 71.0253,-265.136 73.2286,-258.492"/>
+</g>
+<!-- interpolation -->
+<g id="proc~~dfscf~~UsesGraph_node17" class="node"><title>interpolation</title>
+<polygon fill="#337ab7" stroke="#337ab7" points="71,-304 0,-304 0,-280 71,-280 71,-304"/>
+<text text-anchor="middle" x="35.5" y="-289.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">interpolation</text>
+</g>
+<!-- module~radial&#45;&gt;interpolation -->
+<g id="proc~~dfscf~~UsesGraph_edge23" class="edge"><title>module~radial&#45;&gt;interpolation</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M106.886,-284.706C99.0223,-285.521 90.1575,-286.44 81.4377,-287.343"/>
+<polygon fill="#000000" stroke="#000000" points="80.9225,-283.878 71.3366,-288.39 81.6441,-290.841 80.9225,-283.878"/>
+</g>
+</g>
+</svg>
+</div><div><a type="button" class="graph-help" data-toggle="modal" href="#graph-help-text">Help</a></div><div class="modal fade" id="graph-help-text" tabindex="-1" role="dialog"><div class="modal-dialog modal-lg" role="document"><div class="modal-content"><div class="modal-header"><button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button><h4 class="modal-title" id="-graph-help-label">Graph Key</h4></div><div class="modal-body">
+    <p>Nodes of different colours represent the following: </p>
+    <?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+ "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Generated by graphviz version 2.38.0 (20140413.2041)
+ -->
+<!-- Title: Graph Key Pages: 1 -->
+<svg width="490pt" height="32pt"
+ viewBox="0.00 0.00 489.50 32.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 28)">
+<title>Graph Key</title>
+<polygon fill="white" stroke="none" points="-4,4 -4,-28 485.5,-28 485.5,4 -4,4"/>
+<!-- Module -->
+<g id="node1" class="node"><title>Module</title>
+<polygon fill="#337ab7" stroke="#337ab7" points="54,-24 0,-24 0,-0 54,-0 54,-24"/>
+<text text-anchor="middle" x="27" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Module</text>
+</g>
+<!-- Submodule -->
+<g id="node2" class="node"><title>Submodule</title>
+<polygon fill="#5bc0de" stroke="#5bc0de" points="139.5,-24 72.5,-24 72.5,-0 139.5,-0 139.5,-24"/>
+<text text-anchor="middle" x="106" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Submodule</text>
+</g>
+<!-- Subroutine -->
+<g id="node3" class="node"><title>Subroutine</title>
+<polygon fill="#d9534f" stroke="#d9534f" points="222,-24 158,-24 158,-0 222,-0 222,-24"/>
+<text text-anchor="middle" x="190" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Subroutine</text>
+</g>
+<!-- Function -->
+<g id="node4" class="node"><title>Function</title>
+<polygon fill="#d94e8f" stroke="#d94e8f" points="294,-24 240,-24 240,-0 294,-0 294,-24"/>
+<text text-anchor="middle" x="267" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Function</text>
+</g>
+<!-- Program -->
+<g id="node5" class="node"><title>Program</title>
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="366,-24 312,-24 312,-0 366,-0 366,-24"/>
+<text text-anchor="middle" x="339" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Program</text>
+</g>
+<!-- This Page&#39;s Entity -->
+<g id="node6" class="node"><title>This Page&#39;s Entity</title>
+<polygon fill="none" stroke="black" points="481.5,-24 384.5,-24 384.5,-0 481.5,-0 481.5,-24"/>
+<text text-anchor="middle" x="433" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50">This Page&#39;s Entity</text>
+</g>
+</g>
+</svg>
+
+    
+    <p>Solid arrows point from a submodule to the (sub)module which it is
+    descended from. Dashed arrows point from a module or program unit to 
+    modules which it uses.
+    </p>
+    </div></div></div></div>
+      </li>
+      
+      </ul>
+    </div>
+    
+
+
+    
+    <p>Adds the SCF contribution to atomic forces and stress.</p>
+<p>Written by P.Ordejon, J.M.Soler, and J.Gale.<br>
+ Last modification by J.M.Soler, October 2000.<br>
+ Modifed for Off-Site Spin-orbit coupling by R. Cuadrado, Feb. 2018</p>
+    
+
+    <h3>Arguments</h3>
+    
+      
+<table class="table table-striped varlist">
+<thead><tr><th>Type</th>
+<th>Intent</th><th>Optional</th>
+<th>Attributes</th><th></th><th>Name</th><th></th></thead>
+
+
+
+<tbody>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" id="variable-ifa"></span>integer,</td>
+  <td>intent(in)</td>
+  <td></td>
+  
+  <td></td><td>::</td>
+  <td><strong>ifa</strong></td><td><p>Are forces required? (<code>1</code>=yes,<code>0</code>=no)</p></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" id="variable-istr"></span>integer,</td>
+  <td>intent(in)</td>
+  <td></td>
+  
+  <td></td><td>::</td>
+  <td><strong>istr</strong></td><td><p>Is stress required? (<code>1</code>=yes, <code>0</code>=no)</p></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" id="variable-na%7E2"></span>integer,</td>
+  <td>intent(in)</td>
+  <td></td>
+  
+  <td></td><td>::</td>
+  <td><strong>na</strong></td><td><p>Number of atoms</p></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" id="variable-no%7E4"></span>integer,</td>
+  <td>intent(in)</td>
+  <td></td>
+  
+  <td></td><td>::</td>
+  <td><strong>no</strong></td><td><p>Number of basis orbitals</p></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" id="variable-nuo%7E3"></span>integer,</td>
+  <td>intent(in)</td>
+  <td></td>
+  
+  <td></td><td>::</td>
+  <td><strong>nuo</strong></td><td><p>Number of orbitals in unit cell (local)</p></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" id="variable-nuotot%7E3"></span>integer,</td>
+  <td>intent(in)</td>
+  <td></td>
+  
+  <td></td><td>::</td>
+  <td><strong>nuotot</strong></td><td><p>Number of orbitals in unit cell (global)</p></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" id="variable-np%7E4"></span>integer,</td>
+  <td>intent(in)</td>
+  <td></td>
+  
+  <td></td><td>::</td>
+  <td><strong>np</strong></td><td><p>Number of mesh points (total is nsp*np)</p></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" id="variable-nspin%7E7"></span>integer,</td>
+  <td>intent(in)</td>
+  <td></td>
+  
+  <td></td><td>::</td>
+  <td><strong>nspin</strong></td><td><p>spin%Grid (i.e., <code>min(nspin,4)</code>)<br>
+<code>nspin=1</code> =&gt; Unpolarized,<br>
+<code>nspin=2</code> =&gt; polarized<br>
+<code>nspin=4</code> =&gt; Noncollinear spin/SOC</p></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" id="variable-indxua"></span>integer,</td>
+  <td>intent(in)</td>
+  <td></td>
+  
+  <td></td><td>::</td>
+  <td><strong>indxua</strong>(na)</td><td><p>Index of equivalent atom in unit cell</p></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" id="variable-isa%7E4"></span>integer,</td>
+  <td>intent(in)</td>
+  <td></td>
+  
+  <td></td><td>::</td>
+  <td><strong>isa</strong>(na)</td><td><p>Species index of each atom</p></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" id="variable-iaorb%7E4"></span>integer,</td>
+  <td>intent(in)</td>
+  <td></td>
+  
+  <td></td><td>::</td>
+  <td><strong>iaorb</strong>(no)</td><td><p>Atom to which orbitals belong</p></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" id="variable-iphorb%7E4"></span>integer,</td>
+  <td>intent(in)</td>
+  <td></td>
+  
+  <td></td><td>::</td>
+  <td><strong>iphorb</strong>(no)</td><td><p>Index of orbital within its atom</p></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" id="variable-maxnd%7E2"></span>integer,</td>
+  <td>intent(in)</td>
+  <td></td>
+  
+  <td></td><td>::</td>
+  <td><strong>maxnd</strong></td><td><p>First dimension of Dscf</p></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" id="variable-numd%7E2"></span>integer,</td>
+  <td>intent(in)</td>
+  <td></td>
+  
+  <td></td><td>::</td>
+  <td><strong>numd</strong>(nuo)</td><td><p>Number of nonzero elemts in each row of Dscf</p></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" id="variable-listdptr%7E2"></span>integer,</td>
+  <td>intent(in)</td>
+  <td></td>
+  
+  <td></td><td>::</td>
+  <td><strong>listdptr</strong>(nuo)</td><td><p>Pointer to start of row in listd</p></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" id="variable-listd%7E2"></span>integer,</td>
+  <td>intent(in)</td>
+  <td></td>
+  
+  <td></td><td>::</td>
+  <td><strong>listd</strong>(maxnd)</td><td><p>List of nonzero elements of Dscf</p></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" id="variable-dscf%7E2"></span>real(kind=dp),</td>
+  <td>intent(in),</td>
+  <td></td>
+  
+  <td>target</td><td>::</td>
+  <td><strong>Dscf</strong>(:,:)</td><td><p><code>Dscf(maxnd,*)</code>: Value of nonzero elemens of density matrix.
+ It is used in "hermitified" here.</p></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" id="variable-datm%7E2"></span>real(kind=dp),</td>
+  <td>intent(in)</td>
+  <td></td>
+  
+  <td></td><td>::</td>
+  <td><strong>Datm</strong>(nuotot)</td><td></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" id="variable-vscf"></span>real(kind=grid_p),</td>
+  <td>intent(in)</td>
+  <td></td>
+  
+  <td></td><td>::</td>
+  <td><strong>Vscf</strong>(nsp,np,nspin)</td><td><p>Value of SCF potential at the mesh points</p></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" id="variable-vatm"></span>real(kind=grid_p),</td>
+  <td>intent(in)</td>
+  <td></td>
+  
+  <td></td><td>::</td>
+  <td><strong>Vatm</strong>(nsp,np)</td><td><p>Value of Harris potential (Hartree potential
+ of sum of atomic desities) at mesh points.<br>
+ Notice single precision of Vscf and Vatm.</p></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" id="variable-dvol%7E2"></span>real(kind=dp),</td>
+  <td>intent(in)</td>
+  <td></td>
+  
+  <td></td><td>::</td>
+  <td><strong>dvol</strong></td><td><p>Volume per mesh point</p></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" id="variable-volcel"></span>real(kind=dp),</td>
+  <td>intent(in)</td>
+  <td></td>
+  
+  <td></td><td>::</td>
+  <td><strong>VolCel</strong></td><td><p>Unit cell volume</p></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" id="variable-fal"></span>real(kind=dp),</td>
+  <td>intent(inout)</td>
+  <td></td>
+  
+  <td></td><td>::</td>
+  <td><strong>Fal</strong>(3,*)</td><td><p>Atomic forces (contribution added on output)</p></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" id="variable-stressl"></span>real(kind=dp),</td>
+  <td>intent(inout)</td>
+  <td></td>
+  
+  <td></td><td>::</td>
+  <td><strong>Stressl</strong>(9)</td><td><p>Stress tensor</p></td>
+  
+</tr>
+
+</tbody>
+</table>
+
+    
+    
+    
+    <br>
+    
+    
+    <div class="panel panel-default">
+      <div class="panel-heading">
+  <h3 class="panel-title">Calls</h3>
+      </div>
+      <div class="panel-body">
+  <div class="depgraph"><?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+ "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Generated by graphviz version 2.38.0 (20140413.2041)
+ -->
+<!-- Title: proc~~dfscf~~CallsGraph Pages: 1 -->
+<svg id="procdfscfCallsGraph" width="469pt" height="745pt"
+ viewBox="0.00 0.00 469.00 745.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="proc~~dfscf~~CallsGraph" class="graph" transform="scale(1 1) rotate(0) translate(4 741)">
+<title>proc~~dfscf~~CallsGraph</title>
+<polygon fill="white" stroke="none" points="-4,4 -4,-741 465,-741 465,4 -4,4"/>
+<!-- proc~dfscf -->
+<g id="proc~~dfscf~~CallsGraph_node1" class="node"><title>proc~dfscf</title>
+<polygon fill="none" stroke="black" points="54,-380 0,-380 0,-356 54,-356 54,-380"/>
+<text text-anchor="middle" x="27" y="-365.6" font-family="Helvetica,sans-Serif" font-size="10.50">dfscf</text>
+</g>
+<!-- indxuo -->
+<g id="proc~~dfscf~~CallsGraph_node2" class="node"><title>indxuo</title>
+<polygon fill="#777777" stroke="#777777" points="161,-737 107,-737 107,-713 161,-713 161,-737"/>
+<text text-anchor="middle" x="134" y="-722.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">indxuo</text>
+</g>
+<!-- proc~dfscf&#45;&gt;indxuo -->
+<g id="proc~~dfscf~~CallsGraph_edge1" class="edge"><title>proc~dfscf&#45;&gt;indxuo</title>
+<path fill="none" stroke="#000000" d="M28.8057,-380.319C32.564,-434.493 49.9107,-651.208 90,-704 92.1762,-706.866 94.8469,-709.363 97.7825,-711.534"/>
+<polygon fill="#000000" stroke="#000000" points="96.1945,-714.664 106.566,-716.826 99.8067,-708.668 96.1945,-714.664"/>
+</g>
+<!-- listsc -->
+<g id="proc~~dfscf~~CallsGraph_node3" class="node"><title>listsc</title>
+<polygon fill="#777777" stroke="#777777" points="161,-695 107,-695 107,-671 161,-671 161,-695"/>
+<text text-anchor="middle" x="134" y="-680.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">listsc</text>
+</g>
+<!-- proc~dfscf&#45;&gt;listsc -->
+<g id="proc~~dfscf~~CallsGraph_edge2" class="edge"><title>proc~dfscf&#45;&gt;listsc</title>
+<path fill="none" stroke="#000000" d="M29.1393,-380.097C34.0112,-429.622 54.4802,-616.437 90,-662 92.2124,-664.838 94.907,-667.317 97.8574,-669.477"/>
+<polygon fill="#000000" stroke="#000000" points="96.2846,-672.614 106.661,-674.753 99.883,-666.61 96.2846,-672.614"/>
+</g>
+<!-- endpht -->
+<g id="proc~~dfscf~~CallsGraph_node4" class="node"><title>endpht</title>
+<polygon fill="#777777" stroke="#777777" points="161,-653 107,-653 107,-629 161,-629 161,-653"/>
+<text text-anchor="middle" x="134" y="-638.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">endpht</text>
+</g>
+<!-- proc~dfscf&#45;&gt;endpht -->
+<g id="proc~~dfscf~~CallsGraph_edge3" class="edge"><title>proc~dfscf&#45;&gt;endpht</title>
+<path fill="none" stroke="#000000" d="M27.5702,-380.064C26.8098,-419.282 29.4586,-544.96 90,-620 92.2595,-622.801 94.9853,-625.255 97.9549,-627.399"/>
+<polygon fill="#000000" stroke="#000000" points="96.4018,-630.548 106.785,-632.655 99.9819,-624.533 96.4018,-630.548"/>
+</g>
+<!-- re_alloc -->
+<g id="proc~~dfscf~~CallsGraph_node5" class="node"><title>re_alloc</title>
+<polygon fill="#777777" stroke="#777777" points="161,-611 107,-611 107,-587 161,-587 161,-611"/>
+<text text-anchor="middle" x="134" y="-596.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">re_alloc</text>
+</g>
+<!-- proc~dfscf&#45;&gt;re_alloc -->
+<g id="proc~~dfscf~~CallsGraph_edge4" class="edge"><title>proc~dfscf&#45;&gt;re_alloc</title>
+<path fill="none" stroke="#000000" d="M28.3047,-380.249C29.8001,-415.266 38.586,-517.18 90,-578 92.3231,-580.748 95.0909,-583.167 98.0866,-585.29"/>
+<polygon fill="#000000" stroke="#000000" points="96.5601,-588.453 106.952,-590.517 100.115,-582.423 96.5601,-588.453"/>
+</g>
+<!-- alloc_default -->
+<g id="proc~~dfscf~~CallsGraph_node6" class="node"><title>alloc_default</title>
+<polygon fill="#777777" stroke="#777777" points="170.5,-569 97.5,-569 97.5,-545 170.5,-545 170.5,-569"/>
+<text text-anchor="middle" x="134" y="-554.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">alloc_default</text>
+</g>
+<!-- proc~dfscf&#45;&gt;alloc_default -->
+<g id="proc~~dfscf~~CallsGraph_edge16" class="edge"><title>proc~dfscf&#45;&gt;alloc_default</title>
+<path fill="none" stroke="#000000" d="M29.3706,-380.155C33.3511,-410.205 47.4688,-488.952 90,-536 90.8775,-536.971 91.8098,-537.901 92.7868,-538.793"/>
+<polygon fill="#000000" stroke="#000000" points="90.8735,-541.732 100.985,-544.895 95.0525,-536.117 90.8735,-541.732"/>
+</g>
+<!-- listp2 -->
+<g id="proc~~dfscf~~CallsGraph_node7" class="node"><title>listp2</title>
+<polygon fill="#777777" stroke="#777777" points="161,-527 107,-527 107,-503 161,-503 161,-527"/>
+<text text-anchor="middle" x="134" y="-512.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">listp2</text>
+</g>
+<!-- proc~dfscf&#45;&gt;listp2 -->
+<g id="proc~~dfscf~~CallsGraph_edge5" class="edge"><title>proc~dfscf&#45;&gt;listp2</title>
+<path fill="none" stroke="#000000" d="M31.1486,-380.335C37.9825,-404.896 56.3337,-460.434 90,-494 92.3533,-496.346 95.0211,-498.472 97.8475,-500.389"/>
+<polygon fill="#000000" stroke="#000000" points="96.2462,-503.507 106.647,-505.525 99.7746,-497.461 96.2462,-503.507"/>
+</g>
+<!-- needdscfl -->
+<g id="proc~~dfscf~~CallsGraph_node8" class="node"><title>needdscfl</title>
+<polygon fill="#777777" stroke="#777777" points="163,-485 105,-485 105,-461 163,-461 163,-485"/>
+<text text-anchor="middle" x="134" y="-470.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">needdscfl</text>
+</g>
+<!-- proc~dfscf&#45;&gt;needdscfl -->
+<g id="proc~~dfscf~~CallsGraph_edge6" class="edge"><title>proc~dfscf&#45;&gt;needdscfl</title>
+<path fill="none" stroke="#000000" d="M34.521,-380.292C44.4651,-398.072 64.9338,-431.116 90,-452 91.9548,-453.629 94.0572,-455.168 96.2441,-456.616"/>
+<polygon fill="#000000" stroke="#000000" points="94.5692,-459.692 104.963,-461.747 98.1194,-453.659 94.5692,-459.692"/>
+</g>
+<!-- timer -->
+<g id="proc~~dfscf~~CallsGraph_node9" class="node"><title>timer</title>
+<polygon fill="#777777" stroke="#777777" points="161,-443 107,-443 107,-419 161,-419 161,-443"/>
+<text text-anchor="middle" x="134" y="-428.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">timer</text>
+</g>
+<!-- proc~dfscf&#45;&gt;timer -->
+<g id="proc~~dfscf~~CallsGraph_edge7" class="edge"><title>proc~dfscf&#45;&gt;timer</title>
+<path fill="none" stroke="#000000" d="M44.4297,-380.065C56.6948,-388.838 74.0234,-400.749 90,-410 92.4939,-411.444 95.1015,-412.882 97.7461,-414.29"/>
+<polygon fill="#000000" stroke="#000000" points="96.2741,-417.468 106.769,-418.921 99.4705,-411.241 96.2741,-417.468"/>
+</g>
+<!-- listdlptr -->
+<g id="proc~~dfscf~~CallsGraph_node10" class="node"><title>listdlptr</title>
+<polygon fill="#777777" stroke="#777777" points="161,-401 107,-401 107,-377 161,-377 161,-401"/>
+<text text-anchor="middle" x="134" y="-386.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">listdlptr</text>
+</g>
+<!-- proc~dfscf&#45;&gt;listdlptr -->
+<g id="proc~~dfscf~~CallsGraph_edge8" class="edge"><title>proc~dfscf&#45;&gt;listdlptr</title>
+<path fill="none" stroke="#000000" d="M54.2251,-373.245C67.1291,-375.826 82.8865,-378.977 96.908,-381.782"/>
+<polygon fill="#000000" stroke="#000000" points="96.2531,-385.22 106.745,-383.749 97.626,-378.356 96.2531,-385.22"/>
+</g>
+<!-- matrixotom -->
+<g id="proc~~dfscf~~CallsGraph_node11" class="node"><title>matrixotom</title>
+<polygon fill="#777777" stroke="#777777" points="167,-359 101,-359 101,-335 167,-335 167,-359"/>
+<text text-anchor="middle" x="134" y="-344.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">matrixotom</text>
+</g>
+<!-- proc~dfscf&#45;&gt;matrixotom -->
+<g id="proc~~dfscf~~CallsGraph_edge9" class="edge"><title>proc~dfscf&#45;&gt;matrixotom</title>
+<path fill="none" stroke="#000000" d="M54.2251,-362.755C65.2347,-360.553 78.3214,-357.936 90.6349,-355.473"/>
+<polygon fill="#000000" stroke="#000000" points="91.6144,-358.847 100.734,-353.453 90.2415,-351.982 91.6144,-358.847"/>
+</g>
+<!-- lstpht -->
+<g id="proc~~dfscf~~CallsGraph_node12" class="node"><title>lstpht</title>
+<polygon fill="#777777" stroke="#777777" points="161,-317 107,-317 107,-293 161,-293 161,-317"/>
+<text text-anchor="middle" x="134" y="-302.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">lstpht</text>
+</g>
+<!-- proc~dfscf&#45;&gt;lstpht -->
+<g id="proc~~dfscf~~CallsGraph_edge10" class="edge"><title>proc~dfscf&#45;&gt;lstpht</title>
+<path fill="none" stroke="#000000" d="M44.4297,-355.935C56.6948,-347.162 74.0234,-335.251 90,-326 92.4939,-324.556 95.1015,-323.118 97.7461,-321.71"/>
+<polygon fill="#000000" stroke="#000000" points="99.4705,-324.759 106.769,-317.079 96.2741,-318.532 99.4705,-324.759"/>
+</g>
+<!-- globaltolocalorb -->
+<g id="proc~~dfscf~~CallsGraph_node13" class="node"><title>globaltolocalorb</title>
+<polygon fill="#777777" stroke="#777777" points="178,-275 90,-275 90,-251 178,-251 178,-275"/>
+<text text-anchor="middle" x="134" y="-260.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">globaltolocalorb</text>
+</g>
+<!-- proc~dfscf&#45;&gt;globaltolocalorb -->
+<g id="proc~~dfscf~~CallsGraph_edge11" class="edge"><title>proc~dfscf&#45;&gt;globaltolocalorb</title>
+<path fill="none" stroke="#000000" d="M34.521,-355.708C44.4651,-337.928 64.9338,-304.884 90,-284 91.3604,-282.867 92.7923,-281.776 94.2743,-280.73"/>
+<polygon fill="#000000" stroke="#000000" points="96.5068,-283.464 103.163,-275.221 92.8191,-277.514 96.5068,-283.464"/>
+</g>
+<!-- de_alloc -->
+<g id="proc~~dfscf~~CallsGraph_node14" class="node"><title>de_alloc</title>
+<polygon fill="#777777" stroke="#777777" points="161,-233 107,-233 107,-209 161,-209 161,-233"/>
+<text text-anchor="middle" x="134" y="-218.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">de_alloc</text>
+</g>
+<!-- proc~dfscf&#45;&gt;de_alloc -->
+<g id="proc~~dfscf~~CallsGraph_edge12" class="edge"><title>proc~dfscf&#45;&gt;de_alloc</title>
+<path fill="none" stroke="#000000" d="M31.1486,-355.665C37.9825,-331.104 56.3337,-275.566 90,-242 92.3533,-239.654 95.0211,-237.528 97.8475,-235.611"/>
+<polygon fill="#000000" stroke="#000000" points="99.7746,-238.539 106.647,-230.475 96.2462,-232.493 99.7746,-238.539"/>
+</g>
+<!-- numdl -->
+<g id="proc~~dfscf~~CallsGraph_node15" class="node"><title>numdl</title>
+<polygon fill="#777777" stroke="#777777" points="161,-191 107,-191 107,-167 161,-167 161,-191"/>
+<text text-anchor="middle" x="134" y="-176.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">numdl</text>
+</g>
+<!-- proc~dfscf&#45;&gt;numdl -->
+<g id="proc~~dfscf~~CallsGraph_edge13" class="edge"><title>proc~dfscf&#45;&gt;numdl</title>
+<path fill="none" stroke="#000000" d="M29.3706,-355.845C33.3511,-325.795 47.4688,-247.048 90,-200 92.3556,-197.394 95.1061,-195.076 98.0567,-193.022"/>
+<polygon fill="#000000" stroke="#000000" points="99.8971,-196 106.741,-187.912 96.347,-189.967 99.8971,-196"/>
+</g>
+<!-- proc~rcut -->
+<g id="proc~~dfscf~~CallsGraph_node16" class="node"><title>proc~rcut</title>
+<g id="a_proc~~dfscf~~CallsGraph_node16"><a xlink:href=".././proc/rcut.html" xlink:title="rcut">
+<polygon fill="#d94e8f" stroke="#d94e8f" points="161,-149 107,-149 107,-125 161,-125 161,-149"/>
+<text text-anchor="middle" x="134" y="-134.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">rcut</text>
+</a>
+</g>
+</g>
+<!-- proc~dfscf&#45;&gt;proc~rcut -->
+<g id="proc~~dfscf~~CallsGraph_edge14" class="edge"><title>proc~dfscf&#45;&gt;proc~rcut</title>
+<path fill="none" stroke="#000000" d="M28.3047,-355.751C29.8001,-320.734 38.586,-218.82 90,-158 92.3231,-155.252 95.0909,-152.833 98.0866,-150.71"/>
+<polygon fill="#000000" stroke="#000000" points="100.115,-153.577 106.952,-145.483 96.5601,-147.547 100.115,-153.577"/>
+</g>
+<!-- proc~die -->
+<g id="proc~~dfscf~~CallsGraph_node17" class="node"><title>proc~die</title>
+<g id="a_proc~~dfscf~~CallsGraph_node17"><a xlink:href=".././proc/die.html" xlink:title="die">
+<polygon fill="#d9534f" stroke="#d9534f" points="358,-129 304,-129 304,-105 358,-105 358,-129"/>
+<text text-anchor="middle" x="331" y="-114.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">die</text>
+</a>
+</g>
+</g>
+<!-- proc~dfscf&#45;&gt;proc~die -->
+<g id="proc~~dfscf~~CallsGraph_edge15" class="edge"><title>proc~dfscf&#45;&gt;proc~die</title>
+<path fill="none" stroke="#000000" d="M29.0483,-355.953C33.3217,-309.962 51.0822,-146.503 90,-116 148.876,-69.8538 243.208,-88.9235 294.31,-104.433"/>
+<polygon fill="#000000" stroke="#000000" points="293.341,-107.798 303.931,-107.468 295.447,-101.122 293.341,-107.798"/>
+</g>
+<!-- dscfl -->
+<g id="proc~~dfscf~~CallsGraph_node18" class="node"><title>dscfl</title>
+<polygon fill="#777777" stroke="#777777" points="161,-69 107,-69 107,-45 161,-45 161,-69"/>
+<text text-anchor="middle" x="134" y="-54.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">dscfl</text>
+</g>
+<!-- proc~dfscf&#45;&gt;dscfl -->
+<g id="proc~~dfscf~~CallsGraph_edge17" class="edge"><title>proc~dfscf&#45;&gt;dscfl</title>
+<path fill="none" stroke="#000000" d="M27.4096,-355.817C25.9855,-313.702 26.3974,-171.981 90,-83 92.3304,-79.7397 95.2091,-76.8123 98.3642,-74.2033"/>
+<polygon fill="#000000" stroke="#000000" points="100.477,-76.9963 106.622,-68.3656 96.4356,-71.2804 100.477,-76.9963"/>
+</g>
+<!-- listdl -->
+<g id="proc~~dfscf~~CallsGraph_node19" class="node"><title>listdl</title>
+<polygon fill="#777777" stroke="#777777" points="161,-27 107,-27 107,-3 161,-3 161,-27"/>
+<text text-anchor="middle" x="134" y="-12.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">listdl</text>
+</g>
+<!-- proc~dfscf&#45;&gt;listdl -->
+<g id="proc~~dfscf~~CallsGraph_edge18" class="edge"><title>proc~dfscf&#45;&gt;listdl</title>
+<path fill="none" stroke="#000000" d="M28.8253,-355.827C32.6669,-302.293 50.3161,-88.1413 90,-36 92.1793,-33.1366 94.852,-30.641 97.7889,-28.4707"/>
+<polygon fill="#000000" stroke="#000000" points="99.8132,-31.3373 106.574,-23.1803 96.2022,-25.3406 99.8132,-31.3373"/>
+</g>
+<!-- proc~chk -->
+<g id="proc~~dfscf~~CallsGraph_node20" class="node"><title>proc~chk</title>
+<g id="a_proc~~dfscf~~CallsGraph_node20"><a xlink:href=".././proc/chk.html" xlink:title="chk">
+<polygon fill="#d9534f" stroke="#d9534f" points="268,-149 214,-149 214,-125 268,-125 268,-149"/>
+<text text-anchor="middle" x="241" y="-134.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">chk</text>
+</a>
+</g>
+</g>
+<!-- proc~rcut&#45;&gt;proc~chk -->
+<g id="proc~~dfscf~~CallsGraph_edge19" class="edge"><title>proc~rcut&#45;&gt;proc~chk</title>
+<path fill="none" stroke="#000000" d="M161.225,-137C174.004,-137 189.581,-137 203.499,-137"/>
+<polygon fill="#000000" stroke="#000000" points="203.745,-140.5 213.745,-137 203.745,-133.5 203.745,-140.5"/>
+</g>
+<!-- io_close -->
+<g id="proc~~dfscf~~CallsGraph_node21" class="node"><title>io_close</title>
+<polygon fill="#777777" stroke="#777777" points="454.5,-234 400.5,-234 400.5,-210 454.5,-210 454.5,-234"/>
+<text text-anchor="middle" x="427.5" y="-219.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">io_close</text>
+</g>
+<!-- proc~die&#45;&gt;io_close -->
+<g id="proc~~dfscf~~CallsGraph_edge20" class="edge"><title>proc~die&#45;&gt;io_close</title>
+<path fill="none" stroke="#000000" d="M339.036,-129.197C349.465,-146.566 370.356,-178.782 394,-201 395.071,-202.006 396.196,-202.994 397.358,-203.959"/>
+<polygon fill="#000000" stroke="#000000" points="395.28,-206.775 405.388,-209.951 399.467,-201.165 395.28,-206.775"/>
+</g>
+<!-- cmlfinishfile -->
+<g id="proc~~dfscf~~CallsGraph_node22" class="node"><title>cmlfinishfile</title>
+<polygon fill="#777777" stroke="#777777" points="461,-192 394,-192 394,-168 461,-168 461,-192"/>
+<text text-anchor="middle" x="427.5" y="-177.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">cmlfinishfile</text>
+</g>
+<!-- proc~die&#45;&gt;cmlfinishfile -->
+<g id="proc~~dfscf~~CallsGraph_edge21" class="edge"><title>proc~die&#45;&gt;cmlfinishfile</title>
+<path fill="none" stroke="#000000" d="M349.57,-129.051C361.946,-137.503 378.929,-149.028 394,-159 395.639,-160.084 397.327,-161.195 399.033,-162.312"/>
+<polygon fill="#000000" stroke="#000000" points="397.26,-165.334 407.551,-167.854 401.078,-159.467 397.26,-165.334"/>
+</g>
+<!-- io_assign -->
+<g id="proc~~dfscf~~CallsGraph_node23" class="node"><title>io_assign</title>
+<polygon fill="#777777" stroke="#777777" points="456.5,-150 398.5,-150 398.5,-126 456.5,-126 456.5,-150"/>
+<text text-anchor="middle" x="427.5" y="-135.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">io_assign</text>
+</g>
+<!-- proc~die&#45;&gt;io_assign -->
+<g id="proc~~dfscf~~CallsGraph_edge22" class="edge"><title>proc~die&#45;&gt;io_assign</title>
+<path fill="none" stroke="#000000" d="M358.073,-122.794C367.415,-124.87 378.149,-127.255 388.304,-129.512"/>
+<polygon fill="#000000" stroke="#000000" points="387.672,-132.957 398.193,-131.71 389.19,-126.123 387.672,-132.957"/>
+</g>
+<!-- pxfabort -->
+<g id="proc~~dfscf~~CallsGraph_node24" class="node"><title>pxfabort</title>
+<polygon fill="#777777" stroke="#777777" points="454.5,-108 400.5,-108 400.5,-84 454.5,-84 454.5,-108"/>
+<text text-anchor="middle" x="427.5" y="-93.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">pxfabort</text>
+</g>
+<!-- proc~die&#45;&gt;pxfabort -->
+<g id="proc~~dfscf~~CallsGraph_edge23" class="edge"><title>proc~die&#45;&gt;pxfabort</title>
+<path fill="none" stroke="#000000" d="M358.073,-111.206C368.009,-108.998 379.52,-106.44 390.234,-104.059"/>
+<polygon fill="#000000" stroke="#000000" points="391.182,-107.434 400.184,-101.848 389.663,-100.601 391.182,-107.434"/>
+</g>
+<!-- mpi_abort -->
+<g id="proc~~dfscf~~CallsGraph_node25" class="node"><title>mpi_abort</title>
+<polygon fill="#777777" stroke="#777777" points="458,-66 397,-66 397,-42 458,-42 458,-66"/>
+<text text-anchor="middle" x="427.5" y="-51.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">mpi_abort</text>
+</g>
+<!-- proc~die&#45;&gt;mpi_abort -->
+<g id="proc~~dfscf~~CallsGraph_edge24" class="edge"><title>proc~die&#45;&gt;mpi_abort</title>
+<path fill="none" stroke="#000000" d="M349.57,-104.949C361.946,-96.4974 378.929,-84.9722 394,-75 395.639,-73.9157 397.327,-72.8051 399.033,-71.6882"/>
+<polygon fill="#000000" stroke="#000000" points="401.078,-74.5333 407.551,-66.1458 397.26,-68.666 401.078,-74.5333"/>
+</g>
+<!-- pxfflush -->
+<g id="proc~~dfscf~~CallsGraph_node26" class="node"><title>pxfflush</title>
+<polygon fill="#777777" stroke="#777777" points="454.5,-24 400.5,-24 400.5,-0 454.5,-0 454.5,-24"/>
+<text text-anchor="middle" x="427.5" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">pxfflush</text>
+</g>
+<!-- proc~die&#45;&gt;pxfflush -->
+<g id="proc~~dfscf~~CallsGraph_edge25" class="edge"><title>proc~die&#45;&gt;pxfflush</title>
+<path fill="none" stroke="#000000" d="M339.036,-104.803C349.465,-87.4335 370.356,-55.2177 394,-33 395.071,-31.9937 396.196,-31.006 397.358,-30.0412"/>
+<polygon fill="#000000" stroke="#000000" points="399.467,-32.8346 405.388,-24.0486 395.28,-27.2247 399.467,-32.8346"/>
+</g>
+<!-- proc~chk&#45;&gt;proc~die -->
+<g id="proc~~dfscf~~CallsGraph_edge26" class="edge"><title>proc~chk&#45;&gt;proc~die</title>
+<path fill="none" stroke="#000000" d="M268.403,-130.999C276.481,-129.163 285.507,-127.112 294.105,-125.158"/>
+<polygon fill="#000000" stroke="#000000" points="294.943,-128.557 303.919,-122.928 293.392,-121.731 294.943,-128.557"/>
+</g>
+</g>
+</svg>
+</div><div><a type="button" class="graph-help" data-toggle="modal" href="#graph-help-text">Help</a></div><div class="modal fade" id="graph-help-text" tabindex="-1" role="dialog"><div class="modal-dialog modal-lg" role="document"><div class="modal-content"><div class="modal-header"><button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button><h4 class="modal-title" id="-graph-help-label">Graph Key</h4></div><div class="modal-body">
+    <p>Nodes of different colours represent the following: </p>
+    <?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+ "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Generated by graphviz version 2.38.0 (20140413.2041)
+ -->
+<!-- Title: Graph Key Pages: 1 -->
+<svg width="560pt" height="32pt"
+ viewBox="0.00 0.00 559.50 32.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 28)">
+<title>Graph Key</title>
+<polygon fill="white" stroke="none" points="-4,4 -4,-28 555.5,-28 555.5,4 -4,4"/>
+<!-- Subroutine -->
+<g id="node1" class="node"><title>Subroutine</title>
+<polygon fill="#d9534f" stroke="#d9534f" points="64,-24 0,-24 0,-0 64,-0 64,-24"/>
+<text text-anchor="middle" x="32" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Subroutine</text>
+</g>
+<!-- Function -->
+<g id="node2" class="node"><title>Function</title>
+<polygon fill="#d94e8f" stroke="#d94e8f" points="136,-24 82,-24 82,-0 136,-0 136,-24"/>
+<text text-anchor="middle" x="109" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Function</text>
+</g>
+<!-- Interface -->
+<g id="node3" class="node"><title>Interface</title>
+<polygon fill="#a7506f" stroke="#a7506f" points="209.5,-24 154.5,-24 154.5,-0 209.5,-0 209.5,-24"/>
+<text text-anchor="middle" x="182" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Interface</text>
+</g>
+<!-- Unknown Procedure Type -->
+<g id="node4" class="node"><title>Unknown Procedure Type</title>
+<polygon fill="#777777" stroke="#777777" points="364,-24 228,-24 228,-0 364,-0 364,-24"/>
+<text text-anchor="middle" x="296" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Unknown Procedure Type</text>
+</g>
+<!-- Program -->
+<g id="node5" class="node"><title>Program</title>
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="436,-24 382,-24 382,-0 436,-0 436,-24"/>
+<text text-anchor="middle" x="409" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Program</text>
+</g>
+<!-- This Page&#39;s Entity -->
+<g id="node6" class="node"><title>This Page&#39;s Entity</title>
+<polygon fill="none" stroke="black" points="551.5,-24 454.5,-24 454.5,-0 551.5,-0 551.5,-24"/>
+<text text-anchor="middle" x="503" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50">This Page&#39;s Entity</text>
+</g>
+</g>
+</svg>
+
+    
+    <p>Solid arrows point from a procedure to one which it calls. Dashed 
+    arrows point from an interface to procedures which implement that interface.
+    This could include the module procedures in a generic interface or the
+    implementation in a submodule of an interface in a parent module.
+    </p>
+    </div></div></div></div>
+      </div>
+    </div>
+     
+     
+    <div class="panel panel-default">
+      <div class="panel-heading">
+  <h3 class="panel-title">Called by</h3>
+      </div>
+      <div class="panel-body">
+  <div class="depgraph"><?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+ "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Generated by graphviz version 2.38.0 (20140413.2041)
+ -->
+<!-- Title: proc~~dfscf~~CalledByGraph Pages: 1 -->
+<svg id="procdfscfCalledByGraph" width="400pt" height="74pt"
+ viewBox="0.00 0.00 400.00 74.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="proc~~dfscf~~CalledByGraph" class="graph" transform="scale(1 1) rotate(0) translate(4 70)">
+<title>proc~~dfscf~~CalledByGraph</title>
+<polygon fill="white" stroke="none" points="-4,4 -4,-70 396,-70 396,4 -4,4"/>
+<!-- proc~dfscf -->
+<g id="proc~~dfscf~~CalledByGraph_node1" class="node"><title>proc~dfscf</title>
+<polygon fill="none" stroke="black" points="392,-45 338,-45 338,-21 392,-21 392,-45"/>
+<text text-anchor="middle" x="365" y="-30.6" font-family="Helvetica,sans-Serif" font-size="10.50">dfscf</text>
+</g>
+<!-- proc~dhscf -->
+<g id="proc~~dfscf~~CalledByGraph_node2" class="node"><title>proc~dhscf</title>
+<g id="a_proc~~dfscf~~CalledByGraph_node2"><a xlink:href=".././proc/dhscf.html" xlink:title="dhscf">
+<polygon fill="#d9534f" stroke="#d9534f" points="302,-45 248,-45 248,-21 302,-21 302,-45"/>
+<text text-anchor="middle" x="275" y="-30.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">dhscf</text>
+</a>
+</g>
+</g>
+<!-- proc~dhscf&#45;&gt;proc~dfscf -->
+<g id="proc~~dfscf~~CalledByGraph_edge1" class="edge"><title>proc~dhscf&#45;&gt;proc~dfscf</title>
+<path fill="none" stroke="#000000" d="M302.403,-33C310.393,-33 319.311,-33 327.824,-33"/>
+<polygon fill="#000000" stroke="#000000" points="327.919,-36.5001 337.919,-33 327.919,-29.5001 327.919,-36.5001"/>
+</g>
+<!-- proc~siesta_analysis -->
+<g id="proc~~dfscf~~CalledByGraph_node3" class="node"><title>proc~siesta_analysis</title>
+<g id="a_proc~~dfscf~~CalledByGraph_node3"><a xlink:href=".././proc/siesta_analysis.html" xlink:title="siesta_analysis">
+<polygon fill="#d9534f" stroke="#d9534f" points="204.5,-66 119.5,-66 119.5,-42 204.5,-42 204.5,-66"/>
+<text text-anchor="middle" x="162" y="-51.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">siesta_analysis</text>
+</a>
+</g>
+</g>
+<!-- proc~siesta_analysis&#45;&gt;proc~dhscf -->
+<g id="proc~~dfscf~~CalledByGraph_edge2" class="edge"><title>proc~siesta_analysis&#45;&gt;proc~dhscf</title>
+<path fill="none" stroke="#000000" d="M204.648,-46.1206C215.65,-44.0392 227.428,-41.811 238.097,-39.7925"/>
+<polygon fill="#000000" stroke="#000000" points="238.75,-43.2311 247.925,-37.9331 237.449,-36.3531 238.75,-43.2311"/>
+</g>
+<!-- proc~setup_hamiltonian -->
+<g id="proc~~dfscf~~CalledByGraph_node4" class="node"><title>proc~setup_hamiltonian</title>
+<g id="a_proc~~dfscf~~CalledByGraph_node4"><a xlink:href=".././proc/setup_hamiltonian.html" xlink:title="setup_hamiltonian">
+<polygon fill="#d9534f" stroke="#d9534f" points="212,-24 112,-24 112,-0 212,-0 212,-24"/>
+<text text-anchor="middle" x="162" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">setup_hamiltonian</text>
+</a>
+</g>
+</g>
+<!-- proc~setup_hamiltonian&#45;&gt;proc~dhscf -->
+<g id="proc~~dfscf~~CalledByGraph_edge3" class="edge"><title>proc~setup_hamiltonian&#45;&gt;proc~dhscf</title>
+<path fill="none" stroke="#000000" d="M212.009,-21.272C220.666,-22.9099 229.537,-24.5881 237.763,-26.1444"/>
+<polygon fill="#000000" stroke="#000000" points="237.297,-29.6183 247.774,-28.0383 238.599,-22.7403 237.297,-29.6183"/>
+</g>
+<!-- proc~siesta_forces -->
+<g id="proc~~dfscf~~CalledByGraph_node5" class="node"><title>proc~siesta_forces</title>
+<g id="a_proc~~dfscf~~CalledByGraph_node5"><a xlink:href=".././proc/siesta_forces.html" xlink:title="siesta_forces">
+<polygon fill="#d9534f" stroke="#d9534f" points="76,-24 0,-24 0,-0 76,-0 76,-24"/>
+<text text-anchor="middle" x="38" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">siesta_forces</text>
+</a>
+</g>
+</g>
+<!-- proc~siesta_forces&#45;&gt;proc~setup_hamiltonian -->
+<g id="proc~~dfscf~~CalledByGraph_edge4" class="edge"><title>proc~siesta_forces&#45;&gt;proc~setup_hamiltonian</title>
+<path fill="none" stroke="#000000" d="M76.2669,-12C84.3255,-12 93.0387,-12 101.706,-12"/>
+<polygon fill="#000000" stroke="#000000" points="101.817,-15.5001 111.817,-12 101.817,-8.5001 101.817,-15.5001"/>
+</g>
+</g>
+</svg>
+</div><div><a type="button" class="graph-help" data-toggle="modal" href="#graph-help-text">Help</a></div><div class="modal fade" id="graph-help-text" tabindex="-1" role="dialog"><div class="modal-dialog modal-lg" role="document"><div class="modal-content"><div class="modal-header"><button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button><h4 class="modal-title" id="-graph-help-label">Graph Key</h4></div><div class="modal-body">
+    <p>Nodes of different colours represent the following: </p>
+    <?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+ "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Generated by graphviz version 2.38.0 (20140413.2041)
+ -->
+<!-- Title: Graph Key Pages: 1 -->
+<svg width="560pt" height="32pt"
+ viewBox="0.00 0.00 559.50 32.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 28)">
+<title>Graph Key</title>
+<polygon fill="white" stroke="none" points="-4,4 -4,-28 555.5,-28 555.5,4 -4,4"/>
+<!-- Subroutine -->
+<g id="node1" class="node"><title>Subroutine</title>
+<polygon fill="#d9534f" stroke="#d9534f" points="64,-24 0,-24 0,-0 64,-0 64,-24"/>
+<text text-anchor="middle" x="32" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Subroutine</text>
+</g>
+<!-- Function -->
+<g id="node2" class="node"><title>Function</title>
+<polygon fill="#d94e8f" stroke="#d94e8f" points="136,-24 82,-24 82,-0 136,-0 136,-24"/>
+<text text-anchor="middle" x="109" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Function</text>
+</g>
+<!-- Interface -->
+<g id="node3" class="node"><title>Interface</title>
+<polygon fill="#a7506f" stroke="#a7506f" points="209.5,-24 154.5,-24 154.5,-0 209.5,-0 209.5,-24"/>
+<text text-anchor="middle" x="182" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Interface</text>
+</g>
+<!-- Unknown Procedure Type -->
+<g id="node4" class="node"><title>Unknown Procedure Type</title>
+<polygon fill="#777777" stroke="#777777" points="364,-24 228,-24 228,-0 364,-0 364,-24"/>
+<text text-anchor="middle" x="296" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Unknown Procedure Type</text>
+</g>
+<!-- Program -->
+<g id="node5" class="node"><title>Program</title>
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="436,-24 382,-24 382,-0 436,-0 436,-24"/>
+<text text-anchor="middle" x="409" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Program</text>
+</g>
+<!-- This Page&#39;s Entity -->
+<g id="node6" class="node"><title>This Page&#39;s Entity</title>
+<polygon fill="none" stroke="black" points="551.5,-24 454.5,-24 454.5,-0 551.5,-0 551.5,-24"/>
+<text text-anchor="middle" x="503" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50">This Page&#39;s Entity</text>
+</g>
+</g>
+</svg>
+
+    
+    <p>Solid arrows point from a procedure to one which it calls. Dashed 
+    arrows point from an interface to procedures which implement that interface.
+    This could include the module procedures in a generic interface or the
+    implementation in a submodule of an interface in a parent module.
+    </p>
+    </div></div></div></div>
+      </div>
+    </div>
+     
+    <br>
+
+    <section class="visible-xs visible-sm hidden-md">
+      
+<h3>Contents</h3>
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="panel panel-primary">
+  <div class="panel-heading text-left"><h3 class="panel-title">Source Code</h3></div>
+  <div class="list-group">
+    <a class="list-group-item" href="../proc/dfscf.html#src">dfscf</a>
+  </div>
+</div>
+
+
+
+    </section>
+    <br class="visible-xs visible-sm hidden-md">
+
+    
+
+    
+    
+    
+    
+    
+
+    
+    
+    
+    
+    
+
+
+    
+    
+    
+    <section>
+    <h2><span class="anchor" id="src"></span>Source Code</h2>
+    <div class="highlight"><pre><span></span>      <span class="k">subroutine </span><span class="n">dfscf</span><span class="p">(</span> <span class="n">ifa</span><span class="p">,</span> <span class="n">istr</span><span class="p">,</span> <span class="n">na</span><span class="p">,</span> <span class="n">no</span><span class="p">,</span> <span class="n">nuo</span><span class="p">,</span> <span class="n">nuotot</span><span class="p">,</span> <span class="n">np</span><span class="p">,</span> <span class="n">nspin</span><span class="p">,</span>
+     <span class="p">.</span>                  <span class="n">indxua</span><span class="p">,</span> <span class="n">isa</span><span class="p">,</span> <span class="n">iaorb</span><span class="p">,</span> <span class="n">iphorb</span><span class="p">,</span>
+     <span class="p">.</span>                  <span class="n">maxnd</span><span class="p">,</span> <span class="n">numd</span><span class="p">,</span> <span class="n">listdptr</span><span class="p">,</span> <span class="n">listd</span><span class="p">,</span> <span class="n">Dscf</span><span class="p">,</span> <span class="n">Datm</span><span class="p">,</span>
+     <span class="p">.</span>                  <span class="n">Vscf</span><span class="p">,</span> <span class="n">Vatm</span><span class="p">,</span> <span class="n">dvol</span><span class="p">,</span> <span class="n">VolCel</span><span class="p">,</span> <span class="n">Fal</span><span class="p">,</span> <span class="n">Stressl</span> <span class="p">)</span>
+<span class="c">!! author: P.Ordejon, J.M.Soler, and J.Gale</span>
+<span class="c">!!</span>
+<span class="c">!! Adds the SCF contribution to atomic forces and stress.</span>
+<span class="c">!!</span>
+<span class="c">!! Written by P.Ordejon, J.M.Soler, and J.Gale.  </span>
+<span class="c">!! Last modification by J.M.Soler, October 2000.  </span>
+<span class="c">!! Modifed for Off-Site Spin-orbit coupling by R. Cuadrado, Feb. 2018</span>
+
+<span class="c">!  Modules</span>
+      <span class="k">use </span><span class="nb">precision</span><span class="p">,</span>     <span class="n">only</span><span class="p">:</span> <span class="n">dp</span><span class="p">,</span> <span class="n">grid_p</span>
+      <span class="k">use </span><span class="n">atmfuncs</span><span class="p">,</span>      <span class="n">only</span><span class="p">:</span> <span class="n">rcut</span><span class="p">,</span> <span class="n">all_phi</span>
+      <span class="k">use </span><span class="n">atm_types</span><span class="p">,</span>     <span class="n">only</span><span class="p">:</span> <span class="n">nsmax</span><span class="o">=&gt;</span><span class="n">nspecies</span>
+      <span class="k">use </span><span class="n">atomlist</span><span class="p">,</span>      <span class="n">only</span><span class="p">:</span> <span class="n">indxuo</span>
+      <span class="k">use </span><span class="n">listsc_module</span><span class="p">,</span> <span class="n">only</span><span class="p">:</span> <span class="n">listsc</span>
+      <span class="k">use </span><span class="n">mesh</span><span class="p">,</span>          <span class="n">only</span><span class="p">:</span> <span class="n">dxa</span><span class="p">,</span> <span class="n">nsp</span><span class="p">,</span> <span class="n">xdop</span><span class="p">,</span> <span class="n">xdsp</span>
+      <span class="k">use </span><span class="n">meshphi</span><span class="p">,</span>       <span class="n">only</span><span class="p">:</span> <span class="n">endpht</span><span class="p">,</span> <span class="n">lstpht</span><span class="p">,</span> <span class="n">listp2</span>
+      <span class="k">use </span><span class="n">meshdscf</span><span class="p">,</span>      <span class="n">only</span><span class="p">:</span> <span class="n">matrixOtoM</span>
+      <span class="k">use </span><span class="n">meshdscf</span><span class="p">,</span>      <span class="n">only</span><span class="p">:</span> <span class="n">DscfL</span><span class="p">,</span> <span class="n">nrowsDscfL</span><span class="p">,</span> <span class="n">needDscfL</span>
+      <span class="k">use </span><span class="n">meshdscf</span><span class="p">,</span>      <span class="n">only</span><span class="p">:</span> <span class="n">listDl</span><span class="p">,</span> <span class="n">listDlPtr</span><span class="p">,</span> <span class="n">numdL</span>
+      <span class="k">use </span><span class="n">alloc</span><span class="p">,</span>         <span class="n">only</span><span class="p">:</span> <span class="n">re_alloc</span><span class="p">,</span> <span class="n">de_alloc</span><span class="p">,</span> <span class="n">alloc_default</span><span class="p">,</span>
+     <span class="err">$</span>                         <span class="n">allocDefaults</span>
+      <span class="k">use </span><span class="n">parallel</span><span class="p">,</span>      <span class="n">only</span><span class="p">:</span> <span class="n">Nodes</span><span class="p">,</span> <span class="n">Node</span>
+      <span class="k">use </span><span class="n">sys</span><span class="p">,</span>           <span class="n">only</span><span class="p">:</span> <span class="n">die</span>
+      <span class="k">use </span><span class="n">parallelsubs</span><span class="p">,</span>  <span class="n">only</span><span class="p">:</span> <span class="n">GlobalToLocalOrb</span>
+
+      <span class="k">implicit none</span>
+
+<span class="c">!  Passed arguments</span>
+
+      <span class="kt">integer</span><span class="p">,</span> <span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">)</span> <span class="kd">::</span> <span class="n">ifa</span>
+        <span class="c">!! Are forces required? (`1`=yes,`0`=no)</span>
+      <span class="kt">integer</span><span class="p">,</span> <span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">)</span> <span class="kd">::</span> <span class="n">istr</span>
+        <span class="c">!! Is stress required? (`1`=yes, `0`=no)</span>
+      <span class="kt">integer</span><span class="p">,</span> <span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">)</span> <span class="kd">::</span> <span class="n">na</span>
+        <span class="c">!! Number of atoms</span>
+      <span class="kt">integer</span><span class="p">,</span> <span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">)</span> <span class="kd">::</span> <span class="n">no</span>
+        <span class="c">!! Number of basis orbitals</span>
+      <span class="kt">integer</span><span class="p">,</span> <span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">)</span> <span class="kd">::</span> <span class="n">nuo</span>
+        <span class="c">!! Number of orbitals in unit cell (local)</span>
+      <span class="kt">integer</span><span class="p">,</span> <span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">)</span> <span class="kd">::</span> <span class="n">nuotot</span>
+        <span class="c">!! Number of orbitals in unit cell (global)</span>
+      <span class="kt">integer</span><span class="p">,</span> <span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">)</span> <span class="kd">::</span> <span class="n">np</span>
+        <span class="c">!! Number of mesh points (total is nsp*np)</span>
+      <span class="kt">integer</span><span class="p">,</span> <span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">)</span> <span class="kd">::</span> <span class="n">nspin</span>
+        <span class="c">!! spin%Grid (i.e., `min(nspin,4)`)  </span>
+        <span class="c">!! `nspin=1` =&gt; Unpolarized,  </span>
+        <span class="c">!! `nspin=2` =&gt; polarized  </span>
+        <span class="c">!! `nspin=4` =&gt; Noncollinear spin/SOC</span>
+      <span class="kt">integer</span><span class="p">,</span> <span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">)</span> <span class="kd">::</span> <span class="n">indxua</span><span class="p">(</span><span class="n">na</span><span class="p">)</span>
+        <span class="c">!! Index of equivalent atom in unit cell</span>
+      <span class="kt">integer</span><span class="p">,</span> <span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">)</span> <span class="kd">::</span> <span class="n">isa</span><span class="p">(</span><span class="n">na</span><span class="p">)</span>
+        <span class="c">!! Species index of each atom</span>
+      <span class="kt">integer</span><span class="p">,</span> <span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">)</span> <span class="kd">::</span> <span class="n">iaorb</span><span class="p">(</span><span class="n">no</span><span class="p">)</span>
+        <span class="c">!! Atom to which orbitals belong</span>
+      <span class="kt">integer</span><span class="p">,</span> <span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">)</span> <span class="kd">::</span> <span class="n">iphorb</span><span class="p">(</span><span class="n">no</span><span class="p">)</span>
+        <span class="c">!! Index of orbital within its atom</span>
+      <span class="kt">integer</span><span class="p">,</span> <span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">)</span> <span class="kd">::</span> <span class="n">maxnd</span>
+        <span class="c">!! First dimension of Dscf</span>
+      <span class="kt">integer</span><span class="p">,</span> <span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">)</span> <span class="kd">::</span> <span class="n">numd</span><span class="p">(</span><span class="n">nuo</span><span class="p">)</span>
+        <span class="c">!! Number of nonzero elemts in each row of Dscf</span>
+      <span class="kt">integer</span><span class="p">,</span> <span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">)</span> <span class="kd">::</span> <span class="n">listdptr</span><span class="p">(</span><span class="n">nuo</span><span class="p">)</span>
+        <span class="c">!! Pointer to start of row in listd</span>
+      <span class="kt">integer</span><span class="p">,</span> <span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">)</span> <span class="kd">::</span> <span class="n">listd</span><span class="p">(</span><span class="n">maxnd</span><span class="p">)</span>
+        <span class="c">!! List of nonzero elements of Dscf</span>
+
+      <span class="kt">real</span><span class="p">(</span><span class="n">grid_p</span><span class="p">),</span> <span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">)</span> <span class="kd">::</span> <span class="n">Vscf</span><span class="p">(</span><span class="n">nsp</span><span class="p">,</span><span class="n">np</span><span class="p">,</span><span class="n">nspin</span><span class="p">)</span>
+        <span class="c">!! Value of SCF potential at the mesh points</span>
+      <span class="kt">real</span><span class="p">(</span><span class="n">grid_p</span><span class="p">),</span> <span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">)</span> <span class="kd">::</span> <span class="n">Vatm</span><span class="p">(</span><span class="n">nsp</span><span class="p">,</span><span class="n">np</span><span class="p">)</span>
+        <span class="c">!! Value of Harris potential (Hartree potential</span>
+        <span class="c">!! of sum of atomic desities) at mesh points.  </span>
+        <span class="c">!! Notice single precision of Vscf and Vatm.</span>
+
+      <span class="kt">real</span><span class="p">(</span><span class="n">dp</span><span class="p">),</span> <span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">)</span> <span class="kd">::</span>  <span class="n">dvol</span>
+        <span class="c">!! Volume per mesh point</span>
+      <span class="kt">real</span><span class="p">(</span><span class="n">dp</span><span class="p">),</span> <span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">)</span> <span class="kd">::</span>  <span class="n">VolCel</span>
+        <span class="c">!! Unit cell volume</span>
+      <span class="kt">real</span><span class="p">(</span><span class="n">dp</span><span class="p">),</span> <span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">)</span> <span class="kd">::</span>  <span class="n">Datm</span><span class="p">(</span><span class="n">nuotot</span><span class="p">)</span>
+      <span class="kt">real</span><span class="p">(</span><span class="n">dp</span><span class="p">),</span> <span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">),</span> <span class="k">target</span> <span class="kd">::</span> <span class="n">Dscf</span><span class="p">(:,:)</span>
+        <span class="c">!! `Dscf(maxnd,*)`: Value of nonzero elemens of density matrix.</span>
+        <span class="c">!! It is used in &quot;hermitified&quot; here.</span>
+
+      <span class="kt">real</span><span class="p">(</span><span class="n">dp</span><span class="p">),</span> <span class="k">intent</span><span class="p">(</span><span class="n">inout</span><span class="p">)</span> <span class="kd">::</span> <span class="n">Fal</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="o">*</span><span class="p">)</span>
+        <span class="c">!! Atomic forces (contribution added on output)</span>
+      <span class="kt">real</span><span class="p">(</span><span class="n">dp</span><span class="p">),</span> <span class="k">intent</span><span class="p">(</span><span class="n">inout</span><span class="p">)</span> <span class="kd">::</span> <span class="n">Stressl</span><span class="p">(</span><span class="mi">9</span><span class="p">)</span>
+        <span class="c">!! Stress tensor</span>
+
+<span class="c">! Internal variables</span>
+      <span class="kt">integer</span><span class="p">,</span> <span class="k">parameter</span> <span class="kd">::</span>
+     <span class="p">.</span>   <span class="n">minb</span>  <span class="o">=</span> <span class="mi">100</span><span class="p">,</span>  <span class="c">! Min buffer size for local copy of Dscf</span>
+     <span class="p">.</span>   <span class="n">maxoa</span> <span class="o">=</span> <span class="mi">100</span>   <span class="c">! Max # of orbitals per atom</span>
+      <span class="kt">integer</span>
+     <span class="p">.</span>   <span class="n">i</span><span class="p">,</span> <span class="n">ia</span><span class="p">,</span> <span class="n">ib</span><span class="p">,</span> <span class="n">ibuff</span><span class="p">(</span><span class="n">no</span><span class="p">),</span> <span class="n">ic</span><span class="p">,</span> <span class="n">ii</span><span class="p">,</span> <span class="n">imp</span><span class="p">,</span> <span class="n">ind</span><span class="p">,</span> <span class="n">iop</span><span class="p">,</span> <span class="n">ip</span><span class="p">,</span> <span class="n">iphi</span><span class="p">,</span> <span class="n">io</span><span class="p">,</span>
+     <span class="p">.</span>   <span class="k">is</span><span class="p">,</span> <span class="n">isp</span><span class="p">,</span> <span class="n">ispin</span><span class="p">,</span> <span class="n">iu</span><span class="p">,</span> <span class="n">iua</span><span class="p">,</span> <span class="n">iul</span><span class="p">,</span> <span class="n">ix</span><span class="p">,</span> <span class="n">ix1</span><span class="p">,</span> <span class="n">ix2</span><span class="p">,</span> <span class="n">iy</span><span class="p">,</span>
+     <span class="p">.</span>   <span class="n">j</span><span class="p">,</span> <span class="n">jb</span><span class="p">,</span> <span class="n">jc</span><span class="p">,</span> <span class="n">last</span><span class="p">,</span> <span class="n">lasta</span><span class="p">,</span> <span class="n">lastop</span><span class="p">,</span> <span class="n">maxb</span><span class="p">,</span> <span class="n">maxc</span><span class="p">,</span> <span class="n">maxndl</span><span class="p">,</span>
+     <span class="p">.</span>   <span class="n">nc</span><span class="p">,</span> <span class="n">nphiloc</span>
+      <span class="kt">real</span><span class="p">(</span><span class="n">dp</span><span class="p">)</span>
+     <span class="p">.</span>   <span class="n">CD</span><span class="p">(</span><span class="n">nsp</span><span class="p">),</span> <span class="n">CDV</span><span class="p">(</span><span class="n">nsp</span><span class="p">),</span> <span class="n">DF</span><span class="p">(</span><span class="mi">12</span><span class="p">),</span> <span class="n">Dji</span><span class="p">,</span> <span class="n">dxsp</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="n">nsp</span><span class="p">),</span>  
+     <span class="p">.</span>   <span class="n">gCi</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span><span class="n">nsp</span><span class="p">),</span> <span class="n">grada</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="n">maxoa</span><span class="p">,</span><span class="n">nsp</span><span class="p">),</span>
+     <span class="p">.</span>     <span class="n">phia</span><span class="p">(</span><span class="n">maxoa</span><span class="p">,</span><span class="n">nsp</span><span class="p">),</span> <span class="n">rvol</span><span class="p">,</span> <span class="n">r2sp</span><span class="p">,</span> <span class="n">r2cut</span><span class="p">(</span><span class="n">nsmax</span><span class="p">)</span>
+
+      <span class="c">! Allocate</span>
+      <span class="kt">real</span><span class="p">(</span><span class="n">dp</span><span class="p">),</span> <span class="k">pointer</span> <span class="kd">::</span> <span class="n">V</span><span class="p">(:,:)</span> <span class="o">=&gt;</span> <span class="nb">null</span><span class="p">()</span>
+      <span class="kt">real</span><span class="p">(</span><span class="n">dp</span><span class="p">),</span> <span class="k">pointer</span> <span class="kd">::</span> <span class="n">DM_spbherm</span><span class="p">(:,:)</span> <span class="o">=&gt;</span> <span class="nb">null</span><span class="p">()</span>
+<span class="c">!</span>
+      <span class="kt">integer</span><span class="p">,</span> <span class="k">pointer</span><span class="p">,</span> <span class="k">save</span> <span class="kd">::</span>  <span class="n">ibc</span><span class="p">(:),</span> <span class="n">iob</span><span class="p">(:)</span>
+      <span class="kt">real</span><span class="p">(</span><span class="n">dp</span><span class="p">),</span> <span class="k">pointer</span><span class="p">,</span> <span class="k">save</span> <span class="kd">::</span> <span class="n">C</span><span class="p">(:,:),</span> <span class="n">D</span><span class="p">(:,:,:),</span>
+     <span class="p">.</span>                           <span class="n">gC</span><span class="p">(:,:,:),</span> <span class="n">xgC</span><span class="p">(:,:,:)</span>
+      <span class="kt">logical</span> <span class="kd">::</span>           <span class="n">Parallel_Run</span><span class="p">,</span> <span class="n">nullified</span><span class="o">=</span><span class="p">.</span><span class="n">false</span><span class="p">.</span>
+      <span class="k">type</span><span class="p">(</span><span class="n">allocDefaults</span><span class="p">)</span> <span class="n">oldDefaults</span>
+
+
+<span class="c">!  Start time counter</span>
+      <span class="k">call </span><span class="n">timer</span><span class="p">(</span><span class="s1">&#39;dfscf&#39;</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="c">!  Nullify pointers</span>
+      <span class="k">if</span> <span class="p">(.</span><span class="nb">not</span><span class="p">.</span><span class="n">nullified</span><span class="p">)</span> <span class="k">then</span>
+<span class="k">        nullify</span><span class="p">(</span> <span class="n">C</span><span class="p">,</span> <span class="n">D</span><span class="p">,</span> <span class="n">gC</span><span class="p">,</span> <span class="n">ibc</span><span class="p">,</span> <span class="n">iob</span><span class="p">,</span> <span class="n">xgC</span> <span class="p">)</span>
+        <span class="n">nullified</span> <span class="o">=</span> <span class="p">.</span><span class="n">true</span><span class="p">.</span>
+      <span class="k">end if</span>
+
+<span class="c">!  Get old allocation defaults and set new ones</span>
+      <span class="k">call </span><span class="n">alloc_default</span><span class="p">(</span> <span class="n">old</span><span class="o">=</span><span class="n">oldDefaults</span><span class="p">,</span>
+     <span class="p">.</span>                    <span class="n">copy</span><span class="o">=</span><span class="p">.</span><span class="n">false</span><span class="p">.,</span> <span class="n">shrink</span><span class="o">=</span><span class="p">.</span><span class="n">false</span><span class="p">.,</span>
+     <span class="p">.</span>                    <span class="n">imin</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">routine</span><span class="o">=</span><span class="s1">&#39;dfscf&#39;</span> <span class="p">)</span>
+
+      <span class="k">if</span> <span class="p">(</span> <span class="n">size</span><span class="p">(</span><span class="n">Dscf</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span> <span class="o">==</span> <span class="mi">8</span> <span class="p">)</span> <span class="k">then</span>
+<span class="k">         if</span> <span class="p">(</span><span class="n">nspin</span> <span class="o">/=</span> <span class="mi">4</span><span class="p">)</span> <span class="k">call </span><span class="n">die</span><span class="p">(</span><span class="s2">&quot;Spin size inconsistency in dfscf&quot;</span><span class="p">)</span>
+         <span class="c">!     Prepare &quot;spin-box hermitian&quot; form of DM for work below</span>
+         <span class="c">!     We could re-use similar work in rhoofd</span>
+         <span class="c">!     This is the relevant part of the DM in view of the structure</span>
+         <span class="c">!     of the potential Vscf.</span>
+         <span class="k">call </span><span class="n">re_alloc</span><span class="p">(</span><span class="n">DM_spbherm</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="n">size</span><span class="p">(</span><span class="n">Dscf</span><span class="p">,</span><span class="mi">1</span><span class="p">),</span><span class="mi">1</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="s2">&quot;DM_spbherm&quot;</span><span class="p">)</span>   
+         <span class="n">DM_spbherm</span><span class="p">(:,</span><span class="mi">1</span><span class="p">)</span> <span class="o">=</span> <span class="n">Dscf</span><span class="p">(:,</span><span class="mi">1</span><span class="p">)</span>
+         <span class="n">DM_spbherm</span><span class="p">(:,</span><span class="mi">2</span><span class="p">)</span> <span class="o">=</span> <span class="n">Dscf</span><span class="p">(:,</span><span class="mi">2</span><span class="p">)</span>
+         <span class="n">DM_spbherm</span><span class="p">(:,</span><span class="mi">3</span><span class="p">)</span> <span class="o">=</span> <span class="mf">0.5_dp</span> <span class="o">*</span> <span class="p">(</span><span class="n">Dscf</span><span class="p">(:,</span><span class="mi">3</span><span class="p">)</span><span class="o">+</span><span class="n">Dscf</span><span class="p">(:,</span><span class="mi">7</span><span class="p">))</span>
+         <span class="n">DM_spbherm</span><span class="p">(:,</span><span class="mi">4</span><span class="p">)</span> <span class="o">=</span> <span class="mf">0.5_dp</span> <span class="o">*</span> <span class="p">(</span><span class="n">Dscf</span><span class="p">(:,</span><span class="mi">4</span><span class="p">)</span><span class="o">+</span><span class="n">Dscf</span><span class="p">(:,</span><span class="mi">8</span><span class="p">))</span>
+      <span class="k">else</span>
+<span class="k">         </span><span class="n">DM_spbherm</span> <span class="o">=&gt;</span> <span class="n">Dscf</span>    <span class="c">! Just use passed Dscf</span>
+      <span class="k">end if</span>
+
+<span class="c">!  Allocate buffers to store partial copies of Dscf and C</span>
+      <span class="n">maxc</span> <span class="o">=</span> <span class="nb">maxval</span><span class="p">(</span><span class="n">endpht</span><span class="p">(</span><span class="mi">1</span><span class="p">:</span><span class="n">np</span><span class="p">)</span><span class="o">-</span><span class="n">endpht</span><span class="p">(</span><span class="mi">0</span><span class="p">:</span><span class="n">np</span><span class="o">-</span><span class="mi">1</span><span class="p">))</span>
+      <span class="n">maxb</span> <span class="o">=</span> <span class="n">maxc</span> <span class="o">+</span> <span class="n">minb</span>
+      <span class="n">maxb</span> <span class="o">=</span> <span class="nb">min</span><span class="p">(</span> <span class="n">maxb</span><span class="p">,</span> <span class="n">no</span> <span class="p">)</span>
+      <span class="k">call </span><span class="n">re_alloc</span><span class="p">(</span> <span class="n">C</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">nsp</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">maxc</span><span class="p">,</span> <span class="s1">&#39;C&#39;</span><span class="p">,</span> <span class="s1">&#39;dfscf&#39;</span> <span class="p">)</span>
+      <span class="k">call </span><span class="n">re_alloc</span><span class="p">(</span> <span class="n">D</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">maxb</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">maxb</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">nspin</span><span class="p">,</span> <span class="s1">&#39;D&#39;</span><span class="p">,</span> <span class="s1">&#39;dfscf&#39;</span> <span class="p">)</span>
+      <span class="k">call </span><span class="n">re_alloc</span><span class="p">(</span> <span class="n">gC</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">nsp</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">maxc</span><span class="p">,</span> <span class="s1">&#39;gC&#39;</span><span class="p">,</span> <span class="s1">&#39;dfscf&#39;</span> <span class="p">)</span>
+      <span class="k">call </span><span class="n">re_alloc</span><span class="p">(</span> <span class="n">ibc</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">maxc</span><span class="p">,</span> <span class="s1">&#39;ibc&#39;</span><span class="p">,</span> <span class="s1">&#39;dfscf&#39;</span> <span class="p">)</span>
+      <span class="k">call </span><span class="n">re_alloc</span><span class="p">(</span> <span class="n">iob</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">maxb</span><span class="p">,</span> <span class="s1">&#39;iob&#39;</span><span class="p">,</span> <span class="s1">&#39;dfscf&#39;</span> <span class="p">)</span>
+      <span class="k">call </span><span class="n">re_alloc</span><span class="p">(</span> <span class="n">xgC</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">nsp</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">maxc</span><span class="p">,</span> <span class="s1">&#39;xgC&#39;</span><span class="p">,</span> <span class="s1">&#39;dfscf&#39;</span> <span class="p">)</span>
+      <span class="k">call </span><span class="n">re_alloc</span><span class="p">(</span> <span class="n">V</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">nsp</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">nspin</span><span class="p">,</span> <span class="s1">&#39;V&#39;</span><span class="p">,</span> <span class="s1">&#39;dfscf&#39;</span> <span class="p">)</span>
+      <span class="n">V</span> <span class="o">=</span> <span class="mf">0._dp</span>
+
+<span class="c">!  Set logical that determines whether we need to use parallel or serial mode</span>
+      <span class="n">Parallel_Run</span> <span class="o">=</span> <span class="p">(</span><span class="n">Nodes</span><span class="p">.</span><span class="n">gt</span><span class="p">.</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="c">!  If parallel, allocate temporary storage for Local Dscf</span>
+      <span class="k">if</span> <span class="p">(</span><span class="n">Parallel_Run</span><span class="p">)</span> <span class="k">then</span>
+<span class="k">        if</span> <span class="p">(</span><span class="n">nrowsDscfL</span><span class="p">.</span><span class="n">gt</span><span class="p">.</span><span class="mi">0</span><span class="p">)</span> <span class="k">then</span>
+<span class="k">          </span><span class="n">maxndl</span> <span class="o">=</span> <span class="n">listdlptr</span><span class="p">(</span><span class="n">nrowsDscfL</span><span class="p">)</span> <span class="o">+</span> <span class="n">numdl</span><span class="p">(</span><span class="n">nrowsDscfL</span><span class="p">)</span>
+        <span class="k">else</span>
+<span class="k">          </span><span class="n">maxndl</span> <span class="o">=</span> <span class="mi">1</span>
+        <span class="n">endif</span>
+        <span class="k">call </span><span class="n">re_alloc</span><span class="p">(</span> <span class="n">DscfL</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">maxndl</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">nspin</span><span class="p">,</span>
+     <span class="p">.</span>                 <span class="s1">&#39;DscfL&#39;</span><span class="p">,</span> <span class="s1">&#39;dfscf&#39;</span> <span class="p">)</span>
+<span class="c">! Redistribute Dscf to DscfL form</span>
+        <span class="k">call </span><span class="n">matrixOtoM</span><span class="p">(</span> <span class="n">maxnd</span><span class="p">,</span> <span class="n">numd</span><span class="p">,</span> <span class="n">listdptr</span><span class="p">,</span> <span class="n">maxndl</span><span class="p">,</span> <span class="n">nuo</span><span class="p">,</span>
+     <span class="p">.</span>                   <span class="n">nspin</span><span class="p">,</span> <span class="n">DM_spbherm</span><span class="p">,</span> <span class="n">DscfL</span> <span class="p">)</span>
+
+      <span class="n">endif</span>
+
+<span class="c">!     Note: Since this routine is only called to get forces AND stresses,</span>
+<span class="c">!     ifa = 1 and istr = 1 always. We could get rid of ix1 and ix2 and</span>
+<span class="c">!     unroll the relevant loops below for more efficiency.</span>
+<span class="c">!     Also, it might be worth unrolling some of the nsp loops below</span>
+<span class="c">!     if nsp is always 8.</span>
+
+<span class="c">!  Find range of a single array to hold force and stress derivatives</span>
+<span class="c">!  Range 1-3 for forces</span>
+      <span class="k">if</span> <span class="p">(</span><span class="n">ifa</span><span class="p">.</span><span class="n">eq</span><span class="p">.</span><span class="mi">1</span><span class="p">)</span> <span class="k">then</span>
+<span class="k">        </span><span class="n">ix1</span> <span class="o">=</span> <span class="mi">1</span>
+      <span class="k">else</span>
+<span class="k">        </span><span class="n">ix1</span> <span class="o">=</span> <span class="mi">4</span>
+      <span class="k">end if</span>
+<span class="c">!  Range 4-12 for stress</span>
+      <span class="k">if</span> <span class="p">(</span><span class="n">istr</span><span class="p">.</span><span class="n">eq</span><span class="p">.</span><span class="mi">1</span><span class="p">)</span> <span class="k">then</span>
+<span class="k">        </span><span class="n">ix2</span> <span class="o">=</span> <span class="mi">12</span>
+      <span class="k">else</span>
+<span class="k">        </span><span class="n">ix2</span> <span class="o">=</span> <span class="mi">3</span>
+      <span class="k">end if</span>
+
+<span class="c">!  Initialise variables</span>
+      <span class="n">D</span><span class="p">(:,:,:)</span> <span class="o">=</span> <span class="mf">0.0_dp</span>
+      <span class="n">ibuff</span><span class="p">(:)</span> <span class="o">=</span> <span class="mi">0</span>
+      <span class="n">iob</span><span class="p">(:)</span> <span class="o">=</span> <span class="mi">0</span>
+      <span class="n">last</span> <span class="o">=</span> <span class="mi">0</span>
+
+<span class="c">!  Find atomic cutoff radii</span>
+      <span class="n">r2cut</span><span class="p">(:)</span> <span class="o">=</span> <span class="mf">0.0_dp</span>
+      <span class="k">do </span><span class="n">i</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span><span class="n">nuotot</span>
+        <span class="n">ia</span> <span class="o">=</span> <span class="n">iaorb</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+        <span class="k">is</span> <span class="o">=</span> <span class="n">isa</span><span class="p">(</span><span class="n">ia</span><span class="p">)</span>
+        <span class="n">io</span> <span class="o">=</span> <span class="n">iphorb</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+        <span class="n">r2cut</span><span class="p">(</span><span class="k">is</span><span class="p">)</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span> <span class="n">r2cut</span><span class="p">(</span><span class="k">is</span><span class="p">),</span> <span class="n">rcut</span><span class="p">(</span><span class="k">is</span><span class="p">,</span><span class="n">io</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span> <span class="p">)</span>
+      <span class="n">enddo</span>
+
+<span class="c">!  Evaluate constants</span>
+      <span class="n">rvol</span> <span class="o">=</span> <span class="mf">1.0_dp</span> <span class="o">/</span> <span class="n">VolCel</span>
+
+<span class="c">!  Loop over grid points</span>
+      <span class="k">do </span><span class="n">ip</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span><span class="n">np</span>
+
+<span class="c">!  Find number of nonzero orbitals at this point</span>
+        <span class="n">nc</span> <span class="o">=</span> <span class="n">endpht</span><span class="p">(</span><span class="n">ip</span><span class="p">)</span> <span class="o">-</span> <span class="n">endpht</span><span class="p">(</span><span class="n">ip</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="c">!  iob(ib)&gt;0 means that row ib of D must not be overwritten</span>
+<span class="c">!  iob(ib)=0 means that row ib of D is empty</span>
+<span class="c">!  iob(ib)&lt;0 means that row ib of D contains a valid row of </span>
+<span class="c">!             Dscf, but which is not required at this point</span>
+        <span class="k">do </span><span class="n">imp</span> <span class="o">=</span> <span class="mi">1</span><span class="o">+</span><span class="n">endpht</span><span class="p">(</span><span class="n">ip</span><span class="o">-</span><span class="mi">1</span><span class="p">),</span> <span class="n">endpht</span><span class="p">(</span><span class="n">ip</span><span class="p">)</span>
+          <span class="n">i</span> <span class="o">=</span> <span class="n">lstpht</span><span class="p">(</span><span class="n">imp</span><span class="p">)</span>
+          <span class="n">ib</span> <span class="o">=</span> <span class="n">ibuff</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+          <span class="k">if</span> <span class="p">(</span><span class="n">ib</span><span class="p">.</span><span class="n">gt</span><span class="p">.</span><span class="mi">0</span><span class="p">)</span> <span class="n">iob</span><span class="p">(</span><span class="n">ib</span><span class="p">)</span> <span class="o">=</span> <span class="n">i</span>
+        <span class="n">enddo</span>
+
+<span class="c">!  Look for required rows of Dscf not yet stored in D</span>
+        <span class="k">do </span><span class="n">ic</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span><span class="n">nc</span>
+          <span class="n">imp</span> <span class="o">=</span> <span class="n">endpht</span><span class="p">(</span><span class="n">ip</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="n">ic</span>
+          <span class="n">i</span> <span class="o">=</span> <span class="n">lstpht</span><span class="p">(</span><span class="n">imp</span><span class="p">)</span>
+          <span class="k">if</span> <span class="p">(</span><span class="n">ibuff</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="p">.</span><span class="n">eq</span><span class="p">.</span> <span class="mi">0</span><span class="p">)</span> <span class="k">then</span>
+
+<span class="c">!  Look for an available row in D</span>
+            <span class="k">do </span><span class="n">ib</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span><span class="n">maxb</span>
+<span class="c">!  last runs circularly over rows of D</span>
+              <span class="n">last</span> <span class="o">=</span> <span class="n">last</span> <span class="o">+</span> <span class="mi">1</span>
+              <span class="k">if</span> <span class="p">(</span><span class="n">last</span> <span class="p">.</span><span class="n">gt</span><span class="p">.</span> <span class="n">maxb</span><span class="p">)</span> <span class="n">last</span> <span class="o">=</span> <span class="mi">1</span>
+              <span class="k">if</span> <span class="p">(</span><span class="n">iob</span><span class="p">(</span><span class="n">last</span><span class="p">)</span> <span class="p">.</span><span class="n">le</span><span class="p">.</span> <span class="mi">0</span><span class="p">)</span> <span class="k">goto </span><span class="mi">10</span>
+            <span class="n">enddo</span>
+            <span class="k">call </span><span class="n">die</span><span class="p">(</span><span class="s1">&#39;dfscf: no slot available in D&#39;</span><span class="p">)</span>
+   <span class="mi">10</span>       <span class="k">continue</span>
+
+<span class="c">!  Copy row i of Dscf into row last of D</span>
+            <span class="n">j</span> <span class="o">=</span> <span class="nb">abs</span><span class="p">(</span><span class="n">iob</span><span class="p">(</span><span class="n">last</span><span class="p">))</span>
+            <span class="k">if</span> <span class="p">(</span><span class="n">j</span><span class="p">.</span><span class="n">ne</span><span class="p">.</span><span class="mi">0</span><span class="p">)</span> <span class="n">ibuff</span><span class="p">(</span><span class="n">j</span><span class="p">)</span> <span class="o">=</span> <span class="mi">0</span>
+            <span class="n">ibuff</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="o">=</span> <span class="n">last</span>
+            <span class="n">iob</span><span class="p">(</span><span class="n">last</span><span class="p">)</span> <span class="o">=</span> <span class="n">i</span>
+            <span class="n">ib</span> <span class="o">=</span> <span class="n">last</span>
+            <span class="n">iu</span> <span class="o">=</span> <span class="n">indxuo</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+            <span class="k">if</span> <span class="p">(</span><span class="n">Parallel_Run</span><span class="p">)</span> <span class="k">then</span>
+<span class="k">              </span><span class="n">iul</span> <span class="o">=</span> <span class="n">NeedDscfL</span><span class="p">(</span><span class="n">iu</span><span class="p">)</span>
+              <span class="k">do </span><span class="n">ii</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="n">numdl</span><span class="p">(</span><span class="n">iul</span><span class="p">)</span>
+                <span class="n">ind</span> <span class="o">=</span> <span class="n">listdlptr</span><span class="p">(</span><span class="n">iul</span><span class="p">)</span><span class="o">+</span><span class="n">ii</span>
+                <span class="n">j</span> <span class="o">=</span> <span class="n">listdl</span><span class="p">(</span><span class="n">ind</span><span class="p">)</span>
+                <span class="k">if</span> <span class="p">(</span><span class="n">i</span><span class="p">.</span><span class="n">ne</span><span class="p">.</span><span class="n">iu</span><span class="p">)</span> <span class="n">j</span> <span class="o">=</span> <span class="n">listsc</span><span class="p">(</span> <span class="n">i</span><span class="p">,</span> <span class="n">iu</span><span class="p">,</span> <span class="n">j</span> <span class="p">)</span>
+                <span class="n">jb</span> <span class="o">=</span> <span class="n">ibuff</span><span class="p">(</span><span class="n">j</span><span class="p">)</span>
+                <span class="c">! i-j symmetry due to the spin-box hermiticity</span>
+                <span class="n">D</span><span class="p">(</span><span class="n">ib</span><span class="p">,</span><span class="n">jb</span><span class="p">,:)</span> <span class="o">=</span> <span class="n">DscfL</span><span class="p">(</span><span class="n">ind</span><span class="p">,:)</span>
+                <span class="n">D</span><span class="p">(</span><span class="n">jb</span><span class="p">,</span><span class="n">ib</span><span class="p">,:)</span> <span class="o">=</span> <span class="n">DscfL</span><span class="p">(</span><span class="n">ind</span><span class="p">,:)</span>
+              <span class="n">enddo</span>
+            <span class="k">else</span>
+<span class="k">              call </span><span class="n">GlobalToLocalOrb</span><span class="p">(</span> <span class="n">iu</span><span class="p">,</span> <span class="n">Node</span><span class="p">,</span> <span class="n">Nodes</span><span class="p">,</span> <span class="n">iul</span> <span class="p">)</span>
+              <span class="k">do </span><span class="n">ii</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="n">numd</span><span class="p">(</span><span class="n">iul</span><span class="p">)</span>
+                <span class="n">ind</span> <span class="o">=</span> <span class="n">listdptr</span><span class="p">(</span><span class="n">iul</span><span class="p">)</span><span class="o">+</span><span class="n">ii</span>
+                <span class="n">j</span> <span class="o">=</span> <span class="n">listd</span><span class="p">(</span><span class="n">ind</span><span class="p">)</span>
+                <span class="k">if</span> <span class="p">(</span><span class="n">i</span><span class="p">.</span><span class="n">ne</span><span class="p">.</span><span class="n">iu</span><span class="p">)</span> <span class="n">j</span> <span class="o">=</span> <span class="n">listsc</span><span class="p">(</span> <span class="n">i</span><span class="p">,</span> <span class="n">iu</span><span class="p">,</span> <span class="n">j</span> <span class="p">)</span>
+                <span class="n">jb</span> <span class="o">=</span> <span class="n">ibuff</span><span class="p">(</span><span class="n">j</span><span class="p">)</span>
+                <span class="n">D</span><span class="p">(</span><span class="n">ib</span><span class="p">,</span><span class="n">jb</span><span class="p">,:)</span> <span class="o">=</span> <span class="n">DM_spbherm</span><span class="p">(</span><span class="n">ind</span><span class="p">,:)</span>
+                <span class="n">D</span><span class="p">(</span><span class="n">jb</span><span class="p">,</span><span class="n">ib</span><span class="p">,:)</span> <span class="o">=</span> <span class="n">DM_spbherm</span><span class="p">(</span><span class="n">ind</span><span class="p">,:)</span>
+              <span class="n">enddo</span>
+            <span class="n">endif</span>
+          <span class="n">endif</span>
+          <span class="n">ibc</span><span class="p">(</span><span class="n">ic</span><span class="p">)</span> <span class="o">=</span> <span class="n">ibuff</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+        <span class="n">enddo</span>
+
+<span class="c">!  Restore iob for next point</span>
+        <span class="k">do </span><span class="n">imp</span> <span class="o">=</span> <span class="mi">1</span><span class="o">+</span><span class="n">endpht</span><span class="p">(</span><span class="n">ip</span><span class="o">-</span><span class="mi">1</span><span class="p">),</span> <span class="n">endpht</span><span class="p">(</span><span class="n">ip</span><span class="p">)</span>
+          <span class="n">i</span> <span class="o">=</span> <span class="n">lstpht</span><span class="p">(</span><span class="n">imp</span><span class="p">)</span>
+          <span class="n">ib</span> <span class="o">=</span> <span class="n">ibuff</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+          <span class="n">iob</span><span class="p">(</span><span class="n">ib</span><span class="p">)</span> <span class="o">=</span> <span class="o">-</span><span class="n">i</span>
+        <span class="n">enddo</span>
+
+<span class="c">!  Calculate all phi values and derivatives at all subpoints</span>
+        <span class="n">lasta</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="n">lastop</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="k">do </span><span class="n">ic</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span><span class="n">nc</span>
+
+          <span class="n">imp</span> <span class="o">=</span> <span class="n">endpht</span><span class="p">(</span><span class="n">ip</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="n">ic</span>
+          <span class="n">i</span> <span class="o">=</span> <span class="n">lstpht</span><span class="p">(</span><span class="n">imp</span><span class="p">)</span>
+          <span class="n">iu</span> <span class="o">=</span> <span class="n">indxuo</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+          <span class="n">ia</span> <span class="o">=</span> <span class="n">iaorb</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+          <span class="n">iphi</span> <span class="o">=</span> <span class="n">iphorb</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+          <span class="k">is</span> <span class="o">=</span> <span class="n">isa</span><span class="p">(</span><span class="n">ia</span><span class="p">)</span>
+          <span class="n">iua</span> <span class="o">=</span> <span class="n">indxua</span><span class="p">(</span><span class="n">ia</span><span class="p">)</span>
+          <span class="n">iop</span> <span class="o">=</span> <span class="n">listp2</span><span class="p">(</span><span class="n">imp</span><span class="p">)</span>
+          <span class="k">if</span> <span class="p">(</span><span class="n">ia</span><span class="p">.</span><span class="n">ne</span><span class="p">.</span><span class="n">lasta</span> <span class="p">.</span><span class="nb">or</span><span class="p">.</span> <span class="n">iop</span><span class="p">.</span><span class="n">ne</span><span class="p">.</span><span class="n">lastop</span><span class="p">)</span> <span class="k">then</span>
+<span class="k">            </span><span class="n">lasta</span> <span class="o">=</span> <span class="n">ia</span>
+            <span class="n">lastop</span> <span class="o">=</span> <span class="n">iop</span>
+            <span class="k">do </span><span class="n">isp</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span><span class="n">nsp</span>
+              <span class="n">dxsp</span><span class="p">(</span><span class="mi">1</span><span class="p">:</span><span class="mi">3</span><span class="p">,</span><span class="n">isp</span><span class="p">)</span> <span class="o">=</span> <span class="n">xdop</span><span class="p">(</span><span class="mi">1</span><span class="p">:</span><span class="mi">3</span><span class="p">,</span><span class="n">iop</span><span class="p">)</span><span class="o">+</span><span class="n">xdsp</span><span class="p">(</span><span class="mi">1</span><span class="p">:</span><span class="mi">3</span><span class="p">,</span><span class="n">isp</span><span class="p">)</span><span class="o">-</span><span class="n">dxa</span><span class="p">(</span><span class="mi">1</span><span class="p">:</span><span class="mi">3</span><span class="p">,</span><span class="n">ia</span><span class="p">)</span>
+              <span class="n">r2sp</span> <span class="o">=</span> <span class="n">dxsp</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">isp</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="n">dxsp</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="n">isp</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="n">dxsp</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="n">isp</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span>
+              <span class="k">if</span> <span class="p">(</span><span class="n">r2sp</span><span class="p">.</span><span class="n">lt</span><span class="p">.</span><span class="n">r2cut</span><span class="p">(</span><span class="k">is</span><span class="p">))</span> <span class="k">then</span>
+<span class="k">                call </span><span class="n">all_phi</span><span class="p">(</span> <span class="k">is</span><span class="p">,</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="n">dxsp</span><span class="p">(:,</span><span class="n">isp</span><span class="p">),</span> <span class="n">nphiloc</span><span class="p">,</span>
+     <span class="p">.</span>                        <span class="n">phia</span><span class="p">(:,</span><span class="n">isp</span><span class="p">),</span> <span class="n">grada</span><span class="p">(:,:,</span><span class="n">isp</span><span class="p">))</span>
+              <span class="k">else</span>
+<span class="k">                </span><span class="n">phia</span><span class="p">(:,</span><span class="n">isp</span><span class="p">)</span> <span class="o">=</span> <span class="mf">0.0_dp</span>
+                <span class="n">grada</span><span class="p">(</span><span class="mi">1</span><span class="p">:</span><span class="mi">3</span><span class="p">,:,</span><span class="n">isp</span><span class="p">)</span> <span class="o">=</span> <span class="mf">0.0_dp</span>
+              <span class="n">endif</span>
+            <span class="n">enddo</span>
+          <span class="n">endif</span>
+          <span class="n">C</span><span class="p">(</span><span class="mi">1</span><span class="p">:</span><span class="n">nsp</span><span class="p">,</span><span class="n">ic</span><span class="p">)</span> <span class="o">=</span> <span class="n">phia</span><span class="p">(</span><span class="n">iphi</span><span class="p">,</span><span class="mi">1</span><span class="p">:</span><span class="n">nsp</span><span class="p">)</span>
+          <span class="n">gC</span><span class="p">(</span><span class="mi">1</span><span class="p">:</span><span class="mi">3</span><span class="p">,</span><span class="mi">1</span><span class="p">:</span><span class="n">nsp</span><span class="p">,</span><span class="n">ic</span><span class="p">)</span> <span class="o">=</span> <span class="n">grada</span><span class="p">(</span><span class="mi">1</span><span class="p">:</span><span class="mi">3</span><span class="p">,</span><span class="n">iphi</span><span class="p">,</span><span class="mi">1</span><span class="p">:</span><span class="n">nsp</span><span class="p">)</span>
+
+<span class="c">!  If stress required. Generate stress derivatives</span>
+          <span class="k">if</span> <span class="p">(</span><span class="n">istr</span><span class="p">.</span><span class="n">eq</span><span class="p">.</span><span class="mi">1</span><span class="p">)</span> <span class="k">then</span>
+<span class="k">            do </span><span class="n">isp</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span><span class="n">nsp</span>
+              <span class="n">ii</span> <span class="o">=</span> <span class="mi">0</span>
+              <span class="k">do </span><span class="n">ix</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span><span class="mi">3</span>
+                <span class="k">do </span><span class="n">iy</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span><span class="mi">3</span>
+                  <span class="n">ii</span> <span class="o">=</span> <span class="n">ii</span> <span class="o">+</span> <span class="mi">1</span>
+                  <span class="n">xgC</span><span class="p">(</span><span class="n">ii</span><span class="p">,</span><span class="n">isp</span><span class="p">,</span><span class="n">ic</span><span class="p">)</span> <span class="o">=</span> <span class="n">dxsp</span><span class="p">(</span><span class="n">iy</span><span class="p">,</span><span class="n">isp</span><span class="p">)</span> <span class="o">*</span> <span class="n">gC</span><span class="p">(</span><span class="n">ix</span><span class="p">,</span><span class="n">isp</span><span class="p">,</span><span class="n">ic</span><span class="p">)</span> <span class="o">*</span> <span class="n">rvol</span>
+                <span class="n">enddo</span>
+              <span class="n">enddo</span>
+            <span class="n">enddo</span>
+          <span class="n">endif</span>
+        <span class="n">enddo</span>
+
+<span class="c">!     Copy potential to a double precision array</span>
+
+        <span class="n">V</span><span class="p">(</span><span class="mi">1</span><span class="p">:</span><span class="n">nsp</span><span class="p">,</span><span class="mi">1</span><span class="p">:</span><span class="n">nspin</span><span class="p">)</span> <span class="o">=</span> <span class="n">Vscf</span><span class="p">(</span><span class="mi">1</span><span class="p">:</span><span class="n">nsp</span><span class="p">,</span><span class="n">ip</span><span class="p">,</span><span class="mi">1</span><span class="p">:</span><span class="n">nspin</span><span class="p">)</span>
+
+<span class="c">!     Factor two for nondiagonal elements for non-collinear spin (and SO)</span>
+        <span class="k">if</span> <span class="p">(</span> <span class="n">nspin</span> <span class="o">==</span> <span class="mi">4</span> <span class="p">)</span> <span class="k">then</span>
+<span class="k">         </span><span class="n">V</span><span class="p">(</span><span class="mi">1</span><span class="p">:</span><span class="n">nsp</span><span class="p">,</span><span class="mi">3</span><span class="p">:</span><span class="mi">4</span><span class="p">)</span> <span class="o">=</span> <span class="mf">2.0_dp</span> <span class="o">*</span> <span class="n">V</span><span class="p">(</span><span class="mi">1</span><span class="p">:</span><span class="n">nsp</span><span class="p">,</span><span class="mi">3</span><span class="p">:</span><span class="mi">4</span><span class="p">)</span>
+        <span class="k">end if</span>
+
+<span class="c">!     Loop on first orbital of mesh point</span>
+        <span class="k">do </span><span class="n">ic</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span><span class="n">nc</span>
+
+          <span class="n">imp</span> <span class="o">=</span> <span class="n">endpht</span><span class="p">(</span><span class="n">ip</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="n">ic</span>
+          <span class="n">i</span> <span class="o">=</span> <span class="n">lstpht</span><span class="p">(</span><span class="n">imp</span><span class="p">)</span>
+          <span class="n">iu</span> <span class="o">=</span> <span class="n">indxuo</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+          <span class="n">ia</span> <span class="o">=</span> <span class="n">iaorb</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+          <span class="n">iua</span> <span class="o">=</span> <span class="n">indxua</span><span class="p">(</span><span class="n">ia</span><span class="p">)</span>
+          <span class="n">ib</span> <span class="o">=</span> <span class="n">ibc</span><span class="p">(</span><span class="n">ic</span><span class="p">)</span>
+
+<span class="c">!  Copy force and stress gradients to a single array</span>
+          <span class="n">gCi</span><span class="p">(</span><span class="mi">1</span><span class="p">:</span><span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">:</span><span class="n">nsp</span><span class="p">)</span> <span class="o">=</span>  <span class="n">gC</span><span class="p">(</span><span class="mi">1</span><span class="p">:</span><span class="mi">3</span><span class="p">,</span><span class="mi">1</span><span class="p">:</span><span class="n">nsp</span><span class="p">,</span><span class="n">ic</span><span class="p">)</span>
+          <span class="n">gCi</span><span class="p">(</span><span class="mi">4</span><span class="p">:</span><span class="mi">12</span><span class="p">,</span><span class="mi">1</span><span class="p">:</span><span class="n">nsp</span><span class="p">)</span> <span class="o">=</span> <span class="n">xgC</span><span class="p">(</span><span class="mi">1</span><span class="p">:</span><span class="mi">9</span><span class="p">,</span><span class="mi">1</span><span class="p">:</span><span class="n">nsp</span><span class="p">,</span><span class="n">ic</span><span class="p">)</span>
+
+<span class="c">!  Find Sum_{j,spin}(Vscf*Dij*Cj) for every subpoint</span>
+<span class="c">!  Some loops are not done using f90 form as this</span>
+<span class="c">!  leads to much slower execution on machines with stupid f90</span>
+<span class="c">!  compilers at the moment</span>
+          <span class="n">CDV</span><span class="p">(</span><span class="mi">1</span><span class="p">:</span><span class="n">nsp</span><span class="p">)</span> <span class="o">=</span> <span class="mf">0.0_dp</span>
+          <span class="k">do </span><span class="n">ispin</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span><span class="n">nspin</span>
+
+<span class="c">!  Loop on second orbital of mesh point</span>
+            <span class="n">CD</span><span class="p">(</span><span class="mi">1</span><span class="p">:</span><span class="n">nsp</span><span class="p">)</span> <span class="o">=</span> <span class="mf">0.0_dp</span>
+            <span class="k">do </span><span class="n">jc</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span><span class="n">nc</span>
+              <span class="n">jb</span> <span class="o">=</span> <span class="n">ibc</span><span class="p">(</span><span class="n">jc</span><span class="p">)</span>
+              <span class="n">Dji</span> <span class="o">=</span> <span class="n">D</span><span class="p">(</span><span class="n">jb</span><span class="p">,</span><span class="n">ib</span><span class="p">,</span><span class="n">ispin</span><span class="p">)</span>
+              <span class="k">do </span><span class="n">isp</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span><span class="n">nsp</span>
+                <span class="n">CD</span><span class="p">(</span><span class="n">isp</span><span class="p">)</span> <span class="o">=</span> <span class="n">CD</span><span class="p">(</span><span class="n">isp</span><span class="p">)</span> <span class="o">+</span> <span class="n">C</span><span class="p">(</span><span class="n">isp</span><span class="p">,</span><span class="n">jc</span><span class="p">)</span> <span class="o">*</span> <span class="n">Dji</span>
+              <span class="k">end do</span>
+<span class="k">            end do</span>
+
+<span class="k">            do </span><span class="n">isp</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span><span class="n">nsp</span>
+              <span class="n">CDV</span><span class="p">(</span><span class="n">isp</span><span class="p">)</span> <span class="o">=</span> <span class="n">CDV</span><span class="p">(</span><span class="n">isp</span><span class="p">)</span> <span class="o">+</span> <span class="n">CD</span><span class="p">(</span><span class="n">isp</span><span class="p">)</span> <span class="o">*</span> <span class="n">V</span><span class="p">(</span><span class="n">isp</span><span class="p">,</span><span class="n">ispin</span><span class="p">)</span>
+            <span class="k">end do</span>
+<span class="k">          </span><span class="n">enddo</span>
+          <span class="k">do </span><span class="n">isp</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span><span class="n">nsp</span>
+            <span class="n">CDV</span><span class="p">(</span><span class="n">isp</span><span class="p">)</span> <span class="o">=</span> <span class="n">CDV</span><span class="p">(</span><span class="n">isp</span><span class="p">)</span> <span class="o">-</span> 
+     <span class="p">.</span>                 <span class="n">C</span><span class="p">(</span><span class="n">isp</span><span class="p">,</span><span class="n">ic</span><span class="p">)</span> <span class="o">*</span> <span class="n">Datm</span><span class="p">(</span><span class="n">iu</span><span class="p">)</span> <span class="o">*</span> <span class="n">Vatm</span><span class="p">(</span><span class="n">isp</span><span class="p">,</span><span class="n">ip</span><span class="p">)</span>
+            <span class="n">CDV</span><span class="p">(</span><span class="n">isp</span><span class="p">)</span> <span class="o">=</span> <span class="mf">2.0_dp</span> <span class="o">*</span> <span class="n">dVol</span> <span class="o">*</span> <span class="n">CDV</span><span class="p">(</span><span class="n">isp</span><span class="p">)</span>
+          <span class="k">end do</span>
+
+<span class="c">!  Add 2*Dscf_ij*&lt;Cj|Vscf|gCi&gt; to forces</span>
+          <span class="k">do </span><span class="n">ix</span> <span class="o">=</span> <span class="n">ix1</span><span class="p">,</span><span class="n">ix2</span>
+            <span class="n">DF</span><span class="p">(</span><span class="n">ix</span><span class="p">)</span> <span class="o">=</span> <span class="mf">0.0_dp</span>
+            <span class="k">do </span><span class="n">isp</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="n">nsp</span>
+              <span class="n">DF</span><span class="p">(</span><span class="n">ix</span><span class="p">)</span> <span class="o">=</span> <span class="n">DF</span><span class="p">(</span><span class="n">ix</span><span class="p">)</span> <span class="o">+</span> <span class="n">gCi</span><span class="p">(</span><span class="n">ix</span><span class="p">,</span><span class="n">isp</span><span class="p">)</span> <span class="o">*</span> <span class="n">CDV</span><span class="p">(</span><span class="n">isp</span><span class="p">)</span>
+            <span class="n">enddo</span>
+          <span class="n">enddo</span>
+
+<span class="c">!  Add force and stress to output arrays</span>
+          <span class="k">if</span> <span class="p">(</span><span class="n">ifa</span><span class="p">.</span><span class="n">eq</span><span class="p">.</span><span class="mi">1</span><span class="p">)</span> <span class="k">then</span>
+<span class="k">            </span><span class="n">Fal</span><span class="p">(</span><span class="mi">1</span><span class="p">:</span><span class="mi">3</span><span class="p">,</span><span class="n">iua</span><span class="p">)</span> <span class="o">=</span> <span class="n">Fal</span><span class="p">(</span><span class="mi">1</span><span class="p">:</span><span class="mi">3</span><span class="p">,</span><span class="n">iua</span><span class="p">)</span> <span class="o">+</span> <span class="n">DF</span><span class="p">(</span><span class="mi">1</span><span class="p">:</span><span class="mi">3</span><span class="p">)</span>
+          <span class="n">endif</span>
+          <span class="k">if</span> <span class="p">(</span><span class="n">istr</span><span class="p">.</span><span class="n">eq</span><span class="p">.</span><span class="mi">1</span><span class="p">)</span> <span class="k">then</span>
+<span class="k">            </span><span class="n">Stressl</span><span class="p">(</span><span class="mi">1</span><span class="p">:</span><span class="mi">9</span><span class="p">)</span> <span class="o">=</span> <span class="n">Stressl</span><span class="p">(</span><span class="mi">1</span><span class="p">:</span><span class="mi">9</span><span class="p">)</span> <span class="o">+</span> <span class="n">DF</span><span class="p">(</span><span class="mi">4</span><span class="p">:</span><span class="mi">12</span><span class="p">)</span>
+          <span class="n">endif</span>
+
+<span class="c">!  End of first orbital loop</span>
+        <span class="n">enddo</span>
+
+<span class="c">!  End of mesh point loop</span>
+      <span class="n">enddo</span>
+  
+<span class="c">!  Deallocate local memory</span>
+      <span class="k">call </span><span class="n">de_alloc</span><span class="p">(</span> <span class="n">xgC</span><span class="p">,</span> <span class="s1">&#39;xgC&#39;</span><span class="p">,</span> <span class="s1">&#39;dfscf&#39;</span> <span class="p">)</span>
+      <span class="k">call </span><span class="n">de_alloc</span><span class="p">(</span> <span class="n">iob</span><span class="p">,</span> <span class="s1">&#39;iob&#39;</span><span class="p">,</span> <span class="s1">&#39;dfscf&#39;</span> <span class="p">)</span>
+      <span class="k">call </span><span class="n">de_alloc</span><span class="p">(</span> <span class="n">ibc</span><span class="p">,</span> <span class="s1">&#39;ibc&#39;</span><span class="p">,</span> <span class="s1">&#39;dfscf&#39;</span> <span class="p">)</span>
+      <span class="k">call </span><span class="n">de_alloc</span><span class="p">(</span> <span class="n">gC</span><span class="p">,</span> <span class="s1">&#39;gC&#39;</span><span class="p">,</span> <span class="s1">&#39;dfscf&#39;</span> <span class="p">)</span>
+      <span class="k">call </span><span class="n">de_alloc</span><span class="p">(</span> <span class="n">D</span><span class="p">,</span> <span class="s1">&#39;D&#39;</span><span class="p">,</span> <span class="s1">&#39;dfscf&#39;</span> <span class="p">)</span>
+      <span class="k">call </span><span class="n">de_alloc</span><span class="p">(</span> <span class="n">C</span><span class="p">,</span> <span class="s1">&#39;C&#39;</span><span class="p">,</span> <span class="s1">&#39;dfscf&#39;</span> <span class="p">)</span>
+      <span class="k">call </span><span class="n">de_alloc</span><span class="p">(</span> <span class="n">V</span><span class="p">,</span> <span class="s1">&#39;V&#39;</span><span class="p">,</span> <span class="s1">&#39;dfscf&#39;</span> <span class="p">)</span>
+      <span class="k">if</span> <span class="p">(</span><span class="n">Parallel_Run</span><span class="p">)</span> <span class="k">then</span>
+<span class="k">        call </span><span class="n">de_alloc</span><span class="p">(</span> <span class="n">DscfL</span><span class="p">,</span> <span class="s1">&#39;DscfL&#39;</span><span class="p">,</span> <span class="s1">&#39;dfscf&#39;</span> <span class="p">)</span>
+      <span class="n">endif</span>
+      <span class="k">if</span> <span class="p">(</span><span class="n">size</span><span class="p">(</span><span class="n">Dscf</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span> <span class="o">==</span> <span class="mi">8</span><span class="p">)</span> <span class="k">then</span>
+<span class="k">         call </span><span class="n">de_alloc</span><span class="p">(</span> <span class="n">DM_spbherm</span><span class="p">,</span> <span class="s1">&#39;DM_spbherm&#39;</span><span class="p">,</span> <span class="s1">&#39;dfscf&#39;</span> <span class="p">)</span>
+      <span class="n">endif</span>
+
+<span class="c">!  Restore old allocation defaults</span>
+      <span class="k">call </span><span class="n">alloc_default</span><span class="p">(</span> <span class="n">restore</span><span class="o">=</span><span class="n">oldDefaults</span> <span class="p">)</span>
+
+      <span class="k">call </span><span class="n">timer</span><span class="p">(</span><span class="s1">&#39;dfscf&#39;</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
+ 
+      <span class="k">end subroutine </span><span class="n">dfscf</span>
+</pre></div>
+
+    </section>
+    <br>
+    
+    
+    </div>
+  </div>
+
+
+    <hr>    
+    </div> <!-- /container -->
+    <footer>
+      <div class="container">
+      <div class="row">
+        <div class="col-xs-6 col-md-4"><p>&copy; 2018 <a rel="license" href="http://www.gnu.org/licenses/old-licenses/fdl-1.2.en.html">GNU Free Documentation License</a>
+                                          </p></div>
+        <div class="col-xs-6 col-md-4 col-md-push-4">
+          <p class="text-right">
+            Documentation generated by 
+            <a href="https://github.com/cmacmackin/ford">FORD</a>
+            
+          </p>
+        </div>
+        <div class="col-xs-12 col-md-4 col-md-pull-4"><p class="text-center"> SIESTA was developed by SIESTA Group</p></div>
+      </div>
+      <br>
+      </div> <!-- /container -->    
+    </footer>
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+<!--
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+-->
+    <script src="../js/bootstrap.min.js"></script>
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script src="../js/ie10-viewport-bug-workaround.js"></script>
+
+    <!-- MathJax JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        TeX: { extensions: ['AMSmath.js','AMSsymbols.js','noErrors.js','noUndefined.js'], equationNumbers: { autoNumber: 'AMS' } },
+        jax: ['input/TeX','input/MathML','output/HTML-CSS'],
+        extensions: ['tex2jax.js','mml2jax.js','MathMenu.js','MathZoom.js']
+      });
+    </script>
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    
+    <script src="../tipuesearch/tipuesearch_content.js"></script>
+    <script src="../tipuesearch/tipuesearch_set.js"></script>
+    <script src="../tipuesearch/tipuesearch.js"></script>
+    
+    
+  </body>
+</html>
